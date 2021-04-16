@@ -1,0 +1,36 @@
+/*for client start page */
+.bakground-pane{
+	-fx-background-image:url(../imgs/background2.png);
+}
+
+/*for login and register page */
+.background-pane-login{
+	-fx-background-image:url(../imgs/backgroundLogin.png);
+}
+
+.background-pane-register{
+	-fx-background-image:url(../imgs/backgroundRegister.png);
+	-fx-background-position: right;
+}
+
+.back-button-pane{
+	-fx-border-radius: 175;
+    -fx-background-radius: 175;
+}
+
+.ReshapePane{
+	-fx-background-color: rgba(0, 0, 0, 0.1);
+}
+.ReshapePane:hover{
+	-fx-background-color:transparent;
+}
+
+/*for user info page */
+.background-pane-user-info{
+	-fx-background-image: url(../imgs/userInfoLeftBackground.png);
+}
+
+/*for info edit page */
+.background-pane-edit{
+	-fx-background-image: url(../imgs/editBackground.jpg);
+}

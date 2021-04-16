@@ -1,0 +1,127 @@
+/*for client start page */
+
+.button-round{
+    -fx-border-radius: 131;
+    -fx-background-radius: 131;
+}
+
+.button1{
+	-fx-background-color: linear-gradient(to right, #bef48f, #a0cd79);
+    -fx-effect: dropshadow(gaussian, #80a460, 50, 0, 18, 18);
+}
+
+.button1:hover{
+	-fx-background-color: linear-gradient(to left, #aedf85, #93bb70);
+}
+
+/*Discover button */
+.button2{
+	-fx-background-color: linear-gradient(to right, #6edfc3, #5dbba4);
+    -fx-effect: dropshadow(gaussian, #48927f, 50, 0, 18, 18);
+    -fx-background-image: url(../imgs/discoverImg.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.button2-fake{
+	-fx-background-color: linear-gradient(to right, #6edfc3, #5dbba4);
+    -fx-background-image: url(../imgs/Running.gif);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.button2:hover{
+	-fx-background-color: linear-gradient(to left, #5fbda6, #509f8c);
+	-fx-background-image: url(../imgs/Running.gif);
+}
+
+.button3{
+	-fx-background-color: linear-gradient(to right, #6ad1e3, #59b0bf);
+    -fx-effect: dropshadow(gaussian, #458994, 50, 0, 19, 12);
+    -fx-background-image: url(../imgs/myCoursesImg.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.button3-fake{
+	-fx-background-color: linear-gradient(to right, #6ad1e3, #59b0bf);
+    -fx-background-image: url(../imgs/myCourses.gif);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+.button3:hover{
+	-fx-background-color: linear-gradient(to left, #64c3d4, #54a4b2);
+	-fx-background-image: url(../imgs/myCourses.gif);
+}
+
+.button4{
+	-fx-background-color: linear-gradient(to right, #782fd1, #6528b0);
+    -fx-effect: dropshadow(gaussian, #4c1e85, 50, 0, 21, 10);
+}
+
+.button4:hover{
+	-fx-background-color: linear-gradient(to left, #6429ac, #542291);
+}
+
+.button-behind-discover{
+	-fx-background-color: rgba(255, 255, 255, 0.5);
+}
+.button-behind-discover:hover{
+	-fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.button-behind-bottom-left{
+	-fx-border-radius: 0 0 0 175;
+    -fx-background-radius: 0 0 0 175;
+}
+.button-behind-bottom-right{
+	-fx-border-radius: 0 0 175 0;
+    -fx-background-radius: 0 0 175 0;
+}
+.button-behind-top-left{
+	-fx-border-radius: 175 0 0 0;
+    -fx-background-radius: 175 0 0 0;
+}
+.button-behind-top-right{
+	-fx-border-radius: 0 175 0 0;
+    -fx-background-radius: 0 175 0 0;
+}
+
+/*for login and register page */
+#loginConfermButton{
+	-fx-border-radius: 131;
+    -fx-background-radius: 131;
+	-fx-background-color: white;
+    -fx-background-image: url(../imgs/loginButtonImg.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+#loginConfermButton:pressed{
+	-fx-background-color: rgba(255, 255, 255, 0.5);
+}
+
+/*for user info page */
+.edit-button{
+	-fx-background-color: white;
+	-fx-effect: dropshadow(gaussian, gray, 10, 0, 5, 5);
+}
+
+.edit-button:hover{
+	-fx-background-color: white;
+	-fx-effect: dropshadow(gaussian, gray, 5, 0, 1, 1);
+}
+
+#securityInfoEditButton{
+	-fx-background-image: url(../imgs/securityInfoEditImg.png);
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#basicInfoEditButton{
+	-fx-background-image: url(../imgs/basicInfoEditImg.png);
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#saveButton{
+	-fx-background-image: url(../imgs/saveImg.png);
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
