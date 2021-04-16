@@ -112,9 +112,11 @@ public class User{
 			
 			//cannot find in file, new user sign-up, write into the file
 				if(selectList.size()< entry+1 || selectList.size()==0) {
-					userInfoList = new ArrayList<String[]>();
+/*					userInfoList = new ArrayList<String[]>();
 					userInfoList.add(userInfo);
 					FileUtils.insertCSV(userFilePath, userInfoList);
+ */
+					this.userid = "None";
 					}
 					else {   //old user login-in, read the information into this user from the file 
 					
@@ -205,10 +207,10 @@ public class User{
 	 
 	 
 	 //	TODO !!! useless??
-	 void setPhysicalInfo(PhysicalInfo physicalInfo) {
-		 
+/*	 void setPhysicalInfo(PhysicalInfo physicalInfo) {
+
 	 }
-	 
+ */
 	 /**
  	 * Ban this account.
  	 */
@@ -340,7 +342,10 @@ public class User{
 				 			"waist"+ this.getWaist() +"\n"+
 				 			"hip"+ this.getHip() +"\n");
 	 }
-	 
+
+	 boolean passwordCheck(String password){
+ 		return this.getPassword().equals(password);
+	 }
      
      //TODO !!!useless??
 	/* PhysicalInfo getUserPhysicalInfo() {
