@@ -10,10 +10,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class ClientStartPageController implements Initializable {
+	@FXML
+	private Label userIdLabel;
+	
 	@FXML
 	private AnchorPane backPane2;
 	@FXML
@@ -44,10 +48,18 @@ public class ClientStartPageController implements Initializable {
 	private Button myInstructorButton;
 	@FXML
 	private Button favoritesButton;
-
+	
+	// init user ID
+	private String userId;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
+	}
+	
+	public void initData(String userId) {
+		this.userId = userId;
+		userIdLabel.setText(userId);
 	}
 	
 	public void showBackPane2(ActionEvent event) {
@@ -72,6 +84,10 @@ public class ClientStartPageController implements Initializable {
 		System.out.println("out of the pane");
 		backPane2.setVisible(false);
 		backPane3.setVisible(false);
+	}
+	
+	public void showMyInfo(ActionEvent event) {
+		SceneTransform.ToUserInfoPage(userId);
 	}
 	
 	public void backButtonMove(Node n, String direX, String direY, int delay) {

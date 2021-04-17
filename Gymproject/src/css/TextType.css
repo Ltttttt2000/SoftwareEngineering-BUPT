@@ -21,7 +21,7 @@
    -fx-effect: innershadow( three-pass-box, rgba(0,0,0,0.7), 6, 0, 0, 2);
 }
 
-#useridTF{
+#userIdTF{
 	-fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: #333333;

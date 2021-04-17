@@ -98,14 +98,18 @@ public class UserInfoPageController implements Initializable {
 	private String resume;
 	
 	// test value
-	private String currentUserId = "88888888";
+	private String userId;
 	private String userType = "client";
 	private String clientType = "supreme";
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		getBasicInof(currentUserId);
 		sexCB.getItems().addAll("Unknown", "Male", "Female");
+	}
+	
+	public void initData(String userId) {
+		this.userId = userId;
+		getBasicInof(userId);
 	}
 	
 	public void getBasicInof(String userId) {

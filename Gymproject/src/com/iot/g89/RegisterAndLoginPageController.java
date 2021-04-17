@@ -7,6 +7,8 @@ import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,6 +37,12 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	@FXML
 	private ImageView keyImg;
+	
+	@FXML
+	private TextField userIdTF;
+	@FXML
+	private PasswordField userPasswordPF;
+	
 	
 	// current buttons' size
 	private double lrpSize = 1;
@@ -198,7 +206,8 @@ public class RegisterAndLoginPageController implements Initializable {
 	}
 	
 	public void loginSuccess(ActionEvent event) {
-		
+		String userId = userIdTF.getText();
+		SceneTransform.ToClientStartPage(userId);
 	}
 
 }

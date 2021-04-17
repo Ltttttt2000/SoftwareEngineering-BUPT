@@ -48,10 +48,7 @@
          <children>
             <BorderPane layoutX="245.0" layoutY="90.0" prefHeight="253.0" prefWidth="278.0">
                <top>
-                  <Label prefHeight="45.0" prefWidth="31.0" text="Label" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font></Label>
+                  <Label prefHeight="45.0" prefWidth="31.0" text="Label" BorderPane.alignment="CENTER" />
                </top>
                <center>
                   <GridPane prefHeight="132.0" prefWidth="278.0" BorderPane.alignment="CENTER">
@@ -65,32 +62,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Label">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></Label>
-                        <Label text="Label" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></Label>
-                        <Label text="Label" GridPane.rowIndex="2">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></Label>
-                        <TextField GridPane.columnIndex="1">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
+                        <Label text="Label" />
+                        <Label text="Label" GridPane.rowIndex="1" />
+                        <Label text="Label" GridPane.rowIndex="2" />
+                        <TextField fx:id="userIdTF" GridPane.columnIndex="1" />
                         <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <PasswordField fx:id="userPasswordPF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </center>
                <bottom>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent;" styleClass="button-round" stylesheets="@../css/ButtonType.css" BorderPane.alignment="CENTER">
+                  <Button mnemonicParsing="false" onAction="#loginSuccess" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent;" styleClass="button-round" stylesheets="@../css/ButtonType.css" BorderPane.alignment="CENTER">
                      <graphic>
                         <AnchorPane fx:id="loginConfermButton" onMouseEntered="#MouseEnteredLogin" onMouseExited="#MouseExitLogin" prefHeight="24.0" prefWidth="184.0">
                            <children>
@@ -105,10 +87,7 @@
                   </Button>
                </bottom>
             </BorderPane>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToBeginPane" text="BACK">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></Button>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToBeginPane" text="BACK" />
          </children></AnchorPane>
       <AnchorPane fx:id="registerPane" prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-register" stylesheets="@../css/AnchorPaneType.css" visible="false" />
    </children>

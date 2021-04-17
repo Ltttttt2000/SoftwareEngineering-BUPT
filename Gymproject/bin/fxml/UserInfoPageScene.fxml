@@ -193,34 +193,13 @@
                            </font>
                         </Label>
                         <ChoiceBox fx:id="sexCB" prefWidth="150.0" GridPane.columnIndex="1" />
-                        <TextField fx:id="phoneTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="ageTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="heightTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="weightTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="chestTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="waistTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="7">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
-                        <TextField fx:id="hipTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="8">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></TextField>
+                        <TextField fx:id="phoneTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="ageTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="heightTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="weightTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="chestTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <TextField fx:id="waistTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <TextField fx:id="hipTF" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="107.0" />
@@ -264,91 +243,55 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
-                        <Button fx:id="securityInfoEditButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Security Info Edit" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></Button>
+                        <Button fx:id="securityInfoEditButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Security Info Edit" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <center>
-                        <Button fx:id="basicInfoEditButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#basicInfoEdit" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Baisc Info Edit" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font name="Arial" size="12.0" />
-                           </font></Button>
+                        <Button fx:id="basicInfoEditButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#basicInfoEdit" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Baisc Info Edit" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </children>
             </GridPane>
-            <TextArea fx:id="resumeTextArea" editable="false" focusTraversable="false" layoutX="14.0" layoutY="300.0" prefHeight="115.0" prefWidth="355.0" text="I am fat!!!!&#10;Yes!!!&#10;I need GYM!!!&#10;I want to lose weight!!!&#10;&#10;Of course,!!!&#10;Female instructor please!!!&#10;&#10;" wrapText="true">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></TextArea>
-            <Button fx:id="saveButton" alignment="BOTTOM_CENTER" layoutX="229.0" layoutY="160.0" mnemonicParsing="false" onAction="#basicInfoSave" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Save" visible="false">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></Button>
-            <Button fx:id="restoreButton" layoutX="122.0" layoutY="20.0" mnemonicParsing="false" onAction="#restoreByButton" text="restore" visible="false">
-               <font>
-                  <Font name="Arial" size="12.0" />
-               </font></Button>
+            <TextArea fx:id="resumeTextArea" editable="false" focusTraversable="false" layoutX="14.0" layoutY="300.0" prefHeight="115.0" prefWidth="355.0" text="I am fat!!!!&#10;Yes!!!&#10;I need GYM!!!&#10;I want to lose weight!!!&#10;&#10;Of course,!!!&#10;Female instructor please!!!&#10;&#10;" wrapText="true" />
+            <Button fx:id="saveButton" alignment="BOTTOM_CENTER" layoutX="229.0" layoutY="160.0" mnemonicParsing="false" onAction="#basicInfoSave" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Save" visible="false" />
+            <Button fx:id="restoreButton" layoutX="122.0" layoutY="20.0" mnemonicParsing="false" onAction="#restoreByButton" text="restore" visible="false" />
          </children></AnchorPane>
       <AnchorPane prefHeight="432.0" prefWidth="319.0" styleClass="background-pane-user-info" stylesheets="@../css/AnchorPaneType.css">
          <children>
             <AnchorPane layoutY="286.0" prefHeight="146.0" prefWidth="384.0" style="-fx-background-color: rgba(50, 50, 50, 0.5);">
                <children>
-                  <Label layoutX="51.0" layoutY="42.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="ID">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font></Label>
-                  <Label fx:id="userIdLabel" layoutX="85.0" layoutY="42.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="123456">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font></Label>
+                  <Label layoutX="51.0" layoutY="42.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="ID" />
+                  <Label fx:id="userIdLabel" layoutX="85.0" layoutY="42.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="123456" />
                   <Label fx:id="clientTypeLabelNormal" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" normal client " visible="false">
                      <styleClass>
                         <String fx:value="type-label" />
                         <String fx:value="type-client-normal" />
                      </styleClass>
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
                   </Label>
                   <Label fx:id="clientTypeLabelMember" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" member " visible="false">
                      <styleClass>
                         <String fx:value="type-label" />
                         <String fx:value="type-client-member" />
                      </styleClass>
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
                   </Label>
                   <Label fx:id="clientTypeLabelSupreme" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Supreme member " visible="false">
                      <styleClass>
                         <String fx:value="type-label" />
                         <String fx:value="type-client-supreme-member" />
                      </styleClass>
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
                   </Label>
                   <Label fx:id="adminLabel" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Administrator " visible="false">
                      <styleClass>
                         <String fx:value="type-label" />
                         <String fx:value="type-admin" />
                      </styleClass>
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
                   </Label>
                   <Label fx:id="instructorLabel" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Instructor ">
                      <styleClass>
                         <String fx:value="type-label" />
                         <String fx:value="type-instructor" />
                      </styleClass>
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
                   </Label>
                </children>
             </AnchorPane>
