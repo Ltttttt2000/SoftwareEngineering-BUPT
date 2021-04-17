@@ -30,8 +30,25 @@ class TestFunctions {
 		
 		System.out.println("client");
 		user_1.listAllInstructor();
-		//user_1.listMyInstructor();
-		//user_1.buyInstructor(instru);
+        user_1.listMyInstructor();
+		
+		Instructor instructor = new Instructor("2001");
+		instructor.setPassword("203534");
+		instructor.setUserType("supremember");
+		instructor.setSex( "FeMale");
+		instructor.setPhone("15553756699");
+		instructor.banThisAccount();
+		instructor.setResume("I like playing");
+		instructor.setAge(30);
+		instructor.setChest(90);
+		instructor.setHeight(170);
+		instructor.setWeight(102);
+		instructor.setWaist(10);
+		instructor.setHip(25);
+		instructor.setInstructorMoney(40);
+		
+		user_1.buyInstructor(instructor);
+
 	/*	
 		user_1.listPublicVideo();
 		user_1.listPaidVideo();
