@@ -70,10 +70,8 @@ public class Administrator extends User{
 		adminInfo = FileUtils.readCSV(adminPath, usersID);
 		int k = 0;
 		for(k=0;k<adminInfo.size();k++) {
-			while(k < adminInfo.size()) {
 				Administrator admin = new Administrator(adminInfo.get(k)[0]);
 				allUser.add(admin);	
-			}
 		}
 		//all Clients
 		String clientPath = "./Client.csv";
