@@ -74,14 +74,14 @@ public class RegisterAndLoginPageController implements Initializable {
 			movingMode[1] = "normal";
 		}
 		
-		GuiUtil.ChangePosition(loginMovePane, lmpX, 0, 0, time, movingMode[1]);
-		GuiUtil.ChangePosition(registerMovePane, rmpX, 192, delay, time, movingMode[0]);
+		GuiUtils.ChangePosition(loginMovePane, lmpX, 0, 0, time, movingMode[1]);
+		GuiUtils.ChangePosition(registerMovePane, rmpX, 192, delay, time, movingMode[0]);
 		
-		GuiUtil.ChangePosition(loginReshapePane, lrpX, 96);
-		GuiUtil.ChangePosition(registerReshapePane, rrpX, 96);
+		GuiUtils.ChangePosition(loginReshapePane, lrpX, 96);
+		GuiUtils.ChangePosition(registerReshapePane, rrpX, 96);
 		
-		GuiUtil.ChangeSize(loginReshapePane, lrpSize, 1.5);
-		GuiUtil.ChangeSize(registerReshapePane, rrpSize, 0.5);
+		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 1.5);
+		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 0.5);
 		
 		lmpX = 0;
 		rmpX = 192;
@@ -104,14 +104,14 @@ public class RegisterAndLoginPageController implements Initializable {
 			movingMode[1] = "normal";
 		}
 		
-		GuiUtil.ChangePosition(loginMovePane, lmpX, -192, delay, time, movingMode[0]);
-		GuiUtil.ChangePosition(registerMovePane, rmpX, 0, 0, time, movingMode[1]);
+		GuiUtils.ChangePosition(loginMovePane, lmpX, -192, delay, time, movingMode[0]);
+		GuiUtils.ChangePosition(registerMovePane, rmpX, 0, 0, time, movingMode[1]);
 		
-		GuiUtil.ChangePosition(loginReshapePane, lrpX, -96);
-		GuiUtil.ChangePosition(registerReshapePane, rrpX, -96);
+		GuiUtils.ChangePosition(loginReshapePane, lrpX, -96);
+		GuiUtils.ChangePosition(registerReshapePane, rrpX, -96);
 		
-		GuiUtil.ChangeSize(loginReshapePane, lrpSize, 0.5);
-		GuiUtil.ChangeSize(registerReshapePane, rrpSize, 1.5);
+		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 0.5);
+		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 1.5);
 		
 		lmpX = -192;
 		rmpX = 0;
@@ -123,14 +123,14 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	// when you click your mouse on the login part
 	public void ShowLoginPageClick(ActionEvent event) {
-		GuiUtil.ChangePosition(loginMovePane, lmpX, 0);
-		GuiUtil.ChangePosition(registerMovePane, rmpX, 384);
+		GuiUtils.ChangePosition(loginMovePane, lmpX, 0);
+		GuiUtils.ChangePosition(registerMovePane, rmpX, 384);
 		
-		GuiUtil.ChangePosition(loginReshapePane, lrpX, 192);
-		GuiUtil.ChangePosition(registerReshapePane, rrpX, 192);
+		GuiUtils.ChangePosition(loginReshapePane, lrpX, 192);
+		GuiUtils.ChangePosition(registerReshapePane, rrpX, 192);
 		
-		GuiUtil.ChangeSize(loginReshapePane, lrpSize, 2);
-		GuiUtil.ChangeSize(registerReshapePane, rrpSize, 0);
+		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 2);
+		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 0);
 		
 		lmpX = 0;
 		rmpX = 384;
@@ -148,14 +148,14 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	// when you click your mouse on the register part
 	public void ShowRegisterPageClick(ActionEvent event) {
-		GuiUtil.ChangePosition(loginMovePane, lmpX, -384);
-		GuiUtil.ChangePosition(registerMovePane, rmpX, 0);
+		GuiUtils.ChangePosition(loginMovePane, lmpX, -384);
+		GuiUtils.ChangePosition(registerMovePane, rmpX, 0);
 		
-		GuiUtil.ChangePosition(loginReshapePane, lrpX, -192);
-		GuiUtil.ChangePosition(registerReshapePane, rrpX, -192);
+		GuiUtils.ChangePosition(loginReshapePane, lrpX, -192);
+		GuiUtils.ChangePosition(registerReshapePane, rrpX, -192);
 		
-		GuiUtil.ChangeSize(loginReshapePane, lrpSize, 0);
-		GuiUtil.ChangeSize(registerReshapePane, rrpSize, 2);
+		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 0);
+		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 2);
 		
 		lmpX = -384;
 		rmpX = 0;
@@ -173,14 +173,14 @@ public class RegisterAndLoginPageController implements Initializable {
 	}
 	
 	public void SceneRestore(MouseEvent event) {
-		GuiUtil.ChangePosition(loginMovePane, lmpX, 0);
-		GuiUtil.ChangePosition(registerMovePane, rmpX, 0);
+		GuiUtils.ChangePosition(loginMovePane, lmpX, 0);
+		GuiUtils.ChangePosition(registerMovePane, rmpX, 0);
 		
-		GuiUtil.ChangePosition(loginReshapePane, lrpX, 0);
-		GuiUtil.ChangePosition(registerReshapePane, rrpX, 0);
+		GuiUtils.ChangePosition(loginReshapePane, lrpX, 0);
+		GuiUtils.ChangePosition(registerReshapePane, rrpX, 0);
 		
-		GuiUtil.ChangeSize(loginReshapePane, lrpSize, 1);
-		GuiUtil.ChangeSize(registerReshapePane, rrpSize, 1);
+		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 1);
+		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 1);
 		
 		lmpX = 0;
 		rmpX = 0;
@@ -195,10 +195,10 @@ public class RegisterAndLoginPageController implements Initializable {
 	 * */
 	
 	public void MouseEnteredLogin(MouseEvent event) {
-		GuiUtil.ChangePosition(keyImg, 0, 142, 0);
+		GuiUtils.ChangePosition(keyImg, 0, 142, 0);
 	}
 	public void MouseExitLogin(MouseEvent event) {
-		GuiUtil.ChangePosition(keyImg, 142, 0, 0);
+		GuiUtils.ChangePosition(keyImg, 142, 0, 0);
 	}
 	
 	public void backToBeginPane(ActionEvent event) {

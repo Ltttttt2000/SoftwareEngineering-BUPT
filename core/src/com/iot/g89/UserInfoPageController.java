@@ -201,23 +201,23 @@ public class UserInfoPageController implements Initializable {
 	}
 	
 	public void changeTextFieldColor() {
-		GuiUtil.checkTextField(phoneTF, GuiUtil.isNum(phoneTF.getText()));
-		GuiUtil.checkTextField(ageTF, GuiUtil.isNum(ageTF.getText()));
-		GuiUtil.checkTextField(heightTF, GuiUtil.isNumeric(heightTF.getText()));
-		GuiUtil.checkTextField(weightTF, GuiUtil.isNumeric(weightTF.getText()));
-		GuiUtil.checkTextField(chestTF, GuiUtil.isNumeric(chestTF.getText()));
-		GuiUtil.checkTextField(waistTF, GuiUtil.isNumeric(waistTF.getText()));
-		GuiUtil.checkTextField(hipTF, GuiUtil.isNumeric(hipTF.getText()));
+		GuiUtils.checkTextField(phoneTF, GuiUtils.isNum(phoneTF.getText()));
+		GuiUtils.checkTextField(ageTF, GuiUtils.isNum(ageTF.getText()));
+		GuiUtils.checkTextField(heightTF, GuiUtils.isNumeric(heightTF.getText()));
+		GuiUtils.checkTextField(weightTF, GuiUtils.isNumeric(weightTF.getText()));
+		GuiUtils.checkTextField(chestTF, GuiUtils.isNumeric(chestTF.getText()));
+		GuiUtils.checkTextField(waistTF, GuiUtils.isNumeric(waistTF.getText()));
+		GuiUtils.checkTextField(hipTF, GuiUtils.isNumeric(hipTF.getText()));
 	}
 	
 	public Boolean allRightInput() {
-		if(GuiUtil.isNum(phoneTF.getText())
-				&& GuiUtil.isNum(ageTF.getText())
-				&& GuiUtil.isNumeric(heightTF.getText())
-				&& GuiUtil.isNumeric(weightTF.getText())
-				&& GuiUtil.isNumeric(chestTF.getText())
-				&& GuiUtil.isNumeric(waistTF.getText())
-				&& GuiUtil.isNumeric(hipTF.getText()))
+		if(GuiUtils.isNum(phoneTF.getText())
+				&& GuiUtils.isNum(ageTF.getText())
+				&& GuiUtils.isNumeric(heightTF.getText())
+				&& GuiUtils.isNumeric(weightTF.getText())
+				&& GuiUtils.isNumeric(chestTF.getText())
+				&& GuiUtils.isNumeric(waistTF.getText())
+				&& GuiUtils.isNumeric(hipTF.getText()))
 			return true;
 		else
 			return false;

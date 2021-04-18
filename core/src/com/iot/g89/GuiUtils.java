@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
 
-public class GuiUtil {
+public class GuiUtils {
 	
 	// if the inputs are all number with at most one "." among
 	public static Boolean isNumeric(String str) {
