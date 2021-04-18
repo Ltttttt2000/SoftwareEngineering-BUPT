@@ -14,22 +14,22 @@ import java.util.ArrayList;
  */
 public class User{
 	
-	String userid; 
-	String password; 
-	String userType; 
-	String sex;
-	String phoneNumber;
+	String userid = "None";
+	String password = "None";
+	String userType = "Normal";
+	String sex = "None";
+	String phoneNumber = "None";
 	Boolean loginLicense = true;
 	int rechargeAmount = 0;      //the total money in the account
-	String resume;  //for instructor
+	String resume = "None";  //for instructor
 	
 	//physicalInfo
-	int age;
-	double height; 
-	double weight;
-	double chest; 
-	double waist; 
-	double hip;
+	int age = 0;
+	double height = 0;
+	double weight = 0;
+	double chest = 0;
+	double waist = 0;
+	double hip = 0;
 	
 	String userFilePath;
 	int entry = 0;
@@ -55,7 +55,6 @@ public class User{
 	 * @param userid the userid
 	 */
 	public User(String userid){
-		this.userid = userid;
 		userInfo[0] = this.userid;
 		userFilePath = "./core/src/csv/"+ this.getClass().getSimpleName() + ".csv";
 		
@@ -103,55 +102,47 @@ public class User{
 			else {
 				
 				while(entry+1<selectList.size() ||entry+1==selectList.size()) {
-					if(selectList.get(entry)[0].equals(this.userid))
+					if(selectList.get(entry)[0].equals(userid))
 						break;
 					else
 						entry++;
 				}
 				
 			
-			//cannot find in file, new user sign-up, write into the file
-				if(selectList.size()< entry+1 || selectList.size()==0) {
-/*					userInfoList = new ArrayList<String[]>();
-					userInfoList.add(userInfo);
-					FileUtils.insertCSV(userFilePath, userInfoList);
- */
-					this.userid = "None";
-					}
-					else {   //old user login-in, read the information into this user from the file 
-					
-					    this.password = selectList.get(entry)[1];
-						//userInfo[1] = this.password;
-						this.userType = selectList.get(entry)[2];
-						//userInfo[2] = this.userType;
-						this.sex = selectList.get(entry)[3];
-						//userInfo[3] = this.sex;
-						this.phoneNumber = selectList.get(entry)[4];
-						//userInfo[4] = this.phoneNumber;
-						this.loginLicense = Boolean.valueOf(selectList.get(entry)[5]);
-						//userInfo[5] = String.valueOf(this.loginLicense);
-						this.rechargeAmount = Integer.parseInt(selectList.get(entry)[6]);
-						//userInfo[6] = String.valueOf(this.rechargeAmount);
-						this.resume = selectList.get(entry)[7];
-						//userInfo[7] = this.resume;
-						
-						this.age = Integer.parseInt(selectList.get(entry)[8]);
-						//userPhysical[1] = Integer.toString(this.age);
-						this.height = Double.parseDouble(selectList.get(entry)[9]);
-						//userPhysical[2] = Double.toString(this.height);
-						this.weight = Double.parseDouble(selectList.get(entry)[10]);
-						//userPhysical[3] = Double.toString(this.weight);
-						this.chest = Double.parseDouble(selectList.get(entry)[11]);
-						//userPhysical[4] = Double.toString(this.chest);
-						this.waist = Double.parseDouble(selectList.get(entry)[12]);
-						//userPhysical[5] = Double.toString(this.waist);
-						this.hip = Double.parseDouble(selectList.get(entry)[13]);
-						//userPhysical[6] = Double.toString(this.hip);
-					
-					}
-			
-			}	
-			
+				//cannot find in file
+				if (selectList.size() >= entry + 1 && selectList.size() != 0) {   //old user login-in, read the information into this user from the file
+
+					this.userid = userid;
+					this.password = selectList.get(entry)[1];
+					//userInfo[1] = this.password;
+					this.userType = selectList.get(entry)[2];
+					//userInfo[2] = this.userType;
+					this.sex = selectList.get(entry)[3];
+					//userInfo[3] = this.sex;
+					this.phoneNumber = selectList.get(entry)[4];
+					//userInfo[4] = this.phoneNumber;
+					this.loginLicense = Boolean.valueOf(selectList.get(entry)[5]);
+					//userInfo[5] = String.valueOf(this.loginLicense);
+					this.rechargeAmount = Integer.parseInt(selectList.get(entry)[6]);
+					//userInfo[6] = String.valueOf(this.rechargeAmount);
+					this.resume = selectList.get(entry)[7];
+					//userInfo[7] = this.resume;
+
+					this.age = Integer.parseInt(selectList.get(entry)[8]);
+					//userPhysical[1] = Integer.toString(this.age);
+					this.height = Double.parseDouble(selectList.get(entry)[9]);
+					//userPhysical[2] = Double.toString(this.height);
+					this.weight = Double.parseDouble(selectList.get(entry)[10]);
+					//userPhysical[3] = Double.toString(this.weight);
+					this.chest = Double.parseDouble(selectList.get(entry)[11]);
+					//userPhysical[4] = Double.toString(this.chest);
+					this.waist = Double.parseDouble(selectList.get(entry)[12]);
+					//userPhysical[5] = Double.toString(this.waist);
+					this.hip = Double.parseDouble(selectList.get(entry)[13]);
+					//userPhysical[6] = Double.toString(this.hip);
+
+				}
+			}
 		}
 	}
 
@@ -345,6 +336,14 @@ public class User{
 
 	 boolean passwordCheck(String password){
  		return this.getPassword().equals(password);
+	 }
+
+	 void insertToCSV(){
+		/*
+		userInfoList = new ArrayList<String[]>();
+		userInfoList.add(userInfo);
+		FileUtils.insertCSV(userFilePath, userInfoList);
+ */
 	 }
      
      //TODO !!!useless??
