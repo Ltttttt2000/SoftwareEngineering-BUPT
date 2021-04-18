@@ -186,7 +186,7 @@ public class FileUtils {
 	public static boolean delete(String fileName) {
 		File file = new File(fileName);
 		if (!file.exists()) {
-//			System.out.println("É¾³ıÎÄ¼şÊ§°Ü£º" + fileName + "ÎÄ¼ş²»´æÔÚ");
+//			System.out.println("åˆ é™¤æ–‡ä»¶å¤±è´¥ï¼š" + fileName + "æ–‡ä»¶ä¸å­˜åœ¨");
 			return false;
 		} else {
 			if (file.isFile()) {
@@ -208,7 +208,7 @@ public class FileUtils {
 		
 		// If the file corresponding to dir does not exist or is not a directory, exit
 		if (!dirFile.exists() || !dirFile.isDirectory()) {
-//			System.out.println("É¾³ıÄ¿Â¼Ê§°Ü" + dir + "Ä¿Â¼²»´æÔÚ£¡");
+//			System.out.println("åˆ é™¤ç›®å½•å¤±è´¥" + dir + "ç›®å½•ä¸å­˜åœ¨ï¼");
 			return false;
 		}
 		
@@ -235,17 +235,17 @@ public class FileUtils {
 		}
  
 		if (!flag) {
-//			System.out.println("É¾³ıÄ¿Â¼Ê§°Ü");
+//			System.out.println("åˆ é™¤ç›®å½•å¤±è´¥");
 			return false;
 		}
  
 		// Delete current directory
 		if (dirFile.delete()) {
-//			System.out.println("É¾³ıÄ¿Â¼" + dir + "³É¹¦£¡");
+//			System.out.println("åˆ é™¤ç›®å½•" + dir + "æˆåŠŸï¼");
 			return true;
 		} 
 		else {
-//			System.out.println("É¾³ıÄ¿Â¼" + dir + "Ê§°Ü£¡");
+//			System.out.println("åˆ é™¤ç›®å½•" + dir + "å¤±è´¥ï¼");
 			return false;
 		}
 	}
@@ -254,10 +254,10 @@ public class FileUtils {
 		File file = new File(fileName);
 		if (file.isFile() && file.exists()) {
 			file.delete();
-//			System.out.println("É¾³ıµ¥¸öÎÄ¼ş" + fileName + "³É¹¦£¡");
+//			System.out.println("åˆ é™¤å•ä¸ªæ–‡ä»¶" + fileName + "æˆåŠŸï¼");
 			return true;
 		} else {
-//			System.out.println("É¾³ıµ¥¸öÎÄ¼ş" + fileName + "Ê§°Ü£¡");
+//			System.out.println("åˆ é™¤å•ä¸ªæ–‡ä»¶" + fileName + "å¤±è´¥ï¼");
 			return false;
 		}
 	}
