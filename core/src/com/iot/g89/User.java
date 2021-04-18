@@ -57,7 +57,7 @@ public class User{
 	public User(String userid){
 		this.userid = userid;
 		userInfo[0] = this.userid;
-		userFilePath = "./"+ this.getClass().getSimpleName() + ".csv";
+		userFilePath = "./core/src/csv/"+ this.getClass().getSimpleName() + ".csv";
 		
 		fileHeaders[0] = "userid";
 		fileHeaders[1] = "password";
