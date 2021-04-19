@@ -224,7 +224,12 @@ public class UserInfoPageController implements Initializable {
 	}
 	
 	//---------------------------Button's action function------------------------------------
-	
+
+	// for security info edit button
+	public void securityInfoEdit(ActionEvent event){
+		SceneTransform.ToUserSecurityEditPage(userId);
+	}
+
 	// for edit button
 	public void basicInfoEdit(ActionEvent event) {
 		showEditPane(true);

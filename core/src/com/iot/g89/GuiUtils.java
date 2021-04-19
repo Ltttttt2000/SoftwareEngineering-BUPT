@@ -8,7 +8,9 @@ import javafx.scene.control.TextField;
 import javafx.util.Duration;
 
 public class GuiUtils {
-	
+
+	//---------------------------------------input check---------------------------------------------
+
 	// if the inputs are all number with at most one "." among
 	public static Boolean isNumeric(String str) {
 		return str.matches("[0-9]+.?[0-9]*");
@@ -20,7 +22,7 @@ public class GuiUtils {
 	}
 	
 	// if the input is false then change the color of the TextField
-	public static Boolean checkTextField (TextField tf, Boolean b) {
+	public static Boolean checkTextField (Node tf, Boolean b) {
 		String wrongStyle = "-fx-background-color: #ffa1a1;";
 		String rightStyle = "-fx-background-color: white;";
 		
@@ -31,7 +33,9 @@ public class GuiUtils {
 		
 		return b;
 	}
-	
+
+	//-----------------------------animations-----------------------------------------------
+
 	// change node's position
 	public static void ChangePosition(Node n, double xStart, double xEnd) {
 		ChangePosition(n, xStart, xEnd, 0, 300, "normal");

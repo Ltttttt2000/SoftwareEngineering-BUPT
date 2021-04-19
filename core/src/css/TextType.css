@@ -61,3 +61,7 @@
 	-fx-text-fill: linear-gradient(to left, #fab93b, #a86f00);
 	-fx-effect: dropshadow( gaussian, #fab93b, 10, 0, 0, 1);
 }
+
+.text-field-dark-background{
+	-fx-text-fill: white;
+}

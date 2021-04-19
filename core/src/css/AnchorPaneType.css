@@ -3,6 +3,11 @@
 	-fx-background-image:url(../imgs/background2.png);
 }
 
+/*for security info edit page */
+.background-pane-edit{
+	-fx-background-image: url(../imgs/backgroundEdit.png);
+}
+
 /*for login and register page */
 .background-pane-login{
 	-fx-background-image:url(../imgs/backgroundLogin.png);
@@ -28,9 +33,4 @@
 /*for user info page */
 .background-pane-user-info{
 	-fx-background-image: url(../imgs/userInfoLeftBackground.png);
-}
-
-/*for info edit page */
-.background-pane-edit{
-	-fx-background-image: url(../imgs/editBackground.jpg);
 }

@@ -243,7 +243,7 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
-                        <Button fx:id="securityInfoEditButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Security Info Edit" BorderPane.alignment="CENTER" />
+                        <Button fx:id="securityInfoEditButton" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#securityInfoEdit" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Security Info Edit" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
