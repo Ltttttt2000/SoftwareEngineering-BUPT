@@ -1,4 +1,4 @@
-/*for client start page */
+/*----------------------------------------for client start page------------------------------------- */
 
 .button-round{
     -fx-border-radius: 131;
@@ -92,7 +92,7 @@
     -fx-background-radius: 0 175 0 0;
 }
 
-/*for login and register page */
+/*-----------------------------------for login and register page-------------------------------------- */
 #loginConfermButton{
 	-fx-border-radius: 131;
     -fx-background-radius: 131;
@@ -105,7 +105,7 @@
 	-fx-background-color: rgba(255, 255, 255, 0.5);
 }
 
-/*for user info page */
+/*-------------------------------------for user info page--------------------------------------------- */
 .edit-button{
 	-fx-background-color: white;
 	-fx-effect: dropshadow(gaussian, gray, 10, 0, 5, 5);

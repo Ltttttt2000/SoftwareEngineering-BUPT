@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -43,7 +45,10 @@ public class RegisterAndLoginPageController implements Initializable {
 	private TextField userIdTF;
 	@FXML
 	private PasswordField userPasswordPF;
+	@FXML
+	private ChoiceBox<String> typeCB;
 
+	private GUIDriver driver;
 	private Scene thisScene;
 	
 	// current buttons' size
@@ -60,10 +65,11 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		typeCB.getItems().addAll("Administrator", "Instructor", "Client");
 	}
 
-	public void initData(Scene thisScene){
+	public void initData(Scene thisScene, GUIDriver driver){
+		this.driver = driver;
 		this.thisScene = thisScene;
 	}
 	
@@ -208,11 +214,26 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	public void backToBeginPane(ActionEvent event) {
 		loginPane.setVisible(false);
+		registerPane.setVisible(false);
 	}
 	
 	public void loginSuccess(ActionEvent event) {
 		String userId = userIdTF.getText();
-		SceneTransform.ToClientStartPage(userId, thisScene);
+		String password = userPasswordPF.getText();
+		String type = typeCB.getValue();
+
+		int x = driver.login(userId, password, type);
+
+		GuiUtils.checkTextField(userIdTF, true);
+		GuiUtils.checkTextField(userPasswordPF, true);
+
+		if(x == 1)
+			SceneTransform.ToClientStartPage(userId, thisScene);
+		else if (x == -1)
+			GuiUtils.checkTextField(userIdTF, false);
+		else
+			GuiUtils.checkTextField(userPasswordPF, false);
+
 	}
 
 }

@@ -98,6 +98,7 @@ public class UserInfoPageController implements Initializable {
 	
 	private String resume;
 
+	private GUIDriver driver;
 	private Scene thisScene;
 	private Scene lastScene;
 	
@@ -111,7 +112,8 @@ public class UserInfoPageController implements Initializable {
 		sexCB.getItems().addAll("Unknown", "Male", "Female");
 	}
 	
-	public void initData(String userId, Scene thisScene, Scene lastScene) {
+	public void initData(String userId, Scene thisScene, Scene lastScene, GUIDriver driver) {
+		this.driver = driver;
 		this.userId = userId;
 		getBasicInof(userId);
 		this.thisScene = thisScene;

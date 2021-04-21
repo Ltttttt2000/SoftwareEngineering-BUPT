@@ -18,7 +18,8 @@ public class SceneTransform {
 	private static RegisterAndLoginPageController registerAndLoginPageController;
 	private static UserInfoPageController userInfoPageController;
 	private static UserSecurityEditPageController userSecurityEditPageController;
-	
+
+	private static GUIDriver driver = new GUIDriver();
 	
 	public SceneTransform(Stage primaryStage) {
 		this.primaryStage = primaryStage;
@@ -49,22 +50,22 @@ public class SceneTransform {
 	}
 
 	public static void ToRegisterAndLoginPage() {
-		registerAndLoginPageController.initData(sceneRegisterAndLoginPage);
+		registerAndLoginPageController.initData(sceneRegisterAndLoginPage, driver);
 		ToScene(sceneRegisterAndLoginPage);
 	}
 	
 	public static void ToClientStartPage(String userId, Scene lastScene) {
-		clientStartPageController.initData(userId, sceneClientStartPage, lastScene);
+		clientStartPageController.initData(userId, sceneClientStartPage, lastScene, driver);
 		ToScene(sceneClientStartPage);
 	}
 	
 	public static void ToUserInfoPage(String userId, Scene lastScene) {
-		userInfoPageController.initData(userId, sceneUserInfoPage, lastScene);
+		userInfoPageController.initData(userId, sceneUserInfoPage, lastScene, driver);
 		ToScene(sceneUserInfoPage);
 	}
 
 	public static void ToUserSecurityEditPage(String userId, Scene lastScene) {
-		userSecurityEditPageController.initData(userId, sceneUserSecurityEditPage, lastScene);
+		userSecurityEditPageController.initData(userId, sceneUserSecurityEditPage, lastScene, driver);
 		ToScene(sceneUserSecurityEditPage);
 	}
 	

@@ -53,6 +53,7 @@ public class ClientStartPageController implements Initializable {
 	// init user ID
 	private String userId;
 
+	private GUIDriver driver;
 	private Scene thisScene;
 	private Scene lastScene;
 	
@@ -61,7 +62,8 @@ public class ClientStartPageController implements Initializable {
 		
 	}
 	
-	public void initData(String userId, Scene thisScene, Scene lastScene) {
+	public void initData(String userId, Scene thisScene, Scene lastScene, GUIDriver driver) {
+		this.driver = driver;
 		this.userId = userId;
 		userIdLabel.setText(userId);
 		this.thisScene = thisScene;

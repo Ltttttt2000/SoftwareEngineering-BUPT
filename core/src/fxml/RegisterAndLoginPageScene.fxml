@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.net.*?>
 <?import javafx.scene.text.*?>
@@ -46,15 +47,15 @@
       </AnchorPane>
       <AnchorPane fx:id="loginPane" prefHeight="432.0" prefWidth="768.0" style="-fx-background-position: right;" styleClass="background-pane-login" stylesheets="@../css/AnchorPaneType.css" visible="false">
          <children>
-            <BorderPane layoutX="245.0" layoutY="90.0" prefHeight="253.0" prefWidth="278.0">
+            <BorderPane layoutX="208.0" layoutY="90.0" prefHeight="253.0" prefWidth="354.0">
                <top>
-                  <Label prefHeight="45.0" prefWidth="31.0" text="Label" BorderPane.alignment="CENTER" />
+                  <Label prefHeight="45.0" prefWidth="67.0" stylesheets="@../css/TextType.css" text="Login" BorderPane.alignment="CENTER" />
                </top>
                <center>
-                  <GridPane prefHeight="132.0" prefWidth="278.0" BorderPane.alignment="CENTER">
+                  <GridPane prefHeight="158.0" prefWidth="379.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="85.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.0" minWidth="10.0" prefWidth="193.0" />
+                      <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="177.0" minWidth="10.0" prefWidth="129.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="225.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -62,11 +63,11 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Label" />
-                        <Label text="Label" GridPane.rowIndex="1" />
-                        <Label text="Label" GridPane.rowIndex="2" />
+                        <Label stylesheets="@../css/TextType.css" text="User ID" />
+                        <Label stylesheets="@../css/TextType.css" text="Password" GridPane.rowIndex="1" />
+                        <Label stylesheets="@../css/TextType.css" text="User Type" GridPane.rowIndex="2" />
                         <TextField fx:id="userIdTF" GridPane.columnIndex="1" />
-                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ChoiceBox fx:id="typeCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <PasswordField fx:id="userPasswordPF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
@@ -89,6 +90,171 @@
             </BorderPane>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToBeginPane" text="BACK" />
          </children></AnchorPane>
-      <AnchorPane fx:id="registerPane" prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-register" stylesheets="@../css/AnchorPaneType.css" visible="false" />
+      <AnchorPane fx:id="registerPane" prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-register" stylesheets="@../css/AnchorPaneType.css" visible="false">
+         <children>
+            <BorderPane layoutX="23.0" layoutY="90.0" prefHeight="253.0" prefWidth="252.0" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 20;">
+               <center>
+                  <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="21.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="191.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <PasswordField promptText="Password" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" />
+                        <PasswordField promptText="Confirm Password" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../imgs/lockImg.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                           <image>
+                              <Image url="@../imgs/lockImg.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                           <image>
+                              <Image url="@../imgs/userTypeImg.png" />
+                           </image>
+                        </ImageView>
+                        <ComboBox prefHeight="23.0" prefWidth="194.0" promptText="User Type" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </center>
+               <bottom>
+                  <Button mnemonicParsing="false" text="Next" BorderPane.alignment="CENTER" />
+               </bottom>
+               <top>
+                  <Label styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Register" textFill="WHITE" BorderPane.alignment="CENTER" />
+               </top>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </BorderPane>
+            <BorderPane layoutX="296.0" layoutY="32.0" prefHeight="368.0" prefWidth="445.0" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 30;">
+               <top>
+                  <Label styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Basic Information" BorderPane.alignment="CENTER" />
+               </top>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
+               </padding>
+               <bottom>
+                  <Button mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER" />
+               </bottom>
+               <left>
+                  <GridPane prefHeight="267.0" prefWidth="191.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="81.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="110.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Sex" textFill="WHITE">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Age" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Height (cm)" textFill="WHITE" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Weight (kg)" textFill="WHITE" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Chest (cm)" textFill="WHITE" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Waist (cm)" textFill="WHITE" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label text="Hip (cm)" textFill="WHITE" GridPane.rowIndex="6">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" />
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </GridPane>
+               </left>
+               <right>
+                  <BorderPane prefHeight="267.0" prefWidth="184.0" BorderPane.alignment="CENTER">
+                     <top>
+                        <Label text="Resume" textFill="WHITE" BorderPane.alignment="CENTER">
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <center>
+                        <TextArea prefHeight="160.0" prefWidth="174.0" BorderPane.alignment="CENTER" />
+                     </center>
+                     <bottom>
+                        <BorderPane prefHeight="38.0" prefWidth="184.0" BorderPane.alignment="CENTER">
+                           <left>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                 <image>
+                                    <Image url="@../imgs/phoneImg.png" />
+                                 </image>
+                              </ImageView>
+                           </left>
+                           <center>
+                              <TextField promptText="Phone Number" BorderPane.alignment="CENTER" />
+                           </center>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </BorderPane>
+                     </bottom>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets bottom="20.0" left="10.0" top="10.0" />
+                     </padding>
+                  </BorderPane>
+               </right>
+            </BorderPane>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToBeginPane" text="BACK" />
+         </children></AnchorPane>
    </children>
 </AnchorPane>

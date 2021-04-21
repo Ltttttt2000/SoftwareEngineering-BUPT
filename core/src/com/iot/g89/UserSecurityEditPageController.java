@@ -23,6 +23,7 @@ public class UserSecurityEditPageController implements Initializable {
     @FXML
     private PasswordField reNewPasswordPF;
 
+    private GUIDriver driver;
     private Scene thisScene;
     private Scene lastScene;
 
@@ -32,7 +33,8 @@ public class UserSecurityEditPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-    public void initData(String userId, Scene thisScene, Scene lastScene){
+    public void initData(String userId, Scene thisScene, Scene lastScene, GUIDriver driver){
+        this.driver = driver;
         this.userId = userId;
         userIdLabel.setText(userId);
         this.thisScene = thisScene;
