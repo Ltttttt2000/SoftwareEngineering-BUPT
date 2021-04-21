@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -51,15 +52,20 @@ public class ClientStartPageController implements Initializable {
 	
 	// init user ID
 	private String userId;
+
+	private Scene thisScene;
+	private Scene lastScene;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
 	}
 	
-	public void initData(String userId) {
+	public void initData(String userId, Scene thisScene, Scene lastScene) {
 		this.userId = userId;
 		userIdLabel.setText(userId);
+		this.thisScene = thisScene;
+		this.lastScene = lastScene;
 	}
 	
 	public void showBackPane2(ActionEvent event) {
@@ -87,9 +93,14 @@ public class ClientStartPageController implements Initializable {
 	}
 	
 	public void showMyInfo(ActionEvent event) {
-		SceneTransform.ToUserInfoPage(userId);
+		SceneTransform.ToUserInfoPage(userId, thisScene);
 	}
-	
+
+	public void logOut(ActionEvent event){
+		SceneTransform.ToScene(lastScene);
+	}
+
+	/*-------------------------------animation functions------------------------------------*/
 	public void backButtonMove(Node n, String direX, String direY, int delay) {
 		// add animation to four buttons
 		TranslateTransition tt = new TranslateTransition();

@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -96,6 +97,9 @@ public class UserInfoPageController implements Initializable {
 	private Button saveButton;
 	
 	private String resume;
+
+	private Scene thisScene;
+	private Scene lastScene;
 	
 	// test value
 	private String userId;
@@ -107,9 +111,11 @@ public class UserInfoPageController implements Initializable {
 		sexCB.getItems().addAll("Unknown", "Male", "Female");
 	}
 	
-	public void initData(String userId) {
+	public void initData(String userId, Scene thisScene, Scene lastScene) {
 		this.userId = userId;
 		getBasicInof(userId);
+		this.thisScene = thisScene;
+		this.lastScene = lastScene;
 	}
 	
 	public void getBasicInof(String userId) {
@@ -227,7 +233,7 @@ public class UserInfoPageController implements Initializable {
 
 	// for security info edit button
 	public void securityInfoEdit(ActionEvent event){
-		SceneTransform.ToUserSecurityEditPage(userId);
+		SceneTransform.ToUserSecurityEditPage(userId, thisScene);
 	}
 
 	// for edit button
@@ -250,7 +256,11 @@ public class UserInfoPageController implements Initializable {
 		restoreBasicInfo();
 		changeTextFieldColor();
 	}
-	
+
+	// for back button
+	public void backToLastScene(){
+		SceneTransform.ToScene(lastScene);
+	}
 	
 	
 	

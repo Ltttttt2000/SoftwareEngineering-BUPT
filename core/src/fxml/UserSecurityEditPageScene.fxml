@@ -42,6 +42,6 @@
             <Button fx:id="passwordSaveButton" mnemonicParsing="false" onAction="#savePassword" stylesheets="@../css/ButtonType.css" text="Save" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
-      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToInfoPage" text="BACK" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
    </children>
 </AnchorPane>

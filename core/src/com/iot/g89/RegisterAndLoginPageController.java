@@ -7,6 +7,7 @@ import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -42,7 +43,8 @@ public class RegisterAndLoginPageController implements Initializable {
 	private TextField userIdTF;
 	@FXML
 	private PasswordField userPasswordPF;
-	
+
+	private Scene thisScene;
 	
 	// current buttons' size
 	private double lrpSize = 1;
@@ -59,7 +61,10 @@ public class RegisterAndLoginPageController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+	}
+
+	public void initData(Scene thisScene){
+		this.thisScene = thisScene;
 	}
 	
 	// when you move your mouse on the login part
@@ -207,7 +212,7 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	public void loginSuccess(ActionEvent event) {
 		String userId = userIdTF.getText();
-		SceneTransform.ToClientStartPage(userId);
+		SceneTransform.ToClientStartPage(userId, thisScene);
 	}
 
 }

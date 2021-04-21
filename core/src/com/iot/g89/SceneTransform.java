@@ -49,21 +49,22 @@ public class SceneTransform {
 	}
 
 	public static void ToRegisterAndLoginPage() {
+		registerAndLoginPageController.initData(sceneRegisterAndLoginPage);
 		ToScene(sceneRegisterAndLoginPage);
 	}
 	
-	public static void ToClientStartPage(String userId) {
-		clientStartPageController.initData(userId);
+	public static void ToClientStartPage(String userId, Scene lastScene) {
+		clientStartPageController.initData(userId, sceneClientStartPage, lastScene);
 		ToScene(sceneClientStartPage);
 	}
 	
-	public static void ToUserInfoPage(String userId) {
-		userInfoPageController.initData(userId);
+	public static void ToUserInfoPage(String userId, Scene lastScene) {
+		userInfoPageController.initData(userId, sceneUserInfoPage, lastScene);
 		ToScene(sceneUserInfoPage);
 	}
 
-	public static void ToUserSecurityEditPage(String userId) {
-		userSecurityEditPageController.initData(userId);
+	public static void ToUserSecurityEditPage(String userId, Scene lastScene) {
+		userSecurityEditPageController.initData(userId, sceneUserSecurityEditPage, lastScene);
 		ToScene(sceneUserSecurityEditPage);
 	}
 	

@@ -3,6 +3,7 @@ package com.iot.g89;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -22,18 +23,24 @@ public class UserSecurityEditPageController implements Initializable {
     @FXML
     private PasswordField reNewPasswordPF;
 
+    private Scene thisScene;
+    private Scene lastScene;
+
     private String password = "666666";
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-    public void initData(String userId){
+    public void initData(String userId, Scene thisScene, Scene lastScene){
         this.userId = userId;
         userIdLabel.setText(userId);
+        this.thisScene = thisScene;
+        this.lastScene = lastScene;
     }
 
-    public void backToInfoPage(ActionEvent event){
-        SceneTransform.ToUserInfoPage(userId);
+    public void backToLastScene(ActionEvent event){
+        SceneTransform.ToScene(lastScene);
     }
 
     public void savePassword(ActionEvent event){
