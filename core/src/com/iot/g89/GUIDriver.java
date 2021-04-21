@@ -30,4 +30,14 @@ public class GUIDriver {
             return -2;
         }
     }
+
+    public void logout(){
+
+        gymUtils.user = null;
+    }
+
+    public void register(String[] parameters, String type){
+
+
+    }
 }

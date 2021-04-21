@@ -30,4 +30,13 @@ public class GymUtils {
         }
 
     }
+
+    public int findLastIDPlus1(String type) {
+
+        String userFilePath = "./core/src/csv/"+ type + ".csv";
+        ArrayList<String[]> IDList = FileUtils.readCSV(userFilePath, new String[]{"userid"});
+
+        String[] last = IDList.get(IDList.size() - 1);
+        return Integer.parseInt(last[0]) + 1;
+    }
 }

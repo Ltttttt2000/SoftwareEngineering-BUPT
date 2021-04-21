@@ -1,2 +1,4 @@
 userid,password,userType,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip,
 1001,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0,0
+1002,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0,0
+1004,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0,0
