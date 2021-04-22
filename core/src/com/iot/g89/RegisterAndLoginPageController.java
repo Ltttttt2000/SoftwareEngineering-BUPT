@@ -112,7 +112,7 @@ public class RegisterAndLoginPageController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		typeCB.getItems().addAll("Administrator", "Instructor", "Client");
 		typeCB.getSelectionModel().select("Client");
-		registerUserTypeCB.getItems().addAll("User Type", "Administrator", "Instructor", "Client");
+		registerUserTypeCB.getItems().addAll("User Type", "Instructor", "Client");
 		registerUserTypeCB.getSelectionModel().select(0);
 		sexCB.getItems().addAll("Unknown", "Male", "Female");
 		sexCB.getSelectionModel().select(0);
