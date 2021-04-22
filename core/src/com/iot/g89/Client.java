@@ -32,11 +32,11 @@ public class Client extends User{
 			System.out.println("error");
 		}else {
 			setRechargeAmount(this.rechargeAmount + money);   
-			if(this.userType.equals("Normal")) {                   
+			if(this.userLevel.equals("Normal")) {
 				if(money >= 500)
 					this.accountUpgradeToMember();
 			}
-			if(this.userType.equals("Member")) {
+			if(this.userLevel.equals("Member")) {
 				if(money >= 1000)
 					this.accountUpgradeToSupreme();
 			}
@@ -63,8 +63,8 @@ public class Client extends User{
 	 * This method is only for normal client to upgrade to member client.
 	 */	
 	public void accountUpgradeToMember() {
-		if(this.userType.equals("Normal")) {
-			setUserType("Member");
+		if(this.userLevel.equals("Normal")) {
+			setUserLevel("Member");
 		}else {
 			System.out.println("Wrong clientType");
 		}
@@ -73,8 +73,8 @@ public class Client extends User{
 	 * This method is only for member client to upgrade to supreme client.
 	 */
 	public void accountUpgradeToSupreme() {
-		if(this.userType.equals("Member")) {
-			setUserType("SupremeMember");
+		if(this.userLevel.equals("Member")) {
+			setUserLevel("SupremeMember");
 		}else {
 			System.out.println("Wrong clientType");
 		}
@@ -199,7 +199,7 @@ public class Client extends User{
 	 * 			the video want to buy
 	 */
 	public void buyVideo(Video VideoBuy) {
-		if(this.userType .equals("Normal")) {
+		if(this.userLevel.equals("Normal")) {
 			System.out.println("Wrong clientType");
 		}else {
 			double money = VideoBuy.price;
@@ -284,7 +284,7 @@ public class Client extends User{
 	 * 			the instructor want to buy
 	 */
 	public void buyInstructor(Instructor instructor) {
-		if(this.userType .equals("SupremeMember")) {
+		if(this.userLevel.equals("SupremeMember")) {
 			int money = instructor.instructorMoney;     
 			consume(money);
 			

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Instructor extends User{
 	
 	 /** The instructor money. */
- 	int instructorMoney = 0;
+ 	public int instructorMoney = 0;
 	 
 	 /**
  	 * Instantiates a new instructor.

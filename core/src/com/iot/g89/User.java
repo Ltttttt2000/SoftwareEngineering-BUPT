@@ -5,7 +5,6 @@ package com.iot.g89;
  */
 
 import java.io.File;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -17,7 +16,7 @@ public class User{
 	
 	String userid = "None";
 	String password = "None";
-	String userType = "Normal";
+	String userLevel = "Normal";
 	String sex = "None";
 	String phoneNumber = "None";
 	Boolean loginLicense = true;
@@ -61,7 +60,7 @@ public class User{
 		
 		fileHeaders[0] = "userid";
 		fileHeaders[1] = "password";
-		fileHeaders[2] = "userType";
+		fileHeaders[2] = "userLevel";
 		fileHeaders[3] = "sex";
 		fileHeaders[4] = "phoneNumber";
 		fileHeaders[5] = "loginLicense";
@@ -119,7 +118,7 @@ public class User{
 					this.userid = userid;
 					this.password = selectList.get(entry)[1];
 					//userInfo[1] = this.password;
-					this.userType = selectList.get(entry)[2];
+					this.userLevel = selectList.get(entry)[2];
 					//userInfo[2] = this.userType;
 					this.sex = selectList.get(entry)[3];
 					//userInfo[3] = this.sex;
@@ -153,7 +152,7 @@ public class User{
 	public User(String[] parameters){
 
 		this.password = parameters[1];
-		this.userType = parameters[2];
+		this.userLevel = parameters[2];
 		this.sex = parameters[3];
 		this.phoneNumber = parameters[4];
 		this.resume = parameters[7];
@@ -181,11 +180,11 @@ public class User{
 		 
 	 }
 	 
-	 void setUserType(String userType) {
-		 this.userType = userType;
+	 void setUserLevel(String userLevel) {
+		 this.userLevel = userLevel;
 		 //userInfo[2] = this.userType;
-		 String[] attrs = new String[] {"userType"};
-		 String[] values = new String[] {this.userType};
+		 String[] attrs = new String[] {"userLevel"};
+		 String[] values = new String[] {this.userLevel};
 		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
 	 }
 	 
@@ -250,8 +249,8 @@ public class User{
 		return this.password;
 		 
 	 }
-	 String getUserType(){
-		return this.userType; 
+	 String getUserLevel(){
+		return this.userLevel;
 		 
 	 }
 	 String getPhone() {

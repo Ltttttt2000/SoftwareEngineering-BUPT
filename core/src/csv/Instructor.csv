@@ -1,2 +1,5 @@
-userid,password,userType,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip,instructorMoney
-
+userid,password,userLevel,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip,instructorMoney
+1001,None,Normal,None,None,TRUE,0,None,0,0,0,0,0,0,12
+1002,None,Normal,None,None,TRUE,0,None,0,0,0,0,0,0,0
+1003,abc123,Normal,None,None,TRUE,0,None,10,23,32,0,0,0,0
+1004,abaaba123,Normal,None,None,TRUE,0,None,10,23,32,12,23,0,0
