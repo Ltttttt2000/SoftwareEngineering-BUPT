@@ -18,9 +18,29 @@ public class GuiUtils {
 	
 	//  if the inputs are all number (phoneNumber)
 	public static Boolean isNum(String str) {
-		return str.matches("[0-9]*");
+		return str.matches("[0-9]*") && !str.equals("");
 	}
-	
+
+	// if the input is a legal password
+	public static int isPassword(String str){
+		// the password length 6-16 bits
+		if(str == null || str.equals("") ||str.length() < 6 || str.length() > 16) {
+			return -1;
+		}
+
+		// the password must contain numbers and letters
+		if(!str.matches(".*\\d+.*") || !str.matches(".*[a-zA-Z]+.*")) {
+			return -2;
+		}
+
+		// the password can only contain numbers and letters
+		if(!str.matches("^[a-z0-9A-Z]+$")){
+			return -3;
+		}
+
+		return 1;
+	}
+
 	// if the input is false then change the color of the TextField
 	public static Boolean checkTextField (Node tf, Boolean b) {
 		String wrongStyle = "-fx-background-color: #ffa1a1;";

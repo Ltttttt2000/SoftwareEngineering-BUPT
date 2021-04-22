@@ -23,6 +23,17 @@ public class UserSecurityEditPageController implements Initializable {
     @FXML
     private PasswordField reNewPasswordPF;
 
+    @FXML
+    private Label rule1;
+    @FXML
+    private Label rule2;
+    @FXML
+    private Label rule3;
+
+    // rules label color
+    private String redColor = "-fx-background-color: rgba(255,0,0,0.5);";
+    private String noColor = "-fx-background-color: transparent;";
+
     private GUIDriver driver;
     private Scene thisScene;
     private Scene lastScene;
@@ -46,30 +57,55 @@ public class UserSecurityEditPageController implements Initializable {
     }
 
     public void savePassword(ActionEvent event){
-        String oldPassword = getPassword(userId);
+        String oldPassword = oldPasswordTF.getText();
         String newPassword = newPasswordPF.getText();
 
-        // check if the old password is correct
-        if(!oldPassword.equals(oldPasswordTF.getText())){
-            GuiUtils.checkTextField(oldPasswordTF, false);
-            GuiUtils.checkTextField(reNewPasswordPF, true);
-            newPasswordPF.setText("");
-            reNewPasswordPF.setText("");
-        }else{
-            // check if the Re-enter password is same with new password
-            if(!newPassword.equals(reNewPasswordPF.getText())){
-                GuiUtils.checkTextField(reNewPasswordPF, false);
-            }else{
-                GuiUtils.checkTextField(reNewPasswordPF, true);
-            }
-            GuiUtils.checkTextField(oldPasswordTF, true);
+        int i = GuiUtils.isPassword(newPassword);
+
+        resetColor();
+
+        // if the new password is legal
+        switch(i){
+            case -1: rule1.setStyle(rule1.getStyle() + redColor);
+                break;
+            case -2: rule2.setStyle(rule1.getStyle() + redColor);
+                break;
+            case -3: rule3.setStyle(rule1.getStyle() + redColor);
+                break;
         }
 
-
-
+        if(i != 1){
+            GuiUtils.checkTextField(newPasswordPF, false);
+        }
+        // check if the Re-enter password is same with new password
+        else if(!newPassword.equals(reNewPasswordPF.getText())){
+            GuiUtils.checkTextField(reNewPasswordPF, false);
+        }
+        // check if the old password is correct
+        else if(!resetPassword(userId, oldPassword, newPassword)){
+            GuiUtils.checkTextField(oldPasswordTF, false);
+            GuiUtils.checkTextField(reNewPasswordPF, true);
+        }
+        // Success
+        else{
+            SceneTransform.ToRegisterAndLoginPage();
+        }
     }
 
-    private String getPassword(String userId) {
-        return password;
+    private void resetColor(){
+        rule1.setStyle(rule1.getStyle() + noColor);
+        rule2.setStyle(rule1.getStyle() + noColor);
+        rule3.setStyle(rule1.getStyle() + noColor);
+
+        GuiUtils.checkTextField(oldPasswordTF, true);
+        GuiUtils.checkTextField(newPasswordPF, true);
+        GuiUtils.checkTextField(reNewPasswordPF, true);
+    }
+
+    private Boolean resetPassword(String userId, String oldPW, String newPW) {
+        if(oldPW.equals(password))
+            return true;
+        else
+            return false;
     }
 }

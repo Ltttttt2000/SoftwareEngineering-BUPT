@@ -17,6 +17,9 @@ import javafx.scene.paint.Paint;
 
 public class UserInfoPageController implements Initializable {
 	@FXML
+	private Button backButton;
+
+	@FXML
 	private Label userIdLabel;
 	
 	// basic info
@@ -200,6 +203,7 @@ public class UserInfoPageController implements Initializable {
 	public void showEditPane(Boolean b) {
 		infoShowingPane.setVisible(!b);
 		securityInfoEditButton.setDisable(b);
+		backButton.setDisable(b);
 		basicInfoEditButton.setVisible(!b);
 		
 		infoEditPane.setVisible(b);

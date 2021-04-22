@@ -92,7 +92,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="registerPane" prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-register" stylesheets="@../css/AnchorPaneType.css" visible="false">
          <children>
-            <BorderPane layoutX="23.0" layoutY="90.0" prefHeight="253.0" prefWidth="252.0" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 20;">
+            <BorderPane fx:id="passwordSettingPane" layoutX="258.0" layoutY="90.0" prefHeight="253.0" prefWidth="252.0" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 20;">
                <center>
                   <GridPane BorderPane.alignment="CENTER">
                     <columnConstraints>
@@ -105,8 +105,8 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <PasswordField promptText="Password" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" />
-                        <PasswordField promptText="Confirm Password" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <PasswordField fx:id="registerPasswordPF" focusTraversable="false" promptText="Password" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" />
+                        <PasswordField fx:id="registerConfirmPasswordPF" focusTraversable="false" promptText="Confirm Password" stylesheets="@../css/TextType.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../imgs/lockImg.png" />
@@ -122,12 +122,12 @@
                               <Image url="@../imgs/userTypeImg.png" />
                            </image>
                         </ImageView>
-                        <ComboBox prefHeight="23.0" prefWidth="194.0" promptText="User Type" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <ChoiceBox fx:id="registerUserTypeCB" focusTraversable="false" prefHeight="23.0" prefWidth="197.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </center>
                <bottom>
-                  <Button mnemonicParsing="false" text="Next" BorderPane.alignment="CENTER" />
+                  <Button fx:id="nextButton" mnemonicParsing="false" onAction="#completePasswordSet" text="Next" BorderPane.alignment="CENTER" />
                </bottom>
                <top>
                   <Label styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Register" textFill="WHITE" BorderPane.alignment="CENTER" />
@@ -136,16 +136,40 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </BorderPane>
-            <BorderPane layoutX="296.0" layoutY="32.0" prefHeight="368.0" prefWidth="445.0" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 30;">
+            <GridPane fx:id="rulePane" layoutX="525.0" layoutY="104.0" prefHeight="128.0" prefWidth="189.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="rule1" style="-fx-background-radius: 10;" text="1) Length 6-16 bits" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="rule3" prefHeight="43.0" prefWidth="179.0" style="-fx-background-radius: 10;" text="3) Password control can only input letters and numbers" textFill="WHITE" wrapText="true" GridPane.rowIndex="2">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="rule2" prefHeight="43.0" prefWidth="179.0" style="-fx-background-radius: 10;" text="2) Must include both letters and numbers" textFill="WHITE" wrapText="true" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </GridPane>
+            <BorderPane fx:id="basicInfoPane" layoutX="296.0" layoutY="32.0" prefHeight="368.0" prefWidth="445.0" style="-fx-background-color: rgba(0,0,0,0.3); -fx-background-radius: 30;" visible="false">
                <top>
                   <Label styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Basic Information" BorderPane.alignment="CENTER" />
                </top>
                <padding>
                   <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
                </padding>
-               <bottom>
-                  <Button mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER" />
-               </bottom>
                <left>
                   <GridPane prefHeight="267.0" prefWidth="191.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
@@ -197,13 +221,13 @@
                               <Font name="Arial" size="12.0" />
                            </font>
                         </Label>
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="ageTF" focusTraversable="false" promptText="18 (default)" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="heightTF" focusTraversable="false" promptText="170 (default)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="weightTF" focusTraversable="false" promptText="70 (default)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="chestTF" focusTraversable="false" promptText="86.7 (default)" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="waistTF" focusTraversable="false" promptText="57.8 (default)" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <TextField fx:id="hipTF" focusTraversable="false" promptText="92.1 (default)" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <ChoiceBox fx:id="sexCB" prefWidth="150.0" GridPane.columnIndex="1" />
                      </children>
                      <BorderPane.margin>
                         <Insets />
@@ -226,7 +250,7 @@
                         </Label>
                      </top>
                      <center>
-                        <TextArea prefHeight="160.0" prefWidth="174.0" BorderPane.alignment="CENTER" />
+                        <TextArea fx:id="resumeTA" prefHeight="160.0" prefWidth="174.0" promptText="(Tell me about yourself)" BorderPane.alignment="CENTER" />
                      </center>
                      <bottom>
                         <BorderPane prefHeight="38.0" prefWidth="184.0" BorderPane.alignment="CENTER">
@@ -237,12 +261,15 @@
                                  </image>
                               </ImageView>
                            </left>
-                           <center>
-                              <TextField promptText="Phone Number" BorderPane.alignment="CENTER" />
-                           </center>
                            <padding>
                               <Insets top="10.0" />
                            </padding>
+                           <right>
+                              <TextField fx:id="phoneTF" prefHeight="23.0" prefWidth="143.0" promptText="Phone Number" BorderPane.alignment="CENTER" />
+                           </right>
+                           <center>
+                              <Label prefHeight="15.0" prefWidth="21.0" text="*" textFill="WHITE" BorderPane.alignment="CENTER" />
+                           </center>
                         </BorderPane>
                      </bottom>
                      <BorderPane.margin>
@@ -253,6 +280,22 @@
                      </padding>
                   </BorderPane>
                </right>
+               <bottom>
+                  <BorderPane prefHeight="40.0" prefWidth="385.0" BorderPane.alignment="CENTER">
+                     <top>
+                        <Label text="The fields marked with * are required" textFill="WHITE" BorderPane.alignment="CENTER" />
+                     </top>
+                     <right>
+                        <Button mnemonicParsing="false" onAction="#finishRegister" prefWidth="106.0" text="Finish" BorderPane.alignment="CENTER" />
+                     </right>
+                     <left>
+                        <Button mnemonicParsing="false" onAction="#resetPassword" prefWidth="106.0" text="Reset Password" BorderPane.alignment="CENTER" />
+                     </left>
+                     <padding>
+                        <Insets left="50.0" right="50.0" />
+                     </padding>
+                  </BorderPane>
+               </bottom>
             </BorderPane>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToBeginPane" text="BACK" />
          </children></AnchorPane>

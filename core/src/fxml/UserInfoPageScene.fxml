@@ -295,7 +295,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
+            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
