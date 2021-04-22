@@ -7,6 +7,7 @@ package com.iot.g89;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author DongWanqi
@@ -34,14 +35,14 @@ public class User{
 	String userFilePath;
 	int entry = 0;
 	
-	String[] fileHeaders = new String[15];
+	String[] fileHeaders = new String[14];
 	
 	ArrayList<String[]> userInfoList;
 	
 	//initial value written in the file
 	                              //userid, password, userType, sex, phoneNo,loginLic,rechargeMoney,resume, 
 	String[] userInfo = new String[] {"None", "None", "Normal", "None","None","TRUE", "0", "None",   
-			                          "0","0","0","0","0","0", "0"}; //6 physical Info,the last is InstructorMoney
+			                          "0","0","0","0","0","0"}; //6 physical Info,the last is InstructorMoney
 	
 	//the arrayList content read from the file
 	ArrayList<String[]> selectList = new ArrayList<String[]>();
@@ -78,7 +79,10 @@ public class User{
 		
 	
 		if(this.getClass().getSimpleName().equals("Instructor")) {
+			fileHeaders = Arrays.copyOf(fileHeaders, fileHeaders.length + 1);
 			fileHeaders[14] = "instructorMoney";
+			userInfo = Arrays.copyOf(userInfo, userInfo.length + 1);
+			userInfo[14] = "0";
 		}
 			
 		
@@ -146,6 +150,22 @@ public class User{
 		}
 	}
 
+	public User(String[] parameters){
+
+		this.password = parameters[1];
+		this.userType = parameters[2];
+		this.sex = parameters[3];
+		this.phoneNumber = parameters[4];
+		this.resume = parameters[7];
+
+		this.age = Integer.parseInt(parameters[8]);
+		this.height = Double.parseDouble(parameters[9]);
+		this.weight = Double.parseDouble(parameters[10]);
+		this.chest = Double.parseDouble(parameters[11]);
+		this.waist = Double.parseDouble(parameters[12]);
+		this.hip = Double.parseDouble(parameters[13]);
+
+	}
 	
 	 /**
  	 * Sets the password.
@@ -338,14 +358,15 @@ public class User{
  		return this.getPassword().equals(password);
 	 }
 
+	 /*
 	 void insertToCSV(){
-		/*
+
 		userInfoList = new ArrayList<String[]>();
 		userInfoList.add(userInfo);
 		FileUtils.insertCSV(userFilePath, userInfoList);
- */
 	 }
-     
+     */
+
      //TODO !!!useless??
 	/* PhysicalInfo getUserPhysicalInfo() {
 		 physicalInfo = new PhysicalInfo(this.userid);

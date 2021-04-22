@@ -1,4 +1,6 @@
-userid,password,userType,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip,
-1001,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0,0
-1002,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0,0
-1004,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0,0
+userid,password,userType,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip
+1001,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0
+1002,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0
+1004,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0
+1005,ababa,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
+1006,abc123,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
