@@ -21,7 +21,7 @@ public class User{
 	String sex = "None";
 	String phoneNumber = "None";
 	Boolean loginLicense = true;
-	int rechargeAmount = 0;      //the total money in the account
+	double rechargeAmount = 0;      //the total money in the account
 	String resume = "None";  //for instructor
 	
 	//physicalInfo
@@ -127,7 +127,7 @@ public class User{
 					//userInfo[4] = this.phoneNumber;
 					this.loginLicense = Boolean.valueOf(selectList.get(entry)[5]);
 					//userInfo[5] = String.valueOf(this.loginLicense);
-					this.rechargeAmount = Integer.parseInt(selectList.get(entry)[6]);
+					this.rechargeAmount = Double.parseDouble(selectList.get(entry)[6]);
 					//userInfo[6] = String.valueOf(this.rechargeAmount);
 					this.resume = selectList.get(entry)[7];
 					//userInfo[7] = this.resume;

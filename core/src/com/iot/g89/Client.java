@@ -9,7 +9,7 @@ public class Client extends User{
 	}
 	
 	//getter, setter 
-	public void setRechargeAmount(int rechargeAmount) {
+	public void setRechargeAmount(Double rechargeAmount) {
 		this.rechargeAmount = rechargeAmount;
 		String filePath = "./Client.csv";
 		String[] attrs = {"rechargeAmount"};
@@ -17,7 +17,7 @@ public class Client extends User{
 		String[] modifyTo = {recharge};
 		FileUtils.updateCSV4(filePath, userid, attrs, modifyTo);
 	}
-	public int getRechargeAmount() {
+	public double getRechargeAmount() {
 		return this.rechargeAmount;
 	}
 	
@@ -27,7 +27,7 @@ public class Client extends User{
 	 * @param money
 	 * 			The money the user recharge
 	 */
-	public void recharge(int money) {	
+	public void recharge(double money) {
 		if(money < 0) {
 			System.out.println("error");
 		}else {
@@ -48,8 +48,8 @@ public class Client extends User{
 	 * @param money
 	 * 			The money the user need to pay
 	 */
-	public void consume(int money) {	
-		int balance = this.rechargeAmount - money;
+	public void consume(double money) {
+		double balance = this.rechargeAmount - money;
 		if(balance < 0) {
 			System.out.println("Sorry, your credit is running low, please recharge.");
 			
@@ -195,14 +195,14 @@ public class Client extends User{
 	/**
 	 * This method is only for member client and SupremeMember client to buy a particular video.
 	 * 
-	 * @param videoBuy
+	 * @param VideoBuy
 	 * 			the video want to buy
 	 */
 	public void buyVideo(Video VideoBuy) {
 		if(this.userType .equals("Normal")) {
 			System.out.println("Wrong clientType");
 		}else {
-			int money = VideoBuy.price;     
+			double money = VideoBuy.price;
 			consume(money);
 			
 			String filePath = "./clientVideo.csv";	

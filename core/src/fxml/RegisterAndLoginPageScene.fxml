@@ -298,6 +298,21 @@
                </bottom>
             </BorderPane>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToBeginPane" text="BACK" />
+            <AnchorPane fx:id="idPane" prefHeight="432.0" prefWidth="768.0" style="-fx-background-color: rgba(0,0,0,0.5);" visible="false">
+               <children>
+                  <BorderPane layoutX="284.0" layoutY="116.0" prefHeight="200.0" prefWidth="200.0">
+                     <left>
+                        <Label styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Your ID:" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <Label fx:id="userIdLabel" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="0000" BorderPane.alignment="CENTER" />
+                     </right>
+                     <bottom>
+                        <Button mnemonicParsing="false" onAction="#backToBeginPane" text="GO TO LOGIN" BorderPane.alignment="CENTER" />
+                     </bottom>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
          </children></AnchorPane>
    </children>
 </AnchorPane>

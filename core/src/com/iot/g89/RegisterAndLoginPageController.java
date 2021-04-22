@@ -89,6 +89,11 @@ public class RegisterAndLoginPageController implements Initializable {
 	@FXML
 	private TextField phoneTF;
 
+	@FXML
+	private AnchorPane idPane;
+	@FXML
+	private Label userIdLabel;
+
 	private GUIDriver driver;
 	private Scene thisScene;
 	
@@ -269,6 +274,7 @@ public class RegisterAndLoginPageController implements Initializable {
 	public void backToBeginPane(ActionEvent event) {
 		loginPane.setVisible(false);
 		registerPane.setVisible(false);
+		idPane.setVisible(false);
 
 		// for login pane
 		userIdTF.setText("");
@@ -364,7 +370,7 @@ public class RegisterAndLoginPageController implements Initializable {
 			user[2] = registerUserTypeCB.getValue();
 			user[3] = sexCB.getValue();
 			user[4] = phoneTF.getText();
-			user[5] = "true";
+			user[5] = "TRUE";
 			user[6] = "0.00";
 			user[7] = resumeTA.getText();
 			user[8] = ageTF.getText();
@@ -374,13 +380,9 @@ public class RegisterAndLoginPageController implements Initializable {
 			user[12] = waistTF.getText();
 			user[13] = hipTF.getText();
 
-			for (int i = 1; i < 14; i++) {
-				if (user[i].equals("")) {
-					user[i] = "None";
-				}
-			}
-
-			backToBeginPane(event);
+			String userId = driver.registerUser(user, typeCB.getValue());
+			userIdLabel.setText(userId);
+			idPane.setVisible(true);
 		}
 	}
 
