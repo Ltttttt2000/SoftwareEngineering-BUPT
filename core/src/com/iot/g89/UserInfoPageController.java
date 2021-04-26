@@ -47,7 +47,7 @@ public class UserInfoPageController implements Initializable {
 	@FXML
 	private Label loginLicenseLabel;
 	@FXML
-	private TextArea resumeTextArea;
+	private TextArea resumeTA;
 	
 	@FXML
 	private Button securityInfoEditButton;
@@ -59,8 +59,13 @@ public class UserInfoPageController implements Initializable {
 	@FXML
 	private Label adminLabel;
 	@FXML
-	private Label instructorLabel;
-	
+	private Label instructorTypeLabelNormal;
+	@FXML
+	private Label instructorTypeLabelSenior;
+	@FXML
+	private Label instructorTypeLabelSuper;
+
+
 	// client type label
 	@FXML
 	private Label clientTypeLabelNormal;
@@ -104,11 +109,8 @@ public class UserInfoPageController implements Initializable {
 	private GUIDriver driver;
 	private Scene thisScene;
 	private Scene lastScene;
-	
-	// test value
+
 	private String userId;
-	private String userType = "client";
-	private String clientType = "supreme";
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -123,22 +125,22 @@ public class UserInfoPageController implements Initializable {
 		this.lastScene = lastScene;
 	}
 	
-	public void getBasicInof(String userId) {
+	private void getBasicInof(String userId) {
 		userIdLabel.setText(userId);
 		
 		// get basic info
-		sexLabel.setText(getSex(userId));
-		phoneLabel.setText(getPhone(userId));
-		balanceLabel.setText(getrechargeAccount(userId));
-		balanceLabel1.setText(getrechargeAccount(userId));
-		ageLabel.setText(getAge(userId));
-		heightLabel.setText(getHeight(userId));
-		weightLabel.setText(getWeight(userId));
-		chestLabel.setText(getChest(userId));
-		waistLabel.setText(getWaist(userId));
-		hipLabel.setText(getHip(userId));
+		sexLabel.setText(driver.getSex());
+		phoneLabel.setText(driver.getPhone());
+		balanceLabel.setText(driver.getRechargeAccount());
+		balanceLabel1.setText(driver.getRechargeAccount());
+		ageLabel.setText(driver.getAge());
+		heightLabel.setText(driver.getHeight());
+		weightLabel.setText(driver.getWeight());
+		chestLabel.setText(driver.getChest());
+		waistLabel.setText(driver.getWaist());
+		hipLabel.setText(driver.getHip());
 		
-		if(getLoginLicense(userId)) {
+		if(driver.getLoginLicense().equals("true")) {
 			loginLicenseLabel.setText("Pass");
 			loginLicenseLabel1.setText("Pass");
 			loginLicenseLabel.setTextFill(Paint.valueOf("green"));
@@ -148,36 +150,47 @@ public class UserInfoPageController implements Initializable {
 			loginLicenseLabel.setTextFill(Paint.valueOf("red"));
 		}
 		
-		resume = getResume(userId);
-		resumeTextArea.setText(resume);
+		resume = driver.getResume();
+		resumeTA.setText(resume);
 		
 		// judge user's type
-		String userType = getUserType(userId);
-		if(userType == "administrator") {
+		String userType = driver.getUsertype();
+		if(userType.equals("Administrator")) {
 			showLabel(adminLabel);
 		}
-		else if(userType == "instructor") {
-			showLabel(instructorLabel);
+		else if(userType.equals("Instructor")) {
+			String instructorType = driver.getUserLevel();
+			if(instructorType.equals("Normal")) {
+				showLabel(instructorTypeLabelNormal);
+			}
+			else if(instructorType.equals("Senior")) {
+				showLabel(instructorTypeLabelSenior);
+			}
+			else { // if(instructorType.equals("SupremeMember"))
+				showLabel(instructorTypeLabelSuper);
+			}
 		}
-		else { // if(userType == "client")
-			String clientType = getClientType(userId);
-			if(clientType == "normal") {
+		else { // if(userType.equals("client"))
+			String clientType = driver.getUserLevel();
+			if(clientType.equals("Normal")) {
 				showLabel(clientTypeLabelNormal);
 			}
-			else if(clientType == "member") {
+			else if(clientType.equals("Member")) {
 				showLabel(clientTypeLabelMember);
 			}
-			else { // if(clientType == "supreme")
+			else { // if(clientType.equals("SupremeMember"))
 				showLabel(clientTypeLabelSupreme);
 			}
 		}
 	}
 	
 	// only show the chosen label
-	public void showLabel(Label l) {
+	private void showLabel(Label l) {
 		// hide all labels
 		adminLabel.setVisible(false);
-		instructorLabel.setVisible(false);
+		instructorTypeLabelNormal.setVisible(false);
+		instructorTypeLabelSenior.setVisible(false);
+		instructorTypeLabelSuper.setVisible(false);
 		clientTypeLabelNormal.setVisible(false);
 		clientTypeLabelMember.setVisible(false);
 		clientTypeLabelSupreme.setVisible(false);
@@ -187,7 +200,7 @@ public class UserInfoPageController implements Initializable {
 	}
 	
 	// restore the original basic info in TextFields
-	public void restoreBasicInfo() {
+	private void restoreBasicInfo() {
 		sexCB.getSelectionModel().select(sexLabel.getText());
 		phoneTF.setText(phoneLabel.getText());
 		ageTF.setText(ageLabel.getText());
@@ -196,11 +209,11 @@ public class UserInfoPageController implements Initializable {
 		chestTF.setText(chestLabel.getText());
 		waistTF.setText(waistLabel.getText());
 		hipTF.setText(hipLabel.getText());
-		resumeTextArea.setText(resume);
+		resumeTA.setText(resume);
 	}
 	
 	// show the basic info edit pane
-	public void showEditPane(Boolean b) {
+	private void showEditPane(Boolean b) {
 		infoShowingPane.setVisible(!b);
 		securityInfoEditButton.setDisable(b);
 		backButton.setDisable(b);
@@ -209,30 +222,49 @@ public class UserInfoPageController implements Initializable {
 		infoEditPane.setVisible(b);
 		saveButton.setVisible(b);
 		restoreButton.setVisible(b);
-		resumeTextArea.setEditable(b);
+		resumeTA.setEditable(b);
 	}
 	
-	public void changeTextFieldColor() {
-		GuiUtils.checkTextField(phoneTF, GuiUtils.isNum(phoneTF.getText()));
-		GuiUtils.checkTextField(ageTF, GuiUtils.isNum(ageTF.getText()));
-		GuiUtils.checkTextField(heightTF, GuiUtils.isNumeric(heightTF.getText()));
-		GuiUtils.checkTextField(weightTF, GuiUtils.isNumeric(weightTF.getText()));
-		GuiUtils.checkTextField(chestTF, GuiUtils.isNumeric(chestTF.getText()));
-		GuiUtils.checkTextField(waistTF, GuiUtils.isNumeric(waistTF.getText()));
-		GuiUtils.checkTextField(hipTF, GuiUtils.isNumeric(hipTF.getText()));
+	private void changeTextFieldColor() {
+		GUIUtils.checkTextField(phoneTF, GUIUtils.isNum(phoneTF.getText()));
+		GUIUtils.checkTextField(ageTF, GUIUtils.isNum(ageTF.getText()));
+		GUIUtils.checkTextField(heightTF, GUIUtils.isNumeric(heightTF.getText()));
+		GUIUtils.checkTextField(weightTF, GUIUtils.isNumeric(weightTF.getText()));
+		GUIUtils.checkTextField(chestTF, GUIUtils.isNumeric(chestTF.getText()));
+		GUIUtils.checkTextField(waistTF, GUIUtils.isNumeric(waistTF.getText()));
+		GUIUtils.checkTextField(hipTF, GUIUtils.isNumeric(hipTF.getText()));
 	}
 	
-	public Boolean allRightInput() {
-		if(GuiUtils.isNum(phoneTF.getText())
-				&& GuiUtils.isNum(ageTF.getText())
-				&& GuiUtils.isNumeric(heightTF.getText())
-				&& GuiUtils.isNumeric(weightTF.getText())
-				&& GuiUtils.isNumeric(chestTF.getText())
-				&& GuiUtils.isNumeric(waistTF.getText())
-				&& GuiUtils.isNumeric(hipTF.getText()))
+	private Boolean allRightInput() {
+		if(GUIUtils.isNum(phoneTF.getText())
+				&& GUIUtils.isNum(ageTF.getText())
+				&& GUIUtils.isNumeric(heightTF.getText())
+				&& GUIUtils.isNumeric(weightTF.getText())
+				&& GUIUtils.isNumeric(chestTF.getText())
+				&& GUIUtils.isNumeric(waistTF.getText())
+				&& GUIUtils.isNumeric(hipTF.getText()))
 			return true;
 		else
 			return false;
+	}
+
+	private String[] gatherInfo(){
+		String[] user = new String[14];
+		user[0] = "";
+		user[1] = "";
+		user[2] = "";
+		user[3] = sexCB.getValue();
+		user[4] = phoneTF.getText();
+		user[5] = "";
+		user[6] = "";
+		user[7] = resumeTA.getText();
+		user[8] = ageTF.getText();
+		user[9] = heightTF.getText();
+		user[10] = weightTF.getText();
+		user[11] = chestTF.getText();
+		user[12] = waistTF.getText();
+		user[13] = hipTF.getText();
+		return user;
 	}
 	
 	//---------------------------Button's action function------------------------------------
@@ -253,6 +285,11 @@ public class UserInfoPageController implements Initializable {
 		changeTextFieldColor();
 		
 		if(allRightInput())	{
+			String[] user = gatherInfo();
+
+			driver.changeBasicInfo(user);
+
+			getBasicInof(userId);
 			showEditPane(false);
 		}
 	}
@@ -267,84 +304,5 @@ public class UserInfoPageController implements Initializable {
 	public void backToLastScene(){
 		SceneTransform.ToScene(lastScene);
 	}
-	
-	
-	
-	
-	// test function
-	private String getUserType(String userId) {
-		// TODO Auto-generated method stub
-		return userType;
-	}
-
-	private String getClientType(String userId) {
-		// TODO Auto-generated method stub
-		return clientType;
-	}
-
-	private String getResume(String userId) {
-		// TODO Auto-generated method stub
-		return "I am fat!\r\n"
-				+ "Yes\r\n"
-				+ "I need GYM\r\n"
-				+ "I want to lose weight\r\n"
-				+ "\r\n"
-				+ "Of course,\r\n"
-				+ "Female instructor please\r\n"
-				+ "\r\n"
-				+ "";
-	}
-
-	private boolean getLoginLicense(String userId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	private String getHip(String userId) {
-		// TODO Auto-generated method stub
-		return "87.0";
-	}
-
-	private String getWaist(String userId) {
-		// TODO Auto-generated method stub
-		return "90.0";
-	}
-
-	private String getChest(String userId) {
-		// TODO Auto-generated method stub
-		return "95.0";
-	}
-
-	private String getWeight(String userId) {
-		// TODO Auto-generated method stub
-		return "80.00";
-	}
-
-	private String getHeight(String userId) {
-		// TODO Auto-generated method stub
-		return "180";
-	}
-
-	private String getAge(String userId) {
-		// TODO Auto-generated method stub
-		return "18";
-	}
-
-	private String getrechargeAccount(String userId) {
-		// TODO Auto-generated method stub
-		return "3000.00";
-	}
-
-	private String getPhone(String userId) {
-		// TODO Auto-generated method stub
-		return "18600090821";
-	}
-
-	private String getSex(String userId) {
-		// TODO Auto-generated method stub
-		return "Male";
-	}
-	
-	
 
 }

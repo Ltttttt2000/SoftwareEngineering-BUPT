@@ -255,11 +255,12 @@ public class User{
 	 }
 	 String getPhone() {
 		return this.phoneNumber;
-		 
 	 }
-     Boolean getLloginLlicence(){
+	 double getRechargeAccount(){
+ 		return this.rechargeAmount;
+	 }
+     Boolean getLoginLicense(){
 		return this.loginLicense ;
-		 
 	 }
      String getSex() {
     	 return this.sex;
@@ -288,6 +289,8 @@ public class User{
  	double getHip() {
  		return this.hip;
  	}
+
+ 	String getResume(){return this.resume;}
 
  	void setAge(int age) {
 		this.age = age;

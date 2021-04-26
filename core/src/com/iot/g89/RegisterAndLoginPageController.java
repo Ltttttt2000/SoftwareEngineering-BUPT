@@ -142,14 +142,14 @@ public class RegisterAndLoginPageController implements Initializable {
 			movingMode[1] = "normal";
 		}
 		
-		GuiUtils.ChangePosition(loginMovePane, lmpX, 0, 0, time, movingMode[1]);
-		GuiUtils.ChangePosition(registerMovePane, rmpX, 192, delay, time, movingMode[0]);
+		GUIUtils.ChangePosition(loginMovePane, lmpX, 0, 0, time, movingMode[1]);
+		GUIUtils.ChangePosition(registerMovePane, rmpX, 192, delay, time, movingMode[0]);
 		
-		GuiUtils.ChangePosition(loginReshapePane, lrpX, 96);
-		GuiUtils.ChangePosition(registerReshapePane, rrpX, 96);
+		GUIUtils.ChangePosition(loginReshapePane, lrpX, 96);
+		GUIUtils.ChangePosition(registerReshapePane, rrpX, 96);
 		
-		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 1.5);
-		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 0.5);
+		GUIUtils.ChangeSize(loginReshapePane, lrpSize, 1.5);
+		GUIUtils.ChangeSize(registerReshapePane, rrpSize, 0.5);
 		
 		lmpX = 0;
 		rmpX = 192;
@@ -172,14 +172,14 @@ public class RegisterAndLoginPageController implements Initializable {
 			movingMode[1] = "normal";
 		}
 		
-		GuiUtils.ChangePosition(loginMovePane, lmpX, -192, delay, time, movingMode[0]);
-		GuiUtils.ChangePosition(registerMovePane, rmpX, 0, 0, time, movingMode[1]);
+		GUIUtils.ChangePosition(loginMovePane, lmpX, -192, delay, time, movingMode[0]);
+		GUIUtils.ChangePosition(registerMovePane, rmpX, 0, 0, time, movingMode[1]);
 		
-		GuiUtils.ChangePosition(loginReshapePane, lrpX, -96);
-		GuiUtils.ChangePosition(registerReshapePane, rrpX, -96);
+		GUIUtils.ChangePosition(loginReshapePane, lrpX, -96);
+		GUIUtils.ChangePosition(registerReshapePane, rrpX, -96);
 		
-		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 0.5);
-		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 1.5);
+		GUIUtils.ChangeSize(loginReshapePane, lrpSize, 0.5);
+		GUIUtils.ChangeSize(registerReshapePane, rrpSize, 1.5);
 		
 		lmpX = -192;
 		rmpX = 0;
@@ -191,14 +191,14 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	// when you click your mouse on the login part
 	public void ShowLoginPageClick(ActionEvent event) {
-		GuiUtils.ChangePosition(loginMovePane, lmpX, 0);
-		GuiUtils.ChangePosition(registerMovePane, rmpX, 384);
+		GUIUtils.ChangePosition(loginMovePane, lmpX, 0);
+		GUIUtils.ChangePosition(registerMovePane, rmpX, 384);
 		
-		GuiUtils.ChangePosition(loginReshapePane, lrpX, 192);
-		GuiUtils.ChangePosition(registerReshapePane, rrpX, 192);
+		GUIUtils.ChangePosition(loginReshapePane, lrpX, 192);
+		GUIUtils.ChangePosition(registerReshapePane, rrpX, 192);
 		
-		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 2);
-		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 0);
+		GUIUtils.ChangeSize(loginReshapePane, lrpSize, 2);
+		GUIUtils.ChangeSize(registerReshapePane, rrpSize, 0);
 		
 		lmpX = 0;
 		rmpX = 384;
@@ -216,14 +216,14 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	// when you click your mouse on the register part
 	public void ShowRegisterPageClick(ActionEvent event) {
-		GuiUtils.ChangePosition(loginMovePane, lmpX, -384);
-		GuiUtils.ChangePosition(registerMovePane, rmpX, 0);
+		GUIUtils.ChangePosition(loginMovePane, lmpX, -384);
+		GUIUtils.ChangePosition(registerMovePane, rmpX, 0);
 		
-		GuiUtils.ChangePosition(loginReshapePane, lrpX, -192);
-		GuiUtils.ChangePosition(registerReshapePane, rrpX, -192);
+		GUIUtils.ChangePosition(loginReshapePane, lrpX, -192);
+		GUIUtils.ChangePosition(registerReshapePane, rrpX, -192);
 		
-		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 0);
-		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 2);
+		GUIUtils.ChangeSize(loginReshapePane, lrpSize, 0);
+		GUIUtils.ChangeSize(registerReshapePane, rrpSize, 2);
 		
 		lmpX = -384;
 		rmpX = 0;
@@ -241,14 +241,14 @@ public class RegisterAndLoginPageController implements Initializable {
 	}
 	
 	public void SceneRestore(MouseEvent event) {
-		GuiUtils.ChangePosition(loginMovePane, lmpX, 0);
-		GuiUtils.ChangePosition(registerMovePane, rmpX, 0);
+		GUIUtils.ChangePosition(loginMovePane, lmpX, 0);
+		GUIUtils.ChangePosition(registerMovePane, rmpX, 0);
 		
-		GuiUtils.ChangePosition(loginReshapePane, lrpX, 0);
-		GuiUtils.ChangePosition(registerReshapePane, rrpX, 0);
+		GUIUtils.ChangePosition(loginReshapePane, lrpX, 0);
+		GUIUtils.ChangePosition(registerReshapePane, rrpX, 0);
 		
-		GuiUtils.ChangeSize(loginReshapePane, lrpSize, 1);
-		GuiUtils.ChangeSize(registerReshapePane, rrpSize, 1);
+		GUIUtils.ChangeSize(loginReshapePane, lrpSize, 1);
+		GUIUtils.ChangeSize(registerReshapePane, rrpSize, 1);
 		
 		lmpX = 0;
 		rmpX = 0;
@@ -261,10 +261,10 @@ public class RegisterAndLoginPageController implements Initializable {
 	//------------------------------------login page function----------------------------------------------
 	
 	public void MouseEnteredLogin(MouseEvent event) {
-		GuiUtils.ChangePosition(keyImg, 0, 142, 0);
+		GUIUtils.ChangePosition(keyImg, 0, 142, 0);
 	}
 	public void MouseExitLogin(MouseEvent event) {
-		GuiUtils.ChangePosition(keyImg, 142, 0, 0);
+		GUIUtils.ChangePosition(keyImg, 142, 0, 0);
 	}
 
 	/**
@@ -303,16 +303,16 @@ public class RegisterAndLoginPageController implements Initializable {
 
 		int x = driver.login(userId, password, type);
 
-		GuiUtils.checkTextField(userIdTF, true);
-		GuiUtils.checkTextField(userPasswordPF, true);
+		GUIUtils.checkTextField(userIdTF, true);
+		GUIUtils.checkTextField(userPasswordPF, true);
 
 		if(x == 1){
 			SceneTransform.ToClientStartPage(userId, thisScene);
 			userPasswordPF.setText("");
 		}else if (x == -1)
-			GuiUtils.checkTextField(userIdTF, false);
+			GUIUtils.checkTextField(userIdTF, false);
 		else
-			GuiUtils.checkTextField(userPasswordPF, false);
+			GUIUtils.checkTextField(userPasswordPF, false);
 	}
 
 	//-------------------------------------register page function----------------------------------------------
@@ -320,7 +320,7 @@ public class RegisterAndLoginPageController implements Initializable {
 		String password = registerPasswordPF.getText();
 		String confirmPassword = registerConfirmPasswordPF.getText();
 
-		int i = GuiUtils.isPassword(password);
+		int i = GUIUtils.isPassword(password);
 
 		resetColor();
 
@@ -334,15 +334,15 @@ public class RegisterAndLoginPageController implements Initializable {
 				case -3: rule3.setStyle(rule1.getStyle() + redColor);
 					break;
 			}
-			GuiUtils.checkTextField(registerPasswordPF, false);
+			GUIUtils.checkTextField(registerPasswordPF, false);
 		}
 		// different confirm password
 		else if(!password.equals(confirmPassword)){
-			GuiUtils.checkTextField(registerConfirmPasswordPF, false);
+			GUIUtils.checkTextField(registerConfirmPasswordPF, false);
 		}
 		// no choice of user type
 		else if(registerUserTypeCB.getValue().equals("User Type")){
-			GuiUtils.checkTextField(registerUserTypeCB, false);
+			GUIUtils.checkTextField(registerUserTypeCB, false);
 		}
 		// success
 		else{
@@ -367,7 +367,7 @@ public class RegisterAndLoginPageController implements Initializable {
 //			7 resume,	8 age,		9 height,	10 weight,	11 chest,		12 waist,		13 hip;
 			user[0] = "";
 			user[1] = registerPasswordPF.getText();
-			user[2] = registerUserTypeCB.getValue();
+			user[2] = "Normal";
 			user[3] = sexCB.getValue();
 			user[4] = phoneTF.getText();
 			user[5] = "TRUE";
@@ -380,7 +380,7 @@ public class RegisterAndLoginPageController implements Initializable {
 			user[12] = waistTF.getText();
 			user[13] = hipTF.getText();
 
-			String userId = driver.registerUser(user, typeCB.getValue());
+			String userId = driver.registerUser(user, registerUserTypeCB.getValue());
 			userIdLabel.setText(userId);
 			idPane.setVisible(true);
 		}
@@ -403,9 +403,9 @@ public class RegisterAndLoginPageController implements Initializable {
 		registerUserTypeCB.setDisable(!reset);
 		nextButton.setDisable(!reset);
 		if(reset)
-			GuiUtils.ChangePosition(passwordSettingPane, -240, 0, 300.0);
+			GUIUtils.ChangePosition(passwordSettingPane, -240, 0, 300.0);
 		else
-			GuiUtils.ChangePosition(passwordSettingPane, 0, -240, 300.0);
+			GUIUtils.ChangePosition(passwordSettingPane, 0, -240, 300.0);
 
 		basicInfoPane.setVisible(!reset);
 		rulePane.setVisible(reset);
@@ -413,23 +413,23 @@ public class RegisterAndLoginPageController implements Initializable {
 	}
 
 	public void changeTextFieldColor() {
-		GuiUtils.checkTextField(phoneTF, GuiUtils.isNum(phoneTF.getText()));
-		GuiUtils.checkTextField(ageTF, GuiUtils.isNum(ageTF.getText()));
-		GuiUtils.checkTextField(heightTF, GuiUtils.isNumeric(heightTF.getText()));
-		GuiUtils.checkTextField(weightTF, GuiUtils.isNumeric(weightTF.getText()));
-		GuiUtils.checkTextField(chestTF, GuiUtils.isNumeric(chestTF.getText()));
-		GuiUtils.checkTextField(waistTF, GuiUtils.isNumeric(waistTF.getText()));
-		GuiUtils.checkTextField(hipTF, GuiUtils.isNumeric(hipTF.getText()));
+		GUIUtils.checkTextField(phoneTF, GUIUtils.isNum(phoneTF.getText()));
+		GUIUtils.checkTextField(ageTF, GUIUtils.isNum(ageTF.getText()));
+		GUIUtils.checkTextField(heightTF, GUIUtils.isNumeric(heightTF.getText()));
+		GUIUtils.checkTextField(weightTF, GUIUtils.isNumeric(weightTF.getText()));
+		GUIUtils.checkTextField(chestTF, GUIUtils.isNumeric(chestTF.getText()));
+		GUIUtils.checkTextField(waistTF, GUIUtils.isNumeric(waistTF.getText()));
+		GUIUtils.checkTextField(hipTF, GUIUtils.isNumeric(hipTF.getText()));
 	}
 
 	public Boolean allRightInput() {
-		if(GuiUtils.isNum(phoneTF.getText())
-				&& GuiUtils.isNum(ageTF.getText())
-				&& GuiUtils.isNumeric(heightTF.getText())
-				&& GuiUtils.isNumeric(weightTF.getText())
-				&& GuiUtils.isNumeric(chestTF.getText())
-				&& GuiUtils.isNumeric(waistTF.getText())
-				&& GuiUtils.isNumeric(hipTF.getText()))
+		if(GUIUtils.isNum(phoneTF.getText())
+				&& GUIUtils.isNum(ageTF.getText())
+				&& GUIUtils.isNumeric(heightTF.getText())
+				&& GUIUtils.isNumeric(weightTF.getText())
+				&& GUIUtils.isNumeric(chestTF.getText())
+				&& GUIUtils.isNumeric(waistTF.getText())
+				&& GUIUtils.isNumeric(hipTF.getText()))
 			return true;
 		else
 			return false;
@@ -440,20 +440,20 @@ public class RegisterAndLoginPageController implements Initializable {
 	 */
 	private void resetColor(){
 		rule1.setStyle(rule1.getStyle() + noColor);
-		rule2.setStyle(rule1.getStyle() + noColor);
-		rule3.setStyle(rule1.getStyle() + noColor);
+		rule2.setStyle(rule2.getStyle() + noColor);
+		rule3.setStyle(rule3.getStyle() + noColor);
 
-		GuiUtils.checkTextField(registerPasswordPF, true);
-		GuiUtils.checkTextField(registerConfirmPasswordPF, true);
-		GuiUtils.checkTextField(registerUserTypeCB, true);
+		GUIUtils.checkTextField(registerPasswordPF, true);
+		GUIUtils.checkTextField(registerConfirmPasswordPF, true);
+		GUIUtils.checkTextField(registerUserTypeCB, true);
 
-		GuiUtils.checkTextField(phoneTF, true);
-		GuiUtils.checkTextField(ageTF, true);
-		GuiUtils.checkTextField(heightTF, true);
-		GuiUtils.checkTextField(weightTF, true);
-		GuiUtils.checkTextField(chestTF, true);
-		GuiUtils.checkTextField(waistTF, true);
-		GuiUtils.checkTextField(hipTF, true);
+		GUIUtils.checkTextField(phoneTF, true);
+		GUIUtils.checkTextField(ageTF, true);
+		GUIUtils.checkTextField(heightTF, true);
+		GUIUtils.checkTextField(weightTF, true);
+		GUIUtils.checkTextField(chestTF, true);
+		GUIUtils.checkTextField(waistTF, true);
+		GUIUtils.checkTextField(hipTF, true);
 	}
 
 

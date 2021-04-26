@@ -113,12 +113,15 @@ public class GUIDriver {
 
     public String getSex(){return gymUtils.user.getSex();}
     public String getPhone(){return gymUtils.user.getPhone();}
+    public String getRechargeAccount(){return String.format("%.2f", gymUtils.user.getRechargeAccount());}
     public String getAge(){return gymUtils.user.getAge() + "";}
     public String getHeight(){return gymUtils.user.getHeight() + "";}
     public String getWeight(){return String.format("%.2f", gymUtils.user.getWeight());}
     public String getChest(){return String.format("%.1f", gymUtils.user.getChest());}
     public String getWaist(){return String.format("%.1f", gymUtils.user.getWaist());}
     public String getHip(){return String.format("%.1f", gymUtils.user.getHip());}
+    public String getLoginLicense(){return String.valueOf(gymUtils.user.getLoginLicense());}
+    public String getResume(){return gymUtils.user.getResume();}
 //    public String getResume(){return gymUtils.user.get}
     public String getUserLevel(){return gymUtils.user.getUserLevel();}
     public String getUsertype(){return gymUtils.user.getClass().getSimpleName();}

@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
 
-public class GuiUtils {
+public class GUIUtils {
 
 	//---------------------------------------input check---------------------------------------------
 

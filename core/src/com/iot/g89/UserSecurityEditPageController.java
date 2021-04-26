@@ -29,6 +29,8 @@ public class UserSecurityEditPageController implements Initializable {
     private Label rule2;
     @FXML
     private Label rule3;
+    @FXML
+    private Label rule4;
 
     // rules label color
     private String redColor = "-fx-background-color: rgba(255,0,0,0.5);";
@@ -60,7 +62,7 @@ public class UserSecurityEditPageController implements Initializable {
         String oldPassword = oldPasswordTF.getText();
         String newPassword = newPasswordPF.getText();
 
-        int i = GuiUtils.isPassword(newPassword);
+        int i = GUIUtils.isPassword(newPassword);
 
         resetColor();
 
@@ -75,31 +77,50 @@ public class UserSecurityEditPageController implements Initializable {
         }
 
         if(i != 1){
-            GuiUtils.checkTextField(newPasswordPF, false);
+            GUIUtils.checkTextField(newPasswordPF, false);
         }
         // check if the Re-enter password is same with new password
         else if(!newPassword.equals(reNewPasswordPF.getText())){
-            GuiUtils.checkTextField(reNewPasswordPF, false);
+            GUIUtils.checkTextField(reNewPasswordPF, false);
         }
         // check if the old password is correct
-        else if(!resetPassword(userId, oldPassword, newPassword)){
-            GuiUtils.checkTextField(oldPasswordTF, false);
-            GuiUtils.checkTextField(reNewPasswordPF, true);
-        }
-        // Success
         else{
-            SceneTransform.ToRegisterAndLoginPage();
+            switch(driver.changePassword(oldPassword, newPassword)){
+                // wrong old password
+                case -1:
+                    GUIUtils.checkTextField(oldPasswordTF, false);
+                    break;
+                // new password is same as the old password
+                case -2:
+                    GUIUtils.checkTextField(newPasswordPF, false);
+                    rule4.setStyle(rule1.getStyle() + redColor);
+                    break;
+                //success
+                case 1:
+                    SceneTransform.ToRegisterAndLoginPage();
+                    break;
+            }
         }
+
+//        else if(!resetPassword(userId, oldPassword, newPassword)){
+//            GUIUtils.checkTextField(oldPasswordTF, false);
+//            GUIUtils.checkTextField(reNewPasswordPF, true);
+//        }
+//        // Success
+//        else{
+//            SceneTransform.ToRegisterAndLoginPage();
+//        }
     }
 
     private void resetColor(){
         rule1.setStyle(rule1.getStyle() + noColor);
-        rule2.setStyle(rule1.getStyle() + noColor);
-        rule3.setStyle(rule1.getStyle() + noColor);
+        rule2.setStyle(rule2.getStyle() + noColor);
+        rule3.setStyle(rule3.getStyle() + noColor);
+        rule4.setStyle(rule4.getStyle() + noColor);
 
-        GuiUtils.checkTextField(oldPasswordTF, true);
-        GuiUtils.checkTextField(newPasswordPF, true);
-        GuiUtils.checkTextField(reNewPasswordPF, true);
+        GUIUtils.checkTextField(oldPasswordTF, true);
+        GUIUtils.checkTextField(newPasswordPF, true);
+        GUIUtils.checkTextField(reNewPasswordPF, true);
     }
 
     private Boolean resetPassword(String userId, String oldPW, String newPW) {

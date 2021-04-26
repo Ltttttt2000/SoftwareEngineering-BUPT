@@ -253,7 +253,7 @@
                   </BorderPane>
                </children>
             </GridPane>
-            <TextArea fx:id="resumeTextArea" editable="false" focusTraversable="false" layoutX="14.0" layoutY="300.0" prefHeight="115.0" prefWidth="355.0" text="I am fat!!!!&#10;Yes!!!&#10;I need GYM!!!&#10;I want to lose weight!!!&#10;&#10;Of course,!!!&#10;Female instructor please!!!&#10;&#10;" wrapText="true" />
+            <TextArea fx:id="resumeTA" editable="false" focusTraversable="false" layoutX="14.0" layoutY="300.0" prefHeight="115.0" prefWidth="355.0" text="I am fat!!!!&#10;Yes!!!&#10;I need GYM!!!&#10;I want to lose weight!!!&#10;&#10;Of course,!!!&#10;Female instructor please!!!&#10;&#10;" wrapText="true" />
             <Button fx:id="saveButton" alignment="BOTTOM_CENTER" layoutX="229.0" layoutY="160.0" mnemonicParsing="false" onAction="#basicInfoSave" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Save" visible="false" />
             <Button fx:id="restoreButton" layoutX="122.0" layoutY="20.0" mnemonicParsing="false" onAction="#restoreByButton" text="restore" visible="false" />
          </children></AnchorPane>
@@ -287,10 +287,22 @@
                         <String fx:value="type-admin" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="instructorLabel" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Instructor ">
+                  <Label fx:id="instructorTypeLabelNormal" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Normal Instructor " visible="false">
                      <styleClass>
                         <String fx:value="type-label" />
-                        <String fx:value="type-instructor" />
+                        <String fx:value="type-instructor-normal" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="instructorTypeLabelSenior" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Senior Instructor ">
+                     <styleClass>
+                        <String fx:value="type-label" />
+                        <String fx:value="type-instructor-senior" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="instructorTypeLabelSuper" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Super Instructor " visible="false">
+                     <styleClass>
+                        <String fx:value="type-label" />
+                        <String fx:value="type-instructor-super" />
                      </styleClass>
                   </Label>
                </children>
