@@ -277,7 +277,6 @@ public class RegisterAndLoginPageController implements Initializable {
 		idPane.setVisible(false);
 
 		// for login pane
-		userIdTF.setText("");
 		userPasswordPF.setText("");
 
 		// for register pane
@@ -382,6 +381,7 @@ public class RegisterAndLoginPageController implements Initializable {
 
 			String userId = driver.registerUser(user, registerUserTypeCB.getValue());
 			userIdLabel.setText(userId);
+			userIdTF.setText(userId);
 			idPane.setVisible(true);
 		}
 	}

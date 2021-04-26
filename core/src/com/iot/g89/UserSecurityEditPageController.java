@@ -40,8 +40,6 @@ public class UserSecurityEditPageController implements Initializable {
     private Scene thisScene;
     private Scene lastScene;
 
-    private String password = "666666";
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -52,6 +50,10 @@ public class UserSecurityEditPageController implements Initializable {
         userIdLabel.setText(userId);
         this.thisScene = thisScene;
         this.lastScene = lastScene;
+
+        oldPasswordTF.setText("");
+        newPasswordPF.setText("");
+        reNewPasswordPF.setText("");
     }
 
     public void backToLastScene(ActionEvent event){
@@ -101,15 +103,6 @@ public class UserSecurityEditPageController implements Initializable {
                     break;
             }
         }
-
-//        else if(!resetPassword(userId, oldPassword, newPassword)){
-//            GUIUtils.checkTextField(oldPasswordTF, false);
-//            GUIUtils.checkTextField(reNewPasswordPF, true);
-//        }
-//        // Success
-//        else{
-//            SceneTransform.ToRegisterAndLoginPage();
-//        }
     }
 
     private void resetColor(){
@@ -121,12 +114,5 @@ public class UserSecurityEditPageController implements Initializable {
         GUIUtils.checkTextField(oldPasswordTF, true);
         GUIUtils.checkTextField(newPasswordPF, true);
         GUIUtils.checkTextField(reNewPasswordPF, true);
-    }
-
-    private Boolean resetPassword(String userId, String oldPW, String newPW) {
-        if(oldPW.equals(password))
-            return true;
-        else
-            return false;
     }
 }
