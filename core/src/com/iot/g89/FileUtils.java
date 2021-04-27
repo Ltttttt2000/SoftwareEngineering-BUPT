@@ -1,8 +1,11 @@
 package com.iot.g89;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -186,7 +189,6 @@ public class FileUtils {
 	public static boolean delete(String fileName) {
 		File file = new File(fileName);
 		if (!file.exists()) {
-//			System.out.println("删除文件失败：" + fileName + "文件不存在");
 			return false;
 		} else {
 			if (file.isFile()) {
@@ -208,7 +210,6 @@ public class FileUtils {
 		
 		// If the file corresponding to dir does not exist or is not a directory, exit
 		if (!dirFile.exists() || !dirFile.isDirectory()) {
-//			System.out.println("删除目录失败" + dir + "目录不存在！");
 			return false;
 		}
 		
@@ -235,17 +236,14 @@ public class FileUtils {
 		}
  
 		if (!flag) {
-//			System.out.println("删除目录失败");
 			return false;
 		}
  
 		// Delete current directory
 		if (dirFile.delete()) {
-//			System.out.println("删除目录" + dir + "成功！");
 			return true;
 		} 
 		else {
-//			System.out.println("删除目录" + dir + "失败！");
 			return false;
 		}
 	}
@@ -254,10 +252,8 @@ public class FileUtils {
 		File file = new File(fileName);
 		if (file.isFile() && file.exists()) {
 			file.delete();
-//			System.out.println("删除单个文件" + fileName + "成功！");
 			return true;
 		} else {
-//			System.out.println("删除单个文件" + fileName + "失败！");
 			return false;
 		}
 	}
@@ -452,6 +448,54 @@ public class FileUtils {
 		}
 		
 		return oldItem;
+	}
+	
+	/**
+	 * Uploads the local file to the specified location locally
+	 * @param dir
+	 * 			The destination directory for the upload
+	 * @param filePath
+	 * 			Locally, the path and name of the file to be uploaded
+	 * @param fileName
+	 * 			The file name after uploading
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	@SuppressWarnings("resource")
+	public static void uploadFile(String dir, String filePath, String fileName) 
+			throws FileNotFoundException, IOException{
+		
+		try {
+			File file = new File(filePath);
+			FileInputStream in = new FileInputStream(file);
+			File fileLocation = new File(dir);
+			
+			if(!fileLocation.exists()) {
+				boolean isCreated = fileLocation.mkdir();
+				if(!isCreated) {
+					return;
+				}
+			}
+			
+			File uploadFile = new File(dir, fileName);
+			OutputStream out = new FileOutputStream(uploadFile);
+			byte[] buffer = new byte[1024*1024];
+			
+			int length;
+			
+			while((length = in.read(buffer)) > 0) {
+				out.write(buffer, 0, length);
+			}
+			
+			in.close();
+			out.close();
+		}catch(FileNotFoundException ex) {
+			System.out.println("Failed upload.");
+			ex.printStackTrace();
+		}catch(IOException ex) {
+			System.out.println("Failed upload.");
+			ex.printStackTrace();
+		}
 	}
 	
 }
