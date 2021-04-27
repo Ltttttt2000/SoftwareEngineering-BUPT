@@ -9,7 +9,16 @@
 	-fx-font-size: 12px;
     -fx-text-fill: #333333;
     -fx-background-color: white;
-} 
+}
+
+.big-text-for-text-field{
+	-fx-font-size: 18px;
+	-fx-font-weight: bold;
+	-fx-font-family: "Arial";
+	-fx-text-fill: #333333;
+	-fx-effect: dropshadow( gaussian, rgba(255,255,255,0.5), 10, 0, 0, 1);
+}
+
 .dark-background-label{
 	-fx-text-fill: #CCCCCC;
 	-fx-effect: dropshadow( gaussian, rgba(0,0,0,0.5), 10, 0, 0, 1);

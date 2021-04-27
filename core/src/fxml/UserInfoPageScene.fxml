@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
@@ -9,7 +10,7 @@
 
 <AnchorPane prefHeight="432.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iot.g89.UserInfoPageController">
    <children>
-      <AnchorPane layoutX="384.0" prefHeight="432.0" prefWidth="384.0" stylesheets="@../css/AnchorPaneType.css">
+      <AnchorPane layoutX="384.0" prefHeight="432.0" prefWidth="384.0" stylesheets="@../css/PaneType.css">
          <children>
             <GridPane fx:id="infoShowingPane" layoutX="20.0" layoutY="14.0" prefHeight="273.0" prefWidth="197.0">
               <columnConstraints>
@@ -257,7 +258,7 @@
             <Button fx:id="saveButton" alignment="BOTTOM_CENTER" layoutX="229.0" layoutY="160.0" mnemonicParsing="false" onAction="#basicInfoSave" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Save" visible="false" />
             <Button fx:id="restoreButton" layoutX="122.0" layoutY="20.0" mnemonicParsing="false" onAction="#restoreByButton" text="restore" visible="false" />
          </children></AnchorPane>
-      <AnchorPane prefHeight="432.0" prefWidth="319.0" styleClass="background-pane-user-info" stylesheets="@../css/AnchorPaneType.css">
+      <AnchorPane prefHeight="432.0" prefWidth="319.0" styleClass="background-pane-user-info" stylesheets="@../css/PaneType.css">
          <children>
             <AnchorPane layoutY="286.0" prefHeight="146.0" prefWidth="384.0" style="-fx-background-color: rgba(50, 50, 50, 0.5);">
                <children>
@@ -309,5 +310,31 @@
             </AnchorPane>
             <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
          </children></AnchorPane>
+      <BorderPane fx:id="priceTagPane" layoutX="126.0" layoutY="58.0" prefHeight="118.0" prefWidth="314.0" rotate="-31.0" stylesheets="@../css/PaneType.css">
+         <center>
+            <Label fx:id="priceTagLabel" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" stylesheets="@../css/TextType.css" text="3000" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="12.0" />
+               </font>
+            </Label>
+         </center>
+         <right>
+            <Label stylesheets="@../css/TextType.css" text="£" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="12.0" />
+               </font>
+            </Label>
+         </right>
+         <left>
+            <Label stylesheets="@../css/TextType.css" text="Price:" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Calibri" size="12.0" />
+               </font>
+            </Label>
+         </left>
+         <padding>
+            <Insets left="15.0" right="149.0" top="58.0" />
+         </padding>
+      </BorderPane>
    </children>
 </AnchorPane>

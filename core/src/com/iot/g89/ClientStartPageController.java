@@ -48,7 +48,7 @@ public class ClientStartPageController implements Initializable {
 	@FXML
 	private Button myInstructorButton;
 	@FXML
-	private Button favoritesButton;
+	private Button courseBookingButton;
 	
 	// init user ID
 	private String userId;
@@ -83,7 +83,7 @@ public class ClientStartPageController implements Initializable {
 		backPane3.setVisible(true);
 		
 		backButtonMove(privateCourseButton, "right", "up", 0);
-		backButtonMove(favoritesButton, "right", "down", 1);
+		backButtonMove(courseBookingButton, "right", "down", 1);
 		backButtonMove(myInstructorButton, "left", "down", 2);
 		backButtonMove(purchasedCourseButton, "left", "up", 3);
 	}

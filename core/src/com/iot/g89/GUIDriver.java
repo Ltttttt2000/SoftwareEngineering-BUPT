@@ -122,7 +122,8 @@ public class GUIDriver {
     public String getHip(){return String.format("%.1f", gymUtils.user.getHip());}
     public String getLoginLicense(){return String.valueOf(gymUtils.user.getLoginLicense());}
     public String getResume(){return gymUtils.user.getResume();}
-//    public String getResume(){return gymUtils.user.get}
     public String getUserLevel(){return gymUtils.user.getUserLevel();}
     public String getUsertype(){return gymUtils.user.getClass().getSimpleName();}
+    // for intructor only
+    public String getInstructorMoney(){return String.valueOf(gymUtils.user.getInstructorMoney());}
 }

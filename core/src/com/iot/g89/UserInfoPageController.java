@@ -12,6 +12,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 
@@ -25,6 +26,11 @@ public class UserInfoPageController implements Initializable {
 	// basic info
 	@FXML
 	private GridPane infoShowingPane;
+	@FXML
+	private BorderPane priceTagPane;
+
+	@FXML
+	private Label priceTagLabel;
 	
 	@FXML
 	private Label sexLabel;
@@ -152,7 +158,8 @@ public class UserInfoPageController implements Initializable {
 		
 		resume = driver.getResume();
 		resumeTA.setText(resume);
-		
+
+		priceTagPane.setVisible(false);
 		// judge user's type
 		String userType = driver.getUsertype();
 		if(userType.equals("Administrator")) {
@@ -169,6 +176,9 @@ public class UserInfoPageController implements Initializable {
 			else { // if(instructorType.equals("SupremeMember"))
 				showLabel(instructorTypeLabelSuper);
 			}
+
+			priceTagPane.setVisible(true);
+			priceTagLabel.setText(driver.getInstructorMoney());
 		}
 		else { // if(userType.equals("client"))
 			String clientType = driver.getUserLevel();

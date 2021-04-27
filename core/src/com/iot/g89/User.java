@@ -292,6 +292,8 @@ public class User{
 
  	String getResume(){return this.resume;}
 
+	int getInstructorMoney(){return 0;}
+
  	void setAge(int age) {
 		this.age = age;
 		//userPhysical[1] = Integer.toString(this.age);

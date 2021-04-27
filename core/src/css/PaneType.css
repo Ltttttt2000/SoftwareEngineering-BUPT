@@ -34,3 +34,9 @@
 .background-pane-user-info{
 	-fx-background-image: url(../imgs/userInfoLeftBackground.png);
 }
+
+#priceTagPane{
+	-fx-background-image: url(../imgs/priceTagImg.png);
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+}
