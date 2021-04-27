@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Client extends User{
               // Normal, Member, SupremeMember
+	//
 	public Client(String userid) {
 		super(userid);
 	}
