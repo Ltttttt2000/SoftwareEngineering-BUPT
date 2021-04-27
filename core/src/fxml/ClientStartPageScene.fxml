@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="bakground-pane" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iot.g89.ClientStartPageController">
+<AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="bakground-pane" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.ClientStartPageController">
    <children>
       <Label fx:id="idLabel" layoutX="37.0" layoutY="43.0" prefHeight="50.0" prefWidth="88.0" stylesheets="@../css/TextType.css" text="ID" />
       <Label alignment="BOTTOM_LEFT" layoutX="111.0" layoutY="66.0" prefHeight="44.0" prefWidth="14.0" stylesheets="@../css/TextType.css" text=":" />

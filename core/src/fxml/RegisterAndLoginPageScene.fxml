@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="432.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iot.g89.RegisterAndLoginPageController">
+<AnchorPane prefHeight="432.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.RegisterAndLoginPageController">
    <children>
       <AnchorPane prefHeight="432.0" prefWidth="384.0" style="-fx-background-position: left;" styleClass="background-pane-register" stylesheets="@../css/PaneType.css" />
       <AnchorPane layoutX="384.0" prefHeight="432.0" prefWidth="384.0" style="-fx-background-position: right;" styleClass="background-pane-login" stylesheets="@../css/PaneType.css" />

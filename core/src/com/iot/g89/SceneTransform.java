@@ -2,6 +2,10 @@ package com.iot.g89;
 
 import java.io.IOException;
 
+import fxml.ClientStartPageController;
+import fxml.RegisterAndLoginPageController;
+import fxml.UserInfoPageController;
+import fxml.UserSecurityEditPageController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
