@@ -2,13 +2,18 @@ package fxml;
 
 import com.iot.g89.GUIDriver;
 import com.iot.g89.SceneTransform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 import java.net.URL;
@@ -16,9 +21,15 @@ import java.util.ResourceBundle;
 
 public class StorePageController  implements Initializable {
     @FXML
-    private VBox listVBox;
+    private ScrollPane videoPane;
     @FXML
-    private BorderPane testPane;
+    private ScrollPane instructorPane;
+
+    @FXML
+    private VBox instructorListVBox;
+    @FXML
+    private VBox videoListVBox;
+
 
     private String[] userIds;
     private GUIDriver driver;
@@ -31,6 +42,7 @@ public class StorePageController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
     public void initData(String curUserId, Scene thisScene, Scene lastScene, GUIDriver driver) {
         this.driver = driver;
         this.curUserId = curUserId;
@@ -38,12 +50,20 @@ public class StorePageController  implements Initializable {
         this.lastScene = lastScene;
 
         listInstructors();
+        listvideos();
     }
 
     private void listInstructors(){
         String[] instructors = getAllInstructorsId();
         for(String i:instructors){
-            listVBox.getChildren().add(drawButton(i));
+            instructorListVBox.getChildren().add(drawInstructorButton(i));
+        }
+    }
+
+    private void listvideos(){
+        String[] videos = getAllvideosId();
+        for(String v:videos){
+            videoListVBox.getChildren().add(drawVideoButton(v));
         }
     }
 
@@ -52,7 +72,12 @@ public class StorePageController  implements Initializable {
         return strs;
     }
 
-    public Button drawButton(String userId){
+    private String[] getAllvideosId() {
+        String[] strs = {"1001", "1002", "1003", "1004", "1005", "1006", "1007"};
+        return strs;
+    }
+
+    public Button drawInstructorButton(String userId){
         Button button = new Button();
         BorderPane buttonPane = new BorderPane();
         GridPane centerPane = new GridPane();
@@ -133,5 +158,95 @@ public class StorePageController  implements Initializable {
         });
 
         return button;
+    }
+
+    public Button drawVideoButton(String videoId){
+        Image image= new Image("file:core/src/imgs/videoCover.jpg");
+
+        Button button = new Button();
+        BorderPane buttonPane = new BorderPane();
+        GridPane centerPane = new GridPane();
+        BorderPane imagePane = new BorderPane();
+
+        Label videoIdLabel = new Label("ID: " + videoId);
+
+        Label videoTypeTextLabel = new Label("Video Type: ");
+        Label SportTypeTextLabel = new Label("Sport Type: ");
+
+        Label priceLabel = new Label("30" + "£");
+        Label videoTypeLabel = new Label("public");
+        Label sportTypeLabel = new Label("Yoga");
+
+        //col and row for centerPane
+        ColumnConstraints col = new ColumnConstraints(10, 100, Double.MAX_VALUE);
+        RowConstraints row = new RowConstraints(10, 30, Double.MAX_VALUE);
+
+        // bigger labels
+        videoIdLabel.setStyle("-fx-font-size: 24px;");
+        priceLabel.setStyle("-fx-font-size: 24px;");
+
+        // add labels into centerPane
+        centerPane.add(videoTypeTextLabel, 0, 0);
+        centerPane.add(SportTypeTextLabel, 0, 1);
+
+        // add labels with changeable value
+        centerPane.add(videoTypeLabel, 1, 0);
+        centerPane.add(sportTypeLabel, 1, 1);
+
+        // make those labels aligned to the right
+        GridPane.setHalignment(videoTypeTextLabel, HPos.RIGHT);
+        GridPane.setHalignment(SportTypeTextLabel, HPos.RIGHT);
+
+        // make the GridPane a better look
+        centerPane.getColumnConstraints().setAll(col, col);
+        centerPane.getRowConstraints().setAll(row, row);
+
+        imagePane.setRight(videoIdLabel);
+        imagePane.setCenter(new ImageView(image));
+
+        // Add nodes into buttonPane
+        buttonPane.setLeft(imagePane);
+        buttonPane.setCenter(centerPane);
+        buttonPane.setRight(priceLabel);
+        buttonPane.setPadding(new Insets(10));
+
+        // Layout in Button
+        BorderPane.setAlignment(videoIdLabel, Pos.CENTER);
+        centerPane.setAlignment(Pos.CENTER);
+        BorderPane.setAlignment(imagePane, Pos.CENTER_LEFT);
+        BorderPane.setAlignment(priceLabel, Pos.CENTER_RIGHT);
+
+        // set size
+        centerPane.setPrefSize(464, 76);
+        buttonPane.setPrefSize(750, 84);
+
+        button.setMaxWidth(750);
+        button.setMinHeight(84);
+
+        // add buttonPane into button
+        button.setGraphic(buttonPane);
+
+        button.setOnAction(e ->{
+            System.out.println("Video " + videoId);
+        });
+
+        return button;
+    }
+
+    public void showVideoStore(ActionEvent event){
+        instructorPane.setVisible(false);
+        videoPane.setVisible(true);
+    }
+
+    public void showInstructorStore(ActionEvent event){
+        videoPane.setVisible(false);
+        instructorPane.setVisible(true);
+    }
+
+    // for back button
+    public void backToLastScene(){
+        SceneTransform.ToScene(lastScene);
+        videoListVBox.getChildren().clear();
+        instructorListVBox.getChildren().clear();
     }
 }

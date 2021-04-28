@@ -10,17 +10,22 @@
 
 <AnchorPane prefHeight="432.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.StorePageController">
    <children>
-      <BorderPane layoutX="284.0" layoutY="116.0" prefHeight="432.0" prefWidth="768.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <AnchorPane prefHeight="140.0" prefWidth="768.0" BorderPane.alignment="CENTER" />
-         </top>
-         <center>
-            <ScrollPane prefHeight="292.0" prefWidth="768.0" BorderPane.alignment="CENTER">
-               <content>
-                  <VBox fx:id="listVBox" prefHeight="292.0" prefWidth="750.0" />
-               </content>
-            </ScrollPane>
-         </center>
-      </BorderPane>
+      <AnchorPane prefHeight="140.0" prefWidth="768.0">
+         <children>
+            <Button layoutY="115.0" mnemonicParsing="false" onAction="#showVideoStore" prefHeight="23.0" prefWidth="369.0" text="Video Store" />
+            <Button layoutX="369.0" layoutY="115.0" mnemonicParsing="false" onAction="#showInstructorStore" prefHeight="23.0" prefWidth="399.0" text="Instructor Store" />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="instructorPane" layoutY="140.0" prefHeight="292.0" prefWidth="768.0">
+         <content>
+            <VBox fx:id="instructorListVBox" prefHeight="292.0" prefWidth="750.0" />
+         </content>
+      </ScrollPane>
+      <ScrollPane fx:id="videoPane" layoutY="140.0" prefHeight="292.0" prefWidth="768.0">
+         <content>
+            <VBox fx:id="videoListVBox" prefHeight="292.0" prefWidth="750.0" />
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
