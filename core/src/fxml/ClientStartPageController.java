@@ -71,6 +71,10 @@ public class ClientStartPageController implements Initializable {
 		this.thisScene = thisScene;
 		this.lastScene = lastScene;
 	}
+
+	public void goToStorePage(ActionEvent event){
+		SceneTransform.ToStorePage(userId, thisScene);
+	}
 	
 	public void showBackPane2(ActionEvent event) {
 		System.out.println("Button Clicked!");

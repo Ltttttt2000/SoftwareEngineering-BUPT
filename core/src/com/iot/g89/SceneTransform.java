@@ -2,10 +2,7 @@ package com.iot.g89;
 
 import java.io.IOException;
 
-import fxml.ClientStartPageController;
-import fxml.RegisterAndLoginPageController;
-import fxml.UserInfoPageController;
-import fxml.UserSecurityEditPageController;
+import fxml.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -17,11 +14,13 @@ public class SceneTransform {
 	private static Scene sceneRegisterAndLoginPage;
 	private static Scene sceneUserInfoPage;
 	private static Scene sceneUserSecurityEditPage;
+	private static Scene sceneSorePage;
 	
 	private static ClientStartPageController clientStartPageController;
 	private static RegisterAndLoginPageController registerAndLoginPageController;
 	private static UserInfoPageController userInfoPageController;
 	private static UserSecurityEditPageController userSecurityEditPageController;
+	private static StorePageController storePageController;
 
 	private static GUIDriver driver = new GUIDriver();
 	
@@ -36,16 +35,19 @@ public class SceneTransform {
 			FXMLLoader loaderRegisterAndLoginPage = new FXMLLoader(getClass().getResource("/fxml/RegisterAndLoginPageScene.fxml"));
 			FXMLLoader loaderUserInfoPage = new FXMLLoader(getClass().getResource("/fxml/UserInfoPageScene.fxml"));
 			FXMLLoader loaderUserSecurityEditPage = new FXMLLoader(getClass().getResource("/fxml/UserSecurityEditPageScene.fxml"));
+			FXMLLoader loaderStorePage = new FXMLLoader(getClass().getResource("/fxml/StorePageScene.fxml"));
 
 			sceneClientStartPage = new Scene(loaderClientStartPage.load());
 			sceneRegisterAndLoginPage = new Scene(loaderRegisterAndLoginPage.load());
 			sceneUserInfoPage = new Scene(loaderUserInfoPage.load());
 			sceneUserSecurityEditPage = new Scene(loaderUserSecurityEditPage.load());
+			sceneSorePage = new Scene(loaderStorePage.load());
 			
 			clientStartPageController = loaderClientStartPage.getController();
 			registerAndLoginPageController = loaderRegisterAndLoginPage.getController();
 			userInfoPageController = loaderUserInfoPage.getController();
 			userSecurityEditPageController = loaderUserSecurityEditPage.getController();
+			storePageController = loaderStorePage.getController();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -71,6 +73,16 @@ public class SceneTransform {
 	public static void ToUserSecurityEditPage(String userId, Scene lastScene) {
 		userSecurityEditPageController.initData(userId, sceneUserSecurityEditPage, lastScene, driver);
 		ToScene(sceneUserSecurityEditPage);
+	}
+
+	public static void ToStorePage(String userId) {
+		storePageController.initData(userId, sceneSorePage, sceneSorePage, driver);
+		ToScene(sceneSorePage);
+	}
+
+	public static void ToStorePage(String userId, Scene lastScene) {
+		storePageController.initData(userId, sceneSorePage, lastScene, driver);
+		ToScene(sceneSorePage);
 	}
 	
 	public static void ToScene(Scene scene) {

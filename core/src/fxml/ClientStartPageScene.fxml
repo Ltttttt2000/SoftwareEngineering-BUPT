@@ -14,7 +14,7 @@
       <Label fx:id="idLabel" layoutX="37.0" layoutY="43.0" prefHeight="50.0" prefWidth="88.0" stylesheets="@../css/TextType.css" text="ID" />
       <Label alignment="BOTTOM_LEFT" layoutX="111.0" layoutY="66.0" prefHeight="44.0" prefWidth="14.0" stylesheets="@../css/TextType.css" text=":" />
       <Label fx:id="userIdLabel" layoutX="126.0" layoutY="82.0" stylesheets="@../css/TextType.css" text="123456" />
-      <Button layoutX="65.0" layoutY="252.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="121.0" stylesheets="@../css/ButtonType.css">
+      <Button layoutX="65.0" layoutY="252.0" mnemonicParsing="false" onAction="#goToStorePage" prefHeight="121.0" prefWidth="121.0" stylesheets="@../css/ButtonType.css">
          <styleClass>
             <String fx:value="button1" />
             <String fx:value="button-round" />
