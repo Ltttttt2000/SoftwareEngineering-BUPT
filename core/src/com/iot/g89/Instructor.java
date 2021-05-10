@@ -32,7 +32,7 @@ public class Instructor extends User{
  	 *
  	 * @param resume the new resume
  	 */
- 	void setResume(String resume) {
+	 public void setResume(String resume) {
 		 this.resume = resume;
 		 String[] attrs = new String[] {"resume"};
 		 String[] values = new String[] {String.valueOf(this.resume)};
@@ -44,7 +44,7 @@ public class Instructor extends User{
  	 *
  	 * @return the resume
  	 */
- 	String getResume() {
+	 public String getResume() {
 		 return this.resume;
 	 }
 	 
@@ -53,7 +53,7 @@ public class Instructor extends User{
  	 *
  	 * @param instructorMoney the new instructor money
  	 */
- 	void setInstructorMoney(int instructorMoney) {
+	 public void setInstructorMoney(int instructorMoney) {
 		 this.instructorMoney = instructorMoney;
 		 String[] attrs = new String[] {"instructorMoney"};
 		 String[] values = new String[] {String.valueOf(this.instructorMoney)};
@@ -65,7 +65,7 @@ public class Instructor extends User{
  	 *
  	 * @return the instructor money
  	 */
- 	int getInstructorMoney() {
+	 public int getInstructorMoney() {
 		 return this.instructorMoney;
 	 }
 
@@ -73,7 +73,7 @@ public class Instructor extends User{
  	 * Upload video.
  	 */
  	//Todo!!!
-	 void uploadVideo() {
+	 public void uploadVideo() {
 		 
 		 
 	 }
@@ -83,7 +83,7 @@ public class Instructor extends User{
  	 *
  	 * @param video the video
  	 */
- 	void deleteVideo(Video video) {
+	 public void deleteVideo(Video video) {
 		 FileUtils.deleteCSV(video.videoId, "./videoCSV.csv");
 		 FileUtils.delete("./Video/"+ video.videoId+".mp4");
 	 }
@@ -94,7 +94,7 @@ public class Instructor extends User{
  	 * @param video the video
  	 */
  	//Todo!!!!
-	 void playVideo(Video video) { 
+	 public void playVideo(Video video) {
 		 
 	 }
 	 
@@ -104,7 +104,7 @@ public class Instructor extends User{
  	 * @param video the video
  	 */
  	//Todo!!!
-	 void editVideo(Video video) {
+	 public void editVideo(Video video) {
 		 
 		 
 	 }
@@ -161,7 +161,7 @@ public class Instructor extends User{
  	 *
  	 * @param member the member
  	 */
- 	void checkMyMember(Client member) {
+	 public void checkMyMember(Client member) {
 		
 			 System.out.println("Id:"+ member.getId()+"\n"+
 			 					"Sex"+ member.getSex() +"\n"+
