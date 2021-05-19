@@ -165,63 +165,52 @@ public class StorePageController  implements Initializable {
 
         Button button = new Button();
         BorderPane buttonPane = new BorderPane();
-        GridPane centerPane = new GridPane();
+        BorderPane centerPane = new BorderPane();
         BorderPane imagePane = new BorderPane();
 
         Label videoIdLabel = new Label("ID: " + videoId);
 
-        Label videoTypeTextLabel = new Label("Video Type: ");
-        Label SportTypeTextLabel = new Label("Sport Type: ");
-
         Label priceLabel = new Label("30" + "£");
-        Label videoTypeLabel = new Label("public");
-        Label sportTypeLabel = new Label("Yoga");
-
-        //col and row for centerPane
-        ColumnConstraints col = new ColumnConstraints(10, 100, Double.MAX_VALUE);
-        RowConstraints row = new RowConstraints(10, 30, Double.MAX_VALUE);
+        Label videoTypeLabel = new Label("Video Type: " + "public" + " | Author: " + "橙色大呲花");
+        Label sportTypeLabel = new Label("Sport Type: " + "Yoga");
 
         // bigger labels
-        videoIdLabel.setStyle("-fx-font-size: 24px;");
+        button.setStyle("-fx-background-color: white;" +
+                "-fx-border-style: hidden hidden solid hidden;" +
+                "-fx-font-family: Arial;");
+        videoIdLabel.setStyle("-fx-font-size: 24px;-fx-font-family: 'Arial Black';");
         priceLabel.setStyle("-fx-font-size: 24px;");
+        videoTypeLabel.setStyle("-fx-text-fill: gray");
+        sportTypeLabel.setStyle("-fx-text-fill: gray");
 
-        // add labels into centerPane
-        centerPane.add(videoTypeTextLabel, 0, 0);
-        centerPane.add(SportTypeTextLabel, 0, 1);
-
-        // add labels with changeable value
-        centerPane.add(videoTypeLabel, 1, 0);
-        centerPane.add(sportTypeLabel, 1, 1);
-
-        // make those labels aligned to the right
-        GridPane.setHalignment(videoTypeTextLabel, HPos.RIGHT);
-        GridPane.setHalignment(SportTypeTextLabel, HPos.RIGHT);
-
-        // make the GridPane a better look
-        centerPane.getColumnConstraints().setAll(col, col);
-        centerPane.getRowConstraints().setAll(row, row);
-
-        imagePane.setRight(videoIdLabel);
+        centerPane.setLeft(sportTypeLabel);
+        centerPane.setTop(videoIdLabel);
+        centerPane.setRight(videoTypeLabel);
+        centerPane.setPadding(new Insets(0,20,0,10));
         imagePane.setCenter(new ImageView(image));
 
         // Add nodes into buttonPane
         buttonPane.setLeft(imagePane);
         buttonPane.setCenter(centerPane);
         buttonPane.setRight(priceLabel);
-        buttonPane.setPadding(new Insets(10));
+        buttonPane.setPadding(new Insets(20));
 
         // Layout in Button
-        BorderPane.setAlignment(videoIdLabel, Pos.CENTER);
-        centerPane.setAlignment(Pos.CENTER);
+        BorderPane.setAlignment(videoIdLabel, Pos.TOP_LEFT);
+        BorderPane.setAlignment(sportTypeLabel, Pos.BOTTOM_LEFT);
+        BorderPane.setAlignment(videoTypeLabel, Pos.BOTTOM_RIGHT);
+
+        BorderPane.setAlignment(centerPane, Pos.CENTER);
+
         BorderPane.setAlignment(imagePane, Pos.CENTER_LEFT);
         BorderPane.setAlignment(priceLabel, Pos.CENTER_RIGHT);
 
         // set size
-        centerPane.setPrefSize(464, 76);
-        buttonPane.setPrefSize(750, 84);
+        centerPane.setPrefSize(464, 90);
+        buttonPane.setPrefSize(750, 100);
 
         button.setMaxWidth(750);
-        button.setMinHeight(84);
+        button.setMinHeight(100);
 
         // add buttonPane into button
         button.setGraphic(buttonPane);
