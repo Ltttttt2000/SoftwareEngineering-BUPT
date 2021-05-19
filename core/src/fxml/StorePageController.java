@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class StorePageController  implements Initializable {
@@ -78,77 +79,87 @@ public class StorePageController  implements Initializable {
     }
 
     public Button drawInstructorButton(String userId){
+        StackPane imagePane = new StackPane();
+
+        Image normalBorder = new Image("file:core/src/imgs/normalborder.png", 90, 90, false, false);
+        Image superBorder = new Image("file:core/src/imgs/superborder.png", 90, 90, false, false);
+        Image seniorBorder = new Image("file:core/src/imgs/seniorborder.png", 90, 90, false, false);
+
+        Image imageMale = new Image("file:core/src/imgs/instructorHeadPortraitMale.png", 90, 90, false, false);
+        Image imageFemale = new Image("file:core/src/imgs/instructorHeadPortraitFemale.png", 90, 90, false, false);
+
+        ImageView imageHead= new ImageView();
+        ImageView imageBorder= new ImageView();
+
         Button button = new Button();
         BorderPane buttonPane = new BorderPane();
-        GridPane centerPane = new GridPane();
+        BorderPane centerPane = new BorderPane();
 
         Label userIdLabel = new Label("ID: " + userId);
-
-        Label ageTextLabel = new Label("Age: ");
-        Label sexTextLabel = new Label("Sex: ");
-        Label userTypeTextLabel = new Label("User Type: ");
-        Label userLevelTextLabel = new Label("User Level: ");
-
-//        Label priceLabel = new Label(driver.getInstructorMoney(userId) + "£");
-//
-//        Label ageLabel = new Label(driver.getAge(userId));
-//        Label sexLabel = new Label(driver.getSex(userId));
-//        Label userTypeLabel = new Label(driver.getUsertype(userId));
-//        Label userLevelLabel = new Label(driver.getUserLevel(userId));
-
         Label priceLabel = new Label("3000" + "£");
 
-        Label ageLabel = new Label("18");
-        Label sexLabel = new Label("Male");
-        Label userTypeLabel = new Label("Instructor");
-        Label userLevelLabel = new Label("Super");
+        Random r = new Random();
 
-        //col and row for centerPane
-        ColumnConstraints col = new ColumnConstraints(10, 100, Double.MAX_VALUE);
-        RowConstraints row = new RowConstraints(10, 30, Double.MAX_VALUE);
+        String sex = r.nextInt(100) > 50 ? "Male" : "Female";
+        String age = "18";
+        String userType = "Instructor";
+        String userLevel;
+        if(r.nextInt(100) > 66)
+            userLevel = "Normal";
+        else
+            userLevel = r.nextInt(100) > 50 ? "Senior" : "Super";
+
+        Label infoLabel = new Label("Age: " + age + " | Sex: " + sex);
+        Label levelLabel = new Label("Instructor Level: " + userLevel + " " + userType);
 
         // bigger labels
-        userIdLabel.setStyle("-fx-font-size: 24px;");
+        button.setStyle("-fx-background-color: white;" +
+                "-fx-border-style: hidden hidden solid hidden;" +
+                "-fx-font-family: Arial;");
+        userIdLabel.setStyle("-fx-font-size: 24px;-fx-font-family: 'Arial Black';");
         priceLabel.setStyle("-fx-font-size: 24px;");
-
-        // add labels into centerPane
-        centerPane.add(ageTextLabel, 0, 0);
-        centerPane.add(sexTextLabel, 0, 1);
-        centerPane.add(userTypeTextLabel, 2, 0);
-        centerPane.add(userLevelTextLabel, 2, 1);
-
-        // add labels with changeable value
-        centerPane.add(ageLabel, 1, 0);
-        centerPane.add(sexLabel, 1, 1);
-        centerPane.add(userTypeLabel, 3, 0);
-        centerPane.add(userLevelLabel, 3, 1);
-
-        // make those labels aligned to the right
-        GridPane.setHalignment(ageTextLabel, HPos.RIGHT);
-        GridPane.setHalignment(sexTextLabel, HPos.RIGHT);
-        GridPane.setHalignment(userTypeTextLabel, HPos.RIGHT);
-        GridPane.setHalignment(userLevelTextLabel, HPos.RIGHT);
-
-        // make the GridPane a better look
-        centerPane.getColumnConstraints().setAll(col, col, col, col);
-        centerPane.getRowConstraints().setAll(row, row);
+        levelLabel.setStyle("-fx-text-fill: gray");
+        infoLabel.setStyle("-fx-text-fill: gray");
 
         // Add nodes into buttonPane
-        buttonPane.setLeft(userIdLabel);
+        centerPane.setTop(userIdLabel);
+        centerPane.setLeft(levelLabel);
+        centerPane.setRight(infoLabel);
+        centerPane.setPadding(new Insets(0,20,0,10));
+
+        if(sex.equals("Female"))
+            imageHead.setImage(imageFemale);
+        else
+            imageHead.setImage(imageMale);
+
+        if(userLevel.equals("Super"))
+            imageBorder.setImage(superBorder);
+        else if(userLevel.equals("Senior"))
+            imageBorder.setImage(seniorBorder);
+        else
+            imageBorder.setImage(normalBorder);
+
+        imagePane.getChildren().addAll(imageHead, imageBorder);
+        buttonPane.setLeft(imagePane);
         buttonPane.setCenter(centerPane);
         buttonPane.setRight(priceLabel);
+        buttonPane.setPadding(new Insets(20));
 
         // Layout in Button
-        centerPane.setAlignment(Pos.CENTER);
+        BorderPane.setAlignment(centerPane, Pos.CENTER);
+
         BorderPane.setAlignment(userIdLabel, Pos.CENTER_LEFT);
+        BorderPane.setAlignment(levelLabel, Pos.BOTTOM_LEFT);
+        BorderPane.setAlignment(infoLabel, Pos.BOTTOM_LEFT);
+
         BorderPane.setAlignment(priceLabel, Pos.CENTER_RIGHT);
 
         // set size
-        centerPane.setPrefSize(464, 76);
-        buttonPane.setPrefSize(750, 84);
+        centerPane.setPrefSize(464, 90);
+        buttonPane.setPrefSize(750, 100);
 
         button.setMaxWidth(750);
-        button.setMinHeight(84);
+        button.setMinHeight(100);
 
         // add buttonPane into button
         button.setGraphic(buttonPane);
@@ -161,7 +172,7 @@ public class StorePageController  implements Initializable {
     }
 
     public Button drawVideoButton(String videoId){
-        Image image= new Image("file:core/src/imgs/videoCover.jpg");
+        ImageView image= new ImageView("file:core/src/imgs/videoCover.jpg");
 
         Button button = new Button();
         BorderPane buttonPane = new BorderPane();
@@ -187,7 +198,7 @@ public class StorePageController  implements Initializable {
         centerPane.setTop(videoIdLabel);
         centerPane.setRight(videoTypeLabel);
         centerPane.setPadding(new Insets(0,20,0,10));
-        imagePane.setCenter(new ImageView(image));
+        imagePane.setCenter(image);
 
         // Add nodes into buttonPane
         buttonPane.setLeft(imagePane);
