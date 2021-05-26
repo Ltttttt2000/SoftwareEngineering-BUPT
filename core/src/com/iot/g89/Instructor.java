@@ -26,7 +26,7 @@ public class Instructor extends User{
 
 	public Instructor(String[] para) {
  		super(para);
-		this.instructorMoney = Integer.parseInt(selectList.get(entry)[14]);
+		this.instructorMoney = Integer.parseInt(para[14]);
 	}
 	 
 	 /**
@@ -39,15 +39,6 @@ public class Instructor extends User{
 		 String[] attrs = new String[] {"resume"};
 		 String[] values = new String[] {String.valueOf(this.resume)};
 		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
-	 }
-	 
-	 /**
- 	 * Gets the resume.
- 	 *
- 	 * @return the resume
- 	 */
-	 public String getResume() {
-		 return this.resume;
 	 }
 	 
 	 /**
