@@ -1,10 +1,10 @@
 userid,password,userLevel,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip
-1001,123123,Normal,None,12345678,TRUE,0,None,0,0.0,0.0,0.0,0.0,0.0
-1002,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0
-1004,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0
-1005,ababa,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
-1006,abc123,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
-1007,abc123,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
-1008,abc123,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
-1009,123123w,SupremeMember,Male,123123123,TRUE,0.00,my name is balabala,18,170.0,70.0,86.7,57.8,92.1
-1010,88888888qw,Normal,Female,123,TRUE,0.00,hhhhhhhhhhh,3000,170.0,70.0,86.7,57.8,92.1
+C1001,123123,Normal,None,12345678,TRUE,0,None,0,0.0,0.0,0.0,0.0,0.0
+C1002,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0
+C1004,123123,Normal,None,None,TRUE,0,None,0,0,0,0,0,0
+C1005,ababa,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
+C1006,abc123,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
+C1007,abc123,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
+C1008,abc123,Normal,None,None,TRUE,0,None,10,23,32,0,0,0
+C1009,123123w,SupremeMember,Male,123123123,TRUE,0.00,my name is balabala,18,170.0,70.0,86.7,57.8,92.1
+C1010,88888888qw,Normal,Female,123,TRUE,0.00,hhhhhhhhhhh,3000,170.0,70.0,86.7,57.8,92.1

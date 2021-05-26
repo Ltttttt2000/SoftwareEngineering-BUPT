@@ -53,12 +53,13 @@ public class GUIDriver {
     public String registerUser(String[] parameters, String type){
 
         String userid = gymUtils.findLastIDPlus1(type) + "";
-        parameters[0] = userid;
 
         if(type.equals("Instructor")){
             parameters = Arrays.copyOf(parameters, parameters.length + 1);
             parameters[parameters.length - 1] = "0";
-        }
+            parameters[0] = "I" + userid;
+        }else
+            parameters[0] = "C" + userid;
 
         ArrayList<String[]> userInfoList = new ArrayList<String[]>();
         userInfoList.add(parameters);
@@ -111,19 +112,182 @@ public class GUIDriver {
 
     }
 
-    public String getSex(){return gymUtils.user.getSex();}
-    public String getPhone(){return gymUtils.user.getPhone();}
-    public String getRechargeAccount(){return String.format("%.2f", gymUtils.user.getRechargeAccount());}
-    public String getAge(){return gymUtils.user.getAge() + "";}
-    public String getHeight(){return gymUtils.user.getHeight() + "";}
-    public String getWeight(){return String.format("%.2f", gymUtils.user.getWeight());}
-    public String getChest(){return String.format("%.1f", gymUtils.user.getChest());}
-    public String getWaist(){return String.format("%.1f", gymUtils.user.getWaist());}
-    public String getHip(){return String.format("%.1f", gymUtils.user.getHip());}
-    public String getLoginLicense(){return String.valueOf(gymUtils.user.getLoginLicense());}
-    public String getResume(){return gymUtils.user.getResume();}
-    public String getUserLevel(){return gymUtils.user.getUserLevel();}
-    public String getUsertype(){return gymUtils.user.getClass().getSimpleName();}
+    public String getSex(){return getSex(gymUtils.user.getId());}
+    public String getPhone(){return getPhone(gymUtils.user.getId());}
+    public String getRechargeAccount(){return getRechargeAccount(gymUtils.user.getId());}
+    public String getAge(){return getAge(gymUtils.user.getId());}
+    public String getHeight(){return getHeight(gymUtils.user.getId());}
+    public String getWeight(){return getWeight(gymUtils.user.getId());}
+    public String getChest(){return getChest(gymUtils.user.getId());}
+    public String getWaist(){return getWaist(gymUtils.user.getId());}
+    public String getHip(){return getHip(gymUtils.user.getId());}
+    public String getLoginLicense(){return getLoginLicense(gymUtils.user.getId());}
+    public String getResume(){return getResume(gymUtils.user.getId());}
+    public String getUserLevel(){return getUserLevel(gymUtils.user.getId());}
+    public String getUsertype(){return getUsertype(gymUtils.user.getId());}
     // for intructor only
     public String getInstructorMoney(){return String.valueOf(gymUtils.user.getInstructorMoney());}
+
+    public String getSex(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return user.getSex();
+        return null;
+    }
+
+    public String getPhone(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return user.getPhone();
+        return null;
+    }
+
+    public String getRechargeAccount(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return String.format("%.2f", user.getRechargeAccount());
+        return null;
+    }
+
+    public String getAge(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return user.getAge() + "";
+        return null;
+    }
+
+    public String getHeight(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return user.getHeight() + "";
+        return null;
+    }
+
+    public String getWeight(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return String.format("%.2f", user.getWeight());
+        return null;
+    }
+
+    public String getChest(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return String.format("%.1f", user.getChest());
+        return null;
+    }
+
+    public String getWaist(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return String.format("%.1f", user.getWaist());
+        return null;
+    }
+
+    public String getHip(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return String.format("%.1f", user.getHip());
+        return null;
+    }
+
+    public String getLoginLicense(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return String.valueOf(user.getLoginLicense());
+        return null;
+    }
+
+    public String getResume(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return user.getResume();
+        return null;
+    }
+
+    public String getUserLevel(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return user.getUserLevel();
+        return null;
+    }
+
+    public String getUsertype(String id){
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getId().equals("None")))
+            return user.getClass().getSimpleName();
+        return null;
+    }
+
+    public String getInstructorMoney(String id){
+        Instructor instructor = new Instructor(id);
+        if(!(instructor.getId().equals("None")))
+            return String.valueOf(instructor.getInstructorMoney());
+        return null;
+    }
 }

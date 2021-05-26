@@ -36,6 +36,6 @@ public class GymUtils {
         ArrayList<String[]> IDList = FileUtils.readCSV(userFilePath, new String[]{"userid"});
 
         String[] last = IDList.get(IDList.size() - 1);
-        return Integer.parseInt(last[0]) + 1;
+        return Integer.parseInt(last[0].substring(1)) + 1;
     }
 }
