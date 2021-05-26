@@ -56,13 +56,13 @@
 	-fx-effect: dropshadow( gaussian, white, 10, 0, 0, 1);
 }
 
-.type-instructor-senior{
+.type-instructor-junior{
 	-fx-background-color: linear-gradient(to left, gray, white, gray);
 	-fx-text-fill: #232323;
 	-fx-effect: dropshadow( gaussian, white, 10, 0, 0, 1);
 }
 
-.type-instructor-super{
+.type-instructor-senior{
 	-fx-background-color: linear-gradient(to left, #ff4200, #2a00ff);
 	-fx-text-fill: #ffe56b;
 	-fx-effect: dropshadow( gaussian, #ffe56b, 10, 0, 0, 1);

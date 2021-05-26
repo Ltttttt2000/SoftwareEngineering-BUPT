@@ -82,7 +82,7 @@ public class StorePageController  implements Initializable {
         StackPane imagePane = new StackPane();
 
         Image normalBorder = new Image("file:core/src/imgs/normalborder.png", 90, 90, false, false);
-        Image superBorder = new Image("file:core/src/imgs/superborder.png", 90, 90, false, false);
+        Image JuniorBorder = new Image("file:core/src/imgs/juniorborder.png", 90, 90, false, false);
         Image seniorBorder = new Image("file:core/src/imgs/seniorborder.png", 90, 90, false, false);
 
         Image imageMale = new Image("file:core/src/imgs/instructorHeadPortraitMale.png", 90, 90, false, false);
@@ -128,8 +128,8 @@ public class StorePageController  implements Initializable {
         else
             imageHead.setImage(imageMale);
 
-        if(userLevel.equals("Super"))
-            imageBorder.setImage(superBorder);
+        if(userLevel.equals("Junior"))
+            imageBorder.setImage(JuniorBorder);
         else if(userLevel.equals("Senior"))
             imageBorder.setImage(seniorBorder);
         else // if(userLevel.equals("Normal"))

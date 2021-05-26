@@ -8,6 +8,7 @@ public class Client extends User{
 	public Client(String userid) {
 		super(userid);
 	}
+	public Client(String[] para) {super(para);}
 	
 	//getter, setter 
 	public void setRechargeAmount(Double rechargeAmount) {

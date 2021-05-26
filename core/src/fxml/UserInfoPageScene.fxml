@@ -294,16 +294,16 @@
                         <String fx:value="type-instructor-normal" />
                      </styleClass>
                   </Label>
-                  <Label fx:id="instructorTypeLabelSenior" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Senior Instructor ">
+                  <Label fx:id="instructorTypeLabelJunior" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Junior Instructor ">
+                     <styleClass>
+                        <String fx:value="type-label" />
+                        <String fx:value="type-instructor-junior" />
+                     </styleClass>
+                  </Label>
+                  <Label fx:id="instructorTypeLabelSenior" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Senior Instructor " visible="false">
                      <styleClass>
                         <String fx:value="type-label" />
                         <String fx:value="type-instructor-senior" />
-                     </styleClass>
-                  </Label>
-                  <Label fx:id="instructorTypeLabelSuper" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Super Instructor " visible="false">
-                     <styleClass>
-                        <String fx:value="type-label" />
-                        <String fx:value="type-instructor-super" />
                      </styleClass>
                   </Label>
                </children>

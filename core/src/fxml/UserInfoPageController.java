@@ -70,9 +70,9 @@ public class UserInfoPageController implements Initializable {
 	@FXML
 	private Label instructorTypeLabelNormal;
 	@FXML
-	private Label instructorTypeLabelSenior;
+	private Label instructorTypeLabelJunior;
 	@FXML
-	private Label instructorTypeLabelSuper;
+	private Label instructorTypeLabelSenior;
 
 
 	// client type label
@@ -181,11 +181,11 @@ public class UserInfoPageController implements Initializable {
 			if(instructorType.equals("Normal")) {
 				showLabel(instructorTypeLabelNormal);
 			}
-			else if(instructorType.equals("Senior")) {
-				showLabel(instructorTypeLabelSenior);
+			else if(instructorType.equals("Junior")) {
+				showLabel(instructorTypeLabelJunior);
 			}
-			else { // if(instructorType.equals("SupremeMember"))
-				showLabel(instructorTypeLabelSuper);
+			else { // if(instructorType.equals("Senior"))
+				showLabel(instructorTypeLabelSenior);
 			}
 
 			priceTagPane.setVisible(true);
@@ -210,8 +210,8 @@ public class UserInfoPageController implements Initializable {
 		// hide all labels
 		adminLabel.setVisible(false);
 		instructorTypeLabelNormal.setVisible(false);
+		instructorTypeLabelJunior.setVisible(false);
 		instructorTypeLabelSenior.setVisible(false);
-		instructorTypeLabelSuper.setVisible(false);
 		clientTypeLabelNormal.setVisible(false);
 		clientTypeLabelMember.setVisible(false);
 		clientTypeLabelSupreme.setVisible(false);

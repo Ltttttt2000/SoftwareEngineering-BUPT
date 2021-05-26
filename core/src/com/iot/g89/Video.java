@@ -1,69 +1,96 @@
 package com.iot.g89;
 
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Video {
 	String videoId;
+	private final SimpleStringProperty VideoId;
 	String videoType;
-	String detial;
-	int price;
+	private final SimpleStringProperty VideoType;
+	String detail;
+	double price;
+	private final SimpleDoubleProperty Price;
 	Instructor author;
+	private final SimpleStringProperty Author;
 	Client specificClient;
 	
     public Video(String videoId) {
-    	
+    	this.VideoId = new SimpleStringProperty(videoId);
+    	this.videoId = videoId;
+    	this.VideoType = new SimpleStringProperty("Default");
+    	this.Price = new SimpleDoubleProperty(0.0);
+    	this.Author = new SimpleStringProperty("Somebody");
     }
 
-	 String getVideoId() {
+	public SimpleStringProperty videoIdProperty() {
+		return VideoId;
+	}
+
+	public SimpleStringProperty videoTypeProperty() {
+		return VideoType;
+	}
+
+	public SimpleDoubleProperty priceProperty() {
+		return Price;
+	}
+
+	public SimpleStringProperty authorProperty() {
+		return Author;
+	}
+
+	public String getVideoId() {
 		return videoId;
-		 
-	 }
-	 
-	 String getVideoType(){
+
+	}
+
+	public String getVideoType(){
 		return videoType;
-		 
-	 }
 
-	 String getDetial() {
-		return detial;
-	
-	 }
-	 
-	 int getPrice() {
+	}
+
+	public String getDetail() {
+		return detail;
+
+	}
+
+	public double getPrice() {
 		return price;
-		 
-	 }
-	 
-	 Instructor getAuthor() {
-		return author;
-		 
-	 }
-	 
-	 Client getSpecificClient() {
-		return specificClient;
-		 
-	 }
 
-	 void setVideoType(String videoType) {
-		 
-	 }
-	 
-	 void setDetial(String detial) { 
-		 
-	 }
-	 
-	 void setPrice(String price) {
-		 
-	 }
-	 
-	 void setAuthor(Instructor author) {
-		 
-	 }
-	 
-	 void setSpecificClient(Client specificClient) {
-		 
-	 }
-	 
-	 void playVideo() {
-		 
-	 }
+	}
+
+	public Instructor getAuthor() {
+		return author;
+
+	}
+
+	public Client getSpecificClient() {
+		return specificClient;
+
+	}
+
+	public void setVideoType(String videoType) {
+
+	}
+
+	public void setDetail(String detail) {
+
+	}
+
+	public void setPrice(String price) {
+
+	}
+
+	public void setAuthor(Instructor author) {
+
+	}
+
+	public void setSpecificClient(Client specificClient) {
+
+	}
+
+	public void playVideo() {
+
+	}
 
 }

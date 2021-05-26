@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="432.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.CoursesListPageController">
    <children>
-      <AnchorPane prefHeight="140.0" prefWidth="768.0" styleClass="bakground-pane" stylesheets="@../css/PaneType.css">
+      <AnchorPane prefHeight="140.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css">
          <children>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
             <Label fx:id="windowNameLabel" layoutX="568.0" layoutY="85.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Public courses" />

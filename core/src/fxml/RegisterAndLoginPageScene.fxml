@@ -45,7 +45,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="loginPane" prefHeight="432.0" prefWidth="768.0" style="-fx-background-position: right;" styleClass="background-pane-login" stylesheets="@../css/PaneType.css" visible="false">
+      <AnchorPane fx:id="loginPane" prefHeight="432.0" prefWidth="768.0" style="-fx-background-position: right;" styleClass="background-pane-login" stylesheets="@../css/PaneType.css">
          <children>
             <BorderPane layoutX="208.0" layoutY="90.0" prefHeight="253.0" prefWidth="354.0">
                <top>
@@ -60,14 +60,11 @@
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label stylesheets="@../css/TextType.css" text="User ID" />
                         <Label stylesheets="@../css/TextType.css" text="Password" GridPane.rowIndex="1" />
-                        <Label stylesheets="@../css/TextType.css" text="User Type" GridPane.rowIndex="2" />
                         <TextField fx:id="userIdTF" GridPane.columnIndex="1" />
-                        <ChoiceBox fx:id="typeCB" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <PasswordField fx:id="userPasswordPF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
