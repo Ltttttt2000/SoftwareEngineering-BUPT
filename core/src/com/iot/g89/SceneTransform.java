@@ -74,6 +74,11 @@ public class SceneTransform {
 		clientStartPageController.initData(userId, sceneClientStartPage, lastScene, driver);
 		ToScene(sceneClientStartPage);
 	}
+
+	public static void ToInstructorStartPage(String userId, Scene lastScene) {
+		clientStartPageController.initData(userId, sceneClientStartPage, lastScene, driver);
+		ToScene(sceneClientStartPage);
+	}
 	
 	public static void ToUserInfoPage(String userId, Scene lastScene) {
 		userInfoPageController.initData(userId, sceneUserInfoPage, lastScene, driver);

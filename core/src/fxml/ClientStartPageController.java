@@ -95,6 +95,10 @@ public class ClientStartPageController implements Initializable {
 	public void goToPrivateCoursePage(ActionEvent event) {
 		SceneTransform.ToCoursesListPage(userId, "Private Courses", thisScene);
 	}
+
+	public void goToCourseBookingPage(ActionEvent event) {
+		SceneTransform.ToCourseBookingPage(userId, thisScene);
+	}
 	
 	public void showBackPane2(ActionEvent event) {
 //		System.out.println("Button Clicked!");

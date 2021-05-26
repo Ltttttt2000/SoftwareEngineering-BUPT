@@ -189,7 +189,7 @@ public class UserInfoPageController implements Initializable {
 			}
 
 			priceTagPane.setVisible(true);
-			priceTagLabel.setText(driver.getInstructorMoney());
+			priceTagLabel.setText(driver.getInstructorMoney(userId));
 		}
 		else { // if(userType.equals("client"))
 			String clientType = driver.getUserLevel(userId);

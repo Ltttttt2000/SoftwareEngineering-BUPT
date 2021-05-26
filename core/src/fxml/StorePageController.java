@@ -31,7 +31,6 @@ public class StorePageController  implements Initializable {
     @FXML
     private VBox videoListVBox;
 
-
     private String[] userIds;
     private GUIDriver driver;
     private Scene thisScene;

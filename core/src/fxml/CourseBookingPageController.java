@@ -112,7 +112,6 @@ public class CourseBookingPageController implements Initializable {
         imagePane.getChildren().addAll(imageHead, imageBorder);
         buttonPane.setLeft(imagePane);
         buttonPane.setCenter(centerPane);
-        buttonPane.setPadding(new Insets(5));
 
         // Layout in Button
         BorderPane.setAlignment(centerPane, Pos.CENTER);
@@ -135,5 +134,11 @@ public class CourseBookingPageController implements Initializable {
         });
 
         return button;
+    }
+
+    // for back button
+    public void backToLastScene(){
+        SceneTransform.ToScene(lastScene);
+        instructorVBox.getChildren().clear();
     }
 }

@@ -45,7 +45,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="loginPane" prefHeight="432.0" prefWidth="768.0" style="-fx-background-position: right;" styleClass="background-pane-login" stylesheets="@../css/PaneType.css">
+      <AnchorPane fx:id="loginPane" prefHeight="432.0" prefWidth="768.0" style="-fx-background-position: right;" styleClass="background-pane-login" stylesheets="@../css/PaneType.css" visible="false">
          <children>
             <BorderPane layoutX="208.0" layoutY="90.0" prefHeight="253.0" prefWidth="354.0">
                <top>
