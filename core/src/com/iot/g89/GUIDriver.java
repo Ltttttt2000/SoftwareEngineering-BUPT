@@ -1,5 +1,7 @@
 package com.iot.g89;
 
+import com.sun.javafx.collections.ArrayListenerHelper;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -318,25 +320,29 @@ public class GUIDriver {
         return  returnList;
     }
 
+    public ArrayList<Object> select(String str){
+        String[] para = str.split("( )+");
+        return select(str,selectAll(para[0]));
+    }
+
     /**
      * select函数
      * 全选用*
      * 属性记得用首字母大写的驼峰命名法
      *
      * @param str
+     * @param originList
      * @return
      */
-    public ArrayList<Object> select(String str){
-        ArrayList<Object> returnList;
+    public ArrayList<Object> select(String str, ArrayList<Object> originList){
 
         String[] para = str.split("( )+");
-        returnList = selectAll(para[0]);
         if(para[1].equals("*"))
-            return returnList;
+            return originList;
 
         String[] para2 = para[1].split("=");
 
-        Iterator<Object> iterator = returnList.iterator();
+        Iterator<Object> iterator = originList.iterator();
         while(iterator.hasNext()){
             try {
                 Object o = iterator.next();
@@ -347,6 +353,6 @@ public class GUIDriver {
                 e.printStackTrace();
             }
         }
-        return returnList;
+        return originList;
     }
 }
