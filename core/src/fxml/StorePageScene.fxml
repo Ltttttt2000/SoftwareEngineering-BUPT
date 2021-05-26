@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="432.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.StorePageController">
    <children>
-      <AnchorPane prefHeight="140.0" prefWidth="768.0">
+      <AnchorPane prefHeight="140.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css">
          <children>
             <Button layoutY="115.0" mnemonicParsing="false" onAction="#showVideoStore" prefHeight="23.0" prefWidth="369.0" text="Video Store" />
             <Button layoutX="369.0" layoutY="115.0" mnemonicParsing="false" onAction="#showInstructorStore" prefHeight="23.0" prefWidth="399.0" text="Instructor Store" />

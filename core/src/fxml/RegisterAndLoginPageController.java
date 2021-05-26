@@ -47,8 +47,6 @@ public class RegisterAndLoginPageController implements Initializable {
 	private TextField userIdTF;
 	@FXML
 	private PasswordField userPasswordPF;
-	@FXML
-	private ChoiceBox<String> typeCB;
 
 	// register pane's nodes
 	@FXML
@@ -118,8 +116,6 @@ public class RegisterAndLoginPageController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		typeCB.getItems().addAll("Administrator", "Instructor", "Client");
-		typeCB.getSelectionModel().select("Client");
 		registerUserTypeCB.getItems().addAll("User Type", "Instructor", "Client");
 		registerUserTypeCB.getSelectionModel().select(0);
 		sexCB.getItems().addAll("Unknown", "Male", "Female");
