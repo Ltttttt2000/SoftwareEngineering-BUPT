@@ -86,8 +86,8 @@ public class Instructor extends User{
  	 * @param video the video
  	 */
 	 public void deleteVideo(Video video) {
-		 FileUtils.deleteCSV(video.videoId, "./videoCSV.csv");
-		 FileUtils.delete("./Video/"+ video.videoId+".mp4");
+		 FileUtils.deleteCSV(video.getVideoId(), "./videoCSV.csv");
+		 FileUtils.delete("./Video/"+ video.getVideoId()+".mp4");
 	 }
 	 
 	 /**

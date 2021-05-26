@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.iot.g89.Video;
@@ -37,7 +38,7 @@ public class VideoListPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
-    public void initData(Video[] videos){
+    public void initData(ArrayList<Video> videos){
         final ObservableList<Video> cellData = FXCollections.observableArrayList(videos);
         //ObservableList<Video> items = tableView.getItems();
 

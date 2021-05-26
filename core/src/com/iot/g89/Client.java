@@ -204,7 +204,7 @@ public class Client extends User{
 		if(this.userLevel.equals("Normal")) {
 			System.out.println("Wrong clientType");
 		}else {
-			double money = VideoBuy.price;
+			double money = VideoBuy.getPrice();
 			consume(money);
 			
 			String filePath = "./clientVideo.csv";	
@@ -221,7 +221,7 @@ public class Client extends User{
 			int id = Integer.parseInt(purchasedid) + 1;
 			String newPurchasedId = String.valueOf(id);
 			ArrayList<String[]> csvList = new ArrayList<String[]>();
-			String[] addInfo = {newPurchasedId,userid,VideoBuy.videoId};
+			String[] addInfo = {newPurchasedId,userid,VideoBuy.getVideoId()};
 			csvList.add(addInfo);
 			FileUtils.insertCSV(filePath, csvList);
 		}
