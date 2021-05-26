@@ -15,6 +15,7 @@ import com.iot.g89.List;
 import com.iot.g89.User;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class UserListPageController implements Initializable {
@@ -32,7 +33,7 @@ public class UserListPageController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void initData(User[] users){
+    public void initData(ArrayList<User> users){
 //        int i = 0;
 //        for(User u: users){
 //            IDs[i] = u.userid;

@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import fxml.*;
 
 public class List {
@@ -30,13 +32,13 @@ public class List {
         }
     }
 
-    public void toListPage(Video[] videos){
+    public void toVideoListPage(ArrayList<Video> videos){
         videoListPageController.initData(videos);
 //        toVideoScene(sceneVideoPage);
         toScene(sceneVideoPage, "Video");
     }
 
-    public void toListPage(User[] users){
+    public void toUserListPage(ArrayList<User> users){
         userListPageController.initData(users);
 //        toUserScene(sceneUserPage);
         toScene(sceneUserPage, "User");
