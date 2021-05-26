@@ -297,8 +297,8 @@ public class GUIDriver {
         return null;
     }
 
-    private ArrayList<User> selectAll(String type){
-        ArrayList<User> returnList = new ArrayList<User>();
+    private ArrayList<Object> selectAll(String type){
+        ArrayList<Object> returnList = new ArrayList<Object>();
 
         String userFilePath = "./core/src/csv/"+ type + ".csv";
         type = "com.iot.g89." + type;
@@ -310,8 +310,7 @@ public class GUIDriver {
                 Class<?> clazz = Class.forName(type);
                 Constructor<?> constructor = clazz.getConstructor(String[].class);
                 Object o = constructor.newInstance(new Object[]{para});
-                User user = (User) o;
-                returnList.add(user);
+                returnList.add(o);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -320,15 +319,15 @@ public class GUIDriver {
     }
 
     /**
-     * user专用的聚合函数
+     * select函数
      * 全选用*
      * 属性记得用首字母大写的驼峰命名法
      *
      * @param str
      * @return
      */
-    public ArrayList<User> select(String str){
-        ArrayList<User> returnList;
+    public ArrayList<Object> select(String str){
+        ArrayList<Object> returnList;
 
         String[] para = str.split("( )+");
         returnList = selectAll(para[0]);
@@ -337,12 +336,12 @@ public class GUIDriver {
 
         String[] para2 = para[1].split("=");
 
-        Iterator<User> iterator = returnList.iterator();
+        Iterator<Object> iterator = returnList.iterator();
         while(iterator.hasNext()){
             try {
-                User user = iterator.next();
-                Method m = user.getClass().getMethod("get" + para2[0], null);
-                if(!(m.invoke(user).equals(para2[1])))
+                Object o = iterator.next();
+                Method m = o.getClass().getMethod("get" + para2[0], null);
+                if(!(m.invoke(o).equals(para2[1])))
                     iterator.remove();
             } catch (Exception e) {
                 e.printStackTrace();
