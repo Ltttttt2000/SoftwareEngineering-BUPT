@@ -75,9 +75,29 @@ public class ClientStartPageController implements Initializable {
 	public void goToStorePage(ActionEvent event){
 		SceneTransform.ToStorePage(userId, thisScene);
 	}
+
+	public void goToPublicCourseListPage(ActionEvent event) {
+		SceneTransform.ToCoursesListPage(userId, "Public Courses", thisScene);
+	}
+
+	public void goToPaidCourseListPage(ActionEvent event) {
+		SceneTransform.ToCoursesListPage(userId, "Paid Courses", thisScene);
+	}
+
+	public void goToHistoryCoursePage(ActionEvent event) {
+		SceneTransform.ToCoursesListPage(userId, "History Courses", thisScene);
+	}
+
+	public void goToPurchasedCoursePage(ActionEvent event) {
+		SceneTransform.ToCoursesListPage(userId, "Purchased Courses", thisScene);
+	}
+
+	public void goToPrivateCoursePage(ActionEvent event) {
+		SceneTransform.ToCoursesListPage(userId, "Private Courses", thisScene);
+	}
 	
 	public void showBackPane2(ActionEvent event) {
-		System.out.println("Button Clicked!");
+//		System.out.println("Button Clicked!");
 		backPane2.setVisible(true);
 		
 		backButtonMove(paidCourseButton, "right", "up", 0);
@@ -95,7 +115,7 @@ public class ClientStartPageController implements Initializable {
 	}
 	
 	public void closeAllPane(ActionEvent event) {
-		System.out.println("out of the pane");
+//		System.out.println("out of the pane");
 		backPane2.setVisible(false);
 		backPane3.setVisible(false);
 	}
