@@ -16,7 +16,7 @@ public class GUIDriver {
      *
      * @param userID userID
      * @param password password
-     * @return -1 no user; -2 wrong password; 1 client 2 instructor 3 admin
+     * @return -1 no user; -2 wrong password; 1 success
      */
     public int login(String userID, String password){
 
@@ -35,12 +35,7 @@ public class GUIDriver {
         }
 
         if(gymUtils.user.passwordCheck(password)){
-           if(type.equals("Client"))
-               return 1;
-            if(type.equals("Instructor"))
-                return 2;
-            if(type.equals("Administrator"))
-                return 3;
+            return 1;
         }else{
             gymUtils.user = null;
             return -2;
