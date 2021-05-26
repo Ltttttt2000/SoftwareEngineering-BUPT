@@ -99,7 +99,11 @@ public class ClientStartPageController implements Initializable {
 	public void goToCourseBookingPage(ActionEvent event) {
 		SceneTransform.ToCourseBookingPage(userId, thisScene);
 	}
-	
+
+	public void goToInstructorListPage(ActionEvent event) {
+		SceneTransform.ToInstructorListPage(userId, thisScene);
+	}
+
 	public void showBackPane2(ActionEvent event) {
 //		System.out.println("Button Clicked!");
 		backPane2.setVisible(true);
