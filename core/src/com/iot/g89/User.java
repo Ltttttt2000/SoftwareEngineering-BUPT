@@ -167,6 +167,7 @@ public class User{
 
 	public User(String[] parameters){
 
+		this.userid = parameters[0];
 		this.password = parameters[1];
 		this.userLevel = parameters[2];
 		this.sex = parameters[3];
@@ -423,16 +424,14 @@ public class User{
 	 }
      */
 
-	/**
-	 * Prints the user physical info.
-	 */
 	public String toString() {
-		return "age:"+ this.getAge() +"\n"+
-				"height"+ this.getHeight() +"\n"+
-				"weight"+ this.getWeight() +"\n"+
-				"chest"+ this.getChest() +"\n"+
-				"waist"+ this.getWaist() +"\n"+
-				"hip"+ this.getHip() +"\n";
+		return "id" + this.getId() + "\n" +
+				"age"+ this.getAge() + "\n"+
+				"height"+ this.getHeight() + "\n"+
+				"weight"+ this.getWeight() + "\n"+
+				"chest"+ this.getChest() + "\n"+
+				"waist"+ this.getWaist() + "\n"+
+				"hip"+ this.getHip() + "\n";
 	}
 
 
