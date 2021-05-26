@@ -50,5 +50,4 @@ public class InstructorStartPageController implements Initializable {
         SceneTransform.ToUserInfoPage(userId, thisScene);
     }
 
-
 }
