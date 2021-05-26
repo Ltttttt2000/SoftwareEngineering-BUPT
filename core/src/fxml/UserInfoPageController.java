@@ -132,24 +132,32 @@ public class UserInfoPageController implements Initializable {
 		getBasicInof(userId);
 		this.thisScene = thisScene;
 		this.lastScene = lastScene;
+		if(userId.equals(driver.getUserId()) || driver.getUsertype().equals("Administrator")) {
+			basicInfoEditButton.setDisable(false);
+			securityInfoEditButton.setDisable(false);
+		}
+		else{
+			basicInfoEditButton.setDisable(true);
+			securityInfoEditButton.setDisable(true);
+		}
 	}
 	
 	private void getBasicInof(String userId) {
 		userIdLabel.setText(userId);
 		
 		// get basic info
-		sexLabel.setText(driver.getSex());
-		phoneLabel.setText(driver.getPhone());
-		balanceLabel.setText(driver.getRechargeAccount());
-		balanceLabel1.setText(driver.getRechargeAccount());
-		ageLabel.setText(driver.getAge());
-		heightLabel.setText(driver.getHeight());
-		weightLabel.setText(driver.getWeight());
-		chestLabel.setText(driver.getChest());
-		waistLabel.setText(driver.getWaist());
-		hipLabel.setText(driver.getHip());
+		sexLabel.setText(driver.getSex(userId));
+		phoneLabel.setText(driver.getPhone(userId));
+		balanceLabel.setText(driver.getRechargeAccount(userId));
+		balanceLabel1.setText(driver.getRechargeAccount(userId));
+		ageLabel.setText(driver.getAge(userId));
+		heightLabel.setText(driver.getHeight(userId));
+		weightLabel.setText(driver.getWeight(userId));
+		chestLabel.setText(driver.getChest(userId));
+		waistLabel.setText(driver.getWaist(userId));
+		hipLabel.setText(driver.getHip(userId));
 		
-		if(driver.getLoginLicense().equals("true")) {
+		if(driver.getLoginLicense(userId).equals("true")) {
 			loginLicenseLabel.setText("Pass");
 			loginLicenseLabel1.setText("Pass");
 			loginLicenseLabel.setTextFill(Paint.valueOf("green"));
@@ -159,17 +167,17 @@ public class UserInfoPageController implements Initializable {
 			loginLicenseLabel.setTextFill(Paint.valueOf("red"));
 		}
 		
-		resume = driver.getResume();
+		resume = driver.getResume(userId);
 		resumeTA.setText(resume);
 
 		priceTagPane.setVisible(false);
 		// judge user's type
-		String userType = driver.getUsertype();
+		String userType = driver.getUsertype(userId);
 		if(userType.equals("Administrator")) {
 			showLabel(adminLabel);
 		}
 		else if(userType.equals("Instructor")) {
-			String instructorType = driver.getUserLevel();
+			String instructorType = driver.getUserLevel(userId);
 			if(instructorType.equals("Normal")) {
 				showLabel(instructorTypeLabelNormal);
 			}
@@ -184,7 +192,7 @@ public class UserInfoPageController implements Initializable {
 			priceTagLabel.setText(driver.getInstructorMoney());
 		}
 		else { // if(userType.equals("client"))
-			String clientType = driver.getUserLevel();
+			String clientType = driver.getUserLevel(userId);
 			if(clientType.equals("Normal")) {
 				showLabel(clientTypeLabelNormal);
 			}

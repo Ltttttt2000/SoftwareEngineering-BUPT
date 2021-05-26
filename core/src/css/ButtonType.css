@@ -68,6 +68,28 @@
 	-fx-background-image: url(../imgs/userInfoImg.gif);
 }
 
+/* button for instructor upload course */
+.button5{
+	-fx-background-color: linear-gradient(to right, #bef48f, #a0cd79);
+	-fx-effect: dropshadow(gaussian, #80a460, 50, 0, 18, 18);
+	-fx-background-image: url(../imgs/addition.png);
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+}
+
+.button5:hover{
+	-fx-background-color: linear-gradient(to left, #aedf85, #93bb70);
+	-fx-background-image: url(../imgs/addition.gif);
+}
+
+.button6{
+	-fx-background-color: linear-gradient(to right, #6edfc3, #5dbba4);
+	-fx-effect: dropshadow(gaussian, #48927f, 50, 0, 18, 18);
+	-fx-background-image: url(../imgs/communityImg.png);
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+}
+
 .button-behind-discover{
 	-fx-background-color: rgba(255, 255, 255, 0.5);
 }

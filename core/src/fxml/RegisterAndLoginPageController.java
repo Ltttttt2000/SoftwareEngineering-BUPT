@@ -301,9 +301,23 @@ public class RegisterAndLoginPageController implements Initializable {
 	public void loginSuccess(ActionEvent event) {
 		String userId = userIdTF.getText();
 		String password = userPasswordPF.getText();
-		String type = typeCB.getValue();
+		String type;
 
-		int x = driver.login(userId, password, type);
+		int x;
+
+		if(userId.charAt(0) == 'C')
+			type = "Client";
+		else if(userId.charAt(0) == 'I')
+			type = "Instructor";
+		else if(userId.charAt(0) == 'A')
+			type = "Administrator";
+		else
+			type = null;
+
+		if(type != null)
+			x = driver.login(userId, password, type);
+		else
+			x = 0;
 
 		GUIUtils.checkTextField(userIdTF, true);
 		GUIUtils.checkTextField(userPasswordPF, true);
@@ -313,8 +327,10 @@ public class RegisterAndLoginPageController implements Initializable {
 			userPasswordPF.setText("");
 		}else if (x == -1)
 			GUIUtils.checkTextField(userIdTF, false);
-		else
+		else if(x == -2)
 			GUIUtils.checkTextField(userPasswordPF, false);
+		else // x == 0
+			GUIUtils.checkTextField(userIdTF, false);
 	}
 
 	//-------------------------------------register page function----------------------------------------------

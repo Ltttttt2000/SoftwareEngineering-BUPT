@@ -16,8 +16,7 @@ public class GUIDriver {
      *
      * @param userID userID
      * @param password password
-     * @param type type
-     * @return -1 no user; -2 wrong password; 1 success login
+     * @return -1 no user; -2 wrong password; 1 success
      */
     public int login(String userID, String password, String type){
 
@@ -28,7 +27,7 @@ public class GUIDriver {
         }
 
         if(gymUtils.user.passwordCheck(password)){
-           return 1;
+            return 1;
         }else{
             gymUtils.user = null;
             return -2;
@@ -112,19 +111,21 @@ public class GUIDriver {
 
     }
 
-    public String getSex(){return getSex(gymUtils.user.getId());}
-    public String getPhone(){return getPhone(gymUtils.user.getId());}
-    public String getRechargeAccount(){return getRechargeAccount(gymUtils.user.getId());}
-    public String getAge(){return getAge(gymUtils.user.getId());}
-    public String getHeight(){return getHeight(gymUtils.user.getId());}
-    public String getWeight(){return getWeight(gymUtils.user.getId());}
-    public String getChest(){return getChest(gymUtils.user.getId());}
-    public String getWaist(){return getWaist(gymUtils.user.getId());}
-    public String getHip(){return getHip(gymUtils.user.getId());}
-    public String getLoginLicense(){return getLoginLicense(gymUtils.user.getId());}
-    public String getResume(){return getResume(gymUtils.user.getId());}
-    public String getUserLevel(){return getUserLevel(gymUtils.user.getId());}
-    public String getUsertype(){return getUsertype(gymUtils.user.getId());}
+    public String getUserId(){return gymUtils.user.getId();}
+
+    public String getSex(){return getSex(getUserId());}
+    public String getPhone(){return getPhone(getUserId());}
+    public String getRechargeAccount(){return getRechargeAccount(getUserId());}
+    public String getAge(){return getAge(getUserId());}
+    public String getHeight(){return getHeight(getUserId());}
+    public String getWeight(){return getWeight(getUserId());}
+    public String getChest(){return getChest(getUserId());}
+    public String getWaist(){return getWaist(getUserId());}
+    public String getHip(){return getHip(getUserId());}
+    public String getLoginLicense(){return getLoginLicense(getUserId());}
+    public String getResume(){return getResume(getUserId());}
+    public String getUserLevel(){return getUserLevel(getUserId());}
+    public String getUsertype(){return getUsertype(getUserId());}
     // for intructor only
     public String getInstructorMoney(){return String.valueOf(gymUtils.user.getInstructorMoney());}
 
@@ -290,4 +291,6 @@ public class GUIDriver {
             return String.valueOf(instructor.getInstructorMoney());
         return null;
     }
+
+
 }
