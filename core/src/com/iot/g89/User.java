@@ -4,6 +4,10 @@ package com.iot.g89;
  * 
  */
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,16 +19,22 @@ import java.util.Arrays;
 public class User{
 
 	protected String userid = "None";
+	private final SimpleStringProperty Userid;
 	protected String password = "None";
+	private final SimpleStringProperty Password;
 	protected String userLevel = "Normal";
 	protected String sex = "None";
+	private final SimpleStringProperty Sex;
 	protected String phoneNumber = "None";
+	private final SimpleStringProperty PhoneNumber;
 	protected Boolean loginLicense = true;
 	protected double rechargeAmount = 0;      //the total money in the account
+	private final SimpleDoubleProperty RechargeAmount;
 	protected String resume = "None";  //for instructor
 	
 	//physicalInfo
 	protected int age = 0;
+	private final SimpleIntegerProperty Age;
 	protected double height = 0;
 	protected double weight = 0;
 	protected double chest = 0;
@@ -56,6 +66,12 @@ public class User{
 	 */
 	public User(String userid){
 		userInfo[0] = this.userid;
+		this.Userid = new SimpleStringProperty(userid);
+		this.Password = new SimpleStringProperty("None");
+		this.Sex = new SimpleStringProperty("None");
+		this.PhoneNumber = new SimpleStringProperty("None");
+		this.RechargeAmount = new SimpleDoubleProperty(0);
+		this.Age = new SimpleIntegerProperty(0);
 		userFilePath = "./core/src/csv/"+ this.getClass().getSimpleName() + ".csv";
 		
 		fileHeaders[0] = "userid";
@@ -157,12 +173,21 @@ public class User{
 		this.phoneNumber = parameters[4];
 		this.resume = parameters[7];
 
+		this.Userid = new SimpleStringProperty(parameters[0]);
+		this.Password = new SimpleStringProperty(parameters[1]);
+		this.Sex = new SimpleStringProperty(parameters[3]);
+		this.PhoneNumber = new SimpleStringProperty(parameters[4]);
+
+
 		this.age = Integer.parseInt(parameters[8]);
 		this.height = Double.parseDouble(parameters[9]);
 		this.weight = Double.parseDouble(parameters[10]);
 		this.chest = Double.parseDouble(parameters[11]);
 		this.waist = Double.parseDouble(parameters[12]);
 		this.hip = Double.parseDouble(parameters[13]);
+
+		this.RechargeAmount = new SimpleDoubleProperty(Double.parseDouble(parameters[6]));
+		this.Age = new SimpleIntegerProperty(Integer.parseInt(parameters[8]));
 
 	}
 	
@@ -240,6 +265,42 @@ public class User{
 		 String[] values = new String[] {String.valueOf(this.loginLicense)};
 		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
 	 }
+
+	public String getUserid() {
+		return Userid.get();
+	}
+
+	public SimpleStringProperty useridProperty() {
+		return Userid;
+	}
+
+	public SimpleStringProperty passwordProperty() {
+		return Password;
+	}
+
+	public SimpleStringProperty sexProperty() {
+		return Sex;
+	}
+
+	public String getPhoneNumber() {
+		return PhoneNumber.get();
+	}
+
+	public SimpleStringProperty phoneNumberProperty() {
+		return PhoneNumber;
+	}
+
+	public double getRechargeAmount() {
+		return RechargeAmount.get();
+	}
+
+	public SimpleDoubleProperty rechargeAmountProperty() {
+		return RechargeAmount;
+	}
+
+	public SimpleIntegerProperty ageProperty() {
+		return Age;
+	}
 
 	public String getId() {
 		return this.userid;
