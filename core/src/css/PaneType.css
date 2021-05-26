@@ -40,3 +40,8 @@
 	-fx-background-repeat: no-repeat;
 	-fx-background-position: center;
 }
+
+/*for instructor start page */
+.background-pane-instructor-start{
+	-fx-background-image: url(../imgs/background1.png);
+}
