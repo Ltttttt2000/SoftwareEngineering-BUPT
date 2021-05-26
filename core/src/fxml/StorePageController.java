@@ -69,7 +69,7 @@ public class StorePageController  implements Initializable {
     }
 
     private String[] getAllInstructorsId() {
-        String[] strs = {"1001", "1002", "1003", "1004", "1005", "1006", "1007"};
+        String[] strs = {"I1001", "I1002", "I1003", "I1004", "I1005", "I1006"};
         return strs;
     }
 
@@ -96,21 +96,17 @@ public class StorePageController  implements Initializable {
         BorderPane centerPane = new BorderPane();
 
         Label userIdLabel = new Label("ID: " + userId);
-        Label priceLabel = new Label("3000" + "£");
+        Label priceLabel = new Label(driver.getInstructorMoney(userId) + "£");
 
         Random r = new Random();
 
-        String sex = r.nextInt(100) > 50 ? "Male" : "Female";
-        String age = "18";
-        String userType = "Instructor";
-        String userLevel;
-        if(r.nextInt(100) > 66)
-            userLevel = "Normal";
-        else
-            userLevel = r.nextInt(100) > 50 ? "Senior" : "Super";
+        String sex = driver.getSex(userId);
+        String age = driver.getAge(userId);
+        String userType = driver.getUsertype(userId);
+        String userLevel = driver.getUserLevel(userId);
 
         Label infoLabel = new Label("Age: " + age + " | Sex: " + sex);
-        Label levelLabel = new Label("Instructor Level: " + userLevel + " " + userType);
+        Label levelLabel = new Label(userType + " Level: " + userLevel);
 
         // bigger labels
         button.setStyle("-fx-background-color: white;" +
@@ -136,7 +132,7 @@ public class StorePageController  implements Initializable {
             imageBorder.setImage(superBorder);
         else if(userLevel.equals("Senior"))
             imageBorder.setImage(seniorBorder);
-        else
+        else // if(userLevel.equals("Normal"))
             imageBorder.setImage(normalBorder);
 
         imagePane.getChildren().addAll(imageHead, imageBorder);
