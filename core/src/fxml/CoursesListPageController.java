@@ -2,21 +2,17 @@ package fxml;
 
 import com.iot.g89.GUIDriver;
 import com.iot.g89.SceneTransform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class CoursesListPageController implements Initializable {
@@ -50,10 +46,10 @@ public class CoursesListPageController implements Initializable {
         this.thisScene = thisScene;
         this.lastScene = lastScene;
         windowNameLabel.setText(windowName);
-        listvideos();
+        listVideos();
     }
 
-    private void listvideos(){
+    private void listVideos(){
         String[] videos = getAllvideosId();
         for(String v:videos){
             videoListVBox.getChildren().add(drawVideoButton(v));

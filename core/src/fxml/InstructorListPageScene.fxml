@@ -12,19 +12,18 @@
    <children>
       <AnchorPane prefHeight="140.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css">
          <children>
-            <Button layoutY="115.0" mnemonicParsing="false" onAction="#showVideoStore" prefHeight="23.0" prefWidth="369.0" text="Video Store" />
-            <Button layoutX="369.0" layoutY="115.0" mnemonicParsing="false" onAction="#showInstructorStore" prefHeight="23.0" prefWidth="399.0" text="Instructor Store" />
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+            <Label layoutX="584.0" layoutY="99.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Instructors" />
+            <ChoiceBox layoutX="71.0" layoutY="115.0" prefHeight="23.0" prefWidth="70.0" />
+            <Label layoutX="42.0" layoutY="119.0" text="Sex: " />
+            <Label layoutX="157.0" layoutY="119.0" text="Instructor Level: " />
+            <ChoiceBox layoutX="255.0" layoutY="115.0" prefHeight="23.0" prefWidth="104.0" />
+            <TextField layoutX="370.0" layoutY="115.0" />
          </children>
       </AnchorPane>
       <ScrollPane fx:id="instructorPane" layoutY="140.0" prefHeight="292.0" prefWidth="768.0">
          <content>
             <VBox fx:id="instructorListVBox" prefHeight="292.0" prefWidth="750.0" />
-         </content>
-      </ScrollPane>
-      <ScrollPane fx:id="videoPane" layoutY="140.0" prefHeight="292.0" prefWidth="768.0">
-         <content>
-            <VBox fx:id="videoListVBox" prefHeight="292.0" prefWidth="750.0" />
          </content>
       </ScrollPane>
    </children>
