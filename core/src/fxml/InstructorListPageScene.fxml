@@ -13,12 +13,13 @@
       <AnchorPane prefHeight="140.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css">
          <children>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
-            <Label layoutX="584.0" layoutY="99.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Instructors" />
-            <ChoiceBox layoutX="71.0" layoutY="115.0" prefHeight="23.0" prefWidth="70.0" />
+            <Label layoutX="589.0" layoutY="81.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Instructors" />
+            <ChoiceBox fx:id="sexCB" layoutX="71.0" layoutY="115.0" prefHeight="23.0" prefWidth="70.0" />
             <Label layoutX="42.0" layoutY="119.0" text="Sex: " />
             <Label layoutX="157.0" layoutY="119.0" text="Instructor Level: " />
-            <ChoiceBox layoutX="255.0" layoutY="115.0" prefHeight="23.0" prefWidth="104.0" />
-            <TextField layoutX="370.0" layoutY="115.0" />
+            <ChoiceBox fx:id="levelCB" layoutX="255.0" layoutY="115.0" prefHeight="23.0" prefWidth="104.0" />
+            <TextField fx:id="userIdTF" layoutX="370.0" layoutY="115.0" promptText="Search ID" />
+            <Button layoutX="508.0" layoutY="115.0" mnemonicParsing="false" onAction="#searchId" text="OK" />
          </children>
       </AnchorPane>
       <ScrollPane fx:id="instructorPane" layoutY="140.0" prefHeight="292.0" prefWidth="768.0">

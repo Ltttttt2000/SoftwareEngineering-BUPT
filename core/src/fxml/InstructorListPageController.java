@@ -9,9 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -25,14 +23,16 @@ import java.util.ResourceBundle;
 
 public class InstructorListPageController implements Initializable {
     @FXML
-    private ScrollPane videoPane;
-    @FXML
     private ScrollPane instructorPane;
-
     @FXML
     private VBox instructorListVBox;
+    @FXML
+    private ChoiceBox<String> sexCB;
+    @FXML
+    private ChoiceBox<String> levelCB;
+    @FXML
+    private TextField userIdTF;
 
-    private String[] userIds;
     private GUIDriver driver;
     private Scene thisScene;
     private Scene lastScene;
@@ -41,7 +41,8 @@ public class InstructorListPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        sexCB.getItems().addAll("All", "Male", "Female");
+        levelCB.getItems().addAll("All", "Normal", "Junior", "Senior");
     }
 
     public void initData(String curUserId, Scene thisScene, Scene lastScene, GUIDriver driver) {
@@ -50,11 +51,14 @@ public class InstructorListPageController implements Initializable {
         this.thisScene = thisScene;
         this.lastScene = lastScene;
 
-        listInstructors();
+        sexCB.getSelectionModel().select(0);
+        levelCB.getSelectionModel().select(0);
+        userIdTF.setText("");
+        listInstructors("*");
     }
 
-    private void listInstructors(){
-        ArrayList<Object> list = driver.select("Instructor *");
+    private void listInstructors(String selection) {
+        ArrayList<Object> list = driver.select("Instructor " + selection);
         for(Object i:list){
             instructorListVBox.getChildren().add(drawInstructorButton((Instructor) i));
         }
@@ -65,7 +69,7 @@ public class InstructorListPageController implements Initializable {
 //        return strs;
 //    }
 
-    public Button drawInstructorButton(Instructor user){
+    public Button drawInstructorButton(Instructor user) {
         StackPane imagePane = new StackPane();
 
         Image normalBorder = new Image("file:core/src/imgs/normalborder.png", 90, 90, false, false);
@@ -153,14 +157,19 @@ public class InstructorListPageController implements Initializable {
         return button;
     }
 
-    public void showInstructorStore(ActionEvent event){
-        videoPane.setVisible(false);
-        instructorPane.setVisible(true);
+    public void searchId(ActionEvent event) {
+        String id = userIdTF.getText();
+        instructorListVBox.getChildren().clear();
+        if(id.equals(""))
+            listInstructors("*");
+        else
+            listInstructors("Userid=" + id);
     }
 
     // for back button
-    public void backToLastScene(){
+    public void backToLastScene() {
         SceneTransform.ToScene(lastScene);
         instructorListVBox.getChildren().clear();
+
     }
 }
