@@ -171,6 +171,8 @@ public class User{
 		this.userLevel = parameters[2];
 		this.sex = parameters[3];
 		this.phoneNumber = parameters[4];
+		this.loginLicense = Boolean.valueOf(parameters[5]);
+		this.rechargeAmount = Double.parseDouble(parameters[6]);
 		this.resume = parameters[7];
 
 		this.Userid = new SimpleStringProperty(parameters[0]);

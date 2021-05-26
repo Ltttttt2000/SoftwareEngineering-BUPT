@@ -17,8 +17,8 @@ public class GymUtils {
         type = "com.iot.g89." + type;
 
         try {
-            Class clazz = Class.forName(type);
-            Constructor constructor = clazz.getConstructor(String.class);
+            Class<?> clazz = Class.forName(type);
+            Constructor<?> constructor = clazz.getConstructor(String.class);
             Object o = constructor.newInstance(userID);
             User user = (User) o;
             if(!(user.userid.equals("None"))){

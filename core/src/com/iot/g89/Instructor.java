@@ -21,10 +21,12 @@ public class Instructor extends User{
  	 */
  	public Instructor(String userid) {
 		super(userid);
-		if(this.getClass().getSimpleName().equals("Instructor") ) {
-			this.instructorMoney = Integer.parseInt(selectList.get(entry)[14]);
-		}
-		
+		this.instructorMoney = Integer.parseInt(selectList.get(entry)[14]);
+	}
+
+	public Instructor(String[] para) {
+ 		super(para);
+		this.instructorMoney = Integer.parseInt(selectList.get(entry)[14]);
 	}
 	 
 	 /**

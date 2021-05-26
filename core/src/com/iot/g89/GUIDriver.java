@@ -1,7 +1,10 @@
 package com.iot.g89;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class GUIDriver {
 
@@ -56,9 +59,11 @@ public class GUIDriver {
         if(type.equals("Instructor")){
             parameters = Arrays.copyOf(parameters, parameters.length + 1);
             parameters[parameters.length - 1] = "0";
-            parameters[0] = "I" + userid;
+            userid = "I" + userid;
         }else
-            parameters[0] = "C" + userid;
+            userid = "C" + userid;
+
+        parameters[0] = userid;
 
         ArrayList<String[]> userInfoList = new ArrayList<String[]>();
         userInfoList.add(parameters);
@@ -126,7 +131,7 @@ public class GUIDriver {
     public String getResume(){return getResume(getUserId());}
     public String getUserLevel(){return getUserLevel(getUserId());}
     public String getUsertype(){return getUsertype(getUserId());}
-    // for intructor only
+    // for instructor only
     public String getInstructorMoney(){return String.valueOf(gymUtils.user.getInstructorMoney());}
 
     public String getSex(String id){
@@ -292,5 +297,57 @@ public class GUIDriver {
         return null;
     }
 
+    private ArrayList<User> selectAll(String type){
+        ArrayList<User> returnList = new ArrayList<User>();
 
+        String userFilePath = "./core/src/csv/"+ type + ".csv";
+        type = "com.iot.g89." + type;
+        String[] readAll = {"*"};
+
+        ArrayList<String[]> allList = FileUtils.readCSV(userFilePath, readAll);
+        for (String[] para : allList){
+            try {
+                Class<?> clazz = Class.forName(type);
+                Constructor<?> constructor = clazz.getConstructor(String[].class);
+                Object o = constructor.newInstance(new Object[]{para});
+                User user = (User) o;
+                returnList.add(user);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return  returnList;
+    }
+
+    /**
+     * user专用的聚合函数
+     * 全选用*
+     * 属性记得用首字母大写的驼峰命名法
+     *
+     * @param str
+     * @return
+     */
+    public ArrayList<User> select(String str){
+        ArrayList<User> returnList;
+
+        String[] para = str.split("( )+");
+        returnList = selectAll(para[0]);
+        if(para[1].equals("*"))
+            return returnList;
+
+        String[] para2 = para[1].split("=");
+
+        Iterator<User> iterator = returnList.iterator();
+        while(iterator.hasNext()){
+            try {
+                User user = iterator.next();
+                Method m = user.getClass().getMethod("get" + para2[0], null);
+                if(!(m.invoke(user).equals(para2[1])))
+                    iterator.remove();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return returnList;
+    }
 }
