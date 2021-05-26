@@ -15,12 +15,14 @@ public class SceneTransform {
 	private static Scene sceneUserInfoPage;
 	private static Scene sceneUserSecurityEditPage;
 	private static Scene sceneSorePage;
+	private static Scene sceneCoursesListPage;
 	
 	private static ClientStartPageController clientStartPageController;
 	private static RegisterAndLoginPageController registerAndLoginPageController;
 	private static UserInfoPageController userInfoPageController;
 	private static UserSecurityEditPageController userSecurityEditPageController;
 	private static StorePageController storePageController;
+	private static CoursesListPageController coursesListPageController;
 
 	private static GUIDriver driver = new GUIDriver();
 	
@@ -36,18 +38,21 @@ public class SceneTransform {
 			FXMLLoader loaderUserInfoPage = new FXMLLoader(getClass().getResource("/fxml/UserInfoPageScene.fxml"));
 			FXMLLoader loaderUserSecurityEditPage = new FXMLLoader(getClass().getResource("/fxml/UserSecurityEditPageScene.fxml"));
 			FXMLLoader loaderStorePage = new FXMLLoader(getClass().getResource("/fxml/StorePageScene.fxml"));
+			FXMLLoader loaderCoursesListPage = new FXMLLoader(getClass().getResource("/fxml/CoursesListPageScene.fxml"));
 
 			sceneClientStartPage = new Scene(loaderClientStartPage.load());
 			sceneRegisterAndLoginPage = new Scene(loaderRegisterAndLoginPage.load());
 			sceneUserInfoPage = new Scene(loaderUserInfoPage.load());
 			sceneUserSecurityEditPage = new Scene(loaderUserSecurityEditPage.load());
 			sceneSorePage = new Scene(loaderStorePage.load());
+			sceneCoursesListPage = new Scene(loaderCoursesListPage.load());
 			
 			clientStartPageController = loaderClientStartPage.getController();
 			registerAndLoginPageController = loaderRegisterAndLoginPage.getController();
 			userInfoPageController = loaderUserInfoPage.getController();
 			userSecurityEditPageController = loaderUserSecurityEditPage.getController();
 			storePageController = loaderStorePage.getController();
+			coursesListPageController = loaderCoursesListPage.getController();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -83,6 +88,11 @@ public class SceneTransform {
 	public static void ToStorePage(String userId, Scene lastScene) {
 		storePageController.initData(userId, sceneSorePage, lastScene, driver);
 		ToScene(sceneSorePage);
+	}
+
+	public static void ToCoursesListPage(String userId, String windowName, Scene lastScene) {
+		coursesListPageController.initData(userId, windowName, sceneCoursesListPage, lastScene, driver);
+		ToScene(sceneCoursesListPage);
 	}
 	
 	public static void ToScene(Scene scene) {
