@@ -18,15 +18,7 @@ public class GUIDriver {
      * @param password password
      * @return -1 no user; -2 wrong password; 1 success
      */
-    public int login(String userID, String password){
-
-        String type = null;
-        if(userID.charAt(0) == 'C')
-            type = "Client";
-        else if(userID.charAt(0) == 'I')
-            type = "Instructor";
-        else
-            type = "Administrator";
+    public int login(String userID, String password, String type){
 
         gymUtils.initialize(userID, type);
 
