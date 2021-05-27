@@ -326,8 +326,7 @@ public class GUIDriver {
     }
 
     /**
-     * select函数
-     * 全选用*
+     * select函数,支持多重=
      * 属性记得用首字母大写的驼峰命名法
      *
      * @param str
@@ -335,24 +334,36 @@ public class GUIDriver {
      * @return
      */
     public ArrayList<Object> select(String str, ArrayList<Object> originList){
-
         String[] para = str.split("( )+");
-        if(para[1].equals("*"))
+        if(para.length == 1)
             return originList;
+        else{
+            String[] para2 = para[1].split("=");
 
-        String[] para2 = para[1].split("=");
-
-        Iterator<Object> iterator = originList.iterator();
-        while(iterator.hasNext()){
-            try {
-                Object o = iterator.next();
-                Method m = o.getClass().getMethod("get" + para2[0], null);
-                if(!(m.invoke(o).equals(para2[1])))
-                    iterator.remove();
-            } catch (Exception e) {
-                e.printStackTrace();
+            Iterator<Object> iterator = originList.iterator();
+            while(iterator.hasNext()){
+                try {
+                    Object o = iterator.next();
+                    Method m = o.getClass().getMethod("get" + para2[0], null);
+                    if(!(m.invoke(o).equals(para2[1])))
+                        iterator.remove();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+            str = str.replaceAll(para[1],"");
+            return select(str,originList);
         }
-        return originList;
     }
+
+
+//    public ArrayList<Object> select(String subject, String object){
+//        switch (subject){
+//            case "Client" :
+//                switch (object){
+//                    case "Instructor" :
+//                        select()
+//                }
+//        }
+//    }
 }
