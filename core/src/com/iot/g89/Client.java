@@ -1,10 +1,14 @@
 package com.iot.g89;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Client extends User{
               // Normal, Member, SupremeMember
 	//
+
+	private final String fileRoot = "./core/src/csv/";
+
 	public Client(String userid) {
 		super(userid);
 	}
@@ -238,37 +242,36 @@ public class Client extends User{
 		System.out.println(myInstructor);
 		return myInstructor;
 	}
-	
-	/**
-	 * This method is only for SupremeMember client to buy a instructor.
-	 * 
-	 * @param instructor
-	 * 			the instructor want to buy
-	 */
-	public void buyInstructor(Instructor instructor) {
-		if(this.userLevel.equals("SupremeMember")) {
-			int money = instructor.instructorMoney;     
-			consume(money);
-			
-			String filePath = "./clientInstructor.csv";	
-			String[] attrs = {"*"};
-			//identify purchasedId
-			ArrayList<String[]> info = new ArrayList<String[]>();
-			info = FileUtils.readCSV(filePath, attrs);
-			int i = 0;
-			String purchasedid = null;
-			while(i<info.size()) {  //the second element is client's userid
-				purchasedid = info.get(i)[0];
-				i++;
-			}
-			int id = Integer.parseInt(purchasedid) + 1;
-			String newPurchasedId = String.valueOf(id);
-			ArrayList<String[]> csvList = new ArrayList<String[]>();
-			String[] addInfo = {newPurchasedId,this.userid,instructor.userid};
-			csvList.add(addInfo);
-			FileUtils.insertCSV(filePath, csvList);			
+
+	public int purchaseOrReserve(String Id) {
+
+		String filePath = "./core/src/csv/";
+		String[] insertString = {Id,userid};
+		ArrayList<String[]> insertList = new ArrayList<>();
+		insertList.add(insertString);
+
+		if(this.userLevel.equals("Normal")) {
+			return -1;
 		}else {
-			System.out.println("Wrong clientType");
+
+			double money = 0;
+			if(Id.charAt(0) == 'I'){
+				Instructor i = new Instructor(Id);
+				money = i.getInstructorMoney();
+				filePath = filePath + "PurchaseInstructor.csv";
+			}else if(Id.charAt(0) == 'V'){
+				Video v = new Video(Id);
+				money = 0;
+				filePath = filePath + "PurchaseVideo.csv";
+			}else
+				filePath = filePath + "Reservation";
+
+			int w = consume(money);
+			if(w != 1)
+				return -2;
+
+			FileUtils.insertCSV(filePath, insertList);
+			return 1;
 		}
 	}
 	
