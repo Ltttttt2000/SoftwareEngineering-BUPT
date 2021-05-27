@@ -3,6 +3,8 @@ package fxml;
 import com.iot.g89.GUIDriver;
 import com.iot.g89.Instructor;
 import com.iot.g89.SceneTransform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,6 +35,11 @@ public class InstructorListPageController implements Initializable {
     @FXML
     private TextField userIdTF;
 
+    private String selection = "Instructor";
+    private String sexSelection = "";
+    private String levelSelection = "";
+    private String idSearching = "";
+
     private GUIDriver driver;
     private Scene thisScene;
     private Scene lastScene;
@@ -43,6 +50,9 @@ public class InstructorListPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sexCB.getItems().addAll("All", "Male", "Female");
         levelCB.getItems().addAll("All", "Normal", "Junior", "Senior");
+
+        sexCB.getSelectionModel().selectedItemProperty().addListener(selectSex);
+        levelCB.getSelectionModel().selectedItemProperty().addListener(selectLevel);
     }
 
     public void initData(String curUserId, Scene thisScene, Scene lastScene, GUIDriver driver) {
@@ -54,20 +64,16 @@ public class InstructorListPageController implements Initializable {
         sexCB.getSelectionModel().select(0);
         levelCB.getSelectionModel().select(0);
         userIdTF.setText("");
-        listInstructors("*");
+        listInstructors();
     }
 
-    private void listInstructors(String selection) {
-        ArrayList<Object> list = driver.select("Instructor " + selection);
+    private void listInstructors() {
+        ArrayList<Object> list = driver.select(selection + " " + sexSelection + " " + levelSelection + " " + idSearching);
+        instructorListVBox.getChildren().clear();
         for(Object i:list){
             instructorListVBox.getChildren().add(drawInstructorButton((Instructor) i));
         }
     }
-
-//    private String[] getAllInstructorsId() {
-//        String[] strs = {"I1001", "I1002", "I1003", "I1004", "I1005", "I1006"};
-//        return strs;
-//    }
 
     public Button drawInstructorButton(Instructor user) {
         StackPane imagePane = new StackPane();
@@ -157,13 +163,39 @@ public class InstructorListPageController implements Initializable {
         return button;
     }
 
+    // select sex
+    public ChangeListener<String> selectSex = new ChangeListener<String>(){
+        @Override
+        public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+            if(t1.equals("All"))
+                sexSelection = "";
+            else
+                sexSelection = "Sex=" + t1;
+            listInstructors();
+        }
+    };
+
+    // select level
+    public ChangeListener<String> selectLevel = new ChangeListener<String>(){
+        @Override
+        public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+            if(t1.equals("All"))
+                levelSelection = "";
+            else
+                levelSelection = "UserLevel=" + t1;
+            listInstructors();
+        }
+    };
+
+    // search id
     public void searchId(ActionEvent event) {
         String id = userIdTF.getText();
-        instructorListVBox.getChildren().clear();
         if(id.equals(""))
-            listInstructors("*");
+            idSearching = "";
         else
-            listInstructors("Userid=" + id);
+            idSearching = "Userid=" + id;
+        instructorListVBox.getChildren().clear();
+        listInstructors();
     }
 
     // for back button
