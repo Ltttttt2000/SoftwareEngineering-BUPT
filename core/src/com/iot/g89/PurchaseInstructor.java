@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PurchaseInstructor {
 
-    public static ArrayList<Object> aggregateByClient(String userId){
+    public static ArrayList<Object> aggregate(String userId){
         ArrayList<Object> returnList = new ArrayList<>();
 
         String filePath = "./core/src/csv/PurchaseInstructor.csv";

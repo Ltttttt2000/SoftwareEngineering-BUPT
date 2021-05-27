@@ -367,7 +367,7 @@ public class GUIDriver {
 //            case "Client" :
 //                switch (object){
 //                    case "Instructor" :
-//                        select()
+//                        PurchaseInstructor.aggregate()
 //                }
 //        }
 //    }

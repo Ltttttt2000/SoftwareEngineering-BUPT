@@ -7,8 +7,6 @@ public class Client extends User{
               // Normal, Member, SupremeMember
 	//
 
-	private final String fileRoot = "./core/src/csv/";
-
 	public Client(String userid) {
 		super(userid);
 	}
@@ -243,6 +241,15 @@ public class Client extends User{
 		return myInstructor;
 	}
 
+	/**
+	 * <ul>
+	 * <li>purchase instructor or video</li>
+	 * <li>reserve a live</li>
+	 * </ul>
+	 *
+	 * @param Id
+	 * @return -1 wrong usertype; -2 money; 1 success
+	 */
 	public int purchaseOrReserve(String Id) {
 
 		String filePath = "./core/src/csv/";
