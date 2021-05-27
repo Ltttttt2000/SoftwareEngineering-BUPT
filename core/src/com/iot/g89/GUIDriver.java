@@ -320,13 +320,20 @@ public class GUIDriver {
         return  returnList;
     }
 
+    /**
+     * select函数，支持多重=
+     * 属性记得用首字母大写的驼峰命名法
+     *
+     * @param str
+     * @return
+     */
     public ArrayList<Object> select(String str){
         String[] para = str.split("( )+");
         return select(str,selectAll(para[0]));
     }
 
     /**
-     * select函数,支持多重=
+     * select函数，支持多重=，套娃版本
      * 属性记得用首字母大写的驼峰命名法
      *
      * @param str
