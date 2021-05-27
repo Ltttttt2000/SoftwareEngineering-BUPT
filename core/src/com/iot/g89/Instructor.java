@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Instructor extends User{
 	
 	 /** The instructor money. */
- 	public int instructorMoney = 0;
+ 	public double instructorMoney = 0;
 	 
 	 /**
  	 * Instantiates a new instructor.
@@ -21,12 +21,12 @@ public class Instructor extends User{
  	 */
  	public Instructor(String userid) {
 		super(userid);
-		this.instructorMoney = Integer.parseInt(selectList.get(entry)[14]);
+		this.instructorMoney = Double.parseDouble(selectList.get(entry)[14]);
 	}
 
 	public Instructor(String[] para) {
  		super(para);
-		this.instructorMoney = Integer.parseInt(para[14]);
+		this.instructorMoney = Double.parseDouble(para[14]);
 	}
 	 
 	 /**
@@ -58,7 +58,7 @@ public class Instructor extends User{
  	 *
  	 * @return the instructor money
  	 */
-	 public int getInstructorMoney() {
+	 public double getInstructorMoney() {
 		 return this.instructorMoney;
 	 }
 

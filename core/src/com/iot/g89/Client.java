@@ -36,6 +36,11 @@ public class Client extends User{
 	 * 			The money the user need to pay
 	 */
 	public int consume(double money) {
+		if(this.getUserLevel().equals("Member"))
+			money *= 0.8;
+		if(this.getUserLevel().equals("SupremeMember"))
+			money *= 0.5;
+
 		double balance = this.getRechargeAmount() - money;
 		if(balance < 0) {
 			return -1;
@@ -248,7 +253,7 @@ public class Client extends User{
 	 * </ul>
 	 *
 	 * @param Id
-	 * @return -1 wrong usertype; -2 money; 1 success
+	 * @return -1 no instructor/video; -2 repeat purchasing -3 money; 1 success
 	 */
 	public int purchaseOrReserve(String Id) {
 
@@ -257,29 +262,35 @@ public class Client extends User{
 		ArrayList<String[]> insertList = new ArrayList<>();
 		insertList.add(insertString);
 
-		if(this.userLevel.equals("Normal")) {
-			return -1;
+		double money = 0;
+		if(Id.charAt(0) == 'I'){
+			Instructor i = new Instructor(Id);
+			if(i.getUserid().equals("None"))
+				return  -1;
+			money = i.getInstructorMoney();
+			filePath = filePath + "PurchaseInstructor.csv";
+		}else if(Id.charAt(0) == 'V'){
+			Video v = new Video(Id);
+			if(v.getVideoId().equals("None"))
+				return  -1;
+			money = 0;
+			filePath = filePath + "PurchaseVideo.csv";
 		}else {
-
-			double money = 0;
-			if(Id.charAt(0) == 'I'){
-				Instructor i = new Instructor(Id);
-				money = i.getInstructorMoney();
-				filePath = filePath + "PurchaseInstructor.csv";
-			}else if(Id.charAt(0) == 'V'){
-				Video v = new Video(Id);
-				money = 0;
-				filePath = filePath + "PurchaseVideo.csv";
-			}else
-				filePath = filePath + "Reservation";
-
-			int w = consume(money);
-			if(w != 1)
-				return -2;
-
-			FileUtils.insertCSV(filePath, insertList);
-			return 1;
+			filePath = filePath + "Reservation";
 		}
+
+		ArrayList<String[]> IdList = FileUtils.readCSV(filePath,new String[]{"*"});
+		for(String[] IdR : IdList){
+			if(IdR[0].equals(Id) && IdR[1].equals(this.getUserid()))
+				return -2;
+		}
+
+		int w = consume(money);
+		if(w != 1)
+			return -3;
+
+		FileUtils.insertCSV(filePath, insertList);
+		return 1;
 	}
 	
 	/**

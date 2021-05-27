@@ -308,7 +308,7 @@ public class User{
 
 	public String getResume(){return this.resume;}
 
-	public int getInstructorMoney(){return 0;}
+	public double getInstructorMoney(){return 0;}
 
 	public void setUserid(String userid) {
 		this.userid = userid;
@@ -475,13 +475,9 @@ public class User{
 	 }
 
 	public String toString() {
-		return "id" + this.getUserid() + "\n" +
-				"age"+ this.getAge() + "\n"+
-				"height"+ this.getHeight() + "\n"+
-				"weight"+ this.getWeight() + "\n"+
-				"chest"+ this.getChest() + "\n"+
-				"waist"+ this.getWaist() + "\n"+
-				"hip"+ this.getHip() + "\n";
+		return "id\t\t" + this.getUserid() + "\n" +
+				"level\t" + this.getUserLevel() + "\n" +
+				"sex\t\t" + this.getSex() + "\n";
 	}
 
 

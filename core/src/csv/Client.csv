@@ -1,5 +1,5 @@
 userid,password,userLevel,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip
-C1001,123456,Memebr,Female,67218428638,TRUE,1148.17,Wuhu!Take off!,36,174,65.87,88.74,59.16,94.31
+C1001,123456,Memebr,Female,67218428638,TRUE,922.0400000000001,Wuhu!Take off!,36,174.0,65.87,88.7,59.2,94.3
 C1002,123456,Memebr,Male,13926919774,TRUE,1393.84,Wuhu!Take off!,37,174,72.01,88.74,59.16,94.31
 C1003,123456,Memebr,Male,14943163517,TRUE,1078.81,"Song Bao, my superman!",50,170,68.43,86.7,57.8,92.14
 C1004,123456,Normal,Female,93815968359,TRUE,411.72,"HIT, YYDS",76,173,71.8,88.23,58.82,93.77
