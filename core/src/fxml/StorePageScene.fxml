@@ -10,22 +10,22 @@
 
 <AnchorPane prefHeight="432.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.StorePageController">
    <children>
-      <AnchorPane prefHeight="140.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css">
+      <AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css">
          <children>
-            <Button layoutY="115.0" mnemonicParsing="false" onAction="#showVideoStore" prefHeight="23.0" prefWidth="369.0" text="Video Store" />
-            <Button layoutX="369.0" layoutY="115.0" mnemonicParsing="false" onAction="#showInstructorStore" prefHeight="23.0" prefWidth="399.0" text="Instructor Store" />
+            <Button fx:id="coursesStoreButton" layoutX="174.0" layoutY="124.0" mnemonicParsing="false" onAction="#goToCoursesStore" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
+               <styleClass>
+                  <String fx:value="button-round" />
+                  <String fx:value="button3" />
+               </styleClass></Button>
+            <Button fx:id="instructorStoreButton" layoutX="444.0" layoutY="124.0" mnemonicParsing="false" onAction="#goToInstructorStore" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
+               <styleClass>
+                  <String fx:value="button-round" />
+                  <String fx:value="button2" />
+               </styleClass></Button>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+            <Label layoutX="167.0" layoutY="304.0" stylesheets="@../css/TextType.css" text="Courses Store" />
+            <Label layoutX="422.0" layoutY="304.0" stylesheets="@../css/TextType.css" text="Instructors Store" />
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="instructorPane" layoutY="140.0" prefHeight="292.0" prefWidth="768.0">
-         <content>
-            <VBox fx:id="instructorListVBox" prefHeight="292.0" prefWidth="750.0" />
-         </content>
-      </ScrollPane>
-      <ScrollPane fx:id="videoPane" layoutY="140.0" prefHeight="292.0" prefWidth="768.0">
-         <content>
-            <VBox fx:id="videoListVBox" prefHeight="292.0" prefWidth="750.0" />
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>

@@ -121,8 +121,8 @@ public class SceneTransform {
 		ToScene(sceneCoursesListPage);
 	}
 
-	public static void ToInstructorListPage(String userId, Scene lastScene) {
-		instructorListPageController.initData(userId, sceneInstructorListPage, lastScene, driver);
+	public static void ToInstructorListPage(String userId, String windowName, Scene lastScene) {
+		instructorListPageController.initData(userId, windowName, sceneInstructorListPage, lastScene, driver);
 		ToScene(sceneInstructorListPage);
 	}
 

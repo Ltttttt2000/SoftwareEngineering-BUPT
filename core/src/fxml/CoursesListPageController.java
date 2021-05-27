@@ -46,6 +46,25 @@ public class CoursesListPageController implements Initializable {
         this.thisScene = thisScene;
         this.lastScene = lastScene;
         windowNameLabel.setText(windowName);
+        switch(windowName) {
+            case "Public Courses":
+                break;
+            case "Paid Courses":
+                // yeah
+                break;
+            case "History Courses":
+                // something
+                break;
+            case "Courses Store":
+                // something else
+                break;
+            case "Purchased Courses":
+                // Something choose someone's paid courses
+                break;
+            case "Private Courses":
+                // own courses
+                break;
+        }
         listVideos();
     }
 

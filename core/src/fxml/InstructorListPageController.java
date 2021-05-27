@@ -34,6 +34,8 @@ public class InstructorListPageController implements Initializable {
     private ChoiceBox<String> levelCB;
     @FXML
     private TextField userIdTF;
+    @FXML
+    private Label windowNameLabel;
 
     private String selection = "Instructor";
     private String sexSelection = "";
@@ -55,15 +57,23 @@ public class InstructorListPageController implements Initializable {
         levelCB.getSelectionModel().selectedItemProperty().addListener(selectLevel);
     }
 
-    public void initData(String curUserId, Scene thisScene, Scene lastScene, GUIDriver driver) {
+    public void initData(String curUserId, String windowName, Scene thisScene, Scene lastScene, GUIDriver driver) {
         this.driver = driver;
         this.curUserId = curUserId;
         this.thisScene = thisScene;
         this.lastScene = lastScene;
 
+        windowNameLabel.setText(windowName);
         sexCB.getSelectionModel().select(0);
         levelCB.getSelectionModel().select(0);
         userIdTF.setText("");
+        switch(windowName){
+            case "Instructors Store":
+                break;
+            case "My Instructors":
+                // Something
+                break;
+        }
         listInstructors();
     }
 

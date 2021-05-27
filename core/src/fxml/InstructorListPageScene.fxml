@@ -13,7 +13,7 @@
       <AnchorPane prefHeight="140.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css">
          <children>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
-            <Label layoutX="589.0" layoutY="81.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Instructors" />
+            <Label fx:id="windowNameLabel" layoutX="542.0" layoutY="70.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Instructors Store" />
             <ChoiceBox fx:id="sexCB" layoutX="71.0" layoutY="115.0" prefHeight="23.0" prefWidth="70.0" />
             <Label layoutX="42.0" layoutY="119.0" text="Sex: " />
             <Label layoutX="157.0" layoutY="119.0" text="Instructor Level: " />

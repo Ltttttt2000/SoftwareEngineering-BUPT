@@ -306,6 +306,7 @@
                         <String fx:value="type-instructor-senior" />
                      </styleClass>
                   </Label>
+                  <Button fx:id="payButton" layoutX="309.0" layoutY="121.0" mnemonicParsing="false" onAction="#buy" text="Pay now!" visible="false" />
                </children>
             </AnchorPane>
             <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
