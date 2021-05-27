@@ -45,20 +45,23 @@ public class VideoListPageController implements Initializable {
 
         TableColumn<Video,String> ID = new TableColumn<>("id");
 
+        TableColumn<Video,String> name = new TableColumn<>("Name");
+
         TableColumn<Video,String> type = new TableColumn<>("Type");
 
         TableColumn<Video,String> author = new TableColumn<>("Author");
 
-        TableColumn<Video,String> client = new TableColumn<>("Client");
+        TableColumn<Video,String> price = new TableColumn<>("Price");
 
         //TableColumn<Video,String> buttons = new TableColumn<>("Buttons");
 
 
 
             ID.setCellValueFactory(new PropertyValueFactory<Video,String>("videoId"));
+            name.setCellValueFactory(new PropertyValueFactory<Video,String>("videoName"));
             type.setCellValueFactory(new PropertyValueFactory<Video,String>("videoType"));
             author.setCellValueFactory(new PropertyValueFactory<Video,String>("author"));
-            client.setCellValueFactory(new PropertyValueFactory<Video,String>("specificClient"));
+            price.setCellValueFactory(new PropertyValueFactory<Video,String>("price"));
 
         button.setOnAction(
                 new EventHandler<ActionEvent>() {
@@ -95,7 +98,7 @@ public class VideoListPageController implements Initializable {
             //items.add(v);
 
         tableView.setItems(cellData);
-        tableView.getColumns().addAll(ID,type,author,client);
+        tableView.getColumns().addAll(ID,name,type,author,price);
         tableView.getSelectionModel().select(0);
 
     }

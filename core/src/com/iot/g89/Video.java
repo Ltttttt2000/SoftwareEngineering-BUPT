@@ -5,54 +5,63 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Video {
 	private String videoId;
-	private final SimpleStringProperty VideoId;
+	//private final SimpleStringProperty VideoId;
 	private String videoType;
-	private final SimpleStringProperty VideoType;
+	//private final SimpleStringProperty VideoType;
 	private String detail;
 
 	private String videoName;
-	private final SimpleStringProperty VideoName;
+	//private final SimpleStringProperty VideoName;
 
-	public String getVideoName() {
-		return videoName;
-	}
 
-	public SimpleStringProperty videoNameProperty() {
-		return VideoName;
-	}
 
 	private double price;
-	private final SimpleDoubleProperty Price;
-	private Instructor author;
-	private final SimpleStringProperty Author;
-	Client specificClient;
+	//private final SimpleDoubleProperty Price;
+	private String author;
+	//private final SimpleStringProperty Author;
+	private String specificClient;
 
 
 	
     public Video(String videoId) {
-    	this.VideoId = new SimpleStringProperty(videoId);
+    	//this.VideoId = new SimpleStringProperty(videoId);
     	this.videoId = videoId;
-    	this.VideoType = new SimpleStringProperty("Default");
-    	this.Price = new SimpleDoubleProperty(0.0);
-    	this.Author = new SimpleStringProperty("Somebody");
-    	this.VideoName = new SimpleStringProperty("Stay fit and be strong");
+    	//this.VideoType = new SimpleStringProperty("Default");
+		this.videoType = "Default";
+    	//this.Price = new SimpleDoubleProperty(0.0);
+		this.price = 0;
+    	//this.Author = new SimpleStringProperty("Somebody");
+
+		//this.author = new Instructor("Somebody");
+		this.author = "Somebody";
+
+		//this.VideoName = new SimpleStringProperty();
+    	this.videoName = "Stay fit and be strong";
     }
 
-	public SimpleStringProperty videoIdProperty() {
-		return VideoId;
+    public String getVideoName() {
+		return videoName;
 	}
 
-	public SimpleStringProperty videoTypeProperty() {
-		return VideoType;
-	}
+//	public String videoNameProperty() {
+//		return VideoName.get();
+//	}
 
-	public SimpleDoubleProperty priceProperty() {
-		return Price;
-	}
-
-	public SimpleStringProperty authorProperty() {
-		return Author;
-	}
+//	public SimpleStringProperty videoIdProperty() {
+//		return VideoId;
+//	}
+//
+//	public SimpleStringProperty videoTypeProperty() {
+//		return VideoType;
+//	}
+//
+//	public SimpleDoubleProperty priceProperty() {
+//		return Price;
+//	}
+//
+//	public SimpleStringProperty authorProperty() {
+//		return Author;
+//	}
 
 	public String getVideoId() {
 		return videoId;
@@ -73,12 +82,15 @@ public class Video {
 		return price;
 	}
 
-	public Instructor getAuthor() {
+	public String getAuthor() {
 		return author;
-
 	}
 
-	public Client getSpecificClient() {
+//	public String getAuthor() {
+//		return author;
+//	}
+
+	public String getSpecificClient() {
 		return specificClient;
 
 	}
@@ -95,12 +107,12 @@ public class Video {
 		this.price = Double.parseDouble(price);
 	}
 
-	public void setAuthor(Instructor author) {
-		this.author = author;
-	}
+//	public void setAuthor(Instructor author) {
+//		this.author = author;
+//	}
 
 	public void setSpecificClient(Client specificClient) {
-		this.specificClient = specificClient;
+		this.specificClient = specificClient.getUserid();
 	}
 
 	public void playVideo(String file) {

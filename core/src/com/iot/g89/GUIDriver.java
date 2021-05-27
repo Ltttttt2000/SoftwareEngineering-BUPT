@@ -118,7 +118,7 @@ public class GUIDriver {
 
     }
 
-    public String getUserId(){return gymUtils.user.getId();}
+    public String getUserId(){return gymUtils.user.getUserid();}
 
     public String getSex(){return getSex(getUserId());}
     public String getPhone(){return getPhone(getUserId());}
@@ -143,7 +143,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return user.getSex();
         return null;
     }
@@ -155,8 +155,8 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
-            return user.getPhone();
+        if(!(user.getUserid().equals("None")))
+            return user.getPhoneNumber();
         return null;
     }
 
@@ -167,8 +167,8 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
-            return String.format("%.2f", user.getRechargeAccount());
+        if(!(user.getUserid().equals("None")))
+            return String.format("%.2f", user.getRechargeAmount());
         return null;
     }
 
@@ -179,7 +179,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return user.getAge() + "";
         return null;
     }
@@ -191,7 +191,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return user.getHeight() + "";
         return null;
     }
@@ -203,7 +203,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return String.format("%.2f", user.getWeight());
         return null;
     }
@@ -215,7 +215,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return String.format("%.1f", user.getChest());
         return null;
     }
@@ -227,7 +227,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return String.format("%.1f", user.getWaist());
         return null;
     }
@@ -239,7 +239,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return String.format("%.1f", user.getHip());
         return null;
     }
@@ -251,7 +251,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return String.valueOf(user.getLoginLicense());
         return null;
     }
@@ -263,7 +263,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return user.getResume();
         return null;
     }
@@ -275,7 +275,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return user.getUserLevel();
         return null;
     }
@@ -287,14 +287,14 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getId().equals("None")))
+        if(!(user.getUserid().equals("None")))
             return user.getClass().getSimpleName();
         return null;
     }
 
     public String getInstructorMoney(String id){
         Instructor instructor = new Instructor(id);
-        if(!(instructor.getId().equals("None")))
+        if(!(instructor.getUserid().equals("None")))
             return String.valueOf(instructor.getInstructorMoney());
         return null;
     }

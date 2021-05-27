@@ -156,7 +156,7 @@ public class Instructor extends User{
  	 */
 	 public void checkMyMember(Client member) {
 		
-			 System.out.println("Id:"+ member.getId()+"\n"+
+			 System.out.println("Id:"+ member.getUserid()+"\n"+
 			 					"Sex"+ member.getSex() +"\n"+
 					 			"age:"+ member.getAge() +"\n"+
 					 			"height"+ member.getHeight() +"\n"+

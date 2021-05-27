@@ -19,22 +19,22 @@ import java.util.Arrays;
 public class User{
 
 	protected String userid = "None";
-	private final SimpleStringProperty Userid;
+	//private final SimpleStringProperty Userid;
 	protected String password = "None";
-	private final SimpleStringProperty Password;
+	//private final SimpleStringProperty Password;
 	protected String userLevel = "Normal";
 	protected String sex = "None";
-	private final SimpleStringProperty Sex;
+	//private final SimpleStringProperty Sex;
 	protected String phoneNumber = "None";
-	private final SimpleStringProperty PhoneNumber;
+	//private final SimpleStringProperty PhoneNumber;
 	protected Boolean loginLicense = true;
 	protected double rechargeAmount = 0;      //the total money in the account
-	private final SimpleDoubleProperty RechargeAmount;
+	//private final SimpleDoubleProperty RechargeAmount;
 	protected String resume = "None";  //for instructor
 	
 	//physicalInfo
 	protected int age = 0;
-	private final SimpleIntegerProperty Age;
+	//private final SimpleIntegerProperty Age;
 	protected double height = 0;
 	protected double weight = 0;
 	protected double chest = 0;
@@ -66,12 +66,12 @@ public class User{
 	 */
 	public User(String userid){
 		userInfo[0] = this.userid;
-		this.Userid = new SimpleStringProperty(userid);
-		this.Password = new SimpleStringProperty("None");
-		this.Sex = new SimpleStringProperty("None");
-		this.PhoneNumber = new SimpleStringProperty("None");
-		this.RechargeAmount = new SimpleDoubleProperty(0);
-		this.Age = new SimpleIntegerProperty(0);
+//		this.Userid = new SimpleStringProperty(userid);
+//		this.Password = new SimpleStringProperty("None");
+//		this.Sex = new SimpleStringProperty("None");
+//		this.PhoneNumber = new SimpleStringProperty("None");
+//		this.RechargeAmount = new SimpleDoubleProperty(0);
+//		this.Age = new SimpleIntegerProperty(0);
 		userFilePath = "./core/src/csv/"+ this.getClass().getSimpleName() + ".csv";
 		
 		fileHeaders[0] = "userid";
@@ -176,10 +176,10 @@ public class User{
 		this.rechargeAmount = Double.parseDouble(parameters[6]);
 		this.resume = parameters[7];
 
-		this.Userid = new SimpleStringProperty(parameters[0]);
-		this.Password = new SimpleStringProperty(parameters[1]);
-		this.Sex = new SimpleStringProperty(parameters[3]);
-		this.PhoneNumber = new SimpleStringProperty(parameters[4]);
+//		this.Userid = new SimpleStringProperty(parameters[0]);
+//		this.Password = new SimpleStringProperty(parameters[1]);
+//		this.Sex = new SimpleStringProperty(parameters[3]);
+//		this.PhoneNumber = new SimpleStringProperty(parameters[4]);
 
 
 		this.age = Integer.parseInt(parameters[8]);
@@ -189,8 +189,8 @@ public class User{
 		this.waist = Double.parseDouble(parameters[12]);
 		this.hip = Double.parseDouble(parameters[13]);
 
-		this.RechargeAmount = new SimpleDoubleProperty(Double.parseDouble(parameters[6]));
-		this.Age = new SimpleIntegerProperty(Integer.parseInt(parameters[8]));
+//		this.RechargeAmount = new SimpleDoubleProperty(Double.parseDouble(parameters[6]));
+//		this.Age = new SimpleIntegerProperty(Integer.parseInt(parameters[8]));
 
 	}
 	
@@ -269,46 +269,43 @@ public class User{
 		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
 	 }
 
+
+
+//	public SimpleStringProperty useridProperty() {
+//		return Userid;
+//	}
+
+//	public SimpleStringProperty passwordProperty() {
+//		return Password;
+//	}
+
+
+
+//	public SimpleStringProperty sexProperty() {
+//		return Sex;
+//	}
+
+
+
+//	public SimpleStringProperty phoneNumberProperty() {
+//		return PhoneNumber;
+//	}
+
+
+
+//	public SimpleDoubleProperty rechargeAmountProperty() {
+//		return RechargeAmount;
+//	}
+
+//	public SimpleIntegerProperty ageProperty() {
+//		return Age;
+//	}
+
+
 	public String getUserid() {
-		return Userid.get();
+		return userid;
 	}
 
-	public SimpleStringProperty useridProperty() {
-		return Userid;
-	}
-
-	public SimpleStringProperty passwordProperty() {
-		return Password;
-	}
-
-	public SimpleStringProperty sexProperty() {
-		return Sex;
-	}
-
-	public String getPhoneNumber() {
-		return PhoneNumber.get();
-	}
-
-	public SimpleStringProperty phoneNumberProperty() {
-		return PhoneNumber;
-	}
-
-	public double getRechargeAmount() {
-		return RechargeAmount.get();
-	}
-
-	public SimpleDoubleProperty rechargeAmountProperty() {
-		return RechargeAmount;
-	}
-
-	public SimpleIntegerProperty ageProperty() {
-		return Age;
-	}
-
-	public String getId() {
-		return this.userid;
-		 
-	 }
 	public String getPassword() {
 		return this.password;
 		 
@@ -317,10 +314,10 @@ public class User{
 		return this.userLevel;
 		 
 	 }
-	public String getPhone() {
+	public String getPhoneNumber() {
 		return this.phoneNumber;
 	 }
-	public double getRechargeAccount(){
+	public double getRechargeAmount(){
  		return this.rechargeAmount;
 	 }
 	public Boolean getLoginLicense(){
@@ -425,7 +422,7 @@ public class User{
      */
 
 	public String toString() {
-		return "id" + this.getId() + "\n" +
+		return "id" + this.getUserid() + "\n" +
 				"age"+ this.getAge() + "\n"+
 				"height"+ this.getHeight() + "\n"+
 				"weight"+ this.getWeight() + "\n"+
