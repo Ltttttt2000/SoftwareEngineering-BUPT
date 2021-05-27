@@ -167,6 +167,8 @@ public class User{
 
 	public User(String[] parameters){
 
+		userFilePath = "./core/src/csv/"+ this.getClass().getSimpleName() + ".csv";
+
 		this.userid = parameters[0];
 		this.password = parameters[1];
 		this.userLevel = parameters[2];
@@ -193,55 +195,8 @@ public class User{
 //		this.Age = new SimpleIntegerProperty(Integer.parseInt(parameters[8]));
 
 	}
-	
-	 /**
- 	 * Sets the password.
- 	 *
- 	 * @param password, the new password
- 	 */
- 	public void setPassword(String password) {
-		 this.password = password;
-		 //userInfo[1] = this.password;
-		 String[] attrs = new String[] {"password"};
-		 String[] values = new String[] {this.password};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
-		 
-	 }
-	 
-	 public void setUserLevel(String userLevel) {
-		 this.userLevel = userLevel;
-		 //userInfo[2] = this.userType;
-		 String[] attrs = new String[] {"userLevel"};
-		 String[] values = new String[] {this.userLevel};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
-	 }
-	 
-	 //新加，记得要在子类新加一下
-	 public void setSex(String sex) {
-		 this.sex = sex;
-		 //userInfo[3] = this.sex;
-		 String[] attrs = new String[] {"sex"};
-		 String[] values = new String[] {this.sex};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
-		 
-	 }
 
-	public void setPhone(String phone) {
-		 this.phoneNumber = phone;
-		 //userInfo[4] = this.phoneNumber;
-		 String[] attrs = new String[] {"phoneNumber"};
-		 String[] values = new String[] {this.phoneNumber};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
-		 
-	 }
 
-	public void setResume(String resume) {
-		 this.resume = resume;
-		 //userInfo[7] = this.resume; 
-		 String[] attrs = new String[] {"resume"};
-		 String[] values = new String[] {this.resume};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
-	 }
 	 
 	 
 	 //	TODO !!! useless??
@@ -355,7 +310,114 @@ public class User{
 
 	public int getInstructorMoney(){return 0;}
 
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setUserLevel(String userLevel) {
+		this.userLevel = userLevel;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public void setLoginLicense(Boolean loginLicense) {
+		this.loginLicense = loginLicense;
+	}
+
+	public void setRechargeAmount(double rechargeAmount) {
+		this.rechargeAmount = rechargeAmount;
+	}
+
 	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	public void setChest(double chest) {
+		this.chest = chest;
+	}
+
+	public void setWaist(double waist) {
+		this.waist = waist;
+	}
+
+	public void setHip(double hip) {
+		this.hip = hip;
+	}
+
+	public void setAndPushPassword(String password) {
+		this.password = password;
+		//userInfo[1] = this.password;
+		String[] attrs = new String[] {"password"};
+		String[] values = new String[] {this.password};
+		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+
+	}
+
+	public void setAndPushUserLevel(String userLevel) {
+		this.userLevel = userLevel;
+		//userInfo[2] = this.userType;
+		String[] attrs = new String[] {"userLevel"};
+		String[] values = new String[] {this.userLevel};
+		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+	}
+
+	//新加，记得要在子类新加一下
+	public void setAndPushSex(String sex) {
+		this.sex = sex;
+		//userInfo[3] = this.sex;
+		String[] attrs = new String[] {"sex"};
+		String[] values = new String[] {this.sex};
+		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+
+	}
+
+	public void setAndPushPhone(String phone) {
+		this.phoneNumber = phone;
+		//userInfo[4] = this.phoneNumber;
+		String[] attrs = new String[] {"phoneNumber"};
+		String[] values = new String[] {this.phoneNumber};
+		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+
+	}
+
+	public void setAndPushResume(String resume) {
+		this.resume = resume;
+		//userInfo[7] = this.resume;
+		String[] attrs = new String[] {"resume"};
+		String[] values = new String[] {this.resume};
+		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+	}
+
+	public void setAndPushRechargeAmount(double rechargeAmount) {
+		this.rechargeAmount = rechargeAmount;
+		String[] attrs = new String[] {"rechargeAmount"};
+		String[] values = new String[] {String.valueOf(this.rechargeAmount)};
+		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+	}
+
+	public void setAndPushAge(int age) {
 		this.age = age;
 		//userPhysical[1] = Integer.toString(this.age);
 		 String[] attrs = new String[] {"age"};
@@ -364,7 +426,7 @@ public class User{
 		
 	}
 
-	public void setHeight(double height) {
+	public void setAndPushHeight(double height) {
 		 this.height = height;
 		 //userPhysical[2] = Double.toString(this.height);
 		 String[] attrs = new String[] {"height"};
@@ -372,7 +434,7 @@ public class User{
 		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
 	 }
 
-	public void setWeight(double weight) {
+	public void setAndPushWeight(double weight) {
 		 this.weight = weight;
 		 //userPhysical[3] = Double.toString(this.weight);
 		 String[] attrs = new String[] {"weight"};
@@ -381,7 +443,7 @@ public class User{
 	 }
 
 
-	public void setChest(double chest) {
+	public void setAndPushChest(double chest) {
 		 this.chest = chest; 
 		 //userPhysical[4] = Double.toString(this.chest);
 		 String[] attrs = new String[] {"chest"};
@@ -390,7 +452,7 @@ public class User{
 			
 	 }
 
-	public void setWaist(double waist) {
+	public void setAndPushWaist(double waist) {
 		 this.waist = waist;
 		 //userPhysical[5] = Double.toString(this.waist);
 		 String[] attrs = new String[] {"waist"};
@@ -399,7 +461,7 @@ public class User{
 			
 	 }
 
-	public void setHip(double hip) {
+	public void setAndPushHip(double hip) {
 		 this.hip = hip;
 		 //userPhysical[6] = Double.toString(this.hip);
 		 String[] attrs = new String[] {"hip"};
@@ -411,15 +473,6 @@ public class User{
 	public boolean passwordCheck(String password){
  		return this.getPassword().equals(password);
 	 }
-
-	 /*
-	 void insertToCSV(){
-
-		userInfoList = new ArrayList<String[]>();
-		userInfoList.add(userInfo);
-		FileUtils.insertCSV(userFilePath, userInfoList);
-	 }
-     */
 
 	public String toString() {
 		return "id" + this.getUserid() + "\n" +

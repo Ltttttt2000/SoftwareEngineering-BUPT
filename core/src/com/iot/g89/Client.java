@@ -10,19 +10,6 @@ public class Client extends User{
 	}
 	public Client(String[] para) {super(para);}
 	
-	//getter, setter 
-	public void setRechargeAmount(Double rechargeAmount) {
-		this.rechargeAmount = rechargeAmount;
-		String filePath = "./Client.csv";
-		String[] attrs = {"rechargeAmount"};
-		String recharge = String.valueOf(this.rechargeAmount);
-		String[] modifyTo = {recharge};
-		FileUtils.updateCSV4(filePath, userid, attrs, modifyTo);
-	}
-	public double getRechargeAmount() {
-		return this.rechargeAmount;
-	}
-	
 	/**
 	 * Recharge money into user's account. Decide whether the user can have a upgrade based on the amount of money recharged.
 	 * 
@@ -33,15 +20,11 @@ public class Client extends User{
 		if(money < 0) {
 			System.out.println("error");
 		}else {
-			setRechargeAmount(this.rechargeAmount + money);   
-			if(this.userLevel.equals("Normal")) {
-				if(money >= 500)
-					this.accountUpgradeToMember();
-			}
-			if(this.userLevel.equals("Member")) {
-				if(money >= 1000)
-					this.accountUpgradeToSupreme();
-			}
+			setAndPushRechargeAmount(this.getRechargeAmount() + money);
+			if(money >= 500 && this.getUserLevel().equals("Normal"))
+				this.setAndPushUserLevel("Member");
+			if(money >= 1000 && !this.getUserLevel().equals("SupremeMember"))
+				this.setAndPushUserLevel("SupremeMember");
 		}
 	}
 	/**
@@ -50,39 +33,16 @@ public class Client extends User{
 	 * @param money
 	 * 			The money the user need to pay
 	 */
-	public void consume(double money) {
-		double balance = this.rechargeAmount - money;
+	public int consume(double money) {
+		double balance = this.getRechargeAmount() - money;
 		if(balance < 0) {
-			System.out.println("Sorry, your credit is running low, please recharge.");
-			
+			return -1;
 		}else {
-			setRechargeAmount(balance);
-			System.out.println("buy successfully");
+			setAndPushRechargeAmount(balance);
+			return 1;
 		}
 	}
-	
-	/**
-	 * This method is only for normal client to upgrade to member client.
-	 */	
-	public void accountUpgradeToMember() {
-		if(this.userLevel.equals("Normal")) {
-			setUserLevel("Member");
-		}else {
-			System.out.println("Wrong clientType");
-		}
-	}
-	/**
-	 * This method is only for member client to upgrade to supreme client.
-	 */
-	public void accountUpgradeToSupreme() {
-		if(this.userLevel.equals("Member")) {
-			setUserLevel("SupremeMember");
-		}else {
-			System.out.println("Wrong clientType");
-		}
-	}
-	
-	
+
 	//related to video class
 	/**
 	 * This method is for every user to list all public videos.

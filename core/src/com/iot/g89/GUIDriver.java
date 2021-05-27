@@ -1,7 +1,5 @@
 package com.iot.g89;
 
-import com.sun.javafx.collections.ArrayListenerHelper;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -89,7 +87,7 @@ public class GUIDriver {
         else if(oldPassword.equals(newPassword))
             return -2;
         else {
-            gymUtils.user.setPassword(newPassword);
+            gymUtils.user.setAndPushPassword(newPassword);
             return 1;
         }
     }
@@ -104,15 +102,15 @@ public class GUIDriver {
 
         User user = gymUtils.user;
 
-        user.setSex(parameters[3]);
-        user.setPhone(parameters[4]);
-        user.setResume(parameters[7]);
-        user.setAge(Integer.parseInt(parameters[8]));
-        user.setHeight(Double.parseDouble(parameters[9]));
-        user.setWeight(Double.parseDouble(parameters[10]));
-        user.setChest(Double.parseDouble(parameters[11]));
-        user.setWaist(Double.parseDouble(parameters[12]));
-        user.setHip(Double.parseDouble(parameters[13]));
+        user.setAndPushSex(parameters[3]);
+        user.setAndPushPhone(parameters[4]);
+        user.setAndPushResume(parameters[7]);
+        user.setAndPushAge(Integer.parseInt(parameters[8]));
+        user.setAndPushHeight(Double.parseDouble(parameters[9]));
+        user.setAndPushWeight(Double.parseDouble(parameters[10]));
+        user.setAndPushChest(Double.parseDouble(parameters[11]));
+        user.setAndPushWaist(Double.parseDouble(parameters[12]));
+        user.setAndPushHip(Double.parseDouble(parameters[13]));
 
         return true;
 

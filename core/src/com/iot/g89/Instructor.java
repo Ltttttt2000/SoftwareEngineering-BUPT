@@ -34,7 +34,7 @@ public class Instructor extends User{
  	 *
  	 * @param resume the new resume
  	 */
-	 public void setResume(String resume) {
+	 public void setAndPushResume(String resume) {
 		 this.resume = resume;
 		 String[] attrs = new String[] {"resume"};
 		 String[] values = new String[] {String.valueOf(this.resume)};
