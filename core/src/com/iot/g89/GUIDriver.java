@@ -55,7 +55,7 @@ public class GUIDriver {
      */
     public String registerUser(String[] parameters, String type){
 
-        String userid = gymUtils.findLastIDPlus1(type) + "";
+        String userid = GymUtils.findLastIDPlus1(type) + "";
 
         if(type.equals("Instructor")){
             parameters = Arrays.copyOf(parameters, parameters.length + 1);
@@ -339,55 +339,84 @@ public class GUIDriver {
      * @param originList
      * @return
      */
-    public ArrayList<Object> select(String str, ArrayList<Object> originList){
+    public ArrayList<Object> select(String str, ArrayList<Object> originList) {
         String[] para = str.split("( )+");
-        if(para.length == 1)
-            return originList;
-        else{
-            for(int i = 1; i < para.length; i++){
+        if(para.length != 1) {
+            for (int i = 1; i < para.length; i++) {
                 String para1 = para[i];
 
-                if(Pattern.matches("\\w+=\\w+",para1)){
+                if (Pattern.matches("\\w+=\\w+", para1)) {
                     String[] para2 = para1.split("=");
                     Iterator<Object> iterator = originList.iterator();
-                    while(iterator.hasNext()){
+                    while (iterator.hasNext()) {
                         try {
                             Object o = iterator.next();
                             Method m = o.getClass().getMethod("get" + para2[0], null);
-                            if(!(m.invoke(o).equals(para2[1])))
+                            if (!(m.invoke(o).equals(para2[1])))
                                 iterator.remove();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
-                    str = str.replaceAll(para[1],"");
-                }else if(Pattern.matches("\\w+!=\\w+",para1)){
+                } else if (Pattern.matches("\\w+!=\\w+", para1)) {
                     String[] para2 = para1.split("!=");
                     Iterator<Object> iterator = originList.iterator();
-                    while(iterator.hasNext()){
+                    while (iterator.hasNext()) {
                         try {
                             Object o = iterator.next();
                             Method m = o.getClass().getMethod("get" + para2[0], null);
-                            if(m.invoke(o).equals(para2[1]))
+                            if (m.invoke(o).equals(para2[1]))
                                 iterator.remove();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
-                    str = str.replaceAll(para[1],"");
+                }
             }
         }
-            return originList;
+        return originList;
     }
 
+    public ArrayList<Object> select(String type, String Id){
+        ArrayList<Object> returnList = new ArrayList<>();
 
-//    public ArrayList<Object> select(String subject, String object){
-//        switch (subject){
-//            case "Client" :
-//                switch (object){
-//                    case "Instructor" :
-//                        PurchaseInstructor.aggregate()
-//                }
-//        }
+        String filePath = "./core/src/csv/Purchase" + type + ".csv";
+        if(type.equals("Client"))
+            filePath = "./core/src/csv/PurchaseInstructor.csv";
+        String[] readAll = {"*"};
+        ArrayList<String[]> allList = FileUtils.readCSV(filePath, readAll);
+        type = "com.iot.g89." + type;
+
+        ArrayList<String> idList = new ArrayList<>();
+
+//        aggregate by client, return instructor/live/video
+        if(Id.charAt(0) == 'C'){
+            for(String[] para : allList){
+                if(para[1].equals(Id))
+                    idList.add(para[0]);
+            }
+            for(String IdR : idList){
+                try {
+                    Class<?> clazz = Class.forName(type);
+                    Constructor<?> constructor = clazz.getConstructor(String.class);
+                    Object o = constructor.newInstance(IdR);
+                    returnList.add(o);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+//        aggregate by instructor, return client
+        }else{
+            for(String[] para : allList){
+                if(para[0].equals(Id))
+                    idList.add(para[1]);
+            }
+            for(String IdR : idList) {
+                Client c = new Client(Id);
+                returnList.add(c);
+            }
+        }
+        return returnList;
     }
+
 }

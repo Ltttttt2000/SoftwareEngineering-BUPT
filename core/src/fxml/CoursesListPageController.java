@@ -99,9 +99,9 @@ public class CoursesListPageController implements Initializable {
         BorderPane imagePane = new BorderPane();
 
         String videoName = video.getVideoName();
-        String price = String.valueOf(video.getPrice());
+        String price = String.valueOf(video.getVideoPrice());
         String videoId = video.getVideoId();
-        String author = video.getAuthor();
+        String author = video.getVideoUploader();
         String type = video.getVideoType();
 
         Label videoIdLabel = new Label(videoName);
