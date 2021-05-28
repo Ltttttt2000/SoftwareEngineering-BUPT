@@ -1,47 +1,65 @@
 package com.iot.g89;
 
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
+import java.util.ArrayList;
 
 public class Video {
-	private String videoId;
+	private String videoId = "None";
 	//private final SimpleStringProperty VideoId;
-	private String videoType;
-	//private final SimpleStringProperty VideoType;
-	private String detail;
-
-	private String videoName;
+	private String videoName = "Stay fit and be strong";
 	//private final SimpleStringProperty VideoName;
+	private String videoType = "Default";
+	//private final SimpleStringProperty VideoType
 
-
-
-	private double price;
+	private double videoPrice;
 	//private final SimpleDoubleProperty Price;
-	private String author;
+	private String videoUploader;
 	//private final SimpleStringProperty Author;
+	private String videoDetail;
 	private String specificClient;
+	private String fileType;
 
-
+	private final String filePath = "./core/src/csv/Video.csv";
 	
-    public Video(String videoId) {
-    	//this.VideoId = new SimpleStringProperty(videoId);
-    	this.videoId = videoId;
-    	//this.VideoType = new SimpleStringProperty("Default");
-		this.videoType = "Default";
-    	//this.Price = new SimpleDoubleProperty(0.0);
-		this.price = 0;
-    	//this.Author = new SimpleStringProperty("Somebody");
+    public Video(String id) {
+		ArrayList<String[]> selectList = FileUtils.readCSV(filePath, new String[] {"*"});
 
-		//this.author = new Instructor("Somebody");
-		this.author = "Somebody";
-
-		//this.VideoName = new SimpleStringProperty();
-    	this.videoName = "Stay fit and be strong";
+		if(selectList.size() != 0) {
+			for (String[] para : selectList) {
+				if (para[0].equals(id)) {
+					//this.VideoId = new SimpleStringProperty(videoId);
+					this.videoId = para[0];
+					//this.VideoName = new SimpleStringProperty();
+					this.videoName = para[1];
+					//this.VideoType = new SimpleStringProperty("Default");
+					this.videoType = para[2];
+					//this.Price = new SimpleDoubleProperty(0.0);
+					this.videoPrice = Double.parseDouble(para[3]);
+					//this.Author = new SimpleStringProperty("Somebody");
+					this.videoUploader = para[4];
+					this.videoDetail = para[5];
+					this.specificClient = para[6];
+					this.fileType = para[7];
+					break;
+				}
+			}
+		}
     }
 
-    public String getVideoName() {
-		return videoName;
+    public Video(String[] para){
+		this.videoId = para[0];
+		//this.VideoName = new SimpleStringProperty();
+		this.videoName = para[1];
+		//this.VideoType = new SimpleStringProperty("Default");
+		this.videoType = para[2];
+		//this.Price = new SimpleDoubleProperty(0.0);
+		this.videoPrice = Double.parseDouble(para[3]);
+		//this.Author = new SimpleStringProperty("Somebody");
+		this.videoUploader = para[4];
+		this.videoDetail = para[5];
+		this.specificClient = para[6];
+		this.fileType = para[7];
 	}
+
 
 //	public String videoNameProperty() {
 //		return VideoName.get();
@@ -63,48 +81,49 @@ public class Video {
 //		return Author;
 //	}
 
+
 	public String getVideoId() {
 		return videoId;
-
 	}
 
-	public String getVideoType(){
+	public String getVideoName() {
+		return videoName;
+	}
+
+	public String getVideoType() {
 		return videoType;
-
 	}
 
-	public String getDetail() {
-		return detail;
-
+	public double getVideoPrice() {
+		return videoPrice;
 	}
 
-	public double getPrice() {
-		return price;
+	public String getVideoUploader() {
+		return videoUploader;
 	}
 
-	public String getAuthor() {
-		return author;
+	public String getVideoDetail() {
+		return videoDetail;
 	}
-
-//	public String getAuthor() {
-//		return author;
-//	}
 
 	public String getSpecificClient() {
 		return specificClient;
+	}
 
+	public String getFileType() {
+		return fileType;
 	}
 
 	public void setVideoType(String videoType) {
 		this.videoType = videoType;
 	}
 
-	public void setDetail(String detail) {
-		this.detail = detail;
+	public void setVideoDetail(String videoDetail) {
+		this.videoDetail = videoDetail;
 	}
 
-	public void setPrice(String price) {
-		this.price = Double.parseDouble(price);
+	public void setVideoPrice(String videoPrice) {
+		this.videoPrice = Double.parseDouble(videoPrice);
 	}
 
 //	public void setAuthor(Instructor author) {
@@ -124,6 +143,11 @@ public class Video {
 			e.printStackTrace();
 			System.out.println("Error exec!");
 		}
+	}
+
+	public String toString(){
+    	return "id\t\t" + this.getVideoId() + "\n" +
+				"level\t" + this.getVideoName() + "\n";
 	}
 
 }
