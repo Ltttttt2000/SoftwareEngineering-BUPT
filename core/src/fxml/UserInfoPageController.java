@@ -314,7 +314,7 @@ public class UserInfoPageController implements Initializable {
 		if(allRightInput())	{
 			String[] user = gatherInfo();
 
-			driver.changeBasicInfo(user);
+			driver.changeBasicInfo(user, userId);
 
 			getBasicInof(userId);
 			showEditPane(false);

@@ -80,15 +80,46 @@ public class GUIDriver {
      * @return -1 wrong old password; -2 old password is same as the new ones; 1 success
      */
     public int changePassword (String oldPassword, String newPassword){
+        return changePassword(oldPassword, newPassword, gymUtils.user);
+    }
 
-        if(!gymUtils.user.passwordCheck(oldPassword))
+    /**
+     * change password
+     *
+     * @param oldPassword old password
+     * @param newPassword new password
+     * @param user The owner of the password
+     * @return -1 wrong old password; -2 old password is same as the new ones; 1 success
+     */
+    public int changePassword (String oldPassword, String newPassword, User user) {
+        if(!user.passwordCheck(oldPassword))
             return -1;
         else if(oldPassword.equals(newPassword))
             return -2;
         else {
-            gymUtils.user.setAndPushPassword(newPassword);
+            user.setAndPushPassword(newPassword);
             return 1;
         }
+    }
+
+    /**
+     * change password
+     *
+     * @param oldPassword old password
+     * @param newPassword new password
+     * @param id The id of the owner of the password
+     * @return -1 wrong old password; -2 old password is same as the new ones; 1 success
+     */
+    public int changePassword (String oldPassword, String newPassword, String id) {
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getUserId().equals("None")))
+            return changePassword(oldPassword, newPassword, user);
+        return -1;
     }
 
     /**
@@ -97,10 +128,18 @@ public class GUIDriver {
      * @param parameters parameters
      * @return true
      */
-    public boolean changeBasicInfo(String[] parameters){
+    public boolean changeBasicInfo(String[] parameters) {
+        return changeBasicInfo(parameters, gymUtils.user);
+    }
 
-        User user = gymUtils.user;
-
+    /**
+     * change basic information
+     *
+     * @param parameters parameters
+     * @param user The owner of the info
+     * @return true
+     */
+    public boolean changeBasicInfo(String[] parameters, User user) {
         user.setAndPushSex(parameters[3]);
         user.setAndPushPhone(parameters[4]);
         user.setAndPushResume(parameters[7]);
@@ -112,7 +151,25 @@ public class GUIDriver {
         user.setAndPushHip(Double.parseDouble(parameters[13]));
 
         return true;
+    }
 
+    /**
+     * change basic information
+     *
+     * @param parameters parameters
+     * @param id user's id
+     * @return true
+     */
+    public boolean changeBasicInfo(String[] parameters, String id) {
+        User user = null;
+        if(id.charAt(0) == 'C'){
+            user = new Client(id);
+        }else{
+            user = new Instructor(id);
+        }
+        if(!(user.getUserId().equals("None")))
+            return changeBasicInfo(parameters, user);
+        return false;
     }
 
     public String getUserId(){return gymUtils.user.getUserId();}

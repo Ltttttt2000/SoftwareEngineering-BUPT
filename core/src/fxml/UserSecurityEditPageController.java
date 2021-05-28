@@ -90,7 +90,7 @@ public class UserSecurityEditPageController implements Initializable {
         }
         // check if the old password is correct
         else{
-            switch(driver.changePassword(oldPassword, newPassword)){
+            switch(driver.changePassword(oldPassword, newPassword, userId)){
                 // wrong old password
                 case -1:
                     GUIUtils.checkTextField(oldPasswordTF, false);

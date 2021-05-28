@@ -12,6 +12,7 @@ public class SceneTransform {
 
 	private static Scene sceneClientStartPage;
 	private static Scene sceneInstructorStartPage;
+	private static Scene sceneAdminStartPage;
 	private static Scene sceneRegisterAndLoginPage;
 	private static Scene sceneUserInfoPage;
 	private static Scene sceneUserSecurityEditPage;
@@ -26,6 +27,7 @@ public class SceneTransform {
 	
 	private static ClientStartPageController clientStartPageController;
 	private static InstructorStartPageController instructorStartPageController;
+	private static AdminStartPageController adminStartPageController;
 	private static RegisterAndLoginPageController registerAndLoginPageController;
 	private static UserInfoPageController userInfoPageController;
 	private static UserSecurityEditPageController userSecurityEditPageController;
@@ -49,6 +51,7 @@ public class SceneTransform {
 			
 			FXMLLoader loaderClientStartPage = new FXMLLoader(getClass().getResource("/fxml/ClientStartPageScene.fxml"));
 			FXMLLoader loaderInstructorStartPage = new FXMLLoader(getClass().getResource("/fxml/InstructorStartPageScene.fxml"));
+			FXMLLoader loaderAdminStartPage = new FXMLLoader(getClass().getResource("/fxml/AdminStartPageScene.fxml"));
 			FXMLLoader loaderRegisterAndLoginPage = new FXMLLoader(getClass().getResource("/fxml/RegisterAndLoginPageScene.fxml"));
 			FXMLLoader loaderUserInfoPage = new FXMLLoader(getClass().getResource("/fxml/UserInfoPageScene.fxml"));
 			FXMLLoader loaderUserSecurityEditPage = new FXMLLoader(getClass().getResource("/fxml/UserSecurityEditPageScene.fxml"));
@@ -63,6 +66,7 @@ public class SceneTransform {
 
 			sceneClientStartPage = new Scene(loaderClientStartPage.load());
 			sceneInstructorStartPage = new Scene(loaderInstructorStartPage.load());
+			sceneAdminStartPage = new Scene(loaderAdminStartPage.load());
 			sceneRegisterAndLoginPage = new Scene(loaderRegisterAndLoginPage.load());
 			sceneUserInfoPage = new Scene(loaderUserInfoPage.load());
 			sceneUserSecurityEditPage = new Scene(loaderUserSecurityEditPage.load());
@@ -77,6 +81,7 @@ public class SceneTransform {
 			
 			clientStartPageController = loaderClientStartPage.getController();
 			instructorStartPageController = loaderInstructorStartPage.getController();
+			adminStartPageController = loaderAdminStartPage.getController();
 			registerAndLoginPageController = loaderRegisterAndLoginPage.getController();
 			userInfoPageController = loaderUserInfoPage.getController();
 			userSecurityEditPageController = loaderUserSecurityEditPage.getController();
@@ -108,6 +113,11 @@ public class SceneTransform {
 	public static void ToInstructorStartPage(String userId, Scene lastScene) {
 		instructorStartPageController.initData(userId, sceneInstructorStartPage, lastScene, driver);
 		ToScene(sceneInstructorStartPage);
+	}
+
+	public static void ToAdminStartPage(String userId, Scene lastScene) {
+		adminStartPageController.initData(userId, sceneAdminStartPage, lastScene, driver);
+		ToScene(sceneAdminStartPage);
 	}
 	
 	public static void ToUserInfoPage(String userId, Scene lastScene) {
@@ -160,7 +170,11 @@ public class SceneTransform {
 		ToScene(sceneRechargePage);
 	}
 
-
+	// Temporary
+	public static void ToAdminStartPage(String userId) {
+		adminStartPageController.initData(userId, sceneAdminStartPage, sceneAdminStartPage, driver);
+		ToScene(sceneAdminStartPage);
+	}
 	// Temporary
 	public static void ToCourseBookingPage(String userId) {
 		courseBookingPageController.initData(userId, sceneCourseBookingPage, sceneCourseBookingPage, driver);
