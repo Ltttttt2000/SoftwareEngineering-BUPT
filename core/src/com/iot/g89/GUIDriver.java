@@ -338,7 +338,7 @@ public class GUIDriver {
      * @return
      */
     public ArrayList<Object> select(String str, ArrayList<Object> originList) {
-        ArrayList<Object> returnList = new ArrayList<>();
+        ArrayList<Object> returnList = new ArrayList<>(originList);
         Collections.copy(returnList, originList);
 
         String[] para = str.split("( )+");
