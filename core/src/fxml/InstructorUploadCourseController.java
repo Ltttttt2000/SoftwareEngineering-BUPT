@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
@@ -19,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class InstructorUploadCourseController implements Initializable {
@@ -40,6 +43,9 @@ public class InstructorUploadCourseController implements Initializable {
     @FXML
     private TextArea Detail;
 
+    @FXML
+    private ChoiceBox<String> SpecificClient;
+
     private File file;
 
     Stage stage;
@@ -57,6 +63,7 @@ public class InstructorUploadCourseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         courseType.getItems().addAll("Strength", "Relax", "HIT", "Basic Ability", "Yoga");
+        SpecificClient.getItems().addAll("Normal", "Member", "SupremeMember");
     }
 
 
@@ -82,7 +89,54 @@ public class InstructorUploadCourseController implements Initializable {
         VideoPath.setText(file.getAbsolutePath());
     }
 
-    public void uploadFile(ActionEvent event) throws IOException {
+    public void confirmUpload(ActionEvent event) throws IOException {
+        if(file == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("You did not select the file");
+            alert.setContentText("Please select a file!");
+
+            alert.showAndWait();
+        }
+        else if(VideoName.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("You did not fill in the name of the video");
+            alert.setContentText("Please fill in the name of the video!");
+
+            alert.showAndWait();
+        }
+        else if(priceValue.getText().equals("") || !isNumeric(priceValue.getText())){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("The price is incorrectly filled");
+            alert.setContentText("Please fill in the price in correct form!");
+
+            alert.showAndWait();
+        }
+        else if(courseType.getValue().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("You did not select the course type");
+            alert.setContentText("Please select course type!");
+
+            alert.showAndWait();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Do you want to upload the file:");
+            alert.setContentText(file.getAbsolutePath());
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                uploadFile();
+            }
+        }
+    }
+
+
+    public void uploadFile() throws IOException {
         GymUtils hehe = new GymUtils();
         String VideoId = "V" + Integer.toString(hehe.findLastVideoIDPlus1("Video"));
         String UserId = userId;
@@ -91,13 +145,26 @@ public class InstructorUploadCourseController implements Initializable {
         String CoursePrice = priceValue.getText();
         String courseDetail = Detail.getText();
         String FileType = FileUtils.getFileSuffix(file);
+        String ClientType = SpecificClient.getValue();
+        if(ClientType.equals("")){
+            ClientType = "Normal";
+        }
 
         ArrayList<String[]> entry = new ArrayList<String[]>();
-        String[] data = {VideoId, name, type, CoursePrice, UserId, courseDetail, "", FileType};
+        String[] data = {VideoId, name, type, CoursePrice, UserId, courseDetail, ClientType, FileType};
         entry.add(data);
         FileUtils.insertCSV("./core/src/csv/Video.csv", entry);
 
         FileUtils.uploadFile("./core/src/video/", file.getPath(), VideoId + "." + FileType);
+    }
+
+    public boolean isNumeric(String str){
+         for (int i = str.length();--i>=0;){
+            if (!Character.isDigit(str.charAt(i))){
+                return false;
+            }
+         }
+        return true;
     }
 
 

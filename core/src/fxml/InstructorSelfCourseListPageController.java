@@ -39,6 +39,7 @@ public class InstructorSelfCourseListPageController implements Initializable {
     private String typeSelection = "";
     private String priceSelection = "";
     private String searching = "";
+    private String selectId = "";
 
 
     // init user ID
@@ -48,7 +49,7 @@ public class InstructorSelfCourseListPageController implements Initializable {
     private Scene thisScene;
     private Scene lastScene;
 
-    private String selectId = "VideoUploader=" + userId;
+
 
     public InstructorSelfCourseListPageController() {
     }
@@ -61,16 +62,20 @@ public class InstructorSelfCourseListPageController implements Initializable {
         priceRangeCB.getSelectionModel().select(0);
     }
 
+
+
     public void initData(String userId, Scene lastScene, GUIDriver driver){
         this.driver = driver;
         this.lastScene = lastScene;
         this.userId = userId;
+        selectId = "VideoUploader=" + userId;
 
         listVideos();
     }
 
+
     private void listVideos(){
-        ArrayList<Object> videos = driver.select(selection + " " + selectId + " " + typeSelection + " " + priceSelection + " " + searching);
+        ArrayList<Object> videos = driver.select(selection + " " + selectId + "" + typeSelection + " " + priceSelection + " " + searching);
 
         for(Object v:videos){
             videoListVBox.getChildren().add(drawVideoButton((Video) v));
@@ -86,9 +91,9 @@ public class InstructorSelfCourseListPageController implements Initializable {
         BorderPane imagePane = new BorderPane();
 
         String videoName = video.getVideoName();
-        String price = String.valueOf(video.getPrice());
+        String price = String.valueOf(video.getVideoPrice());
         String videoId = video.getVideoId();
-        String author = video.getAuthor();
+        String author = video.getVideoUploader();
         String type = video.getVideoType();
 
         Label videoIdLabel = new Label(videoName);
@@ -186,7 +191,6 @@ public class InstructorSelfCourseListPageController implements Initializable {
     }
 
     public void backToLastScene(ActionEvent event){
-
         SceneTransform.ToScene(lastScene);
         videoListVBox.getChildren().clear();
     }

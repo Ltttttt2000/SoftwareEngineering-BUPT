@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="432.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.InstructorUploadCourseController">
+<AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-instructor-start" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.InstructorUploadCourseController">
    <children>
       <Button fx:id="backButton" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
-      <Button fx:id="Choose" layoutX="339.0" layoutY="63.0" mnemonicParsing="false" onAction="#selectFile" prefHeight="42.0" prefWidth="89.0" text="Select File" />
-      <GridPane layoutX="207.0" layoutY="169.0" prefHeight="160.0" prefWidth="354.0">
+      <Button fx:id="Choose" layoutX="267.0" layoutY="80.0" mnemonicParsing="false" onAction="#selectFile" prefHeight="42.0" prefWidth="89.0" text="Select File" />
+      <GridPane layoutX="209.0" layoutY="143.0" prefHeight="181.0" prefWidth="354.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="172.20001220703125" minWidth="10.0" prefWidth="114.5999755859375" />
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="248.20001220703125" minWidth="10.0" prefWidth="239.4000244140625" />
@@ -23,15 +23,16 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="45.00000610351562" minHeight="10.0" prefHeight="30.60001220703124" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="45.00000610351562" minHeight="10.0" prefHeight="31.000006103515616" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.00000610351562" minHeight="10.0" prefHeight="32.599993896484364" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="52.199987792968756" minHeight="20.0" prefHeight="80.19998779296876" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Course Name" />
             <Label text="Type" GridPane.rowIndex="1" />
             <Label text="Price" GridPane.rowIndex="2" />
-            <Label GridPane.rowIndex="3" />
-            <Label text="Detail" GridPane.rowIndex="3" />
+            <Label GridPane.rowIndex="4" />
+            <Label text="Detail" GridPane.rowIndex="4" />
             <TextField fx:id="VideoName" prefHeight="23.0" prefWidth="148.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="15.0" right="15.0" />
@@ -43,14 +44,16 @@
                   <Insets left="15.0" right="15.0" />
                </GridPane.margin>
             </TextField>
-            <TextArea fx:id="Detail" prefHeight="74.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextArea fx:id="Detail" prefHeight="74.0" prefWidth="240.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </TextArea>
+            <Label text="Specific Client" GridPane.rowIndex="3" />
+            <ChoiceBox fx:id="SpecificClient" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Button layoutX="357.0" layoutY="361.0" mnemonicParsing="false" onAction="#uploadFile" text="Upload" />
-      <Label fx:id="VideoPath" contentDisplay="CENTER" layoutX="337.0" layoutY="124.0" text="Please select file" />
+      <Button layoutX="357.0" layoutY="361.0" mnemonicParsing="false" onAction="#confirmUpload" text="Upload" />
+      <Label fx:id="VideoPath" contentDisplay="CENTER" layoutX="368.0" layoutY="94.0" text="Please select file" />
    </children>
 </AnchorPane>

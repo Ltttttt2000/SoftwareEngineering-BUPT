@@ -14,7 +14,7 @@
          </styleClass>
       </Button>
       <Label layoutX="593.0" layoutY="187.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="My Info" textFill="WHITE" />
-      <Button fx:id="myCourseButton" layoutX="484.0" layoutY="238.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="140.0" stylesheets="@../css/ButtonType.css">
+      <Button fx:id="myCourseButton" layoutX="484.0" layoutY="238.0" mnemonicParsing="false" onAction="#goToMyTeachingPage" prefHeight="140.0" prefWidth="140.0" stylesheets="@../css/ButtonType.css">
          <styleClass>
             <String fx:value="button3" />
             <String fx:value="button-round" />
