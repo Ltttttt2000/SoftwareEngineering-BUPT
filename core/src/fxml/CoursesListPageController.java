@@ -89,7 +89,7 @@ public class CoursesListPageController implements Initializable {
 
     private void listVideos(){
         ArrayList<Object> videos = driver.select(selection + " " + typeSelection + " " + priceSelection + " " + searching, this.list);
-
+        videoListVBox.getChildren().clear();
         for(Object v:videos){
             videoListVBox.getChildren().add(drawVideoButton((Video) v));
         }
@@ -184,9 +184,9 @@ public class CoursesListPageController implements Initializable {
             if(t1.equals("All"))
                 priceSelection = "";
             else if(t1.equals("Free (0£)"))
-                priceSelection = "Price=0.00";
+                priceSelection = "VideoPrice=0.00";
             else
-                priceSelection = "Price!=0.00";
+                priceSelection = "VideoPrice!=0.00";
 
             listVideos();
         }
