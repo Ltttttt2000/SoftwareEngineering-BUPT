@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-instructor-start" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.InstructorSelfCourseListPageController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="140.0" prefWidth="768.0" stylesheets="@../css/PaneType.css">
+         <children>
+            <BorderPane layoutX="420.0" layoutY="18.0" prefHeight="105.0" prefWidth="334.0">
+               <right>
+                  <Label fx:id="windowNameLabel" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="My courses" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+            <ChoiceBox fx:id="sportTypeCB" layoutX="91.0" layoutY="115.0" prefHeight="23.0" prefWidth="91.0" />
+            <Label layoutX="20.0" layoutY="119.0" text="Sport Type: " />
+            <TextField fx:id="searchingTF" layoutX="384.0" layoutY="115.0" prefHeight="23.0" prefWidth="176.0" promptText="Searching" />
+            <Button layoutX="560.0" layoutY="115.0" mnemonicParsing="false" onAction="#searchSomething" text="OK" />
+            <Label layoutX="193.0" layoutY="119.0" text="Price Range: " />
+            <ChoiceBox fx:id="priceRangeCB" layoutX="269.0" layoutY="115.0" prefHeight="23.0" prefWidth="107.0" />
+         </children>
+      </AnchorPane>
+      <ScrollPane fx:id="videoPane" layoutX="10.0" layoutY="150.0" prefHeight="292.0" prefWidth="768.0">
+         <content>
+            <VBox fx:id="videoListVBox" prefHeight="292.0" prefWidth="750.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
