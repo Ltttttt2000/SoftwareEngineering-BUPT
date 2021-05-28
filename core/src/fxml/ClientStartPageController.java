@@ -101,7 +101,7 @@ public class ClientStartPageController implements Initializable {
 	}
 
 	public void goToInstructorListPage(ActionEvent event) {
-		SceneTransform.ToInstructorListPage(userId, thisScene);
+		SceneTransform.ToInstructorListPage(userId, "My Instructors", thisScene);
 	}
 
 	public void showBackPane2(ActionEvent event) {

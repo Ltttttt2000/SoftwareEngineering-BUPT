@@ -112,6 +112,9 @@ public class UserInfoPageController implements Initializable {
 	private Button restoreButton;
 	@FXML
 	private Button saveButton;
+
+	@FXML
+	private Button payButton;
 	
 	private String resume;
 
@@ -135,10 +138,13 @@ public class UserInfoPageController implements Initializable {
 		if(userId.equals(driver.getUserId()) || driver.getUsertype().equals("Administrator")) {
 			basicInfoEditButton.setDisable(false);
 			securityInfoEditButton.setDisable(false);
+			payButton.setVisible(false);
 		}
 		else{
 			basicInfoEditButton.setDisable(true);
 			securityInfoEditButton.setDisable(true);
+			if(driver.getUsertype(userId).equals("Instructor") && driver.getUsertype().equals("Client"))
+				payButton.setVisible(true);
 		}
 	}
 	
@@ -319,6 +325,11 @@ public class UserInfoPageController implements Initializable {
 	public void restoreByButton(ActionEvent event) {
 		restoreBasicInfo();
 		changeTextFieldColor();
+	}
+
+	// for purchase
+	public void buy(ActionEvent event) {
+//		driver.purchaseorR...(userId);
 	}
 
 	// for back button

@@ -19,6 +19,7 @@ public class SceneTransform {
 	private static Scene sceneCoursesListPage;
 	private static Scene sceneInstructorListPage;
 	private static Scene sceneCourseBookingPage;
+	private static Scene sceneInstructorUploadCourse;
 	
 	private static ClientStartPageController clientStartPageController;
 	private static InstructorStartPageController instructorStartPageController;
@@ -29,6 +30,7 @@ public class SceneTransform {
 	private static CoursesListPageController coursesListPageController;
 	private static InstructorListPageController instructorListPageController;
 	private static CourseBookingPageController courseBookingPageController;
+	private static InstructorUploadCourseController instructorUploadCourseController;
 
 	private static GUIDriver driver = new GUIDriver();
 	
@@ -48,6 +50,7 @@ public class SceneTransform {
 			FXMLLoader loaderCoursesListPage = new FXMLLoader(getClass().getResource("/fxml/CoursesListPageScene.fxml"));
 			FXMLLoader loaderInstructorListPage = new FXMLLoader(getClass().getResource("/fxml/InstructorListPageScene.fxml"));
 			FXMLLoader loaderCourseBookingPage = new FXMLLoader(getClass().getResource("/fxml/CourseBookingPageScene.fxml"));
+			FXMLLoader loaderInstructorUploadCourse = new FXMLLoader(getClass().getResource("/fxml/InstructorUploadCourseScene.fxml"));
 
 			sceneClientStartPage = new Scene(loaderClientStartPage.load());
 			sceneInstructorStartPage = new Scene(loaderInstructorStartPage.load());
@@ -58,6 +61,7 @@ public class SceneTransform {
 			sceneCoursesListPage = new Scene(loaderCoursesListPage.load());
 			sceneInstructorListPage = new Scene(loaderInstructorListPage.load());
 			sceneCourseBookingPage = new Scene(loaderCourseBookingPage.load());
+			sceneInstructorUploadCourse = new Scene(loaderInstructorUploadCourse.load());
 			
 			clientStartPageController = loaderClientStartPage.getController();
 			instructorStartPageController = loaderInstructorStartPage.getController();
@@ -68,6 +72,7 @@ public class SceneTransform {
 			coursesListPageController = loaderCoursesListPage.getController();
 			instructorListPageController = loaderInstructorListPage.getController();
 			courseBookingPageController = loaderCourseBookingPage.getController();
+			instructorUploadCourseController = loaderInstructorUploadCourse.getController();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -116,14 +121,19 @@ public class SceneTransform {
 		ToScene(sceneCoursesListPage);
 	}
 
-	public static void ToInstructorListPage(String userId, Scene lastScene) {
-		instructorListPageController.initData(userId, sceneInstructorListPage, lastScene, driver);
+	public static void ToInstructorListPage(String userId, String windowName, Scene lastScene) {
+		instructorListPageController.initData(userId, windowName, sceneInstructorListPage, lastScene, driver);
 		ToScene(sceneInstructorListPage);
 	}
 
 	public static void ToCourseBookingPage(String userId, Scene lastScene) {
 		courseBookingPageController.initData(userId, sceneCourseBookingPage, lastScene, driver);
 		ToScene(sceneCourseBookingPage);
+	}
+
+	public static void ToInstructorUploadCourse(String userId, GUIDriver driver, Scene lastScene){
+		instructorUploadCourseController.initData(userId, lastScene, driver);
+		ToScene(sceneInstructorUploadCourse);
 	}
 
 	// Temporary

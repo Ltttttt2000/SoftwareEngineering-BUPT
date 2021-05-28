@@ -38,4 +38,13 @@ public class GymUtils {
         String[] last = IDList.get(IDList.size() - 1);
         return Integer.parseInt(last[0].substring(1)) + 1;
     }
+
+    public int findLastVideoIDPlus1(String type) {
+
+        String userFilePath = "./core/src/csv/"+ type + ".csv";
+        ArrayList<String[]> IDList = FileUtils.readCSV(userFilePath, new String[]{"videoId"});
+
+        String[] last = IDList.get(IDList.size() - 1);
+        return Integer.parseInt(last[0].substring(1)) + 1;
+    }
 }
