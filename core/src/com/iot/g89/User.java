@@ -413,7 +413,7 @@ public class User{
 	public void setAndPushRechargeAmount(double rechargeAmount) {
 		this.rechargeAmount = rechargeAmount;
 		String[] attrs = new String[] {"rechargeAmount"};
-		String[] values = new String[] {String.valueOf(this.rechargeAmount)};
+		String[] values = new String[] {String.format("%.2f",this.rechargeAmount)};
 		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
 	}
 
