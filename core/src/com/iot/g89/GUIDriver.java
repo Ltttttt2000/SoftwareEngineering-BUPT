@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.regex.Pattern;
 
 public class GUIDriver {
 
@@ -343,22 +344,40 @@ public class GUIDriver {
         if(para.length == 1)
             return originList;
         else{
-            String[] para2 = para[1].split("=");
+            for(int i = 1; i < para.length; i++){
+                String para1 = para[i];
 
-            Iterator<Object> iterator = originList.iterator();
-            while(iterator.hasNext()){
-                try {
-                    Object o = iterator.next();
-                    Method m = o.getClass().getMethod("get" + para2[0], null);
-                    if(!(m.invoke(o).equals(para2[1])))
-                        iterator.remove();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                if(Pattern.matches("\\w+=\\w+",para1)){
+                    String[] para2 = para1.split("=");
+                    Iterator<Object> iterator = originList.iterator();
+                    while(iterator.hasNext()){
+                        try {
+                            Object o = iterator.next();
+                            Method m = o.getClass().getMethod("get" + para2[0], null);
+                            if(!(m.invoke(o).equals(para2[1])))
+                                iterator.remove();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    str = str.replaceAll(para[1],"");
+                }else if(Pattern.matches("\\w+!=\\w+",para1)){
+                    String[] para2 = para1.split("!=");
+                    Iterator<Object> iterator = originList.iterator();
+                    while(iterator.hasNext()){
+                        try {
+                            Object o = iterator.next();
+                            Method m = o.getClass().getMethod("get" + para2[0], null);
+                            if(m.invoke(o).equals(para2[1]))
+                                iterator.remove();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    str = str.replaceAll(para[1],"");
             }
-            str = str.replaceAll(para[1],"");
-            return select(str,originList);
         }
+            return originList;
     }
 
 
@@ -370,5 +389,5 @@ public class GUIDriver {
 //                        PurchaseInstructor.aggregate()
 //                }
 //        }
-//    }
+    }
 }
