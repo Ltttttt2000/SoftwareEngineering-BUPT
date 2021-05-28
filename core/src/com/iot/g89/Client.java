@@ -99,7 +99,7 @@ public class Client extends User{
 			Live l = new Live(Id);
 			if(l.getLiveId().equals("None"))
 				return -1;
-			else if(this.checkSource(new Instructor(l.getInstructId()).getUserId()))
+			else if(!this.checkSource(new Instructor(l.getInstructId()).getUserId()))
 				return -4;
 			else if(l.getNumber() >= 20)
 				return -5;

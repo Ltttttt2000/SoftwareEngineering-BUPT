@@ -40,111 +40,30 @@ public class Instructor extends User{
 		 String[] values = new String[] {String.valueOf(this.resume)};
 		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
-	 
-	 /**
- 	 * Sets the instructor money.
- 	 *
- 	 * @param instructorMoney the new instructor money
- 	 */
-	 public void setInstructorMoney(int instructorMoney) {
+
+	 public void setAndPushInstructorMoney(double instructorMoney) {
 		 this.instructorMoney = instructorMoney;
 		 String[] attrs = new String[] {"instructorMoney"};
-		 String[] values = new String[] {String.valueOf(this.instructorMoney)};
+		 String[] values = new String[] {String.format("%.2f",this.instructorMoney)};
 		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
-	 
-	 /**
- 	 * Gets the instructor money.
- 	 *
- 	 * @return the instructor money
- 	 */
 	 public double getInstructorMoney() {
 		 return this.instructorMoney;
 	 }
 
-	 /**
- 	 * Upload video.
- 	 */
- 	//Todo!!!
-	 public void uploadVideo() {
-		 
-		 
-	 }
-	 
-	 /**
- 	 * Delete video.
- 	 *
- 	 * @param video the video
- 	 */
-	 public void deleteVideo(Video video) {
-		 FileUtils.deleteCSV(video.getVideoId(), "./videoCSV.csv");
-		 FileUtils.delete("./Video/"+ video.getVideoId()+".mp4");
-	 }
-	 
-	 /**
- 	 * Play video.
- 	 *
- 	 * @param video the video
- 	 */
- 	//Todo!!!!
-	 public void playVideo(Video video) {
-		 
-	 }
-	 
-	 /**
- 	 * Edits the video.
- 	 *
- 	 * @param video the video
- 	 */
- 	//Todo!!!
-	 public void editVideo(Video video) {
-		 
-		 
-	 }
+	 public void setInstructorMoney(double instructorMoney) {
+		this.instructorMoney = instructorMoney;
+	}
 
-	 /**
- 	 * List this insrtuctor's supreme member.
- 	 *
- 	 * @return the array list of these supre members object
- 	 */
- 	ArrayList<Client> listMySupremeMember(){
-		 String[] readAll = {"*"}; 
-		 ArrayList<String[]> clientInstructorList = new ArrayList<String[]>();
-		 clientInstructorList = FileUtils.readCSV("./clientInstructor.csv", readAll);
-		 int i;
-		 ArrayList<Client> supreClients = new ArrayList<Client>();
-		 //every line in the clientInstructor file
-		 for(i=0; i<clientInstructorList.size();i++) {
-			 //find entries buying this instructor
-			 if(clientInstructorList.get(i)[2].equals(this.userId)) {
-				 //存在重复client，see!!!!!!
-				 supreClients.add(new Client(clientInstructorList.get(i)[1]));
-			 }
-			 
-		 }
-		return supreClients;
-		 
-	 }
-	 
-	 /**
- 	 * List the video uploaded by this instructor.
- 	 *
- 	 * @return the array list of this instructor's video object
- 	 */
- 	ArrayList<Video> listMyVideo(){
-		 String[] readAll = {"*"}; 
-		 ArrayList<String[]> videoList = new ArrayList<String[]>();
-		 videoList = FileUtils.readCSV("./videoCSV.csv", readAll);
-		 int i;
-		 ArrayList<Video> myVideos = new ArrayList<Video>();
-		 //every line in the clientInstructor file
-		 for(i=0; i<videoList.size();i++) {
-			 //find video entries made by this instructor
-			 if(videoList.get(i)[4].equals(this.userId)) {
-				 myVideos.add(new Video(videoList.get(i)[0]));
-			 }
-		 }
-		 return myVideos;
-		 
-	 }
+	/**
+	 * publish live
+	 *
+	 * @return true success; false duplicate;
+	 */
+	public boolean publishLive(String[] para){
+	 	para[0] = "L" + GymUtils.findLastIDPlus1("Live");
+	 	para[1] = this.getUserId();
+	 	para[5] = "0";
+	 	return new Live(para).insertToCSV();
+	}
 }

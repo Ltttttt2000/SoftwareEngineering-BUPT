@@ -18,7 +18,7 @@ public class Video {
 	private String specificClient;
 	private String fileType;
 
-	private final String filePath = "./core/src/csv/Video.csv";
+	private final static String filePath = "./core/src/csv/Video.csv";
 	
     public Video(String id) {
 		ArrayList<String[]> selectList = FileUtils.readCSV(filePath, new String[] {"*"});

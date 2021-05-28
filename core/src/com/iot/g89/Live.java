@@ -15,7 +15,7 @@ public class Live {
     private String description;
     private int number = 0;
 
-    private final String filePath = "./core/src/csv/Live.csv";
+    private final static String filePath = "./core/src/csv/Live.csv";
     private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public Live (String id){
@@ -48,9 +48,9 @@ public class Live {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        this.time = para[2];
-        this.description = para[3];
-        this.number = Integer.parseInt(para[4]);
+        this.time = para[3];
+        this.description = para[4];
+        this.number = Integer.parseInt(para[5]);
     }
 
     public String getLiveId() {
@@ -108,7 +108,23 @@ public class Live {
         FileUtils.updateCSV4(filePath, this.liveId, attrs, values);
     }
 
-    public void insertToCSV(){
+    public boolean duplicateChecking(){
+        ArrayList<String[]> allList = FileUtils.readCSV(filePath, new String[]{"*"});
+        for(String[] para : allList){
+            if(para[1].equals(instructId) && para[2].equals(sdf.format(date)) && para[3].equals(time))
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * insertToCSV
+     *
+     * @return true success; false duplicate;
+     */
+    public boolean insertToCSV(){
+        if(duplicateChecking())
+            return false;
         String[] para = new String[6];
         para[0] = this.getLiveId();
         para[1] = this.getInstructId();
@@ -120,6 +136,7 @@ public class Live {
         ArrayList<String[]> paraList = new ArrayList<>();
         paraList.add(para);
         FileUtils.insertCSV(filePath,paraList);
+        return true;
     }
 
 

@@ -436,7 +436,7 @@ public class GUIDriver {
      * @param Id  instructor/video/live id
      * @return
      * <ul>
-     * <li>-1 no instructor/video</li>
+     * <li>-1 no such instructor/video/live</li>
      * <li>-2 repeat purchasing</li>
      * <li>-3 money problem</li>
      * <li>-4 not the student</li>
@@ -447,5 +447,15 @@ public class GUIDriver {
     public int purchaseOrReserve(String Id){
         Client client = (Client) gymUtils.user;
         return client.purchaseOrReserve(Id);
+    }
+
+    /**
+     * publish live
+     *
+     * @return true success; false duplicate;
+     */
+    public boolean publishLive(String[] para){
+        Instructor instructor = (Instructor) gymUtils.user;
+        return instructor.publishLive(para);
     }
 }

@@ -39,6 +39,8 @@ public class GymUtils {
         else{ key = lowerCaseType + "Id"; }
 
         ArrayList<String[]> IDList = FileUtils.readCSV(filePath, new String[]{key});
+        if(IDList.size() == 0)
+            return 1001;
         String[] last = IDList.get(IDList.size() - 1);
         return Integer.parseInt(last[0].substring(1)) + 1;
     }
@@ -70,6 +72,6 @@ public class GymUtils {
             case 'L' :
                 return "Live";
         }
-        return null;
+        return "None";
     }
 }
