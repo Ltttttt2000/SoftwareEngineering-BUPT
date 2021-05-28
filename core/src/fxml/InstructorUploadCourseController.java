@@ -137,8 +137,7 @@ public class InstructorUploadCourseController implements Initializable {
 
 
     public void uploadFile() throws IOException {
-        GymUtils hehe = new GymUtils();
-        String VideoId = "V" + Integer.toString(hehe.findLastVideoIDPlus1("Video"));
+        String VideoId = "V" + Integer.toString(GymUtils.findLastIDPlus1("Video"));
         String UserId = userId;
         String name = VideoName.getText();
         String type = courseType.getValue();

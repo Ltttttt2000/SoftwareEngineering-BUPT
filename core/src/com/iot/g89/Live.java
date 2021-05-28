@@ -116,7 +116,9 @@ public class Live {
         para[3] = this.getTime();
         para[4] = this.getDescription();
         para[5] = this.getNumber() + "";
+
         ArrayList<String[]> paraList = new ArrayList<>();
+        paraList.add(para);
         FileUtils.insertCSV(filePath,paraList);
     }
 

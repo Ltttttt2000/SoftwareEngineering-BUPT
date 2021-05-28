@@ -33,17 +33,15 @@ public class GymUtils {
     public static int findLastIDPlus1(String type) {
 
         String filePath = "./core/src/csv/"+ type + ".csv";
-//        String lowerCaseType = Character.toLowerCase(type.charAt(0)) + type.substring(1);
-        ArrayList<String[]> IDList = FileUtils.readCSV(filePath, new String[]{"userId"});
-
-        String[] last = IDList.get(IDList.size() - 1);
-        return Integer.parseInt(last[0].substring(1)) + 1;
-    }
-
-    public int findLastVideoIDPlus1(String type) {
-
-        String userFilePath = "./core/src/csv/"+ type + ".csv";
-        ArrayList<String[]> IDList = FileUtils.readCSV(userFilePath, new String[]{"videoId"});
+        String lowerCaseType = Character.toLowerCase(type.charAt(0)) + type.substring(1);
+        String key;
+        if(type.equals("Client") || type.equals("Instructor")){
+            key = "userId";
+        }
+        else{
+            key = lowerCaseType + "Id";
+        }
+        ArrayList<String[]> IDList = FileUtils.readCSV(filePath, new String[]{key});
 
         String[] last = IDList.get(IDList.size() - 1);
         return Integer.parseInt(last[0].substring(1)) + 1;
