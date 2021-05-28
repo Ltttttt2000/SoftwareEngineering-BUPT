@@ -26,24 +26,29 @@ public class Client extends User{
 				this.setAndPushUserLevel("SupremeMember");
 		}
 	}
+
 	/**
-	 * Consume money from user's account.
-	 * 
+	 * consume
+	 *
 	 * @param money
-	 * 			The money the user need to pay
+	 * @return -1 not enough money; -2 be banned
 	 */
 	public double consume(double money) {
-		if(this.getUserLevel().equals("Member"))
-			money *= 0.8;
-		if(this.getUserLevel().equals("SupremeMember"))
-			money *= 0.5;
+		if(this.loginLicense){
+			if(this.getUserLevel().equals("Member"))
+				money *= 0.8;
+			if(this.getUserLevel().equals("SupremeMember"))
+				money *= 0.5;
 
-		double balance = this.getRechargeAmount() - money;
-		if(balance < 0) {
-			return -1;
+			double balance = this.getRechargeAmount() - money;
+			if(balance < 0) {
+				return -1;
+			}else {
+				setAndPushRechargeAmount(balance);
+				return money;
+			}
 		}else {
-			setAndPushRechargeAmount(balance);
-			return money;
+			return -2;
 		}
 	}
 

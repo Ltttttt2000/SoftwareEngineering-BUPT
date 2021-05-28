@@ -346,27 +346,27 @@ public class GUIDriver {
             for (int i = 1; i < para.length; i++) {
                 String para1 = para[i];
 
-                if (Pattern.matches("\\w+=\\w+", para1)) {
+                if (Pattern.matches("[A-Za-z0-9.]+=[A-Za-z0-9.]+", para1)) {
                     String[] para2 = para1.split("=");
                     Iterator<Object> iterator = returnList.iterator();
                     while (iterator.hasNext()) {
                         try {
                             Object o = iterator.next();
                             Method m = o.getClass().getMethod("get" + para2[0], null);
-                            if (!(m.invoke(o).equals(para2[1])))
+                            if (!(m.invoke(o).toString().equals(para2[1])))
                                 iterator.remove();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
-                } else if (Pattern.matches("\\w+!=\\w+", para1)) {
+                } else if (Pattern.matches("[A-Za-z0-9.]+!=[A-Za-z0-9.]+", para1)) {
                     String[] para2 = para1.split("!=");
                     Iterator<Object> iterator = returnList.iterator();
                     while (iterator.hasNext()) {
                         try {
                             Object o = iterator.next();
                             Method m = o.getClass().getMethod("get" + para2[0], null);
-                            if (m.invoke(o).equals(para2[1]))
+                            if (m.invoke(o).toString().equals(para2[1]))
                                 iterator.remove();
                         } catch (Exception e) {
                             e.printStackTrace();

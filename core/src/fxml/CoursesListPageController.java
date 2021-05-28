@@ -184,9 +184,9 @@ public class CoursesListPageController implements Initializable {
             if(t1.equals("All"))
                 priceSelection = "";
             else if(t1.equals("Free (0£)"))
-                priceSelection = "VideoPrice=0.00";
+                priceSelection = "VideoPrice=0.0";
             else
-                priceSelection = "VideoPrice!=0.00";
+                priceSelection = "VideoPrice!=0.0";
 
             listVideos();
         }

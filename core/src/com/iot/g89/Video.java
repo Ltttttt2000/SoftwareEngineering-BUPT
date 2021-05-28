@@ -94,7 +94,7 @@ public class Video {
 		return videoType;
 	}
 
-	public double getVideoPrice() {
+	public Double getVideoPrice() {
 		return videoPrice;
 	}
 
@@ -147,7 +147,7 @@ public class Video {
 
 	public String toString(){
     	return "id\t\t" + this.getVideoId() + "\n" +
-				"level\t" + this.getVideoName() + "\n";
+				"name\t" + this.getVideoName() + "\n";
 	}
 
 }
