@@ -377,6 +377,13 @@ public class GUIDriver {
         return originList;
     }
 
+    /**
+     * 双表聚合
+     *
+     * @param type
+     * @param Id
+     * @return
+     */
     public ArrayList<Object> select(String type, String Id){
         ArrayList<Object> returnList = new ArrayList<>();
 
@@ -412,7 +419,7 @@ public class GUIDriver {
                     idList.add(para[1]);
             }
             for(String IdR : idList) {
-                Client c = new Client(Id);
+                Client c = new Client(IdR);
                 returnList.add(c);
             }
         }
