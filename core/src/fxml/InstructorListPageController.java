@@ -24,8 +24,6 @@ import java.util.ResourceBundle;
 
 public class InstructorListPageController implements Initializable {
     @FXML
-    private ScrollPane instructorPane;
-    @FXML
     private VBox instructorListVBox;
     @FXML
     private ChoiceBox<String> sexCB;
@@ -40,6 +38,8 @@ public class InstructorListPageController implements Initializable {
     private String sexSelection = "";
     private String levelSelection = "";
     private String idSearching = "";
+
+    private ArrayList<Object> list = new ArrayList<Object>();
 
     private GUIDriver driver;
     private Scene thisScene;
@@ -68,18 +68,19 @@ public class InstructorListPageController implements Initializable {
         userIdTF.setText("");
         switch(windowName){
             case "Instructors Store":
+                list = driver.select(selection);
                 break;
             case "My Instructors":
-                // Something
+                list = driver.select("Instructor", curUserId);
                 break;
         }
         listInstructors();
     }
 
     private void listInstructors() {
-        ArrayList<Object> list = driver.select(selection + " " + sexSelection + " " + levelSelection + " " + idSearching);
+        ArrayList<Object> instructors = driver.select(selection + " " + sexSelection + " " + levelSelection + " " + idSearching, this.list);
         instructorListVBox.getChildren().clear();
-        for(Object i:list){
+        for(Object i:instructors){
             instructorListVBox.getChildren().add(drawInstructorButton((Instructor) i));
         }
     }
@@ -168,6 +169,9 @@ public class InstructorListPageController implements Initializable {
         button.setOnAction(e ->{
             SceneTransform.ToUserInfoPage(userId, thisScene);
         });
+
+        if(!user.getLoginLicense())
+            button.setDisable(true);
 
         return button;
     }

@@ -39,7 +39,8 @@ public class CoursesListPageController implements Initializable {
     private String priceSelection = "";
     private String searching = "";
 
-    private String[] userIds;
+    private ArrayList<Object> list = new ArrayList<Object>();
+
     private GUIDriver driver;
     private Scene thisScene;
     private Scene lastScene;
@@ -52,6 +53,9 @@ public class CoursesListPageController implements Initializable {
         priceRangeCB.getItems().addAll("All", "Free (0£)", "Paid");
         sportTypeCB.getSelectionModel().select(0);
         priceRangeCB.getSelectionModel().select(0);
+
+        sportTypeCB.getSelectionModel().selectedItemProperty().addListener(selectType);
+        priceRangeCB.getSelectionModel().selectedItemProperty().addListener(selectPrice);
     }
 
     public void initData(String curUserId, String windowName, Scene thisScene, Scene lastScene, GUIDriver driver) {
@@ -62,32 +66,35 @@ public class CoursesListPageController implements Initializable {
         windowNameLabel.setText(windowName);
         switch(windowName) {
             case "Public Courses":
+                list = driver.select(selection + " VideoPrice=0.00");
                 break;
             case "Paid Courses":
-                // yeah
+                list = driver.select(selection + " VideoPrice!=0.00");
                 break;
             case "History Courses":
                 // something
                 break;
             case "Courses Store":
-                // something else
+                list = driver.select(selection);
                 break;
             case "Purchased Courses":
-                // Something choose someone's paid courses
+                list = driver.select(selection, curUserId);
                 break;
             case "Private Courses":
-                // own courses
+                list = driver.select(selection + "SpecificClient=" + curUserId);
                 break;
         }
         listVideos();
     }
 
     private void listVideos(){
-        ArrayList<Object> videos = driver.select(selection + " " + typeSelection + " " + priceSelection + " " + searching);
+        ArrayList<Object> videos = driver.select(selection + " " + typeSelection + " " + priceSelection + " " + searching, this.list);
 
         for(Object v:videos){
             videoListVBox.getChildren().add(drawVideoButton((Video) v));
         }
+
+        System.out.println(selection + " " + typeSelection + " " + priceSelection + " " + searching);
     }
 
     public Button drawVideoButton(Video video){
@@ -177,9 +184,10 @@ public class CoursesListPageController implements Initializable {
             if(t1.equals("All"))
                 priceSelection = "";
             else if(t1.equals("Free (0£)"))
-                priceSelection = "Price=0";
+                priceSelection = "Price=0.00";
             else
-                priceSelection = "";
+                priceSelection = "Price!=0.00";
+
             listVideos();
         }
     };

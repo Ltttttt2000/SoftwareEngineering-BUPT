@@ -155,3 +155,27 @@
 	-fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
+
+/*-------------------------------------for store page--------------------------------------------- */
+.button-store{
+	-fx-background-color:  linear-gradient(to right, #f7b313, #e8582d);
+	-fx-effect: dropshadow(gaussian, #af6523, 50, 0, 18, 18);
+}
+
+.button-store:hover{
+	-fx-background-color: linear-gradient(to right, #c48e0f, #c04824);
+}
+
+/*-------------------------------------for Recharge page--------------------------------------------- */
+.button-price{
+	-fx-background-color: rgba(225,225,225,0.8);
+	-fx-background-radius: 13;
+	-fx-border-color: #660064;
+	-fx-border-radius: 10;
+	-fx-border-width: 3;
+	-fx-text-fill: #660064;
+}
+
+.button-price:hover{
+	-fx-background-color:white;
+}

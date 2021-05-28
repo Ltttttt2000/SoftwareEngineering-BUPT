@@ -53,6 +53,10 @@ public class StorePageController  implements Initializable {
         SceneTransform.ToCoursesListPage(curUserId, "Courses Store", thisScene);
     }
 
+    public void goToRechargePage(ActionEvent event) {
+        SceneTransform.ToRechargePage(curUserId, driver, thisScene);
+    }
+
     // for back button
     public void backToLastScene(){
         SceneTransform.ToScene(lastScene);
