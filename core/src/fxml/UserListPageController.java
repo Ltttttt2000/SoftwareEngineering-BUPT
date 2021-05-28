@@ -35,7 +35,7 @@ public class UserListPageController implements Initializable {
     public void initData(ArrayList<User> users){
 //        int i = 0;
 //        for(User u: users){
-//            IDs[i] = u.userid;
+//            IDs[i] = u.userId;
 //            types[i] = u.userType;
 //            sexes[i] = u.sex;
 //            tels[i] = u.phoneNumber;
@@ -44,7 +44,7 @@ public class UserListPageController implements Initializable {
 //            i++;
 //        }
 
-        TableColumn<User,String> ID = new TableColumn<>("userid");
+        TableColumn<User,String> ID = new TableColumn<>("userId");
         TableColumn<User,String> password = new TableColumn<>("password");
         TableColumn<User,String> sex = new TableColumn<>("sex");
         TableColumn<User,String> tel = new TableColumn<>("phoneNumber");
@@ -55,10 +55,10 @@ public class UserListPageController implements Initializable {
         final ObservableList<User> cellData = FXCollections.observableArrayList(users);
 
 //        for(User u:users){
-//            System.out.println(u.userid+"\n");
+//            System.out.println(u.userId+"\n");
 //        }
 
-            ID.setCellValueFactory(new PropertyValueFactory<>("userid"));
+            ID.setCellValueFactory(new PropertyValueFactory<>("userId"));
             password.setCellValueFactory(new PropertyValueFactory<>("password"));
             sex.setCellValueFactory(new PropertyValueFactory<>("sex"));
             tel.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));

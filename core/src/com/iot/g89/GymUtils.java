@@ -34,7 +34,7 @@ public class GymUtils {
 
         String filePath = "./core/src/csv/"+ type + ".csv";
 //        String lowerCaseType = Character.toLowerCase(type.charAt(0)) + type.substring(1);
-        ArrayList<String[]> IDList = FileUtils.readCSV(filePath, new String[]{"userid"});
+        ArrayList<String[]> IDList = FileUtils.readCSV(filePath, new String[]{"userId"});
 
         String[] last = IDList.get(IDList.size() - 1);
         return Integer.parseInt(last[0].substring(1)) + 1;

@@ -17,10 +17,10 @@ public class Instructor extends User{
 	 /**
  	 * Instantiates a new instructor.
  	 *
- 	 * @param userid the userid
+ 	 * @param userId the userId
  	 */
- 	public Instructor(String userid) {
-		super(userid);
+ 	public Instructor(String userId) {
+		super(userId);
 		this.instructorMoney = Double.parseDouble(selectList.get(entry)[14]);
 	}
 
@@ -147,24 +147,4 @@ public class Instructor extends User{
 		 return myVideos;
 		 
 	 }
-	 
- 	
-	 /**
- 	 * Check my member.
- 	 *
- 	 * @param member the member
- 	 */
-	 public void checkMyMember(Client member) {
-		
-			 System.out.println("Id:"+ member.getUserId()+"\n"+
-			 					"Sex"+ member.getSex() +"\n"+
-					 			"age:"+ member.getAge() +"\n"+
-					 			"height"+ member.getHeight() +"\n"+
-					 			"weight"+ member.getWeight() +"\n"+
-					 			"chest"+ member.getChest() +"\n"+
-					 			"waist"+ member.getWaist() +"\n"+
-					 			"hip"+ member.getHip() +"\n");
-	 }
-		 
-	 
 }

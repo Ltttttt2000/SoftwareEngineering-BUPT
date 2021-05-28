@@ -15,7 +15,7 @@ import java.util.Arrays;
 public class User{
 
 	protected String userId = "None";
-	//private final SimpleStringProperty Userid;
+	//private final SimpleStringProperty UserId;
 	protected String password = "None";
 	//private final SimpleStringProperty Password;
 	protected String userLevel = "Normal";
@@ -45,7 +45,7 @@ public class User{
 	ArrayList<String[]> userInfoList;
 	
 	//initial value written in the file
-	                              //userid, password, userType, sex, phoneNo,loginLic,rechargeMoney,resume, 
+	                              //userId, password, userType, sex, phoneNo,loginLic,rechargeMoney,resume, 
 	String[] userInfo = new String[] {"None", "None", "Normal", "None","None","TRUE", "0", "None",   
 			                          "0","0","0","0","0","0"}; //6 physical Info,the last is InstructorMoney
 	
@@ -58,11 +58,11 @@ public class User{
 	/**
 	 * Instantiates a new user.
 	 *
-	 * @param userId the userid
+	 * @param userId the userId
 	 */
 	public User(String userId){
 		userInfo[0] = this.userId;
-//		this.Userid = new SimpleStringProperty(userid);
+//		this.UserId = new SimpleStringProperty(userId);
 //		this.Password = new SimpleStringProperty("None");
 //		this.Sex = new SimpleStringProperty("None");
 //		this.PhoneNumber = new SimpleStringProperty("None");
@@ -174,7 +174,7 @@ public class User{
 		this.rechargeAmount = Double.parseDouble(parameters[6]);
 		this.resume = parameters[7];
 
-//		this.Userid = new SimpleStringProperty(parameters[0]);
+//		this.UserId = new SimpleStringProperty(parameters[0]);
 //		this.Password = new SimpleStringProperty(parameters[1]);
 //		this.Sex = new SimpleStringProperty(parameters[3]);
 //		this.PhoneNumber = new SimpleStringProperty(parameters[4]);
@@ -214,8 +214,8 @@ public class User{
 
 
 
-//	public SimpleStringProperty useridProperty() {
-//		return Userid;
+//	public SimpleStringProperty userIdProperty() {
+//		return UserId;
 //	}
 
 //	public SimpleStringProperty passwordProperty() {

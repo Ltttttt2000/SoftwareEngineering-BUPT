@@ -1,4 +1,4 @@
-userid,password,userLevel,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip
+userId,password,userLevel,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip
 C1001,123456,SupremeMember,Male,59764678152,TRUE,1131.53,Wuhu!Take off!,40,182,65.74,92.82,61.88,98.64
 C1002,123456,SupremeMember,Male,65385158147,TRUE,1487.05,Add muscle!Add muscle!Add muscle!,21,177,62.16,90.27,60.18,95.93
 C1003,123456,Normal,Female,63992282128,TRUE,235.24,Wuhu!Take off!,40,170,52.99,86.7,57.8,92.14

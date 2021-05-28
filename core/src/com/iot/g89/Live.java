@@ -69,6 +69,14 @@ public class Live {
         this.instructId = instructId;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public String getTime() {
         return time;
     }
@@ -101,7 +109,15 @@ public class Live {
     }
 
     public void insertToCSV(){
-
+        String[] para = new String[6];
+        para[0] = this.getLiveId();
+        para[1] = this.getInstructId();
+        para[2] = sdf.format(this.getDate());
+        para[3] = this.getTime();
+        para[4] = this.getDescription();
+        para[5] = this.getNumber() + "";
+        ArrayList<String[]> paraList = new ArrayList<>();
+        FileUtils.insertCSV(filePath,paraList);
     }
 
 

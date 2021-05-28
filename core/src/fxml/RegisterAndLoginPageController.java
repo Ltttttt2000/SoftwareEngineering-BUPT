@@ -380,7 +380,7 @@ public class RegisterAndLoginPageController implements Initializable {
 
 		if(allRightInput()) {
 			String[] user = new String[14];
-//			0 userid,	1 password,	2 userType,	3 sex,		4 phoneNumber,	5 loginLicense,	6 rechargeAmount,
+//			0 userId,	1 password,	2 userType,	3 sex,		4 phoneNumber,	5 loginLicense,	6 rechargeAmount,
 //			7 resume,	8 age,		9 height,	10 weight,	11 chest,		12 waist,		13 hip;
 			user[0] = "";
 			user[1] = registerPasswordPF.getText();

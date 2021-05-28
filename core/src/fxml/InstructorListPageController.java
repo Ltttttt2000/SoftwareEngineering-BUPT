@@ -202,7 +202,7 @@ public class InstructorListPageController implements Initializable {
         if(id.matches("^\\s*$"))
             idSearching = "";
         else
-            idSearching = "Userid=" + id;
+            idSearching = "UserId=" + id;
         instructorListVBox.getChildren().clear();
         listInstructors();
     }

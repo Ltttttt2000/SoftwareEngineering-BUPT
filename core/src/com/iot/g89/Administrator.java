@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Administrator extends User{
 	
-	public Administrator(String userid) {
-		super(userid);
+	public Administrator(String userId) {
+		super(userId);
 	}
 	
 	/**
@@ -17,14 +17,14 @@ public class Administrator extends User{
 	public ArrayList<Client> listAllClient(){
 		ArrayList<Client> allClients = new ArrayList<Client>();
 		String filePath = "./Client.csv";
-		String[] attributes = {"userid"};
+		String[] attributes = {"userId"};
 		
 		ArrayList<String[]> clientsInfo = new ArrayList<String[]>();
 		clientsInfo = FileUtils.readCSV(filePath, attributes);
 		int i = 0;
 		
 		while(i < clientsInfo.size()) {
-			Client client = new Client(clientsInfo.get(i)[0]);    //get userid, build Client
+			Client client = new Client(clientsInfo.get(i)[0]);    //get userId, build Client
 			allClients.add(client);		
 			i++;
 		}
@@ -41,7 +41,7 @@ public class Administrator extends User{
 	public ArrayList<Instructor> listAllInstructor(){
 		ArrayList<Instructor> allInstructor = new ArrayList<Instructor>();
 		String filePath = "./Instructor.csv";
-		String[] attributes = {"userid"};
+		String[] attributes = {"userId"};
 		
 		ArrayList<String[]> instructorsInfo = new ArrayList<String[]>();
 		instructorsInfo = FileUtils.readCSV(filePath, attributes);
@@ -63,7 +63,7 @@ public class Administrator extends User{
 	 */
 	public ArrayList<User> listAllUser(){
 		ArrayList<User> allUser = new ArrayList<User>();
-		String[] usersID = {"userid"};
+		String[] usersID = {"userId"};
 		//all admin
 		String adminPath = "./Administrator.csv";
 		ArrayList<String[]> adminInfo = new ArrayList<String[]>();
@@ -129,10 +129,10 @@ public class Administrator extends User{
 	 * 		The user need to be deleted.
 	 */
 	public void deleteUser(User userDel) {
-		String userid = userDel.userId;
+		String userId = userDel.userId;
 		String typeOfUser = userDel.getClass().getSimpleName();
 		String path = "./" + typeOfUser + ".csv";
-		FileUtils.deleteCSV(userid, path);
+		FileUtils.deleteCSV(userId, path);
 	}
 	
 	/**

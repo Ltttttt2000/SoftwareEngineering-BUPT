@@ -53,23 +53,23 @@ public class GUIDriver {
      */
     public String registerUser(String[] parameters, String type){
 
-        String userid = GymUtils.findLastIDPlus1(type) + "";
+        String userId = GymUtils.findLastIDPlus1(type) + "";
 
         if(type.equals("Instructor")){
             parameters = Arrays.copyOf(parameters, parameters.length + 1);
             parameters[parameters.length - 1] = "0";
-            userid = "I" + userid;
+            userId = "I" + userId;
         }else
-            userid = "C" + userid;
+            userId = "C" + userId;
 
-        parameters[0] = userid;
+        parameters[0] = userId;
 
         ArrayList<String[]> userInfoList = new ArrayList<String[]>();
         userInfoList.add(parameters);
 
         FileUtils.insertCSV("./core/src/csv/" + type + ".csv", userInfoList);
 
-        return userid;
+        return userId;
     }
 
     /**
