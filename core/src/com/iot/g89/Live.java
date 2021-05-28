@@ -1,17 +1,22 @@
 package com.iot.g89;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Live {
     private String liveId = "None";
     private String instructId;
 
+    private Date date;
     //Morning Afternoon Evening
     private String time;
     private String description;
-    private int number;
+    private int number = 0;
 
     private final String filePath = "./core/src/csv/Live.csv";
+    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public Live (String id){
         ArrayList<String[]> selectList = FileUtils.readCSV(filePath, new String[] {"*"});
@@ -21,9 +26,14 @@ public class Live {
                 if(para[0].equals(id)){
                     this.liveId = para[0];
                     this.instructId = para[1];
-                    this.time = para[2];
-                    this.description = para[3];
-                    this.number = Integer.parseInt(para[4]);
+                    try {
+                        this.date = sdf.parse(para[2]);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    this.time = para[3];
+                    this.description = para[4];
+                    this.number = Integer.parseInt(para[5]);
                     break;
                 }
             }
@@ -33,6 +43,11 @@ public class Live {
     public Live(String[] para){
         this.liveId = para[0];
         this.instructId = para[1];
+        try {
+            this.date = sdf.parse(para[2]);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         this.time = para[2];
         this.description = para[3];
         this.number = Integer.parseInt(para[4]);
@@ -77,6 +92,18 @@ public class Live {
     public void setNumber(int number) {
         this.number = number;
     }
+
+    public void setAndPushNumber(int number){
+        this.number = number;
+        String[] attrs = new String[] {"number"};
+        String[] values = new String[] {String.valueOf(this.number)};
+        FileUtils.updateCSV4(filePath, this.liveId, attrs, values);
+    }
+
+    public void insertToCSV(){
+
+    }
+
 
     public String toString(){
         return "id\t\t" + this.getLiveId() + "\n" +

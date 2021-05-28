@@ -20,7 +20,6 @@ import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class InstructorListPageController implements Initializable {
@@ -102,7 +101,7 @@ public class InstructorListPageController implements Initializable {
         BorderPane buttonPane = new BorderPane();
         BorderPane centerPane = new BorderPane();
 
-        String userId = user.getUserid();
+        String userId = user.getUserId();
         String price = String.valueOf(user.getInstructorMoney());
         String sex = user.getSex();
         String age = String.valueOf(user.getAge());

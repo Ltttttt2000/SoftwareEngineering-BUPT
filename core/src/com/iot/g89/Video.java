@@ -131,7 +131,7 @@ public class Video {
 //	}
 
 	public void setSpecificClient(Client specificClient) {
-		this.specificClient = specificClient.getUserid();
+		this.specificClient = specificClient.getUserId();
 	}
 
 	public void playVideo(String file) {

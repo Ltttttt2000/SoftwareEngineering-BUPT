@@ -38,7 +38,7 @@ public class Instructor extends User{
 		 this.resume = resume;
 		 String[] attrs = new String[] {"resume"};
 		 String[] values = new String[] {String.valueOf(this.resume)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
 	 
 	 /**
@@ -50,7 +50,7 @@ public class Instructor extends User{
 		 this.instructorMoney = instructorMoney;
 		 String[] attrs = new String[] {"instructorMoney"};
 		 String[] values = new String[] {String.valueOf(this.instructorMoney)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
 	 
 	 /**
@@ -116,7 +116,7 @@ public class Instructor extends User{
 		 //every line in the clientInstructor file
 		 for(i=0; i<clientInstructorList.size();i++) {
 			 //find entries buying this instructor
-			 if(clientInstructorList.get(i)[2].equals(this.userid)) {
+			 if(clientInstructorList.get(i)[2].equals(this.userId)) {
 				 //存在重复client，see!!!!!!
 				 supreClients.add(new Client(clientInstructorList.get(i)[1]));
 			 }
@@ -140,7 +140,7 @@ public class Instructor extends User{
 		 //every line in the clientInstructor file
 		 for(i=0; i<videoList.size();i++) {
 			 //find video entries made by this instructor
-			 if(videoList.get(i)[4].equals(this.userid)) {
+			 if(videoList.get(i)[4].equals(this.userId)) {
 				 myVideos.add(new Video(videoList.get(i)[0]));
 			 }
 		 }
@@ -156,7 +156,7 @@ public class Instructor extends User{
  	 */
 	 public void checkMyMember(Client member) {
 		
-			 System.out.println("Id:"+ member.getUserid()+"\n"+
+			 System.out.println("Id:"+ member.getUserId()+"\n"+
 			 					"Sex"+ member.getSex() +"\n"+
 					 			"age:"+ member.getAge() +"\n"+
 					 			"height"+ member.getHeight() +"\n"+

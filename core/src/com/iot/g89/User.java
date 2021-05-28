@@ -4,10 +4,6 @@ package com.iot.g89;
  * 
  */
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +14,7 @@ import java.util.Arrays;
  */
 public class User{
 
-	protected String userid = "None";
+	protected String userId = "None";
 	//private final SimpleStringProperty Userid;
 	protected String password = "None";
 	//private final SimpleStringProperty Password;
@@ -62,10 +58,10 @@ public class User{
 	/**
 	 * Instantiates a new user.
 	 *
-	 * @param userid the userid
+	 * @param userId the userid
 	 */
-	public User(String userid){
-		userInfo[0] = this.userid;
+	public User(String userId){
+		userInfo[0] = this.userId;
 //		this.Userid = new SimpleStringProperty(userid);
 //		this.Password = new SimpleStringProperty("None");
 //		this.Sex = new SimpleStringProperty("None");
@@ -74,7 +70,7 @@ public class User{
 //		this.Age = new SimpleIntegerProperty(0);
 		userFilePath = "./core/src/csv/"+ this.getClass().getSimpleName() + ".csv";
 		
-		fileHeaders[0] = "userid";
+		fileHeaders[0] = "userId";
 		fileHeaders[1] = "password";
 		fileHeaders[2] = "userLevel";
 		fileHeaders[3] = "sex";
@@ -121,7 +117,7 @@ public class User{
 			else {
 				
 				while(entry+1<selectList.size() ||entry+1==selectList.size()) {
-					if(selectList.get(entry)[0].equals(userid))
+					if(selectList.get(entry)[0].equals(userId))
 						break;
 					else
 						entry++;
@@ -131,7 +127,7 @@ public class User{
 				//cannot find in file
 				if (selectList.size() >= entry + 1 && selectList.size() != 0) {   //old user login-in, read the information into this user from the file
 
-					this.userid = userid;
+					this.userId = userId;
 					this.password = selectList.get(entry)[1];
 					//userInfo[1] = this.password;
 					this.userLevel = selectList.get(entry)[2];
@@ -169,7 +165,7 @@ public class User{
 
 		userFilePath = "./core/src/csv/"+ this.getClass().getSimpleName() + ".csv";
 
-		this.userid = parameters[0];
+		this.userId = parameters[0];
 		this.password = parameters[1];
 		this.userLevel = parameters[2];
 		this.sex = parameters[3];
@@ -196,14 +192,6 @@ public class User{
 
 	}
 
-
-	 
-	 
-	 //	TODO !!! useless??
-/*	 void setPhysicalInfo(PhysicalInfo physicalInfo) {
-
-	 }
- */
 	 /**
  	 * Ban this account.
  	 */
@@ -211,7 +199,7 @@ public class User{
 		 this.loginLicense = false;
 		 String[] attrs = new String[] {"loginLicense"};
 		 String[] values = new String[] {String.valueOf(this.loginLicense)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
 	 
 	 /**
@@ -221,7 +209,7 @@ public class User{
 		 this.loginLicense = true;
 		 String[] attrs = new String[] {"loginLicense"};
 		 String[] values = new String[] {String.valueOf(this.loginLicense)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
 
 
@@ -257,8 +245,8 @@ public class User{
 //	}
 
 
-	public String getUserid() {
-		return userid;
+	public String getUserId() {
+		return userId;
 	}
 
 	public String getPassword() {
@@ -310,8 +298,8 @@ public class User{
 
 	public double getInstructorMoney(){return 0;}
 
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public void setPassword(String password) {
@@ -371,7 +359,7 @@ public class User{
 		//userInfo[1] = this.password;
 		String[] attrs = new String[] {"password"};
 		String[] values = new String[] {this.password};
-		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 
 	}
 
@@ -380,7 +368,7 @@ public class User{
 		//userInfo[2] = this.userType;
 		String[] attrs = new String[] {"userLevel"};
 		String[] values = new String[] {this.userLevel};
-		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	}
 
 	//新加，记得要在子类新加一下
@@ -389,7 +377,7 @@ public class User{
 		//userInfo[3] = this.sex;
 		String[] attrs = new String[] {"sex"};
 		String[] values = new String[] {this.sex};
-		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 
 	}
 
@@ -398,7 +386,7 @@ public class User{
 		//userInfo[4] = this.phoneNumber;
 		String[] attrs = new String[] {"phoneNumber"};
 		String[] values = new String[] {this.phoneNumber};
-		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 
 	}
 
@@ -407,14 +395,14 @@ public class User{
 		//userInfo[7] = this.resume;
 		String[] attrs = new String[] {"resume"};
 		String[] values = new String[] {this.resume};
-		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	}
 
 	public void setAndPushRechargeAmount(double rechargeAmount) {
 		this.rechargeAmount = rechargeAmount;
 		String[] attrs = new String[] {"rechargeAmount"};
 		String[] values = new String[] {String.format("%.2f",this.rechargeAmount)};
-		FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	}
 
 	public void setAndPushAge(int age) {
@@ -422,7 +410,7 @@ public class User{
 		//userPhysical[1] = Integer.toString(this.age);
 		 String[] attrs = new String[] {"age"};
 		 String[] values = new String[] {String.valueOf(this.age)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 		
 	}
 
@@ -431,7 +419,7 @@ public class User{
 		 //userPhysical[2] = Double.toString(this.height);
 		 String[] attrs = new String[] {"height"};
 		 String[] values = new String[] {String.valueOf(this.height)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
 
 	public void setAndPushWeight(double weight) {
@@ -439,7 +427,7 @@ public class User{
 		 //userPhysical[3] = Double.toString(this.weight);
 		 String[] attrs = new String[] {"weight"};
 		 String[] values = new String[] {String.valueOf(this.weight)};
-		 FileUtils.updateCSV4(userFilePath,  this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath,  this.userId, attrs, values);
 	 }
 
 
@@ -448,7 +436,7 @@ public class User{
 		 //userPhysical[4] = Double.toString(this.chest);
 		 String[] attrs = new String[] {"chest"};
 		 String[] values = new String[] {String.valueOf(this.chest)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 			
 	 }
 
@@ -457,7 +445,7 @@ public class User{
 		 //userPhysical[5] = Double.toString(this.waist);
 		 String[] attrs = new String[] {"waist"};
 		 String[] values = new String[] {String.valueOf(this.waist)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 			
 	 }
 
@@ -466,7 +454,7 @@ public class User{
 		 //userPhysical[6] = Double.toString(this.hip);
 		 String[] attrs = new String[] {"hip"};
 		 String[] values = new String[] {String.valueOf(this.hip)};
-		 FileUtils.updateCSV4(userFilePath, this.userid, attrs, values);
+		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
 	 
 
@@ -475,17 +463,8 @@ public class User{
 	 }
 
 	public String toString() {
-		return "id\t\t" + this.getUserid() + "\n" +
+		return "id\t\t" + this.getUserId() + "\n" +
 				"level\t" + this.getUserLevel() + "\n" +
 				"sex\t\t" + this.getSex() + "\n";
 	}
-
-
-	//TODO !!!useless??
-	/* PhysicalInfo getUserPhysicalInfo() {
-		 physicalInfo = new PhysicalInfo(this.userid);
-		 return this.physicalInfo;
-		
-	 }*/
- 	
 }

@@ -11,7 +11,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import com.iot.g89.List;
 import com.iot.g89.User;
 
 import java.net.URL;
@@ -70,7 +69,7 @@ public class UserListPageController implements Initializable {
                         @Override
                         public void handle(ActionEvent event) {
                             User chosen = tableView.getSelectionModel().getSelectedItem();
-                            System.out.println(chosen.getUserid());
+                            System.out.println(chosen.getUserId());
                             System.out.println("clicked!");
                         }
                     }

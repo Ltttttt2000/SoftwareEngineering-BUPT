@@ -2,9 +2,7 @@ package com.iot.g89;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.*;
 import java.util.regex.Pattern;
 
 public class GUIDriver {
@@ -117,7 +115,7 @@ public class GUIDriver {
 
     }
 
-    public String getUserId(){return gymUtils.user.getUserid();}
+    public String getUserId(){return gymUtils.user.getUserId();}
 
     public String getSex(){return getSex(getUserId());}
     public String getPhone(){return getPhone(getUserId());}
@@ -142,7 +140,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return user.getSex();
         return null;
     }
@@ -154,7 +152,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return user.getPhoneNumber();
         return null;
     }
@@ -166,7 +164,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return String.format("%.2f", user.getRechargeAmount());
         return null;
     }
@@ -178,7 +176,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return user.getAge() + "";
         return null;
     }
@@ -190,7 +188,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return user.getHeight() + "";
         return null;
     }
@@ -202,7 +200,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return String.format("%.2f", user.getWeight());
         return null;
     }
@@ -214,7 +212,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getChest());
         return null;
     }
@@ -226,7 +224,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getWaist());
         return null;
     }
@@ -238,7 +236,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getHip());
         return null;
     }
@@ -250,7 +248,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return String.valueOf(user.getLoginLicense());
         return null;
     }
@@ -262,7 +260,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return user.getResume();
         return null;
     }
@@ -274,7 +272,7 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return user.getUserLevel();
         return null;
     }
@@ -286,14 +284,14 @@ public class GUIDriver {
         }else{
             user = new Instructor(id);
         }
-        if(!(user.getUserid().equals("None")))
+        if(!(user.getUserId().equals("None")))
             return user.getClass().getSimpleName();
         return null;
     }
 
     public String getInstructorMoney(String id){
         Instructor instructor = new Instructor(id);
-        if(!(instructor.getUserid().equals("None")))
+        if(!(instructor.getUserId().equals("None")))
             return String.valueOf(instructor.getInstructorMoney());
         return null;
     }
@@ -340,6 +338,9 @@ public class GUIDriver {
      * @return
      */
     public ArrayList<Object> select(String str, ArrayList<Object> originList) {
+        ArrayList<Object> returnList = new ArrayList<>();
+        Collections.copy(returnList, originList);
+
         String[] para = str.split("( )+");
         if(para.length != 1) {
             for (int i = 1; i < para.length; i++) {
@@ -347,7 +348,7 @@ public class GUIDriver {
 
                 if (Pattern.matches("\\w+=\\w+", para1)) {
                     String[] para2 = para1.split("=");
-                    Iterator<Object> iterator = originList.iterator();
+                    Iterator<Object> iterator = returnList.iterator();
                     while (iterator.hasNext()) {
                         try {
                             Object o = iterator.next();
@@ -360,7 +361,7 @@ public class GUIDriver {
                     }
                 } else if (Pattern.matches("\\w+!=\\w+", para1)) {
                     String[] para2 = para1.split("!=");
-                    Iterator<Object> iterator = originList.iterator();
+                    Iterator<Object> iterator = returnList.iterator();
                     while (iterator.hasNext()) {
                         try {
                             Object o = iterator.next();
@@ -374,14 +375,14 @@ public class GUIDriver {
                 }
             }
         }
-        return originList;
+        return returnList;
     }
 
     /**
      * 双表聚合
      *
-     * @param type
-     * @param Id
+     * @param type what
+     * @param Id whose
      * @return
      */
     public ArrayList<Object> select(String type, String Id){
@@ -426,4 +427,25 @@ public class GUIDriver {
         return returnList;
     }
 
+    /**
+     * <ul>
+     * <li>purchase instructor or video</li>
+     * <li>reserve a live</li>
+     * </ul>
+     *
+     * @param Id  instructor/video/live id
+     * @return
+     * <ul>
+     * <li>-1 no instructor/video</li>
+     * <li>-2 repeat purchasing</li>
+     * <li>-3 money problem</li>
+     * <li>-4 not the student</li>
+     * <li>-5 live is full</li>
+     * <li>1 success</li>
+     * <ul/>
+     */
+    public int purchaseOrReserve(String Id){
+        Client client = (Client) gymUtils.user;
+        return client.purchaseOrReserve(Id);
+    }
 }

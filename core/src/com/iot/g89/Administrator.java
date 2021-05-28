@@ -129,7 +129,7 @@ public class Administrator extends User{
 	 * 		The user need to be deleted.
 	 */
 	public void deleteUser(User userDel) {
-		String userid = userDel.userid;
+		String userid = userDel.userId;
 		String typeOfUser = userDel.getClass().getSimpleName();
 		String path = "./" + typeOfUser + ".csv";
 		FileUtils.deleteCSV(userid, path);
