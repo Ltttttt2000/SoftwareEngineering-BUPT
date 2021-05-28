@@ -200,7 +200,7 @@ public class InstructorListPageController implements Initializable {
     // search id
     public void searchId(ActionEvent event) {
         String id = userIdTF.getText();
-        if(id.equals(""))
+        if(id.matches("^\\s*$"))
             idSearching = "";
         else
             idSearching = "Userid=" + id;

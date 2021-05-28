@@ -50,7 +50,7 @@ public class SceneTransform {
 			FXMLLoader loaderCoursesListPage = new FXMLLoader(getClass().getResource("/fxml/CoursesListPageScene.fxml"));
 			FXMLLoader loaderInstructorListPage = new FXMLLoader(getClass().getResource("/fxml/InstructorListPageScene.fxml"));
 			FXMLLoader loaderCourseBookingPage = new FXMLLoader(getClass().getResource("/fxml/CourseBookingPageScene.fxml"));
-			FXMLLoader loaderInstructorUploadCourse = new FXMLLoader(getClass().getResource("/fxml/InstructorUploadCourse.fxml"));
+			FXMLLoader loaderInstructorUploadCourse = new FXMLLoader(getClass().getResource("/fxml/InstructorUploadCourseScene.fxml"));
 
 			sceneClientStartPage = new Scene(loaderClientStartPage.load());
 			sceneInstructorStartPage = new Scene(loaderInstructorStartPage.load());

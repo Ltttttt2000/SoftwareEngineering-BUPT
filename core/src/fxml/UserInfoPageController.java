@@ -143,7 +143,8 @@ public class UserInfoPageController implements Initializable {
 		else{
 			basicInfoEditButton.setDisable(true);
 			securityInfoEditButton.setDisable(true);
-			payButton.setVisible(true);
+			if(driver.getUsertype(userId).equals("Instructor") && driver.getUsertype().equals("Client"))
+				payButton.setVisible(true);
 		}
 	}
 	

@@ -2,6 +2,10 @@ package fxml;
 
 import com.iot.g89.GUIDriver;
 import com.iot.g89.SceneTransform;
+import com.iot.g89.Video;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -13,6 +17,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CoursesListPageController implements Initializable {
@@ -25,7 +30,14 @@ public class CoursesListPageController implements Initializable {
     @FXML
     private ChoiceBox<String> sportTypeCB;
     @FXML
-    private TextField videoIdTF;
+    private ChoiceBox<String> priceRangeCB;
+    @FXML
+    private TextField searchingTF;
+
+    private String selection = "Video";
+    private String typeSelection = "";
+    private String priceSelection = "";
+    private String searching = "";
 
     private String[] userIds;
     private GUIDriver driver;
@@ -37,7 +49,9 @@ public class CoursesListPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sportTypeCB.getItems().addAll("All", "Strength", "Relax", "HIT", "Basic Ability", "Yoga");
+        priceRangeCB.getItems().addAll("All", "Free (0£)", "Paid");
         sportTypeCB.getSelectionModel().select(0);
+        priceRangeCB.getSelectionModel().select(0);
     }
 
     public void initData(String curUserId, String windowName, Scene thisScene, Scene lastScene, GUIDriver driver) {
@@ -69,18 +83,14 @@ public class CoursesListPageController implements Initializable {
     }
 
     private void listVideos(){
-        String[] videos = getAllvideosId();
-        for(String v:videos){
-            videoListVBox.getChildren().add(drawVideoButton(v));
+        ArrayList<Object> videos = driver.select(selection + " " + typeSelection + " " + priceSelection + " " + searching);
+
+        for(Object v:videos){
+            videoListVBox.getChildren().add(drawVideoButton((Video) v));
         }
     }
 
-    private String[] getAllvideosId() {
-        String[] strs = {"1001", "1002", "1003", "1004", "1005", "1006", "1007"};
-        return strs;
-    }
-
-    public Button drawVideoButton(String videoId){
+    public Button drawVideoButton(Video video){
         ImageView image= new ImageView("file:core/src/imgs/videoCover.jpg");
 
         Button button = new Button();
@@ -88,11 +98,17 @@ public class CoursesListPageController implements Initializable {
         BorderPane centerPane = new BorderPane();
         BorderPane imagePane = new BorderPane();
 
-        Label videoIdLabel = new Label("ID: " + videoId);
+        String videoName = video.getVideoName();
+        String price = String.valueOf(video.getPrice());
+        String videoId = video.getVideoId();
+        String author = video.getAuthor();
+        String type = video.getVideoType();
 
-        Label priceLabel = new Label("30" + "£");
-        Label videoTypeLabel = new Label("Video Type: " + "public" + " | Author: " + "橙色大呲花");
-        Label sportTypeLabel = new Label("Sport Type: " + "Yoga");
+        Label videoIdLabel = new Label(videoName);
+
+        Label priceLabel = new Label(price + "£");
+        Label videoTypeLabel = new Label("Video ID: " + videoId + " | Author: " + author);
+        Label sportTypeLabel = new Label("Sport Type: " + type);
 
         // bigger labels
         button.setStyle("-fx-background-color: white;" +
@@ -140,6 +156,46 @@ public class CoursesListPageController implements Initializable {
         });
 
         return button;
+    }
+
+    // Select video types
+    public ChangeListener<String> selectType = new ChangeListener<String>(){
+        @Override
+        public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+            if(t1.equals("All"))
+                typeSelection = "";
+            else
+                typeSelection = "VideoType=" + t1;
+            listVideos();
+        }
+    };
+
+    // Select prices
+    public ChangeListener<String> selectPrice = new ChangeListener<String>(){
+        @Override
+        public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+            if(t1.equals("All"))
+                priceSelection = "";
+            else if(t1.equals("Free (0£)"))
+                priceSelection = "Price=0";
+            else
+                priceSelection = "";
+            listVideos();
+        }
+    };
+
+    public void searchSomething(ActionEvent event){
+        String str = searchingTF.getText();
+
+        if(str.matches("^\\s*$"))
+            searching = "";
+        else if(str.matches("I+[0-9]]") && str.length() == 5)
+            searching = "Author=" + str;
+        else if(str.matches("V+[0-9]") && str.length() == 5)
+            searching = "VideoId=" + str;
+        else
+            searching = "VideoName=" + str;
+        listVideos();
     }
 
     // for back button

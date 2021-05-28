@@ -12,12 +12,18 @@
    <children>
       <AnchorPane prefHeight="140.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css">
          <children>
+            <BorderPane layoutX="420.0" layoutY="18.0" prefHeight="105.0" prefWidth="334.0">
+               <right>
+                  <Label fx:id="windowNameLabel" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Purchesed courses" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
-            <Label fx:id="windowNameLabel" layoutX="568.0" layoutY="85.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Public courses" />
             <ChoiceBox fx:id="sportTypeCB" layoutX="91.0" layoutY="115.0" prefHeight="23.0" prefWidth="91.0" />
             <Label layoutX="20.0" layoutY="119.0" text="Sport Type: " />
-            <TextField fx:id="videoIdTF" layoutX="203.0" layoutY="115.0" promptText="Search By ID" />
-            <Button layoutX="341.0" layoutY="115.0" mnemonicParsing="false" text="OK" />
+            <TextField fx:id="searchingTF" layoutX="384.0" layoutY="115.0" prefHeight="23.0" prefWidth="176.0" promptText="Searching" />
+            <Button layoutX="560.0" layoutY="115.0" mnemonicParsing="false" onAction="#searchSomething" text="OK" />
+            <Label layoutX="193.0" layoutY="119.0" text="Price Range: " />
+            <ChoiceBox fx:id="priceRangeCB" layoutX="269.0" layoutY="115.0" prefHeight="23.0" prefWidth="107.0" />
          </children>
       </AnchorPane>
       <ScrollPane fx:id="videoPane" layoutY="140.0" prefHeight="292.0" prefWidth="768.0">

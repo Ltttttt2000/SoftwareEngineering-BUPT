@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
@@ -257,6 +258,11 @@
             <TextArea fx:id="resumeTA" editable="false" focusTraversable="false" layoutX="14.0" layoutY="300.0" prefHeight="115.0" prefWidth="355.0" text="I am fat!!!!&#10;Yes!!!&#10;I need GYM!!!&#10;I want to lose weight!!!&#10;&#10;Of course,!!!&#10;Female instructor please!!!&#10;&#10;" wrapText="true" />
             <Button fx:id="saveButton" alignment="BOTTOM_CENTER" layoutX="229.0" layoutY="160.0" mnemonicParsing="false" onAction="#basicInfoSave" prefHeight="118.0" prefWidth="134.0" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Save" visible="false" />
             <Button fx:id="restoreButton" layoutX="122.0" layoutY="20.0" mnemonicParsing="false" onAction="#restoreByButton" text="restore" visible="false" />
+            <Button fx:id="payButton" layoutX="229.0" layoutY="26.0" mnemonicParsing="false" onAction="#buy" prefHeight="118.0" prefWidth="134.0" style="-fx-background-color: linear-gradient(to right, #f7b313, #e8582d); -fx-border-color: white; -fx-border-width: 5;" styleClass="edit-button" stylesheets="@../css/ButtonType.css" text="Pay Now!" textAlignment="CENTER" textFill="WHITE" visible="false" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="23.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
       <AnchorPane prefHeight="432.0" prefWidth="319.0" styleClass="background-pane-user-info" stylesheets="@../css/PaneType.css">
          <children>
@@ -306,7 +312,6 @@
                         <String fx:value="type-instructor-senior" />
                      </styleClass>
                   </Label>
-                  <Button fx:id="payButton" layoutX="309.0" layoutY="121.0" mnemonicParsing="false" onAction="#buy" text="Pay now!" visible="false" />
                </children>
             </AnchorPane>
             <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
