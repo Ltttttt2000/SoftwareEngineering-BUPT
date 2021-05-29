@@ -121,6 +121,13 @@ public class VideoInfoPageController implements Initializable {
         video.playVideo(FilePath);
     }
 
+    public void Purchase(ActionEvent event){
+        if(driver.purchaseOrReserve(video.getVideoId()) == 1){
+
+        }
+    }
+
+
 
     // only show the chosen label
     private void showLabel(Label l) {

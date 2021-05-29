@@ -230,7 +230,7 @@
                </children>
             </AnchorPane>
             <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
-            <Button fx:id="PurchaseVideoButton" layoutX="312.0" layoutY="14.0" mnemonicParsing="false" text="Purchase" />
+            <Button fx:id="PurchaseVideoButton" layoutX="312.0" layoutY="14.0" mnemonicParsing="false" onAction="#Purchase" text="Purchase" />
          </children>
       </AnchorPane>
    </children>
