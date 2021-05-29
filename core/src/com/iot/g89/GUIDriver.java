@@ -509,9 +509,9 @@ public class GUIDriver {
     /**
      * publish live
      *
-     * @return true success; false duplicate;
+     * @return -1 duplicate; -2 time traveller; 1 success
      */
-    public boolean publishLive(String[] para){
+    public int publishLive(String[] para){
         Instructor instructor = (Instructor) gymUtils.user;
         return instructor.publishLive(para);
     }

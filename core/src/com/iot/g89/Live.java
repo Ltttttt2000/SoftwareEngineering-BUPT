@@ -10,13 +10,11 @@ public class Live {
     private String instructId;
 
     private Date date;
-    //Morning Afternoon Evening
-    private String time;
     private String description;
     private int number = 0;
 
     private final static String filePath = "./core/src/csv/Live.csv";
-    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    public final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH");
 
     public Live (String id){
         ArrayList<String[]> selectList = FileUtils.readCSV(filePath, new String[] {"*"});
@@ -31,9 +29,8 @@ public class Live {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    this.time = para[3];
-                    this.description = para[4];
-                    this.number = Integer.parseInt(para[5]);
+                    this.description = para[3];
+                    this.number = Integer.parseInt(para[4]);
                     break;
                 }
             }
@@ -48,9 +45,8 @@ public class Live {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        this.time = para[3];
-        this.description = para[4];
-        this.number = Integer.parseInt(para[5]);
+        this.description = para[3];
+        this.number = Integer.parseInt(para[4]);
     }
 
     public String getLiveId() {
@@ -69,20 +65,12 @@ public class Live {
         this.instructId = instructId;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDate() {
+        return sdf.format(date);
     }
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
     }
 
     public String getDescription() {
@@ -111,7 +99,7 @@ public class Live {
     public boolean duplicateChecking(){
         ArrayList<String[]> allList = FileUtils.readCSV(filePath, new String[]{"*"});
         for(String[] para : allList){
-            if(para[1].equals(instructId) && para[2].equals(sdf.format(date)) && para[3].equals(time))
+            if(para[1].equals(instructId) && para[2].equals(sdf.format(date)))
                 return true;
         }
         return false;
@@ -122,21 +110,20 @@ public class Live {
      *
      * @return true success; false duplicate;
      */
-    public boolean insertToCSV(){
+    public int insertToCSV(){
         if(duplicateChecking())
-            return false;
-        String[] para = new String[6];
+            return -1;
+        String[] para = new String[5];
         para[0] = this.getLiveId();
         para[1] = this.getInstructId();
-        para[2] = sdf.format(this.getDate());
-        para[3] = this.getTime();
-        para[4] = this.getDescription();
-        para[5] = this.getNumber() + "";
+        para[2] = this.getDate();
+        para[3] = this.getDescription();
+        para[4] = this.getNumber() + "";
 
         ArrayList<String[]> paraList = new ArrayList<>();
         paraList.add(para);
         FileUtils.insertCSV(filePath,paraList);
-        return true;
+        return 1;
     }
 
 

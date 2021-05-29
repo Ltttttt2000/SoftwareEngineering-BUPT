@@ -3,7 +3,9 @@
  */
 package com.iot.g89;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 /**
@@ -58,12 +60,18 @@ public class Instructor extends User{
 	/**
 	 * publish live
 	 *
-	 * @return true success; false duplicate;
+	 * @return -1 duplicate; -2 time traveller; 1 success
 	 */
-	public boolean publishLive(String[] para){
-	 	para[0] = "L" + GymUtils.findLastIDPlus1("Live");
-	 	para[1] = this.getUserId();
-	 	para[5] = "0";
+	public int publishLive(String[] para){
+		try {
+			if(Live.sdf.parse(para[2]).before(new Date()))
+				return -2;
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		para[0] = "L" + GymUtils.findLastIDPlus1("Live");
+		para[1] = this.getUserId();
+	 	para[4] = "0";
 	 	return new Live(para).insertToCSV();
 	}
 }
