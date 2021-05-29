@@ -45,3 +45,11 @@
 .background-pane-instructor-start{
 	-fx-background-image: url(../imgs/background1.png);
 }
+
+.scroll-pane-transparent> .viewport {
+	-fx-background-color: transparent;
+}
+
+.scroll-pane-transparent {
+	-fx-background-color: rgba(50, 100, 225, 0.5);
+}

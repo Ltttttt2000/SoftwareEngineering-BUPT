@@ -1,9 +1,6 @@
 package fxml;
 
-import com.iot.g89.FileUtils;
-import com.iot.g89.GUIDriver;
-import com.iot.g89.GymUtils;
-import com.iot.g89.SceneTransform;
+import com.iot.g89.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -108,7 +105,7 @@ public class InstructorUploadCourseController implements Initializable {
 
             alert.showAndWait();
         }
-        else if(priceValue.getText().equals("") || !isNumeric(priceValue.getText())){
+        else if(priceValue.getText().equals("") || !GUIUtils.isNumeric(priceValue.getText())){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
             alert.setHeaderText("The price is incorrectly filled");
@@ -150,16 +147,4 @@ public class InstructorUploadCourseController implements Initializable {
 
         FileUtils.uploadFile("./core/src/video/", file.getPath(), VideoId + "." + FileType);
     }
-
-    public boolean isNumeric(String str){
-         for (int i = str.length();--i>=0;){
-            if (!Character.isDigit(str.charAt(i))){
-                return false;
-            }
-         }
-        return true;
-    }
-
-
-
 }

@@ -57,7 +57,7 @@ public class Live {
         this.liveId = liveId;
     }
 
-    public String getInstructId() {
+    public String getInstructorId() {
         return instructId;
     }
 
@@ -115,7 +115,7 @@ public class Live {
             return -1;
         String[] para = new String[5];
         para[0] = this.getLiveId();
-        para[1] = this.getInstructId();
+        para[1] = this.getInstructorId();
         para[2] = this.getDate();
         para[3] = this.getDescription();
         para[4] = this.getNumber() + "";

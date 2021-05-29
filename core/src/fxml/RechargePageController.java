@@ -77,15 +77,15 @@ public class RechargePageController implements Initializable {
         showInputPane(true);
     }
 
-    public void recharge1(ActionEvent event) { recharge("100"); }
-    public void recharge3(ActionEvent event) { recharge("300"); }
-    public void recharge5(ActionEvent event) { recharge("500"); }
-    public void recharge7(ActionEvent event) { recharge("700"); }
-    public void recharge10(ActionEvent event) { recharge("1000"); }
+    public void recharge1(ActionEvent event) { recharge(100); }
+    public void recharge3(ActionEvent event) { recharge(300); }
+    public void recharge5(ActionEvent event) { recharge(500); }
+    public void recharge7(ActionEvent event) { recharge(700); }
+    public void recharge10(ActionEvent event) { recharge(1000); }
     public void rechargeI(ActionEvent event) {
         String amount = amountTF.getText();
         if(GUIUtils.isNumeric(amount)) {
-            recharge(amount);
+            recharge(Double.valueOf(amount));
             GUIUtils.checkTextField(amountTF, true);
             illegalLabel.setVisible(false);
         }
@@ -100,8 +100,9 @@ public class RechargePageController implements Initializable {
         showInputPane(false);
     }
 
-    public void recharge(String amount) {
+    public void recharge(double amount) {
         // recharge money
+        driver.recharge(amount);
         backToLastScene();
     }
 

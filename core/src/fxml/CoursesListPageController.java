@@ -64,24 +64,25 @@ public class CoursesListPageController implements Initializable {
         this.thisScene = thisScene;
         this.lastScene = lastScene;
         windowNameLabel.setText(windowName);
+        String nonSpecific = " SpecificClient=None";
         switch(windowName) {
             case "Public Courses":
-                list = driver.select(selection + " VideoPrice=0.00");
+                list = driver.select(selection + " VideoPrice=0.00" + nonSpecific);
                 break;
             case "Paid Courses":
-                list = driver.select(selection + " VideoPrice!=0.00");
+                list = driver.select(selection + " VideoPrice!=0.00" + nonSpecific);
                 break;
             case "History Courses":
                 // something
                 break;
             case "Courses Store":
-                list = driver.select(selection);
+                list = driver.select(selection + nonSpecific);
                 break;
             case "Purchased Courses":
                 list = driver.select(selection, curUserId);
                 break;
             case "Private Courses":
-                list = driver.select(selection + "SpecificClient=" + curUserId);
+                list = driver.select(selection + " SpecificClient=" + curUserId);
                 break;
         }
         listVideos();
