@@ -1,11 +1,13 @@
 package fxml;
 
+import com.iot.g89.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,13 +28,14 @@ public class UserListPageController implements Initializable {
 
     String[] IDs, types, sexes, tels;
     int[] ages, recharges;
+    private Scene thisScene;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    public void initData(ArrayList<User> users){
+    public void initData(ArrayList<User> users, Scene thisScene){
 //        int i = 0;
 //        for(User u: users){
 //            IDs[i] = u.userId;
@@ -43,6 +46,7 @@ public class UserListPageController implements Initializable {
 //            recharges[i] = u.rechargeAmount;
 //            i++;
 //        }
+        this.thisScene = thisScene;
 
         TableColumn<User,String> ID = new TableColumn<>("userId");
         TableColumn<User,String> password = new TableColumn<>("password");
@@ -69,8 +73,9 @@ public class UserListPageController implements Initializable {
                         @Override
                         public void handle(ActionEvent event) {
                             User chosen = tableView.getSelectionModel().getSelectedItem();
-                            System.out.println(chosen.getUserId());
-                            System.out.println("clicked!");
+//                            System.out.println(chosen.getUserId());
+//                            System.out.println("clicked!");
+                            List.ToUserInfoPage(chosen.getUserId(), thisScene);
                         }
                     }
             );

@@ -26,7 +26,7 @@ public class SceneTransform {
 	private static Scene sceneRechargePage;
 	private static Scene sceneVideoInfoPage;
 	private static Scene sceneVideoInfoEditPage;
-	
+
 	private static ClientStartPageController clientStartPageController;
 	private static InstructorStartPageController instructorStartPageController;
 	private static AdminStartPageController adminStartPageController;
@@ -86,7 +86,7 @@ public class SceneTransform {
 			sceneRechargePage = new Scene(loaderRechargePage.load());
 			sceneVideoInfoPage = new Scene(loaderVideoInfoPage.load());
 			sceneVideoInfoEditPage = new Scene(loaderVideoInfoEditPage.load());
-			
+
 			clientStartPageController = loaderClientStartPage.getController();
 			instructorStartPageController = loaderInstructorStartPage.getController();
 			adminStartPageController = loaderAdminStartPage.getController();
@@ -103,7 +103,7 @@ public class SceneTransform {
 			rechargePageController = loaderRechargePage.getController();
 			videoInfoPageController = loaderVideoInfoPage.getController();
 			videoInfoEditPageController = loaderVideoInfoEditPage.getController();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

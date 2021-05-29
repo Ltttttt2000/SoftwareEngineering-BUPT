@@ -30,7 +30,7 @@ public class AdminStartPageController implements Initializable {
 
     public void showInstructor(ActionEvent event) {
         Stage primaryStage = new Stage();
-        List list = new List(primaryStage);
+        List list = new List(primaryStage, driver);
         ArrayList<Object> objects = driver.select("Instructor");
         ArrayList<User> users = new ArrayList<User>();
         for(Object o:objects)
@@ -41,7 +41,7 @@ public class AdminStartPageController implements Initializable {
 
     public void showClient(ActionEvent event) {
         Stage primaryStage = new Stage();
-        List list = new List(primaryStage);
+        List list = new List(primaryStage, driver);
         ArrayList<Object> objects = driver.select("Client");
         ArrayList<User> users = new ArrayList<User>();
         for(Object o:objects)
@@ -52,7 +52,7 @@ public class AdminStartPageController implements Initializable {
 
     public void showVideo(ActionEvent event) {
         Stage primaryStage = new Stage();
-        List list = new List(primaryStage);
+        List list = new List(primaryStage, driver);
         ArrayList<Object> objects = driver.select("Video");
         ArrayList<Video> videos = new ArrayList<Video>();
         for(Object o:objects)

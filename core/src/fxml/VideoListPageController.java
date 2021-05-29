@@ -1,11 +1,13 @@
 package fxml;
 
+import com.iot.g89.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -24,6 +26,7 @@ public class VideoListPageController implements Initializable {
     private TableView<Video> tableView;
     @FXML
     private Button button;
+    private Scene thisScene;
 //    @FXML
 //    private TableColumn<Video,String> ID;
 //    @FXML
@@ -38,10 +41,11 @@ public class VideoListPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
-    public void initData(ArrayList<Video> videos){
+    public void initData(ArrayList<Video> videos, Scene thisScene){
         final ObservableList<Video> cellData = FXCollections.observableArrayList(videos);
         //ObservableList<Video> items = tableView.getItems();
 
+        this.thisScene = thisScene;
 
         TableColumn<Video,String> ID = new TableColumn<>("ID");
 
@@ -70,6 +74,7 @@ public class VideoListPageController implements Initializable {
                         Video chosen = tableView.getSelectionModel().getSelectedItem();
                         System.out.println(chosen.getVideoId());
                         System.out.println("clicked!");
+
                     }
                 }
         );
