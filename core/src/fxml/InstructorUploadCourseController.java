@@ -64,6 +64,8 @@ public class InstructorUploadCourseController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         courseType.getItems().addAll("Strength", "Relax", "HIT", "Basic Ability", "Yoga");
         SpecificClient.getItems().addAll("Normal", "Member", "SupremeMember");
+        courseType.getSelectionModel().select("Strength");
+        SpecificClient.getSelectionModel().select("Normal");
     }
 
 
@@ -111,14 +113,6 @@ public class InstructorUploadCourseController implements Initializable {
             alert.setTitle("Error Dialog");
             alert.setHeaderText("The price is incorrectly filled");
             alert.setContentText("Please fill in the price in correct form!");
-
-            alert.showAndWait();
-        }
-        else if(courseType.getValue().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            alert.setHeaderText("You did not select the course type");
-            alert.setContentText("Please select course type!");
 
             alert.showAndWait();
         }

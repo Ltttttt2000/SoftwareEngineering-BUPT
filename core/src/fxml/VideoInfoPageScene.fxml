@@ -208,7 +208,7 @@
          <children>
             <AnchorPane layoutY="286.0" prefHeight="146.0" prefWidth="384.0" style="-fx-background-color: rgba(50, 50, 50, 0.5);">
                <children>
-                  <Label fx:id="VideoName" layoutX="49.0" layoutY="45.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Name" />
+                  <Label fx:id="VideoName" layoutX="32.0" prefHeight="78.0" prefWidth="329.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Name" wrapText="true" />
                   <Label fx:id="VideoTypeLabelNormal" layoutX="212.0" layoutY="83.0" stylesheets="@../css/TextType.css" text=" Normal Course" visible="false">
                      <styleClass>
                         <String fx:value="type-label" />
