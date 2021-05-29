@@ -138,6 +138,10 @@ public class Client extends User{
 	public boolean rescind(String Id){
 		String type = GymUtils.typeById(Id);
 		String deletePath = "./core/src/csv/Purchase" + type +".csv";
+		if(type.equals("Live")){
+			Live live = new Live(Id);
+			live.setAndPushNumber(Math.max(live.getNumber() - 1, 0));
+		}
 		return  (FileUtils.deleteCSV(new String[]{Id, this.getUserId()}, deletePath));
 	}
 }
