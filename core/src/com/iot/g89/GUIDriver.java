@@ -369,7 +369,16 @@ public class GUIDriver {
         }
         if(type.equals("Ban"))
             Collections.reverse(returnList);
-        return  returnList;
+        if(type.equals("Live")){
+            ArrayList<Live> liveList = new ArrayList<>();
+            for(Object o : returnList){
+                Live live = (Live) o;
+                liveList.add(live);
+            }
+            Collections.sort(liveList);
+            Collections.copy(returnList,liveList);
+        }
+        return returnList;
     }
 
     /**

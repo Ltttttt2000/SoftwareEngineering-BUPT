@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Live {
+public class Live implements Comparable<Live>{
     private String liveId = "None";
     private String instructId;
 
@@ -129,6 +129,12 @@ public class Live {
 
     public String toString(){
         return "id\t\t" + this.getLiveId() + "\n" +
-                "level\t" + this.getDescription() + "\n";
+                "time\t\t" + this.getDate() + "\n" +
+                "what\t" + this.getDescription() + "\n";
+    }
+
+    @Override
+    public int compareTo(Live live) {
+        return date.compareTo(live.date);
     }
 }
