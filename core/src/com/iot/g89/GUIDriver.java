@@ -570,4 +570,15 @@ public class GUIDriver {
     public void applyForUnban(){
         gymUtils.user.applyForUnban();
     }
+
+    /**
+     * rescind
+     *
+     * @param Id  instructor/video/live id
+     * @return
+     */
+    public boolean rescind(String Id){
+        Client client = (Client) gymUtils.user;
+        return client.rescind(Id);
+    }
 }

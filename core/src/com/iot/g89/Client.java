@@ -134,5 +134,11 @@ public class Client extends User{
 		FileUtils.insertCSV(filePath, insertList);
 		return 1;
 	}
+
+	public boolean rescind(String Id){
+		String type = GymUtils.typeById(Id);
+		String deletePath = "./core/src/csv/Purchase" + type +".csv";
+		return  (FileUtils.deleteCSV(new String[]{Id, this.getUserId()}, deletePath));
+	}
 }
 

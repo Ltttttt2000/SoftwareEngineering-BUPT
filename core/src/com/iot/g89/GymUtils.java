@@ -79,6 +79,12 @@ public class GymUtils {
         return "None";
     }
 
+    /**
+     * delete
+     *
+     * @param Id client/instructor/admin/video/live Id
+     * @return false not found; true success;
+     */
     public static boolean delete(String Id){
         String type = GymUtils.typeById(Id);
         String path = "./core/src/csv/" + type + ".csv";

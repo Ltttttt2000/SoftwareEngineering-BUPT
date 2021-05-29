@@ -419,8 +419,30 @@ public class FileUtils {
 			}
 		}
 		return false;
-		
+	}
 
+	public static boolean deleteCSV(String[] key, String filePath) {
+		ArrayList<String[]> csvList = new ArrayList<String[]>();
+
+		String[] column = {"*"};
+
+		csvList = readCSVWithHeader(filePath, column);
+
+		for(int i = 0; i < csvList.size(); i++) {
+			boolean flag = true;
+			for(int j = 0; j < key.length; j++){
+				if(!csvList.get(i)[j].equals(key[j])){
+					flag = false;
+					break;
+				}
+			}
+			if(flag){
+				csvList.remove(i);
+				writeCSV(filePath, csvList);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static ArrayList<Integer> getAttrIndex(String[] header,String[] attrs) {
