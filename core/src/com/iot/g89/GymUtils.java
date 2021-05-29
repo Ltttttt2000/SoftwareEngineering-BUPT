@@ -52,6 +52,8 @@ public class GymUtils {
                 return new Client(Id);
             case 'I' :
                 return new Instructor(Id);
+            case 'A' :
+                return new Administrator(Id);
             case 'V' :
                 return new Video(Id);
             case 'L' :
@@ -67,6 +69,8 @@ public class GymUtils {
                 return "Client";
             case 'I' :
                 return "Instructor";
+            case 'A' :
+                return  "Administrator";
             case 'V' :
                 return "Video";
             case 'L' :
