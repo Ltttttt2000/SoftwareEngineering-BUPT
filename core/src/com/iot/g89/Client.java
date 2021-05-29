@@ -30,7 +30,7 @@ public class Client extends User{
 	/**
 	 * consume
 	 *
-	 * @param money
+	 * @param money money
 	 * @return -1 not enough money; -2 be banned
 	 */
 	public double consume(double money) {
