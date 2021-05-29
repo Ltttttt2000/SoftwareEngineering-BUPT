@@ -179,3 +179,10 @@
 .button-price:hover{
 	-fx-background-color:white;
 }
+
+/*-------------------------------------for VideoInfo page--------------------------------------------- */
+#VideoPlayButton{
+	-fx-background-image: url(../imgs/play.png);
+	-fx-background-repeat: no-repeat;
+	-fx-background-position: center;
+}
