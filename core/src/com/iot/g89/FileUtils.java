@@ -404,21 +404,23 @@ public class FileUtils {
 	 * @param filePath
 	 * 			The path to the CSV file
 	 */
-	public static void deleteCSV(String key, String filePath) {
+	public static boolean deleteCSV(String key, String filePath) {
 		ArrayList<String[]> csvList = new ArrayList<String[]>();
 		
-		String[] cloum = {"*"};
+		String[] column = {"*"};
 		
-		csvList = readCSVWithHeader(filePath, cloum);
-		
-		int i = 0;
-		for(i = 0; i < csvList.size(); i++) {
+		csvList = readCSVWithHeader(filePath, column);
+
+		for(int i = 0; i < csvList.size(); i++) {
 			if(csvList.get(i)[0].equals(key)) {
 				csvList.remove(i);
+				writeCSV(filePath, csvList);
+				return true;
 			}
 		}
+		return false;
 		
-		writeCSV(filePath, csvList);
+
 	}
 	
 	public static ArrayList<Integer> getAttrIndex(String[] header,String[] attrs) {

@@ -74,4 +74,10 @@ public class GymUtils {
         }
         return "None";
     }
+
+    public static boolean delete(String Id){
+        String type = GymUtils.typeById(Id);
+        String path = "./core/src/csv/" + type + ".csv";
+        return FileUtils.deleteCSV(Id,path);
+    }
 }

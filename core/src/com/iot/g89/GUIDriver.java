@@ -515,4 +515,14 @@ public class GUIDriver {
         Instructor instructor = (Instructor) gymUtils.user;
         return instructor.publishLive(para);
     }
+
+    /**
+     * delete
+     *
+     * @param Id client/instructor/admin/video/live Id
+     * @return false not found; true success;
+     */
+    public boolean delete(String Id){
+        return GymUtils.delete(Id);
+    }
 }

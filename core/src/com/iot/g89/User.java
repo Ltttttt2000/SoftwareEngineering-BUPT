@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @author DongWanqi
  *
  */
-public class User{
+public abstract class User{
 
 	protected String userId = "None";
 	//private final SimpleStringProperty UserId;
