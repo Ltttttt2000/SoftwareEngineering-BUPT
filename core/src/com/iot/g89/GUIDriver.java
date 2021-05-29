@@ -575,7 +575,7 @@ public class GUIDriver {
      * rescind
      *
      * @param Id  instructor/video/live id
-     * @return
+     * @return false not found; true success;
      */
     public boolean rescind(String Id){
         Client client = (Client) gymUtils.user;
