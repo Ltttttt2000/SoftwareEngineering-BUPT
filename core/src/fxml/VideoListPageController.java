@@ -43,13 +43,13 @@ public class VideoListPageController implements Initializable {
         //ObservableList<Video> items = tableView.getItems();
 
 
-        TableColumn<Video,String> ID = new TableColumn<>("id");
+        TableColumn<Video,String> ID = new TableColumn<>("ID");
 
         TableColumn<Video,String> name = new TableColumn<>("Name");
 
         TableColumn<Video,String> type = new TableColumn<>("Type");
 
-        TableColumn<Video,String> author = new TableColumn<>("Author");
+        TableColumn<Video,String> author = new TableColumn<>("Uploader");
 
         TableColumn<Video,String> price = new TableColumn<>("Price");
 
@@ -60,8 +60,8 @@ public class VideoListPageController implements Initializable {
             ID.setCellValueFactory(new PropertyValueFactory<Video,String>("videoId"));
             name.setCellValueFactory(new PropertyValueFactory<Video,String>("videoName"));
             type.setCellValueFactory(new PropertyValueFactory<Video,String>("videoType"));
-            author.setCellValueFactory(new PropertyValueFactory<Video,String>("author"));
-            price.setCellValueFactory(new PropertyValueFactory<Video,String>("price"));
+            author.setCellValueFactory(new PropertyValueFactory<Video,String>("videoUploader"));
+            price.setCellValueFactory(new PropertyValueFactory<Video,String>("videoPrice"));
 
         button.setOnAction(
                 new EventHandler<ActionEvent>() {
