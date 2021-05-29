@@ -387,7 +387,7 @@ public class RegisterAndLoginPageController implements Initializable {
 			user[2] = "Normal";
 			user[3] = sexCB.getValue();
 			user[4] = phoneTF.getText();
-			user[5] = "TRUE";
+			user[5] = "true";
 			user[6] = "0.00";
 			user[7] = resumeTA.getText();
 			user[8] = ageTF.getText();

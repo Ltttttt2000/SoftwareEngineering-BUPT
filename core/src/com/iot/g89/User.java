@@ -46,7 +46,7 @@ public abstract class User{
 	
 	//initial value written in the file
 	                              //userId, password, userType, sex, phoneNo,loginLic,rechargeMoney,resume, 
-	String[] userInfo = new String[] {"None", "None", "Normal", "None","None","TRUE", "0", "None",   
+	String[] userInfo = new String[] {"None", "None", "Normal", "None","None","true", "0", "None",   
 			                          "0","0","0","0","0","0"}; //6 physical Info,the last is InstructorMoney
 	
 	//the arrayList content read from the file
@@ -210,6 +210,7 @@ public abstract class User{
 		 String[] attrs = new String[] {"loginLicense"};
 		 String[] values = new String[] {String.valueOf(this.loginLicense)};
 		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
+		 FileUtils.deleteCSV(this.userId, "./core/src/csv/Ban.csv");
 	 }
 
 
@@ -456,7 +457,17 @@ public abstract class User{
 		 String[] values = new String[] {String.valueOf(this.hip)};
 		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
-	 
+
+
+	public void applyForUnban() {
+		String[] para = new String[1];
+		para[0] = this.getUserId();
+
+		ArrayList<String[]> paraList = new ArrayList<>();
+		paraList.add(para);
+		FileUtils.deleteCSV(this.userId,"./core/src/csv/Ban.csv");
+		FileUtils.insertCSV("./core/src/csv/Ban.csv",paraList);
+	}
 
 	public boolean passwordCheck(String password){
  		return this.getPassword().equals(password);

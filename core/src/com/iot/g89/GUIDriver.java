@@ -18,7 +18,7 @@ public class GUIDriver {
      *
      * @param userID userID
      * @param password password
-     * @return -1 no user; -2 wrong password; 1 success
+     * @return -1 no user; -2 wrong password; -3 banned; 1 success
      */
     public int login(String userID, String password, String type){
 
@@ -29,7 +29,10 @@ public class GUIDriver {
         }
 
         if(gymUtils.user.passwordCheck(password)){
-            return 1;
+            if(gymUtils.user.loginLicense)
+                return 1;
+            else
+                return -3;
         }else{
             gymUtils.user = null;
             return -2;
@@ -356,21 +359,16 @@ public class GUIDriver {
     private ArrayList<Object> selectAll(String type){
         ArrayList<Object> returnList = new ArrayList<Object>();
 
-        String userFilePath = "./core/src/csv/"+ type + ".csv";
-        type = "com.iot.g89." + type;
+        String filePath = "./core/src/csv/"+ type + ".csv";
         String[] readAll = {"*"};
 
-        ArrayList<String[]> allList = FileUtils.readCSV(userFilePath, readAll);
+        ArrayList<String[]> allList = FileUtils.readCSV(filePath, readAll);
         for (String[] para : allList){
-            try {
-                Class<?> clazz = Class.forName(type);
-                Constructor<?> constructor = clazz.getConstructor(String[].class);
-                Object o = constructor.newInstance(new Object[]{para});
-                returnList.add(o);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            Object o = GymUtils.constructByID(para[0]);
+            returnList.add(o);
         }
+        if(type.equals("Ban"))
+            Collections.reverse(returnList);
         return  returnList;
     }
 
@@ -484,6 +482,11 @@ public class GUIDriver {
         return returnList;
     }
 
+    /**
+     * recharge
+     *
+     * @param money
+     */
     public void recharge(double money){
         Client client = (Client) gymUtils.user;
         client.recharge(money);
@@ -529,5 +532,42 @@ public class GUIDriver {
      */
     public boolean delete(String Id){
         return GymUtils.delete(Id);
+    }
+
+    /**
+     * auto
+     *
+     * @param Id client/instructor/admin Id
+     */
+    public void ban(String Id){
+        User user = (User) GymUtils.constructByID(Id);
+        assert user != null;
+        if(user.getLoginLicense())
+            user.banThisAccount();
+        else
+            user.unbanThisAccount();
+    }
+
+    /**
+     * ban
+     *
+     * @param Id client/instructor/admin Id
+     * @param ban true for ban; false for unban
+     */
+    public void ban(String Id, boolean ban){
+        User user = (User) GymUtils.constructByID(Id);
+        assert user != null;
+        if(ban)
+            user.banThisAccount();
+        else
+            user.unbanThisAccount();
+    }
+
+    /**
+     * apply for unban
+     *
+     */
+    public void applyForUnban(){
+        gymUtils.user.applyForUnban();
     }
 }
