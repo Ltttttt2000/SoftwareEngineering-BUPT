@@ -501,7 +501,7 @@ public class FileUtils {
 	}
 
 	public static String getFileSuffix(File file){
-		String filename = file.getName();// 文件名
+		String filename = file.getName();// file name
 		String[] strArray = filename.split("\\.");
 		int suffixIndex = strArray.length -1;
 		return strArray[suffixIndex];

@@ -24,6 +24,8 @@ public class SceneTransform {
 	private static Scene sceneInstructorSelfCourseListPage;
 	private static Scene sceneMyTeachingPage;
 	private static Scene sceneRechargePage;
+	private static Scene sceneVideoInfoPage;
+	private static Scene sceneVideoInfoEditPage;
 	
 	private static ClientStartPageController clientStartPageController;
 	private static InstructorStartPageController instructorStartPageController;
@@ -39,6 +41,8 @@ public class SceneTransform {
 	private static InstructorSelfCourseListPageController instructorSelfCourseListPageController;
 	private static MyTeachingPgaeController myTeachingPgaeController;
 	private static RechargePageController rechargePageController;
+	private static VideoInfoPageController videoInfoPageController;
+	private static VideoInfoEditPageController videoInfoEditPageController;
 
 	private static GUIDriver driver = new GUIDriver();
 	
@@ -63,6 +67,8 @@ public class SceneTransform {
 			FXMLLoader loaderInstructorSelfCourseListPage = new FXMLLoader(getClass().getResource("/fxml/InstructorSelfCourseListPageScene.fxml"));
 			FXMLLoader loaderMyTeachingPage = new FXMLLoader(getClass().getResource("/fxml/MyTeachingPageScene.fxml"));
 			FXMLLoader loaderRechargePage = new FXMLLoader(getClass().getResource("/fxml/RechargePageScene.fxml"));
+			FXMLLoader loaderVideoInfoPage = new FXMLLoader(getClass().getResource("/fxml/VideoInfoPageScene.fxml"));
+			FXMLLoader loaderVideoInfoEditPage = new FXMLLoader(getClass().getResource("/fxml/VideoInfoEditPageScene.fxml"));
 
 			sceneClientStartPage = new Scene(loaderClientStartPage.load());
 			sceneInstructorStartPage = new Scene(loaderInstructorStartPage.load());
@@ -78,6 +84,8 @@ public class SceneTransform {
 			sceneInstructorSelfCourseListPage = new Scene(loaderInstructorSelfCourseListPage.load());
 			sceneMyTeachingPage = new Scene(loaderMyTeachingPage.load());
 			sceneRechargePage = new Scene(loaderRechargePage.load());
+			sceneVideoInfoPage = new Scene(loaderVideoInfoPage.load());
+			sceneVideoInfoEditPage = new Scene(loaderVideoInfoEditPage.load());
 			
 			clientStartPageController = loaderClientStartPage.getController();
 			instructorStartPageController = loaderInstructorStartPage.getController();
@@ -93,6 +101,8 @@ public class SceneTransform {
 			instructorSelfCourseListPageController = loaderInstructorSelfCourseListPage.getController();
 			myTeachingPgaeController = loaderMyTeachingPage.getController();
 			rechargePageController = loaderRechargePage.getController();
+			videoInfoPageController = loaderVideoInfoPage.getController();
+			videoInfoEditPageController = loaderVideoInfoEditPage.getController();
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -156,7 +166,7 @@ public class SceneTransform {
 	}
 
 	public static void ToInstructorSelfCourseListPage(String userId, GUIDriver driver, Scene lastScene){
-		instructorSelfCourseListPageController.initData(userId, lastScene, driver);
+		instructorSelfCourseListPageController.initData(userId, lastScene, driver, sceneInstructorSelfCourseListPage);
 		ToScene(sceneInstructorSelfCourseListPage);
 	}
 
@@ -168,6 +178,17 @@ public class SceneTransform {
 	public static void ToRechargePage(String userId, GUIDriver driver, Scene lastScene){
 		rechargePageController.initData(userId, sceneMyTeachingPage, lastScene, driver);
 		ToScene(sceneRechargePage);
+	}
+
+	public static void ToVideoInfoPage(String userId, Scene lastScene, GUIDriver driver, Video video){
+		videoInfoPageController.initData(userId, lastScene, driver, video, sceneVideoInfoPage);
+		ToScene(sceneVideoInfoPage);
+	}
+
+
+	public static void ToVideoInfoEditPage(String userId, Scene last, GUIDriver driver, Video video){
+		videoInfoEditPageController.initData(userId, last, driver, video);
+		ToScene(sceneVideoInfoEditPage);
 	}
 
 	// Temporary

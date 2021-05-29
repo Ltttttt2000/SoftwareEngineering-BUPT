@@ -60,14 +60,18 @@ public class InstructorSelfCourseListPageController implements Initializable {
         priceRangeCB.getItems().addAll("All", "Free (0£)", "Paid");
         sportTypeCB.getSelectionModel().select(0);
         priceRangeCB.getSelectionModel().select(0);
+
+        sportTypeCB.getSelectionModel().selectedItemProperty().addListener(selectType);
+        priceRangeCB.getSelectionModel().selectedItemProperty().addListener(selectPrice);
     }
 
 
 
-    public void initData(String userId, Scene lastScene, GUIDriver driver){
+    public void initData(String userId, Scene lastScene, GUIDriver driver, Scene thisScene){
         this.driver = driver;
         this.lastScene = lastScene;
         this.userId = userId;
+        this.thisScene = thisScene;
         selectId = "VideoUploader=" + userId;
 
         listVideos();
@@ -75,8 +79,8 @@ public class InstructorSelfCourseListPageController implements Initializable {
 
 
     private void listVideos(){
-        ArrayList<Object> videos = driver.select(selection + " " + selectId + "" + typeSelection + " " + priceSelection + " " + searching);
-
+        ArrayList<Object> videos = driver.select(selection + " " + selectId + " " + typeSelection + " " + priceSelection + " " + searching);
+        videoListVBox.getChildren().clear();
         for(Object v:videos){
             videoListVBox.getChildren().add(drawVideoButton((Video) v));
         }
@@ -144,7 +148,7 @@ public class InstructorSelfCourseListPageController implements Initializable {
         button.setGraphic(buttonPane);
 
         button.setOnAction(e ->{
-            System.out.println("Video " + videoId);
+            SceneTransform.ToVideoInfoPage(userId, thisScene, driver, video);
         });
 
         return button;
@@ -169,9 +173,10 @@ public class InstructorSelfCourseListPageController implements Initializable {
             if(t1.equals("All"))
                 priceSelection = "";
             else if(t1.equals("Free (0£)"))
-                priceSelection = "Price=0";
+                priceSelection = "VideoPrice=0.0";
             else
-                priceSelection = "";
+                priceSelection = "VideoPrice!=0.0";
+
             listVideos();
         }
     };

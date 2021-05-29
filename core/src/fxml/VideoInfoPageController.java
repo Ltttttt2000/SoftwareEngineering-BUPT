@@ -1,7 +1,9 @@
 package fxml;
 
 import com.iot.g89.GUIDriver;
+import com.iot.g89.SceneTransform;
 import com.iot.g89.Video;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
@@ -9,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,8 +19,6 @@ public class VideoInfoPageController implements Initializable {
     @FXML
     private Label VideoName;
 
-    @FXML
-    private Label SpecificClient;
 
     @FXML
     private Label VideoId;
@@ -48,6 +49,7 @@ public class VideoInfoPageController implements Initializable {
 
     @FXML
     private Label VideoTypeLabelSupreme;
+
     // init user ID
     private String userId;
 
@@ -62,16 +64,17 @@ public class VideoInfoPageController implements Initializable {
     }
 
 
-    public void initData(String userId, Scene lastScene, GUIDriver driver, Video video){
+    public void initData(String userId, Scene lastScene, GUIDriver driver, Video video, Scene thisScene){
         this.driver = driver;
         this.lastScene = lastScene;
         this.userId = userId;
         this.video = video;
+        this.thisScene = thisScene;
+        getBasicInfo(video);
     }
 
     public void getBasicInfo(Video video){
         VideoName.setText(video.getVideoName());
-        SpecificClient.setText(video.getSpecificClient());
         VideoId.setText(video.getVideoId());
         VideoType.setText(video.getVideoType());
         VideoUploader.setText(video.getVideoUploader());
@@ -81,10 +84,13 @@ public class VideoInfoPageController implements Initializable {
 
         if(UserType.equals("Administrator")){
             PurchaseVideoButton.setVisible(false);
+            basicInfoEditButton.setVisible(true);
         }
         else if(UserType.equals("Instructor")){
-            if(VideoUploader.equals(userId)){
+            if(video.getVideoUploader().equals(userId)){
+                System.out.println(userId);
                 PurchaseVideoButton.setVisible(false);
+                basicInfoEditButton.setVisible(true);
             }
             else{
                 basicInfoEditButton.setVisible(false);
@@ -94,6 +100,7 @@ public class VideoInfoPageController implements Initializable {
             basicInfoEditButton.setVisible(false);
         }
 
+        String SpecificClient = video.getSpecificClient();
         if(SpecificClient.equals("Normal")){
             showLabel(VideoTypeLabelNormal);
         }
@@ -105,6 +112,16 @@ public class VideoInfoPageController implements Initializable {
         }
     }
 
+    public void basicInfoEdit(ActionEvent event){
+        SceneTransform.ToVideoInfoEditPage(userId, thisScene, driver, video);
+    }
+
+    public void videoPlay(ActionEvent event){
+        String FilePath = "./core/src/video/" + video.getVideoId() + "." + video.getFileType();
+        video.playVideo(FilePath);
+    }
+
+
     // only show the chosen label
     private void showLabel(Label l) {
         // hide all labels
@@ -114,6 +131,10 @@ public class VideoInfoPageController implements Initializable {
 
         // only show the chosen one
         l.setVisible(true);
+    }
+
+    public void backToLastScene(){
+        SceneTransform.ToScene(lastScene);
     }
 
 
