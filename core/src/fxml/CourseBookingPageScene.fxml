@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -15,124 +17,102 @@
             <VBox fx:id="instructorVBox" prefHeight="278.0" prefWidth="233.0" />
          </content>
       </ScrollPane>
-      <VBox layoutX="366.0" layoutY="36.0" prefHeight="361.0" prefWidth="350.0" style="-fx-background-color: rgba(0,0,100,0.5); -fx-background-radius: 20;">
-         <children>
-            <Label fx:id="dateLabel1" prefHeight="35.0" prefWidth="330.0" text="1999-01-01" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="9:00-11:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d1Number1" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="13:00-15:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d1Number2" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="19:00-21:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d1Number3" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-            <Label fx:id="dateLabel2" prefHeight="35.0" prefWidth="330.0" text="1999-01-02" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="9:00-11:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d2Number1" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="13:00-15:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d2Number2" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="19:00-21:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d2Number3" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-            <Label fx:id="dateLabel3" prefHeight="35.0" prefWidth="330.0" text="1999-01-03" textFill="WHITE" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="9:00-11:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d3Number1" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="13:00-15:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d3Number2" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="330.0" style="-fx-background-color: rgba(225,255,255,0.2);">
-               <graphic>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
-                     <left>
-                        <Label text="19:00-21:00" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </left>
-                     <right>
-                        <Label fx:id="d3Number3" text="20/20" textFill="WHITE" BorderPane.alignment="CENTER" />
-                     </right>
-                  </BorderPane>
-               </graphic>
-            </Button>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </VBox>
       <Label layoutX="57.0" layoutY="46.0" prefHeight="64.0" prefWidth="161.0" stylesheets="@../css/TextType.css" text="Perchased Instructors:" wrapText="true" />
+      <ScrollPane layoutX="384.0" layoutY="41.0" prefHeight="350.0" prefWidth="320.0" style="-fx-background-radius: 20;" styleClass="scroll-pane-transparent">
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+         <content>
+            <VBox fx:id="liveVBox" prefHeight="350.0" prefWidth="305.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="310.0" style="-fx-background-color: rgba(0,0,0,0.3);">
+                     <graphic>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <left>
+                              <BorderPane prefHeight="45.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+                                 <top>
+                                    <Label text="2021-05-29" textFill="WHITE" BorderPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font name="Arial Black" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
+                                 <bottom>
+                                    <Label text="Time: 12:00" textFill="WHITE" BorderPane.alignment="CENTER_LEFT" />
+                                 </bottom>
+                              </BorderPane>
+                           </left>
+                           <center>
+                              <Label text="Live ID: L1001" textFill="WHITE" BorderPane.alignment="BOTTOM_CENTER" />
+                           </center>
+                           <right>
+                              <BorderPane prefHeight="42.0" prefWidth="55.0" BorderPane.alignment="CENTER">
+                                 <right>
+                                    <Label text="12/20" textFill="WHITE" BorderPane.alignment="CENTER" />
+                                 </right>
+                                 <left>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../imgs/tickImg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </left>
+                              </BorderPane>
+                           </right>
+                        </BorderPane>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="310.0" style="-fx-background-color: rgba(0,0,0,0.3);">
+                     <graphic>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <Label text="Live ID: L1001" textFill="WHITE" BorderPane.alignment="BOTTOM_CENTER" />
+                           </center>
+                           <left>
+                              <BorderPane prefHeight="45.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+                                 <bottom>
+                                    <Label text="Time: 12:00" textFill="WHITE" BorderPane.alignment="CENTER_LEFT" />
+                                 </bottom>
+                                 <top>
+                                    <Label text="2021-05-29" textFill="WHITE" BorderPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font name="Arial Black" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
+                              </BorderPane>
+                           </left>
+                           <right>
+                              <BorderPane prefHeight="42.0" prefWidth="55.0" BorderPane.alignment="CENTER">
+                                 <left>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../imgs/tickImg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </left>
+                                 <right>
+                                    <Label text="12/20" textFill="WHITE" BorderPane.alignment="CENTER" />
+                                 </right>
+                              </BorderPane>
+                           </right>
+                        </BorderPane>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Label fx:id="note" layoutX="544.0" layoutY="18.0" text="The class you selected is full !" textFill="RED">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
