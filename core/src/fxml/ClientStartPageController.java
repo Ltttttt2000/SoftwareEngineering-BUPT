@@ -17,6 +17,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
+import javax.swing.*;
+
 public class ClientStartPageController implements Initializable {
 	@FXML
 	private Label userIdLabel;
@@ -51,10 +53,6 @@ public class ClientStartPageController implements Initializable {
 	private Button myInstructorButton;
 	@FXML
 	private Button courseBookingButton;
-
-	// for banned user
-	@FXML
-	private AnchorPane bannedPane;
 	
 	// init user ID
 	private String userId;
@@ -74,7 +72,6 @@ public class ClientStartPageController implements Initializable {
 		userIdLabel.setText(userId);
 		this.thisScene = thisScene;
 		this.lastScene = lastScene;
-		bannedPane.setVisible(false);
 	}
 
 	public void goToStorePage(ActionEvent event){

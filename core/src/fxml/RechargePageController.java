@@ -54,6 +54,7 @@ public class RechargePageController implements Initializable {
         this.driver = driver;
         this.userId = userId;
         userIdLabel.setText(userId);
+        balanceLabel.setText(driver.getRechargeAccount());
         this.thisScene = thisScene;
         this.lastScene = lastScene;
 

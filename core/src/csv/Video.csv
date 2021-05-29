@@ -1,6 +1,6 @@
 videoId,videoName,videoType,videoPrice,videoUploader,videoDetail,specificClient,fileType
-V1001,wuhu,HIT,20.0,I1001,I love Jinlun,Normal,mp4
-V1002,DSM,HIT,0.00,I1001,DSM Fuck me,,mp4
-V1003,DSM,HIT,20.00,I1001,DSM hhh,,mp4
-V1004,Stretch vertebrae science to improve hump,Relax,20,I1002,"Here's a very simple and effective stretching exercise that you can do anytime, anywhere.This will help prevent and improve hunchback and round shoulders.You'll notice that your muscles and joints will become more flexible.Your body will also be healthier.",Member,mp4
-V1005,How to be Muscle Jinlun,Strength,20,I1003,Do you envy the figure of the Jinlun? You can also insist on exercising.,Member,mp4
+V1001,wuhu,HIT,20.0,I1001,I love Jinlun,None,mp4
+V1002,DSM,HIT,0.00,I1001,DSM Fuck me,None,mp4
+V1003,DSM,HIT,20.00,I1001,DSM hhh,C1001,mp4
+V1004,Stretch vertebrae science to improve hump,Relax,20,I1002,"Here's a very simple and effective stretching exercise that you can do anytime, anywhere.This will help prevent and improve hunchback and round shoulders.You'll notice that your muscles and joints will become more flexible.Your body will also be healthier.",C1001,mp4
+V1005,How to be Muscle Jinlun,Strength,20,I1003,Do you envy the figure of the Jinlun? You can also insist on exercising.,None,mp4

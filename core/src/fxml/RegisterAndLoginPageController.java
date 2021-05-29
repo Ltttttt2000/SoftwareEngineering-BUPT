@@ -95,6 +95,10 @@ public class RegisterAndLoginPageController implements Initializable {
 	@FXML
 	private Label userIdLabel;
 
+	// for banned user
+	@FXML
+	private AnchorPane bannedPane;
+
 	private GUIDriver driver;
 	private Scene thisScene;
 	
@@ -274,6 +278,7 @@ public class RegisterAndLoginPageController implements Initializable {
 		loginPane.setVisible(false);
 		registerPane.setVisible(false);
 		idPane.setVisible(false);
+		bannedPane.setVisible(false);
 
 		// for login pane
 		userPasswordPF.setText("");
@@ -328,8 +333,15 @@ public class RegisterAndLoginPageController implements Initializable {
 			GUIUtils.checkTextField(userIdTF, false);
 		else if(x == -2)
 			GUIUtils.checkTextField(userPasswordPF, false);
+		else if(x == -3)
+			bannedPane.setVisible(true);
 		else // x == 0
 			GUIUtils.checkTextField(userIdTF, false);
+	}
+
+	public void applyForUnban(ActionEvent event) {
+		driver.applyForUnban();
+		backToBeginPane(event);
 	}
 
 	//-------------------------------------register page function----------------------------------------------

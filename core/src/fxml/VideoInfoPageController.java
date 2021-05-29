@@ -123,7 +123,7 @@ public class VideoInfoPageController implements Initializable {
 
     public void Purchase(ActionEvent event){
         if(driver.purchaseOrReserve(video.getVideoId()) == 1){
-
+            backToLastScene();
         }
     }
 

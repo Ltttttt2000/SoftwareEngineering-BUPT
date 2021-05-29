@@ -65,7 +65,7 @@ public class CourseBookingPageController implements Initializable {
         bookedLives = driver.select("Live", curUserId);
         liveVBox.getChildren().clear();
         for(Object l:lives){
-            if(bookedLives.contains(l))
+            if(liveContains(bookedLives, l))
                 liveVBox.getChildren().add(drawLiveButton((Live) l, true));
             else
                 liveVBox.getChildren().add(drawLiveButton((Live) l, false));
@@ -205,7 +205,10 @@ public class CourseBookingPageController implements Initializable {
                 case -1:
                     note.setText("No such instructor/video/live"); break;
                 case -2:
-                    note.setText("Repeat reserving"); break;
+                    driver.rescind(liveId);
+                    stackImg.setVisible(false);
+                    note.setText("Class reservation cancelled successfully");
+                    break;
                 case -3:
                     break;
                 case -4:
@@ -214,7 +217,7 @@ public class CourseBookingPageController implements Initializable {
                     note.setText("The class you selected is full !"); break;
                 case 1:
                     stackImg.setVisible(true);
-                    note.setText("");
+                    note.setText("Successful booking of class");
                     break;
             }
         });
@@ -227,5 +230,21 @@ public class CourseBookingPageController implements Initializable {
     public void backToLastScene(){
         SceneTransform.ToScene(lastScene);
         instructorVBox.getChildren().clear();
+    }
+
+    public boolean liveContains(ArrayList<Object> list, Object obj) {
+        Live l1;
+        Live l2 = (Live) obj;
+        for(Object o:list){
+            l1 = (Live) o;
+            if(l1.getLiveId().equals(l2.getLiveId()))
+                return true;
+        }
+        return false;
+    }
+
+    public ArrayList<Object> subListByDate(ArrayList<Object> list) {
+        // Sublist
+        return list;
     }
 }
