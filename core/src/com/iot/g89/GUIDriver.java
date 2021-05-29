@@ -484,6 +484,11 @@ public class GUIDriver {
         return returnList;
     }
 
+    public void recharge(double money){
+        Client client = (Client) gymUtils.user;
+        client.recharge(money);
+    }
+
     /**
      * <ul>
      * <li>purchase instructor or video</li>
