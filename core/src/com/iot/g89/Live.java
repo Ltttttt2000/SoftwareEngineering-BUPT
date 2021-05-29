@@ -129,7 +129,7 @@ public class Live implements Comparable<Live>{
 
     public String toString(){
         return "id\t\t" + this.getLiveId() + "\n" +
-                "time\t\t" + this.getDate() + "\n" +
+                "time\t" + this.getDate() + "\n" +
                 "what\t" + this.getDescription() + "\n";
     }
 
