@@ -373,10 +373,12 @@ public class GUIDriver {
             ArrayList<Live> liveList = new ArrayList<>();
             for(Object o : returnList){
                 Live live = (Live) o;
-                liveList.add(live);
+                if(live.getDate().after(new Date())){
+                    liveList.add(live);
+                }
             }
             Collections.sort(liveList);
-            Collections.copy(returnList,liveList);
+            returnList = new ArrayList<Object>(liveList);
         }
         return returnList;
     }

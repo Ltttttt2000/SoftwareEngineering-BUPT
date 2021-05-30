@@ -52,6 +52,12 @@ public class Client extends User{
 		}
 	}
 
+	/**
+	 * check weather a instructor/video/live belongs to client
+	 *
+	 * @param Id instructor/video/live Id
+	 * @return false nope; true yep
+	 */
 	public boolean checkSource(String Id){
 		String type = GymUtils.typeById(Id);
 		String filePath = "./core/src/csv/Purchase" + type + ".csv";
