@@ -54,7 +54,11 @@
                </GridPane.margin>
             </TextArea>
             <Label text="Specific Client" GridPane.rowIndex="3" />
-            <ChoiceBox fx:id="SpecificClient" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="SpecificClient" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="15.0" right="15.0" />
+               </GridPane.margin>
+            </TextField>
          </children>
       </GridPane>
       <Button layoutX="357.0" layoutY="361.0" mnemonicParsing="false" onAction="#confirmUpload" text="Upload" />

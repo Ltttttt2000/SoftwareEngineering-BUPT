@@ -5,6 +5,9 @@ import java.lang.reflect.Method;
 import java.util.*;
 import java.util.regex.Pattern;
 
+/**
+ * This class is the
+ */
 public class GUIDriver {
 
     private GymUtils gymUtils;
@@ -384,11 +387,11 @@ public class GUIDriver {
     }
 
     /**
-     * select函数，支持多重=
-     * 属性记得用首字母大写的驼峰命名法
+     * select support = !=
+     * remember to use the acronym for the hump in str
      *
-     * @param str
-     * @return
+     * @param str sql
+     * @return ArrayList<Object>
      */
     public ArrayList<Object> select(String str){
         String[] para = str.split("( )+");
@@ -396,12 +399,12 @@ public class GUIDriver {
     }
 
     /**
-     * select函数，支持多重=，套娃版本
-     * 属性记得用首字母大写的驼峰命名法
+     * select
+     * matryoshka doll edition
      *
-     * @param str
-     * @param originList
-     * @return
+     * @param str sql
+     * @param originList ArrayList<Object> to be filter
+     * @return ArrayList<Object>
      */
     public ArrayList<Object> select(String str, ArrayList<Object> originList) {
         ArrayList<Object> returnList = new ArrayList<>(originList);
@@ -445,11 +448,12 @@ public class GUIDriver {
     }
 
     /**
-     * 双表聚合
+     * aggregation
+     * use for purchaseXX.csv
      *
-     * @param type what
-     * @param Id whose
-     * @return
+     * @param type what (type like "Live")
+     * @param Id whose (Id like "C1001")
+     * @return ArrayList<Object>
      */
     public ArrayList<Object> select(String type, String Id){
         ArrayList<Object> returnList = new ArrayList<>();
@@ -496,7 +500,7 @@ public class GUIDriver {
     /**
      * recharge
      *
-     * @param money
+     * @param money money
      */
     public void recharge(double money){
         Client client = (Client) gymUtils.user;
@@ -546,7 +550,7 @@ public class GUIDriver {
     }
 
     /**
-     * auto
+     * auto ban
      *
      * @param Id client/instructor/admin Id
      */
@@ -576,7 +580,6 @@ public class GUIDriver {
 
     /**
      * apply for unban
-     *
      */
     public void applyForUnban(){
         gymUtils.user.applyForUnban();
