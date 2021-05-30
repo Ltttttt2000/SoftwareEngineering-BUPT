@@ -365,12 +365,10 @@ public class GUIDriver {
         if(type.equals("Ban"))
             Collections.reverse(returnList);
         if(type.equals("Live")){
-            ArrayList<Live> liveList = new ArrayList<>();
+            ArrayList<Live> liveList = new ArrayList<Live>();
             for(Object o : returnList){
                 Live live = (Live) o;
-                if(live.getDate().after(new Date())){
-                    liveList.add(live);
-                }
+                liveList.add(live);
             }
             Collections.sort(liveList);
             returnList = new ArrayList<Object>(liveList);
@@ -407,7 +405,16 @@ public class GUIDriver {
             for (int i = 1; i < para.length; i++) {
                 String para1 = para[i];
 
-                if (Pattern.matches("[A-Za-z0-9.]+=[A-Za-z0-9.]+", para1)) {
+                if (para1.equals("Filter")){
+                    ArrayList<Live> liveList = new ArrayList<>();
+                    for(Object o : returnList){
+                        Live live = (Live) o;
+                        if(live.getDate().after(new Date())){
+                            liveList.add(live);
+                        }
+                        returnList = new ArrayList<Object>(liveList);
+                    }
+                }else if (Pattern.matches("[A-Za-z0-9.]+=[A-Za-z0-9.]+", para1)) {
                     String[] para2 = para1.split("=");
                     Iterator<Object> iterator = returnList.iterator();
                     while (iterator.hasNext()) {

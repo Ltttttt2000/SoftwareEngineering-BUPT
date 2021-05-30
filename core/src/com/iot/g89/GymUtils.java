@@ -70,7 +70,7 @@ public class GymUtils {
             case 'I' :
                 return "Instructor";
             case 'A' :
-                return  "Administrator";
+                return "Administrator";
             case 'V' :
                 return "Video";
             case 'L' :
