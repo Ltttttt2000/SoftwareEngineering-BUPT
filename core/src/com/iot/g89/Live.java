@@ -65,8 +65,8 @@ public class Live implements Comparable<Live>{
         this.instructId = instructId;
     }
 
-    public String getDate() {
-        return sdf.format(date);
+    public Date getDate() {
+        return date;
     }
 
     public void setDate(Date date) {
@@ -116,7 +116,7 @@ public class Live implements Comparable<Live>{
         String[] para = new String[5];
         para[0] = this.getLiveId();
         para[1] = this.getInstructorId();
-        para[2] = this.getDate();
+        para[2] = sdf.format(this.getDate());
         para[3] = this.getDescription();
         para[4] = this.getNumber() + "";
 
@@ -129,7 +129,7 @@ public class Live implements Comparable<Live>{
 
     public String toString(){
         return "id\t\t" + this.getLiveId() + "\n" +
-                "time\t" + this.getDate() + "\n" +
+                "time\t" + sdf.format(this.getDate()) + "\n" +
                 "what\t" + this.getDescription() + "\n";
     }
 

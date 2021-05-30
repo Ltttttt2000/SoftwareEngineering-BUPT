@@ -158,7 +158,7 @@ public class CourseBookingPageController implements Initializable {
         BorderPane leftPane = new BorderPane();
         BorderPane rightPane = new BorderPane();
 
-        String[] dateTime = live.getDate().split(" ");
+        String[] dateTime = Live.sdf.format(live.getDate()).split(" ");
         String liveId = live.getLiveId();
         String number = String.valueOf(live.getNumber());
 

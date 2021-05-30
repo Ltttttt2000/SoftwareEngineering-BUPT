@@ -2,6 +2,9 @@ package com.iot.g89;
 
 import java.util.ArrayList;
 
+/**
+ * client class
+ */
 public class Client extends User{
               // Normal, Member, SupremeMember
 	//
@@ -52,6 +55,12 @@ public class Client extends User{
 		}
 	}
 
+	/**
+	 * check weather a instructor/video/live belongs to client
+	 *
+	 * @param Id instructor/video/live Id
+	 * @return false nope; true yep
+	 */
 	public boolean checkSource(String Id){
 		String type = GymUtils.typeById(Id);
 		String filePath = "./core/src/csv/Purchase" + type + ".csv";
@@ -135,6 +144,12 @@ public class Client extends User{
 		return 1;
 	}
 
+	/**
+	 * rescind
+	 *
+	 * @param Id  instructor/video/live id
+	 * @return false not found; true success;
+	 */
 	public boolean rescind(String Id){
 		String type = GymUtils.typeById(Id);
 		String deletePath = "./core/src/csv/Purchase" + type +".csv";
