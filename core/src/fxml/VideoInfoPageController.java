@@ -1,5 +1,6 @@
 package fxml;
 
+import com.iot.g89.Client;
 import com.iot.g89.GUIDriver;
 import com.iot.g89.SceneTransform;
 import com.iot.g89.Video;
@@ -7,12 +8,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class VideoInfoPageController implements Initializable {
@@ -98,14 +98,22 @@ public class VideoInfoPageController implements Initializable {
         }
         else{
             basicInfoEditButton.setVisible(false);
+            Client client = new Client(userId);
+            if(client.checkSource(video.getVideoId())){
+                PurchaseVideoButton.setText("Purchased");
+                PurchaseVideoButton.setDisable(true);
+            }
+            if(!video.getSpecificClient().equals("None")){
+                if(!video.getSpecificClient().equals(userId)){
+                    PurchaseVideoButton.setText("NoPermissions");
+                    PurchaseVideoButton.setDisable(true);
+                }
+            }
         }
 
         String SpecificClient = video.getSpecificClient();
-        if(SpecificClient.equals("Normal")){
+        if(SpecificClient.equals("None")){
             showLabel(VideoTypeLabelNormal);
-        }
-        else if(SpecificClient.equals("Member")){
-            showLabel(VideoTypeLabelMember);
         }
         else{
             showLabel(VideoTypeLabelSupreme);
@@ -122,8 +130,28 @@ public class VideoInfoPageController implements Initializable {
     }
 
     public void Purchase(ActionEvent event){
-        if(driver.purchaseOrReserve(video.getVideoId()) == 1){
+        int isPurchase = driver.purchaseOrReserve(video.getVideoId());
+        if(isPurchase == 1){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("You have successfully purchased the course " + video.getVideoName());
+
+            alert.showAndWait();
             backToLastScene();
+        }
+        else if(isPurchase == -3){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Dialog");
+            alert.setHeaderText("Your balance is insufficient to purchase");
+            alert.setContentText("Do you want to recharge now?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK){
+                SceneTransform.ToRechargePage(userId, driver, thisScene);
+            } else {
+                // ... user chose CANCEL or closed the dialog
+            }
         }
     }
 

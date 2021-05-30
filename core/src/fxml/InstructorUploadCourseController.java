@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -41,7 +42,7 @@ public class InstructorUploadCourseController implements Initializable {
     private TextArea Detail;
 
     @FXML
-    private ChoiceBox<String> SpecificClient;
+    private TextField SpecificClient;
 
     private File file;
 
@@ -60,9 +61,8 @@ public class InstructorUploadCourseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         courseType.getItems().addAll("Strength", "Relax", "HIT", "Basic Ability", "Yoga");
-        SpecificClient.getItems().addAll("Normal", "Member", "SupremeMember");
         courseType.getSelectionModel().select("Strength");
-        SpecificClient.getSelectionModel().select("Normal");
+        SpecificClient.setText("None");
     }
 
 
@@ -89,6 +89,7 @@ public class InstructorUploadCourseController implements Initializable {
     }
 
     public void confirmUpload(ActionEvent event) throws IOException {
+        Client client = new Client(SpecificClient.getText());
         if(file == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error Dialog");
@@ -113,6 +114,15 @@ public class InstructorUploadCourseController implements Initializable {
 
             alert.showAndWait();
         }
+        else if(!SpecificClient.getText().equals("None") && client.getUserId().equals("None")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("The ID of the Specific Client you entered is incorrect");
+            alert.setContentText("Client " + SpecificClient.getText() + "does not exist!");
+
+            alert.showAndWait();
+
+        }
         else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Dialog");
@@ -135,10 +145,8 @@ public class InstructorUploadCourseController implements Initializable {
         String CoursePrice = priceValue.getText();
         String courseDetail = Detail.getText();
         String FileType = FileUtils.getFileSuffix(file);
-        String ClientType = SpecificClient.getValue();
-        if(ClientType.equals("")){
-            ClientType = "Normal";
-        }
+        String ClientType = SpecificClient.getText();
+
 
         ArrayList<String[]> entry = new ArrayList<String[]>();
         String[] data = {VideoId, name, type, CoursePrice, UserId, courseDetail, ClientType, FileType};
@@ -146,5 +154,14 @@ public class InstructorUploadCourseController implements Initializable {
         FileUtils.insertCSV("./core/src/csv/Video.csv", entry);
 
         FileUtils.uploadFile("./core/src/video/", file.getPath(), VideoId + "." + FileType);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("You have successfully uploaded the course " + name);
+
+        alert.showAndWait();
+
+        SceneTransform.ToScene(lastScene);
     }
 }
