@@ -33,7 +33,7 @@ public class MyTeachingPageController implements Initializable {
     }
 
     public void goToLiveList(ActionEvent event) {
-
+        SceneTransform.ToLiveListPage(userId, driver, thisScene);
     }
 
     // for back button

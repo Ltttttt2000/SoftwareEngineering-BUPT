@@ -26,7 +26,7 @@
       </Button>
       <Label layoutX="88.0" layoutY="316.0" stylesheets="@../css/TextType.css" text="My Courses" />
       <Label layoutX="322.0" layoutY="316.0" stylesheets="@../css/TextType.css" text="My Clients" />
-      <Button layoutX="536.0" layoutY="136.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
+      <Button layoutX="536.0" layoutY="136.0" mnemonicParsing="false" onAction="#goToLiveList" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
          <styleClass>
             <String fx:value="button-round" />
             <String fx:value="button3" />

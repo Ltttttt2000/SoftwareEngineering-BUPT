@@ -30,8 +30,9 @@ public class LiveListPageController implements Initializable {
     private Label liveIdLabel;
     @FXML
     private TextArea descriptionTA;
+    @FXML
+    private Button deleteButton;
 
-    private ArrayList<Object> bookedLives = new ArrayList<Object>();
     private String chosenLive = "";
 
     private GUIDriver driver;
@@ -50,13 +51,17 @@ public class LiveListPageController implements Initializable {
         this.thisScene = thisScene;
         this.lastScene = lastScene;
 
-        listLives(userId);
+        userIdLabel.setText(userId);
+        liveIdLabel.setText("");
         liveVBox.getChildren().clear();
+        deleteButton.setDisable(true);
+
+        listLives(userId);
     }
 
     public void listLives(String instructorId){
         ArrayList<Object> lives = driver.select("Live InstructorId=" + instructorId);
-        bookedLives = driver.select("Live", curUserId);
+//        System.out.println(lives);
         liveVBox.getChildren().clear();
         for(Object l:lives){
             liveVBox.getChildren().add(drawLiveButton((Live) l));
@@ -110,9 +115,10 @@ public class LiveListPageController implements Initializable {
         button.setPrefSize(305, 62);
 
         button.setOnAction(e ->{
-            liveIdLabel.setText(liveId);
+            this.liveIdLabel.setText(liveId);
             descriptionTA.setText(live.getDescription());
             chosenLive = liveId;
+            deleteButton.setDisable(false);
         });
 
         return button;
@@ -123,6 +129,8 @@ public class LiveListPageController implements Initializable {
             listLives(curUserId);
             descriptionTA.setText("");
             liveIdLabel.setText("");
+
+            deleteButton.setDisable(true);
         }
         else{
             Alert alert1 = new Alert(Alert.AlertType.ERROR);
@@ -137,5 +145,6 @@ public class LiveListPageController implements Initializable {
     // for back button
     public void backToLastScene() {
         SceneTransform.ToScene(lastScene);
+        liveIdLabel.setText("");
     }
 }

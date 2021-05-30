@@ -107,7 +107,7 @@
       <Label fx:id="userIdLabel" layoutX="71.0" layoutY="105.0" stylesheets="@../css/TextType.css" text="I1002" />
       <TextArea fx:id="descriptionTA" layoutX="546.0" layoutY="98.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="546.0" layoutY="77.0" text="Description:" />
-      <Button layoutX="574.0" layoutY="308.0" mnemonicParsing="false" onAction="#deleteLive" text="Delete this live course" />
+      <Button fx:id="deleteButton" layoutX="574.0" layoutY="308.0" mnemonicParsing="false" onAction="#deleteLive" text="Delete this live course" />
       <Label layoutX="546.0" layoutY="41.0" stylesheets="@../css/TextType.css" text="Live ID: " />
       <Label fx:id="liveIdLabel" layoutX="647.0" layoutY="41.0" stylesheets="@../css/TextType.css" text="L1001" />
    </children>
