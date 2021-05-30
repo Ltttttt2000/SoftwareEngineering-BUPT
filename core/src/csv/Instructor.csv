@@ -1,6 +1,6 @@
 userId,password,userLevel,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip,instructorMoney
 I1001,123456,Junior,Male,51578153967,true,24410.45,"Xiaoxuheng, the pride of Koreans!",70,188,78.16,95.88,63.92,101.9,226.13
-I1002,123456,Junior,Female,49765868657,true,21340.07,Get stronger!,35,160,52.21,81.6,54.4,86.72,309.86
+I1002,123456,Junior,Female,49765868657,true,21448.52,Get stronger!,35,160,52.21,81.6,54.4,86.72,309.86
 I1003,123456,Junior,Male,93458181636,true,24060.64,"Song Bao, my superman!",27,188,74.3,95.88,63.92,101.9,315.03
 I1004,123456,Senior,Male,31486671365,true,52696.14,"HIT, YYDS",74,176,73.32,89.76,59.84,95.39,451.63
 I1005,123456,Junior,Female,41825819265,true,20307.58,Wuhu!Take off!,63,151,43.21,77.01,51.34,81.84,213.72

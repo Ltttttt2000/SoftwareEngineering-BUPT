@@ -150,6 +150,19 @@ public class SceneTransform {
 		ToScene(sceneUserInfoPage);
 	}
 
+	// For Administrator and Instructors
+	public static void ToUserInfoPage(String userId) {
+		switch (driver.getUsertype()){
+			case "Administrator":
+				userInfoPageController.initData(userId, sceneUserInfoPage, sceneAdminStartPage, driver);
+				break;
+			case "Instructor":
+				userInfoPageController.initData(userId, sceneUserInfoPage, sceneMyTeachingPage, driver);
+				break;
+		}
+		ToScene(sceneUserInfoPage);
+	}
+
 	public static void ToUserSecurityEditPage(String userId, Scene lastScene) {
 		userSecurityEditPageController.initData(userId, sceneUserSecurityEditPage, lastScene, driver);
 		ToScene(sceneUserSecurityEditPage);
@@ -175,28 +188,34 @@ public class SceneTransform {
 		ToScene(sceneCourseBookingPage);
 	}
 
-	public static void ToInstructorUploadCourse(String userId, GUIDriver driver, Scene lastScene){
+	public static void ToInstructorUploadCourse(String userId, Scene lastScene){
 		instructorUploadCourseController.initData(userId, lastScene, driver);
 		ToScene(sceneInstructorUploadCourse);
 	}
 
-	public static void ToInstructorSelfCourseListPage(String userId, GUIDriver driver, Scene lastScene){
+	public static void ToInstructorSelfCourseListPage(String userId, Scene lastScene){
 		instructorSelfCourseListPageController.initData(userId, lastScene, driver, sceneInstructorSelfCourseListPage);
 		ToScene(sceneInstructorSelfCourseListPage);
 	}
 
-	public static void ToMyTeachingPage(String userId, GUIDriver driver, Scene lastScene){
+	public static void ToMyTeachingPage(String userId, Scene lastScene){
 		myTeachingPageController.initData(userId, sceneMyTeachingPage, lastScene, driver);
 		ToScene(sceneMyTeachingPage);
 	}
 
-	public static void ToRechargePage(String userId, GUIDriver driver, Scene lastScene){
+	public static void ToRechargePage(String userId, Scene lastScene){
 		rechargePageController.initData(userId, sceneMyTeachingPage, lastScene, driver);
 		ToScene(sceneRechargePage);
 	}
 
-	public static void ToVideoInfoPage(String userId, Scene lastScene, GUIDriver driver, Video video){
+	public static void ToVideoInfoPage(String userId, Scene lastScene, Video video){
 		videoInfoPageController.initData(userId, lastScene, driver, video, sceneVideoInfoPage);
+		ToScene(sceneVideoInfoPage);
+	}
+
+	// For Administrator
+	public static void ToVideoInfoPage(String userId, Video video){
+		videoInfoPageController.initData(userId, sceneAdminStartPage, driver, video, sceneVideoInfoPage);
 		ToScene(sceneVideoInfoPage);
 	}
 
@@ -205,17 +224,17 @@ public class SceneTransform {
 		ToScene(sceneVideoInfoEditPage);
 	}
 
-	public static void ToPublishLivePage(String userId, GUIDriver driver, Scene lastScene){
+	public static void ToPublishLivePage(String userId, Scene lastScene){
 		publishLivePageController.initData(userId, scenePublishLivePage, lastScene, driver);
 		ToScene(scenePublishLivePage);
 	}
 
-	public static void ToNewCoursePage(String userId, GUIDriver driver, Scene lastScene){
+	public static void ToNewCoursePage(String userId, Scene lastScene){
 		newCoursePageController.initData(userId, sceneNewCoursePage, lastScene, driver);
 		ToScene(sceneNewCoursePage);
 	}
 
-	public static void ToLiveListPage(String userId, GUIDriver driver, Scene lastScene){
+	public static void ToLiveListPage(String userId, Scene lastScene){
 		liveListPageController.initData(userId, sceneLiveListPage, lastScene, driver);
 		ToScene(sceneLiveListPage);
 	}

@@ -29,11 +29,11 @@ public class NewCoursePageController implements Initializable {
     }
 
     public void goToUploadCourse(ActionEvent event) {
-        SceneTransform.ToInstructorUploadCourse(userId, driver, thisScene);
+        SceneTransform.ToInstructorUploadCourse(userId, thisScene);
     }
 
     public void goToPublishLive(ActionEvent event) {
-        SceneTransform.ToPublishLivePage(userId, driver, thisScene);
+        SceneTransform.ToPublishLivePage(userId, thisScene);
     }
 
     // for back button

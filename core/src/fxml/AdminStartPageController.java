@@ -28,6 +28,28 @@ public class AdminStartPageController implements Initializable {
         this.lastScene = lastScene;
     }
 
+    public void showClient(ActionEvent event) {
+        Stage primaryStage = new Stage();
+        List list = new List(primaryStage, driver);
+        ArrayList<Object> objects = driver.select("Client");
+        ArrayList<User> users = new ArrayList<User>();
+        for(Object o:objects)
+            users.add((User) o);
+
+        list.toUserListPage(users);
+    }
+
+    public void showBannedClient(ActionEvent event) {
+        Stage primaryStage = new Stage();
+        List list = new List(primaryStage, driver);
+        ArrayList<Object> objects = driver.select("Client LoginLicense=false");
+        ArrayList<User> users = new ArrayList<User>();
+        for(Object o:objects)
+            users.add((User) o);
+
+        list.toUserListPage(users);
+    }
+
     public void showInstructor(ActionEvent event) {
         Stage primaryStage = new Stage();
         List list = new List(primaryStage, driver);
@@ -39,10 +61,10 @@ public class AdminStartPageController implements Initializable {
         list.toUserListPage(users);
     }
 
-    public void showClient(ActionEvent event) {
+    public void showBannedInstructor(ActionEvent event) {
         Stage primaryStage = new Stage();
         List list = new List(primaryStage, driver);
-        ArrayList<Object> objects = driver.select("Client");
+        ArrayList<Object> objects = driver.select("Instructor LoginLicense=false");
         ArrayList<User> users = new ArrayList<User>();
         for(Object o:objects)
             users.add((User) o);
@@ -59,6 +81,10 @@ public class AdminStartPageController implements Initializable {
             videos.add((Video) o);
 
         list.toVideoListPage(videos);
+    }
+
+    public void showLiveCourse(ActionEvent event) {
+
     }
 
     public void logOut(ActionEvent event){

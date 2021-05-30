@@ -341,15 +341,7 @@ public class GUIDriver {
     }
 
     public String getUsertype(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else{
-            user = new Instructor(id);
-        }
-        if(!(user.getUserId().equals("None")))
-            return user.getClass().getSimpleName();
-        return null;
+        return GymUtils.typeById(id);
     }
 
     public String getInstructorMoney(String id){

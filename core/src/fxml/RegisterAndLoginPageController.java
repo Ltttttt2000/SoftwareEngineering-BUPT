@@ -324,10 +324,17 @@ public class RegisterAndLoginPageController implements Initializable {
 		GUIUtils.checkTextField(userPasswordPF, true);
 
 		if(x == 1){
-			if(type.equals("Client"))
-				SceneTransform.ToClientStartPage(userId, thisScene);
-			else
-				SceneTransform.ToInstructorStartPage(userId, thisScene);
+			switch(type){
+				case "Client":
+					SceneTransform.ToClientStartPage(userId, thisScene);
+					break;
+				case "Instructor":
+					SceneTransform.ToInstructorStartPage(userId, thisScene);
+					break;
+				case "Administrator":
+					SceneTransform.ToAdminStartPage(userId, thisScene);
+					break;
+			}
 			userPasswordPF.setText("");
 		}else if (x == -1)
 			GUIUtils.checkTextField(userIdTF, false);

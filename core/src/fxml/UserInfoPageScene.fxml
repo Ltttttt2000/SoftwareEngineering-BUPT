@@ -312,15 +312,31 @@
                         <String fx:value="type-instructor-senior" />
                      </styleClass>
                   </Label>
+                  <BorderPane fx:id="adminOptionPane" layoutX="183.0" layoutY="42.0" prefHeight="27.0" prefWidth="187.0">
+                     <left>
+                        <Button mnemonicParsing="false" onAction="#deleteUser" text="Delete User" textFill="RED" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Button>
+                     </left>
+                     <right>
+                        <Button mnemonicParsing="false" onAction="#banOrUnbanUser" text="Ban/Unban" textFill="#3b00ff" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Button>
+                     </right>
+                  </BorderPane>
                </children>
             </AnchorPane>
-            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="BACK" />
+            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
          </children></AnchorPane>
       <BorderPane fx:id="priceTagPane" layoutX="126.0" layoutY="58.0" prefHeight="118.0" prefWidth="314.0" rotate="-31.0" stylesheets="@../css/PaneType.css">
          <center>
-            <Label fx:id="priceTagLabel" alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" stylesheets="@../css/TextType.css" text="3000" BorderPane.alignment="CENTER">
+            <Label fx:id="priceTagLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" text="3000" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Calibri" size="12.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
          </center>

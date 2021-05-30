@@ -1,6 +1,7 @@
 package fxml;
 
 import com.iot.g89.List;
+import com.iot.g89.SceneTransform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,16 +28,6 @@ public class VideoListPageController implements Initializable {
     @FXML
     private Button button;
     private Scene thisScene;
-//    @FXML
-//    private TableColumn<Video,String> ID;
-//    @FXML
-//    private TableColumn<Video,String> type;
-//    @FXML
-//    private TableColumn<Video,String> author;
-//    @FXML
-//    private TableColumn<Video,String> client;
-//    @FXML
-//    private TableColumn<Video,String> buttons;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -57,54 +48,29 @@ public class VideoListPageController implements Initializable {
 
         TableColumn<Video,String> price = new TableColumn<>("Price");
 
-        //TableColumn<Video,String> buttons = new TableColumn<>("Buttons");
-
-
-
-            ID.setCellValueFactory(new PropertyValueFactory<Video,String>("videoId"));
-            name.setCellValueFactory(new PropertyValueFactory<Video,String>("videoName"));
-            type.setCellValueFactory(new PropertyValueFactory<Video,String>("videoType"));
-            author.setCellValueFactory(new PropertyValueFactory<Video,String>("videoUploader"));
-            price.setCellValueFactory(new PropertyValueFactory<Video,String>("videoPrice"));
+        ID.setCellValueFactory(new PropertyValueFactory<Video,String>("videoId"));
+        name.setCellValueFactory(new PropertyValueFactory<Video,String>("videoName"));
+        type.setCellValueFactory(new PropertyValueFactory<Video,String>("videoType"));
+        author.setCellValueFactory(new PropertyValueFactory<Video,String>("videoUploader"));
+        price.setCellValueFactory(new PropertyValueFactory<Video,String>("videoPrice"));
 
         button.setOnAction(
                 new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
-                        Video chosen = tableView.getSelectionModel().getSelectedItem();
-                        System.out.println(chosen.getVideoId());
-                        System.out.println("clicked!");
-
+                        showVideo();
                     }
                 }
         );
 
-            //buttons.setCellFactory(new PropertyValueFactory<Button,String>());
-//            buttons.setCellFactory(c ->{
-//                TableCell<Video, String> cell = new TableCell<Video, String>(){
-//                    protected void updateItem(String item, boolean empty){
-//                        super.updateItem(item,empty);
-//                        Button button = new Button("GO!");
-//                        button.setOnAction(e ->{
-//                            System.out.println("CLICKED!");
-//                            Video chosen = tableView.getSelectionModel().getSelectedItem();
-//                            System.out.println(chosen.getVideoId());
-//                        });
-//                        if(empty){
-//                            setText(null);
-//                            setGraphic(null);
-//                        }else{
-//                            this.setGraphic(button);
-//                        }
-//                    }
-//                };
-//                return cell;
-//            });
-            //items.add(v);
-
         tableView.setItems(cellData);
         tableView.getColumns().addAll(ID,name,type,author,price);
         tableView.getSelectionModel().select(0);
+    }
 
+    public void showVideo(){
+        Video chosen = tableView.getSelectionModel().getSelectedItem();
+        SceneTransform.ToVideoInfoPage("A1001", chosen);
+        List.closeStage();
     }
 }

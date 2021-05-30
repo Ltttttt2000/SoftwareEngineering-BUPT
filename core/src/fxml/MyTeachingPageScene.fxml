@@ -11,14 +11,14 @@
 
 <AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-instructor-start" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.MyTeachingPageController">
    <children>
-      <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
       <Button layoutX="81.0" layoutY="136.0" mnemonicParsing="false" onAction="#goToInstructorSelfCourseListPage" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
          <styleClass>
             <String fx:value="button-round" />
             <String fx:value="button3" />
          </styleClass>
       </Button>
-      <Button layoutX="307.0" layoutY="136.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
+      <Button layoutX="307.0" layoutY="136.0" mnemonicParsing="false" onAction="#goToClientList" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
          <styleClass>
             <String fx:value="button-round" />
             <String fx:value="button2" />

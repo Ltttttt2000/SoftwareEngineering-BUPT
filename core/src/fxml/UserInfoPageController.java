@@ -1,6 +1,7 @@
 package fxml;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import com.iot.g89.GUIDriver;
@@ -10,11 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
@@ -113,8 +110,12 @@ public class UserInfoPageController implements Initializable {
 	@FXML
 	private Button saveButton;
 
+	// Can be seen by others
 	@FXML
 	private Button payButton;
+
+	@FXML
+	private BorderPane adminOptionPane;
 	
 	private String resume;
 
@@ -132,23 +133,36 @@ public class UserInfoPageController implements Initializable {
 	public void initData(String userId, Scene thisScene, Scene lastScene, GUIDriver driver) {
 		this.driver = driver;
 		this.userId = userId;
-		getBasicInof(userId);
+		getBasicInfo(userId);
 		this.thisScene = thisScene;
 		this.lastScene = lastScene;
+		adminOptionPane.setVisible(false);
+
 		if(userId.equals(driver.getUserId()) || driver.getUsertype().equals("Administrator")) {
 			basicInfoEditButton.setDisable(false);
 			securityInfoEditButton.setDisable(false);
 			payButton.setVisible(false);
+
+			// administrator can delete users
+			if(driver.getUsertype().equals("Administrator"))
+				adminOptionPane.setVisible(true);
 		}
 		else{
 			basicInfoEditButton.setDisable(true);
 			securityInfoEditButton.setDisable(true);
-			if(driver.getUsertype(userId).equals("Instructor") && driver.getUsertype().equals("Client"))
+			if(driver.getUsertype(userId).equals("Instructor") && driver.getUsertype().equals("Client")) {
 				payButton.setVisible(true);
+				ArrayList<Object> list = driver.select("Instructor", driver.getUserId());
+				list = driver.select("Instructor UserId=" + userId, list);
+				if(list.isEmpty())
+					payButton.setDisable(false);
+				else
+					payButton.setDisable(true);
+			}
 		}
 	}
 	
-	private void getBasicInof(String userId) {
+	private void getBasicInfo(String userId) {
 		userIdLabel.setText(userId);
 		
 		// get basic info
@@ -316,7 +330,7 @@ public class UserInfoPageController implements Initializable {
 
 			driver.changeBasicInfo(user, userId);
 
-			getBasicInof(userId);
+			getBasicInfo(userId);
 			showEditPane(false);
 		}
 	}
@@ -329,7 +343,50 @@ public class UserInfoPageController implements Initializable {
 
 	// for purchase
 	public void buy(ActionEvent event) {
-//		driver.purchaseorR...(userId);
+		switch(driver.purchaseOrReserve(userId)) {
+			case 1:
+				payButton.setDisable(true); break;
+			case -2:
+				Alert alert1 = new Alert(Alert.AlertType.ERROR);
+				alert1.setTitle("Repeat Purchasing");
+				alert1.setHeaderText("You have bought it!");
+				alert1.setContentText("Please choose another!");
+
+				alert1.showAndWait();
+				break;
+			case -3:
+				Alert alert2 = new Alert(Alert.AlertType.ERROR);
+				alert2.setTitle("Lack Of Balance");
+				alert2.setHeaderText("Your balance is insufficient for the purchase!");
+				alert2.setContentText("Please recharge before purchase!");
+
+				alert2.showAndWait();
+				break;
+		}
+	}
+
+	public void deleteUser(ActionEvent event) {
+		if(driver.delete(userId))
+			backToLastScene();
+		else {
+			Alert alert1 = new Alert(Alert.AlertType.ERROR);
+			alert1.setTitle("Error");
+			alert1.setHeaderText("User Not Found!");
+			alert1.setContentText("Please choose another!");
+
+			alert1.showAndWait();
+		}
+	}
+
+	public void banOrUnbanUser(ActionEvent event) {
+		driver.ban(userId);
+		Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+		alert1.setTitle("Success");
+		alert1.setHeaderText("Option successful!");
+		alert1.setContentText("Ban/Unban successful!");
+
+		alert1.showAndWait();
+		backToLastScene();
 	}
 
 	// for back button

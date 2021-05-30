@@ -54,7 +54,7 @@ public class StorePageController  implements Initializable {
     }
 
     public void goToRechargePage(ActionEvent event) {
-        SceneTransform.ToRechargePage(curUserId, driver, thisScene);
+        SceneTransform.ToRechargePage(curUserId, thisScene);
     }
 
     // for back button

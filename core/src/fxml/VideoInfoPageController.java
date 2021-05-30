@@ -70,6 +70,10 @@ public class VideoInfoPageController implements Initializable {
         this.userId = userId;
         this.video = video;
         this.thisScene = thisScene;
+        PurchaseVideoButton.setText("Purchase");
+        PurchaseVideoButton.setDisable(false);
+        VideoPlayButton.setDisable(true);
+
         getBasicInfo(video);
     }
 
@@ -85,23 +89,26 @@ public class VideoInfoPageController implements Initializable {
         if(UserType.equals("Administrator")){
             PurchaseVideoButton.setVisible(false);
             basicInfoEditButton.setVisible(true);
+            VideoPlayButton.setDisable(false);
         }
         else if(UserType.equals("Instructor")){
             if(video.getVideoUploader().equals(userId)){
                 System.out.println(userId);
                 PurchaseVideoButton.setVisible(false);
                 basicInfoEditButton.setVisible(true);
+                VideoPlayButton.setDisable(false);
             }
             else{
                 basicInfoEditButton.setVisible(false);
             }
         }
-        else{
+        else{ // if(UserType.equals("Client"))
             basicInfoEditButton.setVisible(false);
             Client client = new Client(userId);
             if(client.checkSource(video.getVideoId())){
                 PurchaseVideoButton.setText("Purchased");
                 PurchaseVideoButton.setDisable(true);
+                VideoPlayButton.setDisable(false);
             }
             if(!video.getSpecificClient().equals("None")){
                 if(!video.getSpecificClient().equals(userId)){
@@ -148,7 +155,7 @@ public class VideoInfoPageController implements Initializable {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK){
-                SceneTransform.ToRechargePage(userId, driver, thisScene);
+                SceneTransform.ToRechargePage(userId, thisScene);
             } else {
                 // ... user chose CANCEL or closed the dialog
             }

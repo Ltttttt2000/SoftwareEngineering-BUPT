@@ -1,5 +1,5 @@
 userId,password,userLevel,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip
-C1001,123456,SupremeMember,Male,59764678152,true,3122.00,Wuhu!Take off!,40,182,65.74,92.82,61.88,98.64
+C1001,123456,SupremeMember,Male,59764678152,true,2967.07,Wuhu!Take off!,40,182,65.74,92.82,61.88,98.64
 C1002,123456,SupremeMember,Male,65385158147,true,1487.05,Add muscle!Add muscle!Add muscle!,21,177,62.16,90.27,60.18,95.93
 C1003,123456,Normal,Female,63992282128,true,235.24,Wuhu!Take off!,40,170,52.99,86.7,57.8,92.14
 C1004,123456,SupremeMember,Female,59728128594,true,1401.89,"Song Bao, my superman!",54,173,61.24,88.23,58.82,93.77
@@ -199,4 +199,3 @@ C1197,4Rmq19bo9gbWOku,Normal,Male,28818111616,true,91.8,Get stronger!,72,171,64.
 C1198,dGnYFeAa7KnBGJL,Normal,Male,84182663761,true,410.47,I'm the one with the six-pack!,26,169,66.83,86.19,57.46,91.6
 C1199,dkp2OS9FY80kSPW,SupremeMember,Female,24696897938,true,1039.15,Is there anyone stronger than me?,23,174,65.68,88.74,59.16,94.31
 C1200,h5YpOAr6CguqbW1L,SupremeMember,Female,38629736574,true,1112.43,Does anyone work out with me?,48,161,55.44,82.11,54.74,87.26
-C1201,123123q,Normal,Male,123,false,0.00,syc is me,18,170.0,70.0,86.7,57.8,92.1

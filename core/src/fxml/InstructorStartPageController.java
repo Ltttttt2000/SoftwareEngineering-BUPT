@@ -51,7 +51,7 @@ public class InstructorStartPageController implements Initializable {
     }
 
     public void showNewCourse(ActionEvent event) {
-        SceneTransform.ToNewCoursePage(userId, driver, thisScene);
+        SceneTransform.ToNewCoursePage(userId, thisScene);
     }
 //
 //    public void showUploadCourse(ActionEvent event) {
@@ -59,7 +59,7 @@ public class InstructorStartPageController implements Initializable {
 //    }
 
     public void goToMyTeachingPage(ActionEvent event) {
-        SceneTransform.ToMyTeachingPage(userId, driver, thisScene);
+        SceneTransform.ToMyTeachingPage(userId, thisScene);
     }
 
 
