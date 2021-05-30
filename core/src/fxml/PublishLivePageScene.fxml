@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-instructor-start" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.PublishLivePageController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+      <GridPane layoutX="238.0" layoutY="127.0" prefHeight="198.0" prefWidth="292.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="163.0" minWidth="10.0" prefWidth="72.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="220.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="43.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Description" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Date" />
+            <DatePicker fx:id="liveDatePicker" editable="false" prefHeight="23.0" prefWidth="169.0" GridPane.columnIndex="1" />
+            <Label text="Time" GridPane.rowIndex="1" />
+            <ChoiceBox fx:id="liveTimeCB" prefHeight="23.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextArea fx:id="descriptionTA" prefHeight="130.0" prefWidth="265.0" promptText="Information such as the format, links and content of the live course." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button layoutX="357.0" layoutY="340.0" mnemonicParsing="false" onAction="#publishLive" text="Publish" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-instructor-start" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.NewCoursePageController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+      <Button layoutX="159.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToUploadCourse" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
+         <styleClass>
+            <String fx:value="button-round" />
+            <String fx:value="button5" />
+         </styleClass>
+      </Button>
+      <Button layoutX="464.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToPublishLive" prefHeight="150.0" prefWidth="150.0" stylesheets="@../css/ButtonType.css">
+         <styleClass>
+            <String fx:value="button-round" />
+            <String fx:value="button5" />
+         </styleClass>
+      </Button>
+      <Label layoutX="113.0" layoutY="295.0" stylesheets="@../css/TextType.css" text="Upload Video Course" wrapText="true" />
+      <Label layoutX="424.0" layoutY="295.0" stylesheets="@../css/TextType.css" text="Publish Live Course" />
+      <ImageView layoutX="564.0" layoutY="216.0">
+         <image>
+            <Image url="@../imgs/liveImg.png" />
+         </image>
+      </ImageView>
+      <ImageView layoutX="259.0" layoutY="216.0">
+         <image>
+            <Image url="@../imgs/uploadImg.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

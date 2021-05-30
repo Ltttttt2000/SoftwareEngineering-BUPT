@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="background-pane-edit" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.LiveListPageController">
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+      <ScrollPane layoutX="203.0" layoutY="41.0" prefHeight="350.0" prefWidth="320.0" style="-fx-background-radius: 20;" styleClass="scroll-pane-transparent">
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+         <content>
+            <VBox fx:id="liveVBox" prefHeight="350.0" prefWidth="305.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="310.0" style="-fx-background-color: rgba(0,0,0,0.3);">
+                     <graphic>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <left>
+                              <BorderPane prefHeight="45.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+                                 <top>
+                                    <Label text="2021-05-29" textFill="WHITE" BorderPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font name="Arial Black" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
+                                 <bottom>
+                                    <Label text="Time: 12:00" textFill="WHITE" BorderPane.alignment="CENTER_LEFT" />
+                                 </bottom>
+                              </BorderPane>
+                           </left>
+                           <center>
+                              <Label text="Live ID: L1001" textFill="WHITE" BorderPane.alignment="BOTTOM_CENTER" />
+                           </center>
+                           <right>
+                              <BorderPane prefHeight="42.0" prefWidth="55.0" BorderPane.alignment="CENTER">
+                                 <right>
+                                    <Label text="12/20" textFill="WHITE" BorderPane.alignment="CENTER" />
+                                 </right>
+                                 <left>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../imgs/tickImg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </left>
+                              </BorderPane>
+                           </right>
+                        </BorderPane>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="310.0" style="-fx-background-color: rgba(0,0,0,0.3);">
+                     <graphic>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                           <center>
+                              <Label text="Live ID: L1001" textFill="WHITE" BorderPane.alignment="BOTTOM_CENTER" />
+                           </center>
+                           <left>
+                              <BorderPane prefHeight="45.0" prefWidth="122.0" BorderPane.alignment="CENTER">
+                                 <bottom>
+                                    <Label text="Time: 12:00" textFill="WHITE" BorderPane.alignment="CENTER_LEFT" />
+                                 </bottom>
+                                 <top>
+                                    <Label text="2021-05-29" textFill="WHITE" BorderPane.alignment="CENTER_LEFT">
+                                       <font>
+                                          <Font name="Arial Black" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
+                              </BorderPane>
+                           </left>
+                           <right>
+                              <BorderPane prefHeight="42.0" prefWidth="55.0" BorderPane.alignment="CENTER">
+                                 <left>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                                       <image>
+                                          <Image url="@../imgs/tickImg.png" />
+                                       </image>
+                                    </ImageView>
+                                 </left>
+                                 <right>
+                                    <Label text="12/20" textFill="WHITE" BorderPane.alignment="CENTER" />
+                                 </right>
+                              </BorderPane>
+                           </right>
+                        </BorderPane>
+                     </graphic>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Label layoutX="26.0" layoutY="71.0" stylesheets="@../css/TextType.css" text="Instructor ID:" />
+      <Label fx:id="userIdLabel" layoutX="71.0" layoutY="105.0" stylesheets="@../css/TextType.css" text="I1002" />
+      <TextArea fx:id="descriptionTA" layoutX="546.0" layoutY="98.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="546.0" layoutY="77.0" text="Description:" />
+      <Button layoutX="574.0" layoutY="308.0" mnemonicParsing="false" onAction="#deleteLive" text="Delete this live course" />
+      <Label layoutX="546.0" layoutY="41.0" stylesheets="@../css/TextType.css" text="Live ID: " />
+      <Label fx:id="liveIdLabel" layoutX="647.0" layoutY="41.0" stylesheets="@../css/TextType.css" text="L1001" />
+   </children>
+</AnchorPane>

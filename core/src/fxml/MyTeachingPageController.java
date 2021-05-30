@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MyTeachingPgaeController implements Initializable {
+public class MyTeachingPageController implements Initializable {
 
     private String userId;
     private GUIDriver driver;
@@ -28,10 +28,13 @@ public class MyTeachingPgaeController implements Initializable {
         this.lastScene = lastScene;
     }
 
-    public void goToInstructorSelfCourseListPage(ActionEvent event){
+    public void goToInstructorSelfCourseListPage(ActionEvent event) {
         SceneTransform.ToInstructorSelfCourseListPage(userId, driver, thisScene);
     }
 
+    public void goToLiveList(ActionEvent event) {
+
+    }
 
     // for back button
     public void backToLastScene(){

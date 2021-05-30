@@ -242,9 +242,4 @@ public class CourseBookingPageController implements Initializable {
         }
         return false;
     }
-
-    public ArrayList<Object> subListByDate(ArrayList<Object> list) {
-        // Sublist
-        return list;
-    }
 }
