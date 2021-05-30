@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MyTeachingPgaeController implements Initializable {
+public class MyTeachingPageController implements Initializable {
 
     private String userId;
     private GUIDriver driver;

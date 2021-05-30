@@ -39,7 +39,7 @@ public class SceneTransform {
 	private static CourseBookingPageController courseBookingPageController;
 	private static InstructorUploadCourseController instructorUploadCourseController;
 	private static InstructorSelfCourseListPageController instructorSelfCourseListPageController;
-	private static MyTeachingPgaeController myTeachingPgaeController;
+	private static MyTeachingPageController myTeachingPageController;
 	private static RechargePageController rechargePageController;
 	private static VideoInfoPageController videoInfoPageController;
 	private static VideoInfoEditPageController videoInfoEditPageController;
@@ -99,7 +99,7 @@ public class SceneTransform {
 			courseBookingPageController = loaderCourseBookingPage.getController();
 			instructorUploadCourseController = loaderInstructorUploadCourse.getController();
 			instructorSelfCourseListPageController = loaderInstructorSelfCourseListPage.getController();
-			myTeachingPgaeController = loaderMyTeachingPage.getController();
+			myTeachingPageController = loaderMyTeachingPage.getController();
 			rechargePageController = loaderRechargePage.getController();
 			videoInfoPageController = loaderVideoInfoPage.getController();
 			videoInfoEditPageController = loaderVideoInfoEditPage.getController();
@@ -171,7 +171,7 @@ public class SceneTransform {
 	}
 
 	public static void ToMyTeachingPage(String userId, GUIDriver driver, Scene lastScene){
-		myTeachingPgaeController.initData(userId, sceneMyTeachingPage, lastScene, driver);
+		myTeachingPageController.initData(userId, sceneMyTeachingPage, lastScene, driver);
 		ToScene(sceneMyTeachingPage);
 	}
 
