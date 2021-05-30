@@ -9,6 +9,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import com.csvreader.CsvReader;
 import  com.csvreader.CsvWriter;
@@ -443,6 +444,22 @@ public class FileUtils {
 			}
 		}
 		return false;
+	}
+
+	public static void deleteCSVAll(String key, String filePath, int index) {
+		ArrayList<String[]> csvList = new ArrayList<String[]>();
+
+		String[] column = {"*"};
+
+		csvList = readCSVWithHeader(filePath, column);
+
+		Iterator<String[]> iterator = csvList.iterator();
+		while(iterator.hasNext()){
+			String para = iterator.next()[index];
+			if(para.equals(key))
+				iterator.remove();
+		}
+		writeCSV(filePath, csvList);
 	}
 	
 	public static ArrayList<Integer> getAttrIndex(String[] header,String[] attrs) {

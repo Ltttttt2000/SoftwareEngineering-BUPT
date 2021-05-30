@@ -88,6 +88,12 @@ public class GymUtils {
     public static boolean delete(String Id){
         String type = GymUtils.typeById(Id);
         String path = "./core/src/csv/" + type + ".csv";
+        FileUtils.deleteCSV(Id,"./core/src/csv/Ban.csv");
+        if(!GymUtils.typeById(Id).equals("Client"))
+            FileUtils.deleteCSVAll(Id,"./core/src/csv/Purchase" + type + ".csv",0);
+        else
+            FileUtils.deleteCSVAll(Id,"./core/src/csv/PurchaseInstructor.csv",1);
+
         return FileUtils.deleteCSV(Id,path);
     }
 }
