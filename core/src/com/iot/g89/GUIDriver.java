@@ -25,7 +25,7 @@ public class GUIDriver {
      */
     public int login(String userID, String password, String type){
 
-        gymUtils.initialize(userID, type);
+        gymUtils.initialize(userID);
 
         if(gymUtils.user == null){
             return -1;
@@ -46,7 +46,6 @@ public class GUIDriver {
      * logout
      */
     public void logout(){
-
         gymUtils.user = null;
     }
 
@@ -351,31 +350,6 @@ public class GUIDriver {
         return null;
     }
 
-    private ArrayList<Object> selectAll(String type){
-        ArrayList<Object> returnList = new ArrayList<Object>();
-
-        String filePath = "./core/src/csv/"+ type + ".csv";
-        String[] readAll = {"*"};
-
-        ArrayList<String[]> allList = FileUtils.readCSV(filePath, readAll);
-        for (String[] para : allList){
-            Object o = GymUtils.constructByID(para[0]);
-            returnList.add(o);
-        }
-        if(type.equals("Ban"))
-            Collections.reverse(returnList);
-        if(type.equals("Live")){
-            ArrayList<Live> liveList = new ArrayList<Live>();
-            for(Object o : returnList){
-                Live live = (Live) o;
-                liveList.add(live);
-            }
-            Collections.sort(liveList);
-            returnList = new ArrayList<Object>(liveList);
-        }
-        return returnList;
-    }
-
     /**
      * select support = !=
      * remember to use the acronym for the hump in str
@@ -384,8 +358,7 @@ public class GUIDriver {
      * @return ArrayList<Object>
      */
     public ArrayList<Object> select(String str){
-        String[] para = str.split("( )+");
-        return select(str,selectAll(para[0]));
+        return GymUtils.select(str);
     }
 
     /**
@@ -397,53 +370,7 @@ public class GUIDriver {
      * @return ArrayList<Object>
      */
     public ArrayList<Object> select(String str, ArrayList<Object> originList) {
-        ArrayList<Object> returnList = new ArrayList<>(originList);
-        Collections.copy(returnList, originList);
-
-        String[] para = str.split("( )+");
-        if(para.length != 1) {
-            for (int i = 1; i < para.length; i++) {
-                String para1 = para[i];
-
-                if (para1.equals("Filter")){
-                    ArrayList<Live> liveList = new ArrayList<>();
-                    for(Object o : returnList){
-                        Live live = (Live) o;
-                        if(live.getDate().after(new Date())){
-                            liveList.add(live);
-                        }
-                        returnList = new ArrayList<Object>(liveList);
-                    }
-                }else if (Pattern.matches("[A-Za-z0-9.]+=[A-Za-z0-9.]+", para1)) {
-                    String[] para2 = para1.split("=");
-                    Iterator<Object> iterator = returnList.iterator();
-                    while (iterator.hasNext()) {
-                        try {
-                            Object o = iterator.next();
-                            Method m = o.getClass().getMethod("get" + para2[0], null);
-                            if (!(m.invoke(o).toString().equals(para2[1])))
-                                iterator.remove();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                } else if (Pattern.matches("[A-Za-z0-9.]+!=[A-Za-z0-9.]+", para1)) {
-                    String[] para2 = para1.split("!=");
-                    Iterator<Object> iterator = returnList.iterator();
-                    while (iterator.hasNext()) {
-                        try {
-                            Object o = iterator.next();
-                            Method m = o.getClass().getMethod("get" + para2[0], null);
-                            if (m.invoke(o).toString().equals(para2[1]))
-                                iterator.remove();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-        }
-        return returnList;
+        return GymUtils.select(str,originList);
     }
 
     /**
@@ -455,45 +382,7 @@ public class GUIDriver {
      * @return ArrayList<Object>
      */
     public ArrayList<Object> select(String type, String Id){
-        ArrayList<Object> returnList = new ArrayList<>();
-
-        String filePath = "./core/src/csv/Purchase" + type + ".csv";
-        if(type.equals("Client"))
-            filePath = "./core/src/csv/PurchaseInstructor.csv";
-        String[] readAll = {"*"};
-        ArrayList<String[]> allList = FileUtils.readCSV(filePath, readAll);
-        type = "com.iot.g89." + type;
-
-        ArrayList<String> idList = new ArrayList<>();
-
-//        aggregate by client, return instructor/live/video
-        if(Id.charAt(0) == 'C'){
-            for(String[] para : allList){
-                if(para[1].equals(Id))
-                    idList.add(para[0]);
-            }
-            for(String IdR : idList){
-                try {
-                    Class<?> clazz = Class.forName(type);
-                    Constructor<?> constructor = clazz.getConstructor(String.class);
-                    Object o = constructor.newInstance(IdR);
-                    returnList.add(o);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-//        aggregate by instructor, return client
-        }else{
-            for(String[] para : allList){
-                if(para[0].equals(Id))
-                    idList.add(para[1]);
-            }
-            for(String IdR : idList) {
-                Client c = new Client(IdR);
-                returnList.add(c);
-            }
-        }
-        return returnList;
+        return GymUtils.select(type,Id);
     }
 
     /**
@@ -552,14 +441,19 @@ public class GUIDriver {
      * auto ban
      *
      * @param Id client/instructor/admin Id
+     * @return true ban; false unban
      */
-    public void ban(String Id){
+    public boolean ban(String Id){
         User user = (User) GymUtils.constructByID(Id);
         assert user != null;
-        if(user.getLoginLicense())
+        if(user.getLoginLicense()){
             user.banThisAccount();
-        else
+            return true;
+        }
+        else {
             user.unbanThisAccount();
+            return false;
+        }
     }
 
     /**
