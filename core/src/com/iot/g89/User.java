@@ -49,7 +49,7 @@ public abstract class User{
 			                          "0","0","0","0","0","0"}; //6 physical Info,the last is InstructorMoney
 	
 	//the arrayList content read from the file
-	ArrayList<String[]> selectList = new ArrayList<String[]>();
+	ArrayList<String[]> selectList = new ArrayList<>();
 	String[] readAll = {"*"}; // 为了给readCSV传入一个读全部的 *
  	
 //	PhysicalInfo physicalInfo;
@@ -72,7 +72,7 @@ public abstract class User{
 		fileHeaders[6] = "rechargeAmount";
 		fileHeaders[7] = "resume";
 		
-			//phisicalInfo
+			//physicalInfo
 			fileHeaders[8] = "age";
 			fileHeaders[9] = "height"; 
 			fileHeaders[10] = "weight";
@@ -94,7 +94,7 @@ public abstract class User{
 		//file not exist
 		if(!check.exists()) {
 			FileUtils.createCSV(userFilePath, fileHeaders);
-			userInfoList = new ArrayList<String[]>();
+			userInfoList = new ArrayList<>();
 			userInfoList.add(userInfo);
 			FileUtils.insertCSV(userFilePath, userInfoList);
 		}
@@ -104,21 +104,18 @@ public abstract class User{
 			selectList = FileUtils.readCSV(userFilePath, readAll);
 			
 			//find the entry of this user in the file
-			if (selectList.size() == 0) {
-				//System.out.println("File is empty!");
-			}
-			else {
-				
+			if (selectList.size() != 0) {
+
 				while(entry+1<selectList.size() ||entry+1==selectList.size()) {
 					if(selectList.get(entry)[0].equals(userId))
 						break;
 					else
 						entry++;
 				}
-				
-			
+
+
 				//cannot find in file
-				if (selectList.size() >= entry + 1 && selectList.size() != 0) {   //old user login-in, read the information into this user from the file
+				if (selectList.size() >= entry + 1) {   //old user login-in, read the information into this user from the file
 
 					this.userId = userId;
 					this.password = selectList.get(entry)[1];
@@ -151,6 +148,7 @@ public abstract class User{
 
 				}
 			}
+
 		}
 	}
 
@@ -167,12 +165,6 @@ public abstract class User{
 		this.rechargeAmount = Double.parseDouble(parameters[6]);
 		this.resume = parameters[7];
 
-//		this.UserId = new SimpleStringProperty(parameters[0]);
-//		this.Password = new SimpleStringProperty(parameters[1]);
-//		this.Sex = new SimpleStringProperty(parameters[3]);
-//		this.PhoneNumber = new SimpleStringProperty(parameters[4]);
-
-
 		this.age = Integer.parseInt(parameters[8]);
 		this.height = Double.parseDouble(parameters[9]);
 		this.weight = Double.parseDouble(parameters[10]);
@@ -180,8 +172,6 @@ public abstract class User{
 		this.waist = Double.parseDouble(parameters[12]);
 		this.hip = Double.parseDouble(parameters[13]);
 
-//		this.RechargeAmount = new SimpleDoubleProperty(Double.parseDouble(parameters[6]));
-//		this.Age = new SimpleIntegerProperty(Integer.parseInt(parameters[8]));
 
 	}
 

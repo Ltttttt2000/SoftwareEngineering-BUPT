@@ -12,6 +12,9 @@ import java.util.*;
  */
 public class GUIDriver {
 
+    /**
+     * Logged in user.
+     */
     private User userLogin = null;
 
     /**
@@ -80,7 +83,7 @@ public class GUIDriver {
 
         parameters[0] = userId;
 
-        ArrayList<String[]> userInfoList = new ArrayList<String[]>();
+        ArrayList<String[]> userInfoList = new ArrayList<>();
         userInfoList.add(parameters);
 
         FileUtils.insertCSV("./core/src/csv/" + type + ".csv", userInfoList);
@@ -127,12 +130,8 @@ public class GUIDriver {
      * @return -1 wrong old password; -2 old password is same as the new ones; 1 success
      */
     public int changePassword (String oldPassword, String newPassword, String id) {
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else{
-            user = new Instructor(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return changePassword(oldPassword, newPassword, user);
         return -1;
@@ -177,12 +176,8 @@ public class GUIDriver {
      * @return true
      */
     public boolean changeBasicInfo(String[] parameters, String id) {
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else{
-            user = new Instructor(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return changeBasicInfo(parameters, user);
         return false;
