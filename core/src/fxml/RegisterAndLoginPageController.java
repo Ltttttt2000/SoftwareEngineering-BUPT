@@ -309,7 +309,7 @@ public class RegisterAndLoginPageController implements Initializable {
 
 		type = GymUtils.typeById(userId);
 
-		if(type != null)
+		if(!type.equals("None"))
 			x = driver.login(userId, password);
 		else
 			x = 0;
