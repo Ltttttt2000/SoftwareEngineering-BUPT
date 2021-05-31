@@ -3,11 +3,11 @@ C1001,123456,SupremeMember,Male,59764678152,true,2967.07,Wuhu!Take off!,40,182,6
 C1002,123456,SupremeMember,Male,65385158147,true,1487.05,Add muscle!Add muscle!Add muscle!,21,177,62.16,90.27,60.18,95.93
 C1003,123456,Normal,Female,63992282128,true,235.24,Wuhu!Take off!,40,170,52.99,86.7,57.8,92.14
 C1004,123456,SupremeMember,Female,59728128594,true,1401.89,"Song Bao, my superman!",54,173,61.24,88.23,58.82,93.77
-C1005,123456,SupremeMember,Male,16262526357,true,1009.04, Get thinner!,67,174,58.01,88.74,59.16,94.31
+C1005,123456,SupremeMember,Male,16262526357,true,1009.04,Get thinner!,67,174,58.01,88.74,59.16,94.31
 C1006,123456,Member,Male,57822487133,true,681.9,"HIT, YYDS",18,174,65.43,88.74,59.16,94.31
 C1007,123456,SupremeMember,Female,49987771646,true,1150.36,"HIT, YYDS",47,160,52.37,81.6,54.4,86.72
-C1008,123456,Member,Male,41978151157,true,874.08, Get thinner!,28,173,59.01,88.23,58.82,93.77
-C1009,123456,Normal,Male,97132677286,true,348.31,Get stronger!,77,171,59.12,87.21,58.14,92.68
+C1008,123456,Member,Male,41978151157,true,874.08,Get thinner!,28,173,59.01,88.23,58.82,93.77
+C1009,123456,Normal,Male,97132677286,false,348.31,Get stronger!,77,171,59.12,87.21,58.14,92.68
 C1010,fNJYaM,Normal,Male,31851996582,true,85.42,"HIT, YYDS",27,165,61.12,84.15,56.1,89.43
 C1011,khjeWvKNXEOpcJT,SupremeMember,Male,86518253482,true,1096.23,"Song Bao, my superman!",60,179,76.23,91.29,60.86,97.02
 C1012,uhvtEse1mhyzm,Member,Male,62539558118,true,607.61,Wuhu!Take off!,55,186,63.29,94.86,63.24,100.81
@@ -135,7 +135,7 @@ C1133,e4MTCSI322,Member,Female,38328448815,true,586.7,I'm the one with the six-p
 C1134,y4AeJHx3CRm7HY,SupremeMember,Female,62918859482,true,1019.25,Get stronger!,18,159,59.12,81.09,54.06,86.18
 C1135,5iBFyMv,Member,Male,41952218746,true,737.7,"Song Bao, my superman!",77,179,59.49,91.29,60.86,97.02
 C1136,x7nkt9K,Member,Male,81746738447,true,515.04,Is there anyone stronger than me?,66,167,53.86,85.17,56.78,90.51
-C1137,qqLiNJT0kRd,SupremeMember,Female,31235828429,true,1404.94, Get thinner!,67,174,58.08,88.74,59.16,94.31
+C1137,qqLiNJT0kRd,SupremeMember,Female,31235828429,true,1404.94,Get thinner!,67,174,58.08,88.74,59.16,94.31
 C1138,7JIABrUmNk5TQl,SupremeMember,Female,97945793593,true,1202.29,I'm the one with the six-pack!,29,173,61.34,88.23,58.82,93.77
 C1139,7YYA6x1BSg,Member,Female,64321743287,true,780.94,Get stronger!,65,161,54.28,82.11,54.74,87.26
 C1140,ChbLRP,Member,Female,46139438944,true,530.23,"Xiaoxuheng, the pride of Koreans!",57,172,54.3,87.72,58.48,93.22
@@ -194,7 +194,7 @@ C1192,TzYxj8j,Member,Male,32281845261,true,758.57,Add muscle!Add muscle!Add musc
 C1193,Pexhdi9K,SupremeMember,Female,15831374817,true,1327.13,"Song Bao, my superman!",73,168,55.87,85.68,57.12,91.06
 C1194,XQPgO1N,Member,Male,77736471843,true,600.74,Add muscle!Add muscle!Add muscle!,64,179,76.66,91.29,60.86,97.02
 C1195,40mVQAlybU8BdrOJ,Member,Male,82337492584,true,893.32,Get thinner!,48,165,57.59,84.15,56.1,89.43
-C1196,de5tlA6rirlmv248,Member,Male,12592764185,true,764.23, Get thinner!,57,179,67.45,91.29,60.86,97.02
+C1196,de5tlA6rirlmv248,Member,Male,12592764185,true,764.23,Get thinner!,57,179,67.45,91.29,60.86,97.02
 C1197,4Rmq19bo9gbWOku,Normal,Male,28818111616,true,91.8,Get stronger!,72,171,64.4,87.21,58.14,92.68
 C1198,dGnYFeAa7KnBGJL,Normal,Male,84182663761,true,410.47,I'm the one with the six-pack!,26,169,66.83,86.19,57.46,91.6
 C1199,dkp2OS9FY80kSPW,SupremeMember,Female,24696897938,true,1039.15,Is there anyone stronger than me?,23,174,65.68,88.74,59.16,94.31

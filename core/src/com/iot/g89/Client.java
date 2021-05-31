@@ -173,4 +173,3 @@ public class Client extends User{
 		return  (FileUtils.deleteCSV(new String[]{Id, this.getUserId()}, deletePath));
 	}
 }
-

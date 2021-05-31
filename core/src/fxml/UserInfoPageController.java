@@ -383,15 +383,15 @@ public class UserInfoPageController implements Initializable {
 			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setTitle("Success");
 			alert.setHeaderText("Option successful!");
-			alert.setContentText("Ban/Unban successful!");
+			alert.setContentText("Ban successful!");
 
 			alert.showAndWait();
 			backToLastScene();
 		}else{
 			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.setTitle("Failed");
-			alert.setHeaderText("Option Failed!");
-			alert.setContentText("Ban/Unban Failed!");
+			alert.setTitle("Success");
+			alert.setHeaderText("Option successful!");
+			alert.setContentText("Unban successful!");
 
 			alert.showAndWait();
 		}
