@@ -99,8 +99,6 @@ public class CoursesListPageController implements Initializable {
         for(Object v:videos){
             videoListVBox.getChildren().add(drawVideoButton((Video) v));
         }
-
-        System.out.println(selection + " " + typeSelection + " " + priceSelection + " " + searching);
     }
 
     public Button drawVideoButton(Video video){
