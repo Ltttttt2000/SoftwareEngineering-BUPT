@@ -85,7 +85,7 @@
          <font>
             <Font name="Arial" size="12.0" />
          </font></Button>
-      <Button layoutX="95.0" layoutY="258.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showUserAskForUnban" prefHeight="63.0" prefWidth="385.0" text="Show the User (Client&amp;Instructor) who wants to lift the ban" textAlignment="CENTER" wrapText="true">
+      <Button layoutX="95.0" layoutY="258.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showUserAskForUnban" prefHeight="63.0" prefWidth="382.0" text="Show the User (Client&amp;Instructor) who wants to lift the ban" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Button>
