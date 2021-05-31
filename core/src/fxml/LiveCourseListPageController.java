@@ -1,6 +1,7 @@
 package fxml;
 
 import com.iot.g89.GUIDriver;
+import com.iot.g89.List;
 import com.iot.g89.Live;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -81,6 +82,7 @@ public class LiveCourseListPageController implements Initializable {
                     "Please choose another.",
                     Alert.AlertType.ERROR);
         }
+        List.closeStage();
     }
 
     public void showAlert(String title, String header, String content, Alert.AlertType type) {
