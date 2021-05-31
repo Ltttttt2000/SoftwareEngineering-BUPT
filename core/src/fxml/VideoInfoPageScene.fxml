@@ -39,36 +39,47 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label text="Video Id">
                            <font>
-                              <Font name="Arial" size="12.0" />
+                              <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="15.0" prefWidth="67.0" text="Video Type" GridPane.rowIndex="1">
+                        <Label prefHeight="16.0" prefWidth="81.0" text="Video Type" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Arial" size="12.0" />
+                              <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
                         <Label text="Uploader" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Arial" size="12.0" />
+                              <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
                         <Label fx:id="VideoId" text="Unknown" GridPane.columnIndex="1">
                            <font>
-                              <Font name="Arial" size="12.0" />
+                              <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
                         <Label fx:id="VideoType" text="10086" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>
-                              <Font name="Arial" size="12.0" />
+                              <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
                         <Label fx:id="VideoUploader" text="I1001" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
-                              <Font name="Arial" size="12.0" />
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Price" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="priceLabel" text="200.00£" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="Arial" size="14.0" />
                            </font>
                         </Label>
                      </children>

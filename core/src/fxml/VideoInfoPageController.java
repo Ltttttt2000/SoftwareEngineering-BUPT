@@ -30,6 +30,9 @@ public class VideoInfoPageController implements Initializable {
     private Label VideoUploader;
 
     @FXML
+    private Label priceLabel;
+
+    @FXML
     private TextArea Detail;
 
     @FXML
@@ -86,6 +89,7 @@ public class VideoInfoPageController implements Initializable {
         VideoId.setText(video.getVideoId());
         VideoType.setText(video.getVideoType());
         VideoUploader.setText(video.getVideoUploader());
+        priceLabel.setText(String.valueOf(video.getVideoPrice()));
         Detail.setText(video.getVideoDetail());
 
         String UserType = driver.getUsertype(userId);
