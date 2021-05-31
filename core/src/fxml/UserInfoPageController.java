@@ -144,7 +144,7 @@ public class UserInfoPageController implements Initializable {
 			payButton.setVisible(false);
 
 			// administrator can delete users
-			if(driver.getUsertype().equals("Administrator"))
+			if(driver.getUsertype().equals("Administrator") && !userId.equals(driver.getUserId()))
 				adminOptionPane.setVisible(true);
 		}
 		else{
@@ -379,14 +379,22 @@ public class UserInfoPageController implements Initializable {
 	}
 
 	public void banOrUnbanUser(ActionEvent event) {
-		driver.ban(userId);
-		Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-		alert1.setTitle("Success");
-		alert1.setHeaderText("Option successful!");
-		alert1.setContentText("Ban/Unban successful!");
+		if(driver.ban(userId)){
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setTitle("Success");
+			alert.setHeaderText("Option successful!");
+			alert.setContentText("Ban/Unban successful!");
 
-		alert1.showAndWait();
-		backToLastScene();
+			alert.showAndWait();
+			backToLastScene();
+		}else{
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Failed");
+			alert.setHeaderText("Option Failed!");
+			alert.setContentText("Ban/Unban Failed!");
+
+			alert.showAndWait();
+		}
 	}
 
 	// for back button

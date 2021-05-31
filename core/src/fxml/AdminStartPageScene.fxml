@@ -61,5 +61,6 @@
       </GridPane>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
       <Button layoutX="95.0" layoutY="258.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showUserAskForUnban" prefHeight="63.0" prefWidth="385.0" text="Show the User (Client&amp;Instructor) who wants to lift the ban" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="260.0" layoutY="58.0" mnemonicParsing="false" onAction="#myInfo" text="My Info" />
    </children>
 </AnchorPane>

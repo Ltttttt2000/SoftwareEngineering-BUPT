@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Live implements Comparable<Live>{
     private String liveId = "None";
-    private String instructId;
+    private String instructorId;
 
     private Date date;
     private String description;
@@ -23,7 +23,7 @@ public class Live implements Comparable<Live>{
             for(String[] para : selectList){
                 if(para[0].equals(id)){
                     this.liveId = para[0];
-                    this.instructId = para[1];
+                    this.instructorId = para[1];
                     try {
                         this.date = sdf.parse(para[2]);
                     } catch (ParseException e) {
@@ -39,7 +39,7 @@ public class Live implements Comparable<Live>{
 
     public Live(String[] para){
         this.liveId = para[0];
-        this.instructId = para[1];
+        this.instructorId = para[1];
         try {
             this.date = sdf.parse(para[2]);
         } catch (ParseException e) {
@@ -58,11 +58,11 @@ public class Live implements Comparable<Live>{
     }
 
     public String getInstructorId() {
-        return instructId;
+        return instructorId;
     }
 
-    public void setInstructId(String instructId) {
-        this.instructId = instructId;
+    public void setInstructorId(String instructorId) {
+        this.instructorId = instructorId;
     }
 
     public Date getDate() {
@@ -99,7 +99,7 @@ public class Live implements Comparable<Live>{
     public boolean duplicateChecking(){
         ArrayList<String[]> allList = FileUtils.readCSV(filePath, new String[]{"*"});
         for(String[] para : allList){
-            if(para[1].equals(instructId) && para[2].equals(sdf.format(date)))
+            if(para[1].equals(instructorId) && para[2].equals(sdf.format(date)))
                 return true;
         }
         return false;

@@ -14,13 +14,11 @@ public class List {
 
     private static Scene sceneVideoPage;
     private static Scene sceneUserPage;
-    private static Scene sceneUserInfoPage;
-    private static Scene sceneVideoInfoPage;
+    private static Scene sceneLivePage;
 
     private static VideoListPageController videoListPageController;
     private static UserListPageController userListPageController;
-    private static UserInfoPageController userInfoPageController;
-    private static VideoInfoPageController videoInfoPageController;
+    private static LiveCourseListPageController liveCourseListPageController;
 
     private static GUIDriver driver;
 
@@ -30,19 +28,16 @@ public class List {
         try {
             FXMLLoader loaderSceneVideoPage = new FXMLLoader(getClass().getResource("/fxml/VideoListPageScene.fxml"));
             FXMLLoader loaderSceneUserPage = new FXMLLoader(getClass().getResource("/fxml/UserListPageScene.fxml"));
-            FXMLLoader loaderSceneUserInfoPage = new FXMLLoader(getClass().getResource("/fxml/UserInfoPageScene.fxml"));
-            FXMLLoader loaderSceneVideoInfoPage = new FXMLLoader(getClass().getResource("/fxml/VideoInfoPageScene.fxml"));
+            FXMLLoader loaderSceneLivePage = new FXMLLoader(getClass().getResource("/fxml/LiveCourseListPageScene.fxml"));
 
             sceneVideoPage = new Scene(loaderSceneVideoPage.load());
             sceneUserPage = new Scene(loaderSceneUserPage.load());
-            sceneUserInfoPage = new Scene(loaderSceneUserInfoPage.load());
-            sceneVideoInfoPage = new Scene(loaderSceneVideoInfoPage.load());
+            sceneLivePage = new Scene(loaderSceneLivePage.load());
 
 
             videoListPageController = loaderSceneVideoPage.getController();
             userListPageController = loaderSceneUserPage.getController();
-            userInfoPageController = loaderSceneUserInfoPage.getController();
-            videoInfoPageController = loaderSceneVideoInfoPage.getController();
+            liveCourseListPageController = loaderSceneLivePage.getController();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,14 +54,9 @@ public class List {
         toScene(sceneUserPage, "User");
     }
 
-    public static void ToVideoInfoPage(String userId, Scene lastScene, Video video) {
-		videoInfoPageController.initData(userId, lastScene, driver, video, sceneVideoInfoPage);
-		toScene(sceneVideoInfoPage, "Video Info");
-	}
-
-    public static void ToUserInfoPage(String userId, Scene lastScene) {
-        userInfoPageController.initData(userId, sceneUserInfoPage, lastScene, driver);
-        toScene(sceneUserInfoPage, "User Info");
+    public static void toLiveListPage(ArrayList<Live> lives){
+        liveCourseListPageController.initData(lives, sceneLivePage, driver);
+        toScene(sceneLivePage, "Live");
     }
 
     public static void toScene(Scene scene, String title){

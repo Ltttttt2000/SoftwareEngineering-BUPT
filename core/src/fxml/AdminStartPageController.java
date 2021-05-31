@@ -95,11 +95,29 @@ public class AdminStartPageController implements Initializable {
     }
 
     public void showLiveCourse(ActionEvent event) {
+        Stage primaryStage = new Stage();
+        List list = new List(primaryStage, driver);
+        ArrayList<Object> objects = driver.select("Live");
+        ArrayList<Live> lives = new ArrayList<Live>();
+        for(Object o:objects)
+            lives.add((Live) o);
 
+        list.toLiveListPage(lives);
     }
 
     public void showFutureLiveCourse(ActionEvent event) {
+        Stage primaryStage = new Stage();
+        List list = new List(primaryStage, driver);
+        ArrayList<Object> objects = driver.select("Live Filter");
+        ArrayList<Live> lives = new ArrayList<Live>();
+        for(Object o:objects)
+            lives.add((Live) o);
 
+        list.toLiveListPage(lives);
+    }
+
+    public void myInfo(ActionEvent event) {
+        SceneTransform.ToUserInfoPage(curUserId, thisScene);
     }
 
     public void logOut(ActionEvent event){

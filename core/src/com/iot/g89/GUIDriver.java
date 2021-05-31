@@ -202,8 +202,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return user.getSex();
@@ -214,8 +216,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return user.getPhoneNumber();
@@ -226,8 +230,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return String.format("%.2f", user.getRechargeAmount());
@@ -238,8 +244,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return user.getAge() + "";
@@ -250,8 +258,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return user.getHeight() + "";
@@ -262,8 +272,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return String.format("%.2f", user.getWeight());
@@ -274,8 +286,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getChest());
@@ -286,8 +300,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getWaist());
@@ -298,8 +314,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getHip());
@@ -310,8 +328,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return String.valueOf(user.getLoginLicense());
@@ -322,8 +342,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return user.getResume();
@@ -334,8 +356,10 @@ public class GUIDriver {
         User user = null;
         if(id.charAt(0) == 'C'){
             user = new Client(id);
-        }else{
+        }else if(id.charAt(0) == 'I'){
             user = new Instructor(id);
+        }else{
+            user = new Administrator(id);
         }
         if(!(user.getUserId().equals("None")))
             return user.getUserLevel();
