@@ -5,6 +5,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * <p>Entity.</p>
+ * <p>Live class.</p>
+ *
+ * @version 0.5
+ * @author Medon, ly129
+ */
 public class Live implements Comparable<Live>{
     private String liveId = "None";
     private String instructorId;
@@ -16,6 +23,12 @@ public class Live implements Comparable<Live>{
     private final static String filePath = "./core/src/csv/Live.csv";
     public final static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH");
 
+    /**
+     * <p>Instantiate a live. The function auto collect information from csv file.</p>
+     * <p>If there is no such Id in the CSV, the function will return a live with Id equals to "none".</p>
+     *
+     * @param id ClientId
+     */
     public Live (String id){
         ArrayList<String[]> selectList = FileUtils.readCSV(filePath, new String[] {"*"});
 
@@ -37,6 +50,11 @@ public class Live implements Comparable<Live>{
         }
     }
 
+    /**
+     * Mainly use for the reflection.
+     *
+     * @param para para
+     */
     public Live(String[] para){
         this.liveId = para[0];
         this.instructorId = para[1];
