@@ -29,6 +29,7 @@ public class SceneTransform {
 	private static Scene scenePublishLivePage;
 	private static Scene sceneNewCoursePage;
 	private static Scene sceneLiveListPage;
+	private static Scene sceneCommunityPage;
 
 	private static ClientStartPageController clientStartPageController;
 	private static InstructorStartPageController instructorStartPageController;
@@ -49,6 +50,7 @@ public class SceneTransform {
 	private static PublishLivePageController publishLivePageController;
 	private static NewCoursePageController newCoursePageController;
 	private static LiveListPageController liveListPageController;
+	private static CommunityPageController communityPageController;
 
 	private static GUIDriver driver = new GUIDriver();
 	
@@ -78,6 +80,7 @@ public class SceneTransform {
 			FXMLLoader loaderPublishLivePage = new FXMLLoader(getClass().getResource("/fxml/PublishLivePageScene.fxml"));
 			FXMLLoader loaderNewCoursePage = new FXMLLoader(getClass().getResource("/fxml/NewCoursePageScene.fxml"));
 			FXMLLoader loaderLiveListPage = new FXMLLoader(getClass().getResource("/fxml/LiveListPageScene.fxml"));
+			FXMLLoader loaderCommunityPage = new FXMLLoader(getClass().getResource("/fxml/CommunityPageScene.fxml"));
 
 			sceneClientStartPage = new Scene(loaderClientStartPage.load());
 			sceneInstructorStartPage = new Scene(loaderInstructorStartPage.load());
@@ -98,6 +101,7 @@ public class SceneTransform {
 			scenePublishLivePage = new Scene(loaderPublishLivePage.load());
 			sceneNewCoursePage = new Scene(loaderNewCoursePage.load());
 			sceneLiveListPage = new Scene(loaderLiveListPage.load());
+			sceneCommunityPage = new Scene(loaderCommunityPage.load());
 
 			clientStartPageController = loaderClientStartPage.getController();
 			instructorStartPageController = loaderInstructorStartPage.getController();
@@ -118,6 +122,7 @@ public class SceneTransform {
 			publishLivePageController = loaderPublishLivePage.getController();
 			newCoursePageController = loaderNewCoursePage.getController();
 			liveListPageController = loaderLiveListPage.getController();
+			communityPageController = loaderCommunityPage.getController();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -237,6 +242,11 @@ public class SceneTransform {
 	public static void ToLiveListPage(String userId, Scene lastScene){
 		liveListPageController.initData(userId, sceneLiveListPage, lastScene, driver);
 		ToScene(sceneLiveListPage);
+	}
+
+	public static void ToCommunitytPage(String userId, Scene lastScene){
+		communityPageController.initData(userId, sceneCommunityPage, lastScene, driver);
+		ToScene(sceneCommunityPage);
 	}
 
 	// Temporary

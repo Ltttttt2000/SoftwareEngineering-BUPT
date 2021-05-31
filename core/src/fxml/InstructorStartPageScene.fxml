@@ -31,7 +31,7 @@
          </styleClass>
       </Button>
       <Label layoutX="56.0" layoutY="380.0" stylesheets="@../css/TextType.css" text="New Course" />
-      <Button fx:id="discoverButton" layoutX="236.0" layoutY="123.0" mnemonicParsing="false" prefHeight="161.0" prefWidth="161.0" stylesheets="@../css/ButtonType.css">
+      <Button fx:id="discoverButton" layoutX="236.0" layoutY="123.0" mnemonicParsing="false" onAction="#showCommunity" prefHeight="161.0" prefWidth="161.0" stylesheets="@../css/ButtonType.css">
          <styleClass>
             <String fx:value="button6" />
             <String fx:value="button-round" />

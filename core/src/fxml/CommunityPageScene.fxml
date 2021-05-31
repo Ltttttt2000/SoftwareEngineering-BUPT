@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="432.0" prefWidth="768.0" styleClass="background-pane" stylesheets="@../css/PaneType.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.CommunityPageController">
+   <children>
+      <Button layoutX="52.0" layoutY="38.0" mnemonicParsing="false" prefHeight="140.0" prefWidth="140.0" style="-fx-background-color: pink;" styleClass="button-round" stylesheets="@../css/ButtonType.css" />
+      <Label fx:id="userIdLabel" layoutX="210.0" layoutY="72.0" stylesheets="@../css/TextType.css" text="User ID: ?????">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="userLevelLabel" layoutX="210.0" layoutY="117.0" stylesheets="@../css/TextType.css" text="User Level: Member">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <ScrollPane layoutX="31.0" layoutY="191.0" prefHeight="212.0" prefWidth="712.0">
+         <content>
+            <VBox prefHeight="336.0" prefWidth="702.0">
+               <children>
+                  <AnchorPane prefHeight="86.0" prefWidth="702.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: blue;" styleClass="button-round" stylesheets="@../css/ButtonType.css" />
+                        <Label layoutX="48.0" layoutY="18.0" text="User ID: C1001">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="48.0" layoutY="37.0" prefHeight="35.0" prefWidth="632.0" text="I am very happy to express my opinion here.Here is a very friendly public platform, I hope everyone can speak freely." wrapText="true">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="575.0" layoutY="65.0" text="2021-05-28 15:32">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="86.0" prefWidth="702.0">
+                     <children>
+                        <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: green;" styleClass="button-round" stylesheets="@../css/ButtonType.css" />
+                        <Label layoutX="48.0" layoutY="18.0" text="User ID: C1002">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="48.0" layoutY="37.0" prefHeight="35.0" prefWidth="632.0" text="I am very happy to express my opinion here.Here is a very friendly public platform, I hope everyone can speak freely." wrapText="true">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="575.0" layoutY="65.0" text="2021-05-28 15:33">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <AnchorPane layoutX="461.0" layoutY="23.0" prefHeight="432.0" prefWidth="768.0" style="-fx-background-color: rgba(0,0,0,0.5);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
+            <Label layoutX="292.0" layoutY="203.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="COMING SOON!" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

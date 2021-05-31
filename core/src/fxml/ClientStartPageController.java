@@ -134,6 +134,10 @@ public class ClientStartPageController implements Initializable {
 		SceneTransform.ToUserInfoPage(userId, thisScene);
 	}
 
+	public void showCommunity(ActionEvent event) {
+		SceneTransform.ToCommunitytPage(userId, thisScene);
+	}
+
 	public void logOut(ActionEvent event){
 		SceneTransform.ToScene(lastScene);
 		driver.logout();

@@ -54,10 +54,10 @@ public class InstructorStartPageController implements Initializable {
     public void showNewCourse(ActionEvent event) {
         SceneTransform.ToNewCoursePage(userId, thisScene);
     }
-//
-//    public void showUploadCourse(ActionEvent event) {
-//        SceneTransform.ToInstructorUploadCourse(userId, driver, thisScene);
-//    }
+
+    public void showCommunity(ActionEvent event) {
+        SceneTransform.ToCommunitytPage(userId, thisScene);
+    }
 
     public void goToMyTeachingPage(ActionEvent event) {
         SceneTransform.ToMyTeachingPage(userId, thisScene);
