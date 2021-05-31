@@ -2,6 +2,13 @@ package com.iot.g89;
 
 import java.util.ArrayList;
 
+/**
+ * <p>Entity.</p>
+ * <p>Video class.</p>
+ *
+ * @version 0.5
+ * @author Medon, ly129
+ */
 public class Video {
 	private String videoId = "None";
 	//private final SimpleStringProperty VideoId;
@@ -19,7 +26,13 @@ public class Video {
 	private String fileType;
 
 	private final static String filePath = "./core/src/csv/Video.csv";
-	
+
+	/**
+	 * <p>Instantiate a video. The function auto collect information from csv file.</p>
+	 * <p>If there is no such Id in the CSV, the function will return a video with Id equals to "none".</p>
+	 *
+	 * @param id VideoId
+	 */
     public Video(String id) {
 		ArrayList<String[]> selectList = FileUtils.readCSV(filePath, new String[] {"*"});
 
@@ -45,6 +58,11 @@ public class Video {
 		}
     }
 
+	/**
+	 * Mainly use for the reflection.
+	 *
+	 * @param para para
+	 */
     public Video(String[] para){
 		this.videoId = para[0];
 		//this.VideoName = new SimpleStringProperty();
@@ -59,28 +77,6 @@ public class Video {
 		this.specificClient = para[6];
 		this.fileType = para[7];
 	}
-
-
-//	public String videoNameProperty() {
-//		return VideoName.get();
-//	}
-
-//	public SimpleStringProperty videoIdProperty() {
-//		return VideoId;
-//	}
-//
-//	public SimpleStringProperty videoTypeProperty() {
-//		return VideoType;
-//	}
-//
-//	public SimpleDoubleProperty priceProperty() {
-//		return Price;
-//	}
-//
-//	public SimpleStringProperty authorProperty() {
-//		return Author;
-//	}
-
 
 	public String getVideoId() {
 		return videoId;
@@ -125,10 +121,6 @@ public class Video {
 	public void setVideoPrice(String videoPrice) {
 		this.videoPrice = Double.parseDouble(videoPrice);
 	}
-
-//	public void setAuthor(Instructor author) {
-//		this.author = author;
-//	}
 
 	public void setSpecificClient(Client specificClient) {
 		this.specificClient = specificClient.getUserId();

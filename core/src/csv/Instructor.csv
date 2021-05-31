@@ -1,12 +1,12 @@
 userId,password,userLevel,sex,phoneNumber,loginLicense,rechargeAmount,resume,age,height,weight,chest,waist,hip,instructorMoney
-I1001,123456,Junior,Male,51578153967,true,24410.45,"Xiaoxuheng, the pride of Koreans!",70,188.0,78.16,95.9,63.9,101.9,226.13
+I1001,123456,Junior,Male,51578153967,true,24410.45,"Xiaoxuheng, the pride of Koreans!",70,188,78.16,95.9,63.9,101.9,226.13
 I1002,123456,Junior,Female,49765868657,true,21448.52,Get stronger!,35,160,52.21,81.6,54.4,86.72,309.86
 I1003,123456,Junior,Male,93458181636,true,24060.64,"Song Bao, my superman!",27,188,74.3,95.88,63.92,101.9,315.03
 I1004,123456,Senior,Male,31486671365,true,52696.14,"HIT, YYDS",74,176,73.32,89.76,59.84,95.39,451.63
 I1005,123456,Junior,Female,41825819265,true,20307.58,Wuhu!Take off!,63,151,43.21,77.01,51.34,81.84,213.72
 I1006,123456,Junior,Female,17925144131,true,20034.8,"Song Bao, my superman!",41,170,60.45,86.7,57.8,92.14,219.81
 I1007,123456,Senior,Male,11332199159,true,52248.5,"Xiaoxuheng, the pride of Koreans!",62,171,63.94,87.21,58.14,92.68,433.66
-I1008,123456,Senior,Female,84444789556,true,53206.12,Damn it! Get thinner!,62,170,61.42,86.7,57.8,92.14,406.04
+I1008,123456,Senior,Female,84444789556,true,53206.12,Get thinner!,62,170,61.42,86.7,57.8,92.14,406.04
 I1009,123456,Senior,Male,64727678672,true,51923.07,Get stronger!,70,165,58.01,84.15,56.1,89.43,330.8
 I1010,N8WeiaRykmnnz3b,Junior,Female,52223983783,true,23505,Is there anyone stronger than me?,65,157,47.58,80.07,53.38,85.09,365.72
 I1011,YcWyY1kA1EIzM,Junior,Female,61564588692,true,23525.21,"HIT, YYDS",23,151,47.01,77.01,51.34,81.84,396.81
@@ -30,7 +30,7 @@ I1028,Jxrhvo41CtWD,Normal,Female,72467622465,true,961.76,"HIT, YYDS",62,157,58.9
 I1029,XPgC44,Senior,Female,34145816234,true,50325.84,Get stronger!,52,166,59.49,84.66,56.44,89.97,411.27
 I1030,nvcDfabgsNx,Junior,Female,95287794915,true,23736.05,Wuhu!Take off!,67,172,62.69,87.72,58.48,93.22,265.18
 I1031,MrE4kyej,Senior,Male,29261983344,true,53559.8,"HIT, YYDS",44,172,67.38,87.72,58.48,93.22,458.1
-I1032,hAJagt3tt,Senior,Male,33687655415,true,50810.57,Damn it! Get thinner!,35,165,51.62,84.15,56.1,89.43,382.07
+I1032,hAJagt3tt,Senior,Male,33687655415,true,50810.57,Get thinner!,35,165,51.62,84.15,56.1,89.43,382.07
 I1033,LRgYsnVqGPhK6FCs,Senior,Male,59312882964,true,53890,Get stronger!,75,187,68.25,95.37,63.58,101.35,364.91
 I1034,OrDPzhAN6if,Normal,Male,54468177289,true,780.45,"Song Bao, my superman!",69,182,73.92,92.82,61.88,98.64,117.45
 I1035,LVopCJ,Normal,Male,11991944599,true,4487.17,Does anyone work out with me?,29,184,77.66,93.84,62.56,99.73,147.1

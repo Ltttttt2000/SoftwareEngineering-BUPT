@@ -93,7 +93,7 @@ public class GymUtils {
      * @return ArrayList
      */
     private static ArrayList<Object> selectAll(String type){
-        ArrayList<Object> returnList = new ArrayList<Object>();
+        ArrayList<Object> returnList = new ArrayList<>();
 
         String filePath = "./core/src/csv/"+ type + ".csv";
         String[] readAll = {"*"};
@@ -106,13 +106,13 @@ public class GymUtils {
         if(type.equals("Ban"))
             Collections.reverse(returnList);
         if(type.equals("Live")){
-            ArrayList<Live> liveList = new ArrayList<Live>();
+            ArrayList<Live> liveList = new ArrayList<>();
             for(Object o : returnList){
                 Live live = (Live) o;
                 liveList.add(live);
             }
             Collections.sort(liveList);
-            returnList = new ArrayList<Object>(liveList);
+            returnList = new ArrayList<>(liveList);
         }
         return returnList;
     }
@@ -154,7 +154,7 @@ public class GymUtils {
                         if(live.getDate().after(new Date())){
                             liveList.add(live);
                         }
-                        returnList = new ArrayList<Object>(liveList);
+                        returnList = new ArrayList<>(liveList);
                     }
                 }else if (Pattern.matches("[A-Za-z0-9.]+=[A-Za-z0-9.]+", para1)) {
                     String[] para2 = para1.split("=");
@@ -162,7 +162,7 @@ public class GymUtils {
                     while (iterator.hasNext()) {
                         try {
                             Object o = iterator.next();
-                            Method m = o.getClass().getMethod("get" + para2[0], null);
+                            Method m = o.getClass().getMethod("get" + para2[0]);
                             if (!(m.invoke(o).toString().equals(para2[1])))
                                 iterator.remove();
                         } catch (Exception e) {
@@ -175,7 +175,7 @@ public class GymUtils {
                     while (iterator.hasNext()) {
                         try {
                             Object o = iterator.next();
-                            Method m = o.getClass().getMethod("get" + para2[0], null);
+                            Method m = o.getClass().getMethod("get" + para2[0]);
                             if (m.invoke(o).toString().equals(para2[1]))
                                 iterator.remove();
                         } catch (Exception e) {
@@ -247,31 +247,38 @@ public class GymUtils {
     public static boolean delete(String Id){
         String type = GymUtils.typeById(Id);
         String pathRoot = "./core/src/csv/";
-        if(GymUtils.typeById(Id).equals("Client")){
-            FileUtils.deleteCSV(Id,pathRoot + "Ban.csv");
-            Client client = new Client(Id);
-            ArrayList<Object> liveList = select("Live",Id);
-            for(Object o : liveList){
-                Live live = (Live) o;
-                client.rescind(live.getLiveId());
+        switch (GymUtils.typeById(Id)) {
+            case "Client": {
+                FileUtils.deleteCSV(Id, pathRoot + "Ban.csv");
+                Client client = new Client(Id);
+                ArrayList<Object> liveList = select("Live", Id);
+                for (Object o : liveList) {
+                    Live live = (Live) o;
+                    client.rescind(live.getLiveId());
+                }
+                FileUtils.deleteCSVAll(Id, pathRoot + "PurchaseInstructor.csv", 1);
+                FileUtils.deleteCSVAll(Id, pathRoot + "PurchaseVideo.csv", 1);
+
+                break;
             }
-            FileUtils.deleteCSVAll(Id,pathRoot + "PurchaseInstructor.csv",1);
-            FileUtils.deleteCSVAll(Id,pathRoot + "PurchaseVideo.csv",1);
+            case "Instructor": {
+                FileUtils.deleteCSV(Id, pathRoot + "Ban.csv");
+                ArrayList<Object> liveList = select("Live InstructorId=" + Id);
+                for (Object o : liveList) {
+                    Live live = (Live) o;
+                    delete(live.getLiveId());
+                }
+                FileUtils.deleteCSVAll(Id, pathRoot + "PurchaseInstructor.csv", 0);
 
-        } else if(GymUtils.typeById(Id).equals("Instructor")){
-            FileUtils.deleteCSV(Id,pathRoot + "Ban.csv");
-            ArrayList<Object> liveList = select("Live InstructorId=" +Id);
-            for(Object o : liveList){
-                Live live = (Live) o;
-                delete(live.getLiveId());
+                break;
             }
-            FileUtils.deleteCSVAll(Id,pathRoot + "PurchaseInstructor.csv",0);
-
-        } else if(GymUtils.typeById(Id).equals("Live"))
-            FileUtils.deleteCSVAll(Id,pathRoot + "PurchaseLive.csv",0);
-
-         else if(GymUtils.typeById(Id).equals("Video"))
-            FileUtils.deleteCSVAll(Id,pathRoot + "PurchaseVideo.csv",0);
+            case "Live":
+                FileUtils.deleteCSVAll(Id, pathRoot + "PurchaseLive.csv", 0);
+                break;
+            case "Video":
+                FileUtils.deleteCSVAll(Id, pathRoot + "PurchaseVideo.csv", 0);
+                break;
+        }
 
         return FileUtils.deleteCSV(Id,pathRoot + type + ".csv");
     }
