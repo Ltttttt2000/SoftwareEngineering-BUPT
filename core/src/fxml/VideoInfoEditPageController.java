@@ -5,10 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.Optional;
@@ -28,7 +25,7 @@ public class VideoInfoEditPageController implements Initializable {
     private TextArea Detail;
 
     @FXML
-    private ChoiceBox<String> SpecificClient;
+    private TextField SpecificClient;
 
     // init user ID
     private String userId;
@@ -41,7 +38,6 @@ public class VideoInfoEditPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         courseType.getItems().addAll("Strength", "Relax", "HIT", "Basic Ability", "Yoga");
-        SpecificClient.getItems().addAll("Normal", "Member", "SupremeMember");
     }
 
 
@@ -55,13 +51,34 @@ public class VideoInfoEditPageController implements Initializable {
         priceValue.setText(Double.toString(video.getVideoPrice()));
         Detail.setText(video.getVideoDetail());
         courseType.getSelectionModel().select(video.getVideoType());
-        SpecificClient.getSelectionModel().select(video.getSpecificClient());
+        SpecificClient.setText(video.getSpecificClient());
     }
 
     public void confirmUpdate(ActionEvent event){
+        String id = SpecificClient.getText();
+        if(!SpecificClient.getText().equals("None")) {
+            // There is no such a client
+            if(driver.select("Client UserId=" + id).isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Specific Client Wrong");
+                alert.setHeaderText("No such a Client " + id + "!");
+                alert.setContentText("Please input either a correct Client ID or \"None\" in Specific Client text field!");
+
+                alert.showAndWait();
+            }else {// Client exist
+                doConfirmUpdate();
+                backToLastScene();
+            }
+        }else {// set None
+            doConfirmUpdate();
+            backToLastScene();
+        }
+    }
+
+    public void doConfirmUpdate(){
         String[] attrs = {"videoName", "videoType", "videoPrice", "videoDetail", "specificClient"};
         String[] values = {VideoName.getText(), courseType.getValue(), priceValue.getText(),
-                Detail.getText(), SpecificClient.getValue()};
+                Detail.getText(), SpecificClient.getText()};
         FileUtils.updateCSV4("./core/src/csv/Video.csv", video.getVideoId(), attrs, values);
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -105,6 +122,6 @@ public class VideoInfoEditPageController implements Initializable {
 
     // for back button
     public void backToLastScene(){
-        SceneTransform.ToScene(lastScene);
+        SceneTransform.ToVideoInfoPage(userId, lastScene, video.getVideoId());
     }
 }

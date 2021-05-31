@@ -70,7 +70,7 @@ public class VideoListPageController implements Initializable {
 
     public void showVideo(){
         Video chosen = tableView.getSelectionModel().getSelectedItem();
-        SceneTransform.ToVideoInfoPage("A1001", chosen);
+        SceneTransform.ToVideoInfoPage("A1001", chosen.getVideoId());
         List.closeStage();
     }
 }

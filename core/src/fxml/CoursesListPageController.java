@@ -163,7 +163,7 @@ public class CoursesListPageController implements Initializable {
         button.setGraphic(buttonPane);
 
         button.setOnAction(e ->{
-            SceneTransform.ToVideoInfoPage(curUserId, thisScene, video);
+            SceneTransform.ToVideoInfoPage(curUserId, thisScene, video.getVideoId());
         });
 
         return button;

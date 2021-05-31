@@ -213,14 +213,14 @@ public class SceneTransform {
 		ToScene(sceneRechargePage);
 	}
 
-	public static void ToVideoInfoPage(String userId, Scene lastScene, Video video){
-		videoInfoPageController.initData(userId, lastScene, driver, video, sceneVideoInfoPage);
+	public static void ToVideoInfoPage(String userId, Scene lastScene, String videoId){
+		videoInfoPageController.initData(userId, lastScene, driver, videoId, sceneVideoInfoPage);
 		ToScene(sceneVideoInfoPage);
 	}
 
 	// For Administrator
-	public static void ToVideoInfoPage(String userId, Video video){
-		videoInfoPageController.initData(userId, sceneAdminStartPage, driver, video, sceneVideoInfoPage);
+	public static void ToVideoInfoPage(String userId, String videoId){
+		videoInfoPageController.initData(userId, sceneAdminStartPage, driver, videoId, sceneVideoInfoPage);
 		ToScene(sceneVideoInfoPage);
 	}
 
@@ -269,7 +269,7 @@ public class SceneTransform {
 		storePageController.initData(userId, sceneSorePage, sceneSorePage, driver);
 		ToScene(sceneSorePage);
 	}
-	
+
 	public static void ToScene(Scene scene) {
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("GymSystem");

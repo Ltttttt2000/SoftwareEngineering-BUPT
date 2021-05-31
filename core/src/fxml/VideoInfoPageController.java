@@ -70,11 +70,11 @@ public class VideoInfoPageController implements Initializable {
     }
 
 
-    public void initData(String userId, Scene lastScene, GUIDriver driver, Video video, Scene thisScene){
+    public void initData(String userId, Scene lastScene, GUIDriver driver, String videoId, Scene thisScene){
         this.driver = driver;
         this.lastScene = lastScene;
         this.userId = userId;
-        this.video = video;
+        this.video = new Video(videoId);
         this.thisScene = thisScene;
         PurchaseVideoButton.setText("Purchase");
         PurchaseVideoButton.setDisable(false);
@@ -102,7 +102,6 @@ public class VideoInfoPageController implements Initializable {
         }
         else if(UserType.equals("Instructor")){
             if(video.getVideoUploader().equals(userId)){
-                System.out.println(userId);
                 PurchaseVideoButton.setVisible(false);
                 basicInfoEditButton.setVisible(true);
                 VideoPlayButton.setDisable(false);
@@ -137,7 +136,7 @@ public class VideoInfoPageController implements Initializable {
     }
 
     public void basicInfoEdit(ActionEvent event){
-        SceneTransform.ToVideoInfoEditPage(userId, thisScene, driver, video);
+        SceneTransform.ToVideoInfoEditPage(userId, lastScene, driver, video);
     }
 
     public void videoPlay(ActionEvent event){

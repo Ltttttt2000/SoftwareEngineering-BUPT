@@ -148,7 +148,7 @@ public class InstructorSelfCourseListPageController implements Initializable {
         button.setGraphic(buttonPane);
 
         button.setOnAction(e ->{
-            SceneTransform.ToVideoInfoPage(userId, thisScene, video);
+            SceneTransform.ToVideoInfoPage(userId, thisScene, video.getVideoId());
         });
 
         return button;
