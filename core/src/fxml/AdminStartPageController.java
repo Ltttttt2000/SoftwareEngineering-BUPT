@@ -50,6 +50,17 @@ public class AdminStartPageController implements Initializable {
         list.toUserListPage(users);
     }
 
+    public void showUserAskForUnban(ActionEvent event) {
+        Stage primaryStage = new Stage();
+        List list = new List(primaryStage, driver);
+        ArrayList<Object> objects = driver.select("Ban");
+        ArrayList<User> users = new ArrayList<User>();
+        for(Object o:objects)
+            users.add((User) o);
+
+        list.toUserListPage(users);
+    }
+
     public void showInstructor(ActionEvent event) {
         Stage primaryStage = new Stage();
         List list = new List(primaryStage, driver);
@@ -87,7 +98,12 @@ public class AdminStartPageController implements Initializable {
 
     }
 
+    public void showFutureLiveCourse(ActionEvent event) {
+
+    }
+
     public void logOut(ActionEvent event){
         SceneTransform.ToScene(lastScene);
+        driver.logout();
     }
 }

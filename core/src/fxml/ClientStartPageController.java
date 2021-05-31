@@ -136,6 +136,7 @@ public class ClientStartPageController implements Initializable {
 
 	public void logOut(ActionEvent event){
 		SceneTransform.ToScene(lastScene);
+		driver.logout();
 	}
 
 	/*-------------------------------animation functions------------------------------------*/

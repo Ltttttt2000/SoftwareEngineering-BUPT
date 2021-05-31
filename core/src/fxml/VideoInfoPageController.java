@@ -50,6 +50,9 @@ public class VideoInfoPageController implements Initializable {
     @FXML
     private Label VideoTypeLabelSupreme;
 
+    @FXML
+    private Button deleteButton;
+
     // init user ID
     private String userId;
 
@@ -73,6 +76,7 @@ public class VideoInfoPageController implements Initializable {
         PurchaseVideoButton.setText("Purchase");
         PurchaseVideoButton.setDisable(false);
         VideoPlayButton.setDisable(true);
+        deleteButton.setVisible(false);
 
         getBasicInfo(video);
     }
@@ -90,6 +94,7 @@ public class VideoInfoPageController implements Initializable {
             PurchaseVideoButton.setVisible(false);
             basicInfoEditButton.setVisible(true);
             VideoPlayButton.setDisable(false);
+            deleteButton.setVisible(true);
         }
         else if(UserType.equals("Instructor")){
             if(video.getVideoUploader().equals(userId)){
@@ -173,6 +178,25 @@ public class VideoInfoPageController implements Initializable {
 
         // only show the chosen one
         l.setVisible(true);
+    }
+
+    public void deleteVideo(ActionEvent event) {
+        if(driver.delete(video.getVideoId())){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Delete successfully");
+            alert.setHeaderText(null);
+            alert.setContentText("You have successfully deleted the course " + video.getVideoName());
+
+            alert.showAndWait();
+            backToLastScene();
+        }else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Delete Failed");
+            alert.setHeaderText(null);
+            alert.setContentText("You cannot deleted the course " + video.getVideoName());
+
+            alert.showAndWait();
+        }
     }
 
     public void backToLastScene(){

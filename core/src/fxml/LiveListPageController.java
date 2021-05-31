@@ -133,12 +133,12 @@ public class LiveListPageController implements Initializable {
             deleteButton.setDisable(true);
         }
         else{
-            Alert alert1 = new Alert(Alert.AlertType.ERROR);
-            alert1.setTitle("Error");
-            alert1.setHeaderText("Live not found!");
-            alert1.setContentText("Please choose another!");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Live not found!");
+            alert.setContentText("Please choose another!");
 
-            alert1.showAndWait();
+            alert.showAndWait();
         }
     }
 

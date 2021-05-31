@@ -44,6 +44,7 @@ public class InstructorStartPageController implements Initializable {
 
     public void logOut(ActionEvent event){
         SceneTransform.ToScene(lastScene);
+        driver.logout();
     }
 
     public void showMyInfo(ActionEvent event) {

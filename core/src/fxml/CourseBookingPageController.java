@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
@@ -27,8 +28,6 @@ public class CourseBookingPageController implements Initializable {
     private VBox instructorVBox;
     @FXML
     private VBox liveVBox;
-    @FXML
-    private Label note;
 
     private ArrayList<Object> bookedLives = new ArrayList<Object>();
 
@@ -48,7 +47,7 @@ public class CourseBookingPageController implements Initializable {
         this.thisScene = thisScene;
         this.lastScene = lastScene;
         listInstructors();
-        note.setText("");
+
         liveVBox.getChildren().clear();
     }
 
@@ -61,7 +60,7 @@ public class CourseBookingPageController implements Initializable {
     }
 
     public void listLives(String instructorId){
-        ArrayList<Object> lives = driver.select("Live InstructorId=" + instructorId);
+        ArrayList<Object> lives = driver.select("Live Filter InstructorId=" + instructorId);
         bookedLives = driver.select("Live", curUserId);
         liveVBox.getChildren().clear();
         for(Object l:lives){
@@ -203,21 +202,42 @@ public class CourseBookingPageController implements Initializable {
         button.setOnAction(e ->{
             switch(driver.purchaseOrReserve(liveId)){
                 case -1:
-                    note.setText("No such instructor/video/live"); break;
+                    showAlert("Booking Failed",
+                            "No such instructor/video/live",
+                            "Please choose another.",
+                            Alert.AlertType.ERROR);
+                    break;
                 case -2:
                     driver.rescind(liveId);
                     stackImg.setVisible(false);
-                    note.setText("Class reservation cancelled successfully");
+                    numberLabel.setText(String.valueOf(live.getNumber()) + "/20");
+                    showAlert("Reservation Cancelled",
+                            null,
+                            "Class reservation cancelled successfully",
+                            Alert.AlertType.INFORMATION);
                     break;
                 case -3:
                     break;
                 case -4:
-                    note.setText("You are not his/her student"); break;
+                    showAlert("Booking Failed",
+                            "You are not his/her student",
+                            "Please choose another.",
+                            Alert.AlertType.ERROR);
+                    break;
                 case -5:
-                    note.setText("The class you selected is full !"); break;
+                    showAlert("Booking Failed",
+                            "The class you selected is full!",
+                            "Please choose another.",
+                            Alert.AlertType.ERROR);
+                    break;
                 case 1:
                     stackImg.setVisible(true);
-                    note.setText("Successful booking of class");
+                    numberLabel.setText(String.valueOf(live.getNumber()) + "/20");
+
+                    showAlert("Booking Successful",
+                            null,
+                            "Successful booking of class",
+                            Alert.AlertType.INFORMATION);
                     break;
             }
         });
@@ -230,6 +250,15 @@ public class CourseBookingPageController implements Initializable {
     public void backToLastScene(){
         SceneTransform.ToScene(lastScene);
         instructorVBox.getChildren().clear();
+    }
+
+    public void showAlert(String title, String header, String content, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+
+        alert.showAndWait();
     }
 
     public boolean liveContains(ArrayList<Object> list, Object obj) {

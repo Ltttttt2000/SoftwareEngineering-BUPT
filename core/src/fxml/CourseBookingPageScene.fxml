@@ -109,10 +109,5 @@
             </VBox>
          </content>
       </ScrollPane>
-      <Label fx:id="note" layoutX="544.0" layoutY="18.0" text="The class you selected is full !" textFill="RED">
-         <font>
-            <Font name="Arial" size="12.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
