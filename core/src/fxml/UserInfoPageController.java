@@ -388,7 +388,7 @@ public class UserInfoPageController implements Initializable {
 			alert.showAndWait();
 			backToLastScene();
 		}else{
-			Alert alert = new Alert(Alert.AlertType.ERROR);
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setTitle("Success");
 			alert.setHeaderText("Option successful!");
 			alert.setContentText("Unban successful!");
