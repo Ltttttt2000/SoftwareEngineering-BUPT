@@ -9,8 +9,9 @@ import java.util.Iterator;
 import java.util.regex.Pattern;
 
 /**
+ * 
  *
- * @version 0.1
+ * @version 0.5
  * @author ly129
  */
 public class GymUtils {

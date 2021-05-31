@@ -6,7 +6,10 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 /**
- * This class is the
+ *
+ *
+ * @version 0.5
+ * @author ly129
  */
 public class GUIDriver {
 
@@ -23,7 +26,7 @@ public class GUIDriver {
      * @param password password
      * @return -1 no user; -2 wrong password; -3 banned; 1 success
      */
-    public int login(String userID, String password, String type){
+    public int login(String userID, String password){
 
         gymUtils.initialize(userID);
 

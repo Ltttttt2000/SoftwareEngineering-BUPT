@@ -2,6 +2,7 @@ package fxml;
 
 import com.iot.g89.GUIDriver;
 import com.iot.g89.GUIUtils;
+import com.iot.g89.GymUtils;
 import com.iot.g89.SceneTransform;
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -306,17 +307,10 @@ public class RegisterAndLoginPageController implements Initializable {
 
 		int x;
 
-		if(userId.charAt(0) == 'C')
-			type = "Client";
-		else if(userId.charAt(0) == 'I')
-			type = "Instructor";
-		else if(userId.charAt(0) == 'A')
-			type = "Administrator";
-		else
-			type = null;
+		type = GymUtils.typeById(userId);
 
 		if(type != null)
-			x = driver.login(userId, password, type);
+			x = driver.login(userId, password);
 		else
 			x = 0;
 

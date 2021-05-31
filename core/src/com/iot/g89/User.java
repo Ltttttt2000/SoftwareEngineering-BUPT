@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * @author DongWanqi
+ * AbaAba
  *
+ * @version 0.5
+ * @author DongWanqi, ly129
  */
 public abstract class User{
 
