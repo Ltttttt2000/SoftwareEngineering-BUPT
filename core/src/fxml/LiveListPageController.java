@@ -61,7 +61,7 @@ public class LiveListPageController implements Initializable {
     }
 
     public void listLives(String instructorId){
-        ArrayList<Object> lives = driver.select("Live InstructorId=" + instructorId);
+        ArrayList<Object> lives = driver.select("Live Filter InstructorId=" + instructorId);
 //        System.out.println(lives);
         liveVBox.getChildren().clear();
         for(Object l:lives){
