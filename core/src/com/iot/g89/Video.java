@@ -150,4 +150,10 @@ public class Video {
 				"name\t" + this.getVideoName() + "\n";
 	}
 
+	public boolean equals(Object o){
+		if(!o.getClass().equals(this.getClass()))
+			return false;
+		Video video = (Video) o;
+		return this.getVideoId().equals(video.getVideoId());
+	}
 }

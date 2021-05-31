@@ -1,18 +1,15 @@
-
 package com.iot.g89;
-/**
- * 
- */
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * AbaAba
+ * <p>Entity.</p>
+ * <p>User class are extended by client/instructor/admin.</p>
  *
  * @version 0.5
- * @author DongWanqi, ly129
+ * @author Dong Wanqi, ly129
  */
 public abstract class User{
 
@@ -64,12 +61,6 @@ public abstract class User{
 	 */
 	public User(String userId){
 		userInfo[0] = this.userId;
-//		this.UserId = new SimpleStringProperty(userId);
-//		this.Password = new SimpleStringProperty("None");
-//		this.Sex = new SimpleStringProperty("None");
-//		this.PhoneNumber = new SimpleStringProperty("None");
-//		this.RechargeAmount = new SimpleDoubleProperty(0);
-//		this.Age = new SimpleIntegerProperty(0);
 		userFilePath = "./core/src/csv/"+ this.getClass().getSimpleName() + ".csv";
 		
 		fileHeaders[0] = "userId";
@@ -194,19 +185,19 @@ public abstract class User{
 
 	}
 
-	 /**
- 	 * Ban this account.
- 	 */
+	/**
+	 * Ban this account.
+	 */
 	 public void banThisAccount() {
 		 this.loginLicense = false;
 		 String[] attrs = new String[] {"loginLicense"};
 		 String[] values = new String[] {String.valueOf(this.loginLicense)};
 		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
-	 
-	 /**
- 	 * Unban this account.
- 	 */
+
+	/**
+	 * Unban this account.
+	 */
 	 public void unbanThisAccount() {
 		 this.loginLicense = true;
 		 String[] attrs = new String[] {"loginLicense"};
@@ -215,50 +206,14 @@ public abstract class User{
 		 FileUtils.deleteCSV(this.userId, "./core/src/csv/Ban.csv");
 	 }
 
-
-
-//	public SimpleStringProperty userIdProperty() {
-//		return UserId;
-//	}
-
-//	public SimpleStringProperty passwordProperty() {
-//		return Password;
-//	}
-
-
-
-//	public SimpleStringProperty sexProperty() {
-//		return Sex;
-//	}
-
-
-
-//	public SimpleStringProperty phoneNumberProperty() {
-//		return PhoneNumber;
-//	}
-
-
-
-//	public SimpleDoubleProperty rechargeAmountProperty() {
-//		return RechargeAmount;
-//	}
-
-//	public SimpleIntegerProperty ageProperty() {
-//		return Age;
-//	}
-
-
 	public String getUserId() {
 		return userId;
 	}
-
 	public String getPassword() {
 		return this.password;
-		 
 	 }
 	public String getUserLevel(){
 		return this.userLevel;
-		 
 	 }
 	public String getPhoneNumber() {
 		return this.phoneNumber;
@@ -460,7 +415,9 @@ public abstract class User{
 		 FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	 }
 
-
+	/**
+	 * Apply for unban, Id will be added in the Ban.csv.
+	 */
 	public void applyForUnban() {
 		String[] para = new String[1];
 		para[0] = this.getUserId();
@@ -471,6 +428,12 @@ public abstract class User{
 		FileUtils.insertCSV("./core/src/csv/Ban.csv",paraList);
 	}
 
+	/**
+	 * Check password.
+	 *
+	 * @param password password to be checked
+	 * @return true right; false wrong
+	 */
 	public boolean passwordCheck(String password){
  		return this.getPassword().equals(password);
 	 }
@@ -479,5 +442,12 @@ public abstract class User{
 		return "id\t\t" + this.getUserId() + "\n" +
 				"level\t" + this.getUserLevel() + "\n" +
 				"sex\t\t" + this.getSex() + "\n";
+	}
+
+	public boolean equals(Object o){
+	 	if(!o.getClass().equals(this.getClass()))
+	 		return false;
+	 	User user = (User) o;
+	 	return this.getUserId().equals(user.getUserId());
 	}
 }

@@ -133,6 +133,13 @@ public class Live implements Comparable<Live>{
                 "what\t" + this.getDescription() + "\n";
     }
 
+    public boolean equals(Object o){
+        if(!o.getClass().equals(this.getClass()))
+            return false;
+        Live live = (Live) o;
+        return this.getLiveId().equals(live.getLiveId());
+    }
+
     @Override
     public int compareTo(Live live) {
         return date.compareTo(live.date);

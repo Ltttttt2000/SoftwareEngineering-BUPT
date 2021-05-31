@@ -9,7 +9,8 @@ import java.util.Iterator;
 import java.util.regex.Pattern;
 
 /**
- * 
+ * <p>Controller.</p>
+ * <p>Contains some static method.</p>
  *
  * @version 0.5
  * @author ly129
@@ -19,19 +20,7 @@ public class GymUtils {
     public User user = null;
 
     /**
-     * initialize the programme, construct a user and hold it
-     *
-     * @param userID user Id
-     */
-    public void initialize (String userID) {
-        User user = (User) constructByID(userID);
-        if(!(user.userId.equals("None"))){
-            this.user = user;
-        }
-    }
-
-    /**
-     * find last Id plus one
+     * Find last Id plus one.
      *
      * @param type String Client/Instructor/Admin/Video/Live
      * @return int
@@ -52,7 +41,7 @@ public class GymUtils {
     }
 
     /**
-     * return a object constructed by Id
+     * Return a object constructed by Id.
      *
      * @param Id client/instructor/admin/video/live Id
      * @return object
@@ -75,7 +64,7 @@ public class GymUtils {
     }
 
     /**
-     * return the type of the Id
+     * Return the type of the Id.
      *
      * @param Id client/instructor/admin/video/live Id
      * @return String
@@ -98,10 +87,10 @@ public class GymUtils {
     }
 
     /**
-     * Use for select
+     * Use for select.
      *
      * @param type String Client/Instructor/Admin/Video/Live
-     * @return ArrayList<Object>
+     * @return ArrayList
      */
     private static ArrayList<Object> selectAll(String type){
         ArrayList<Object> returnList = new ArrayList<Object>();
@@ -129,11 +118,12 @@ public class GymUtils {
     }
 
     /**
-     * select support = !=
-     * remember to use the acronym for the hump in str
+     * <p>Select.</p>
+     * <p>Support = != Filter</p>
+     * <P>Remember to use the acronym for the hump in str.</p>
      *
      * @param str sql
-     * @return ArrayList<Object>
+     * @return ArrayList
      */
     public static ArrayList<Object> select(String str){
         String[] para = str.split("( )+");
@@ -141,12 +131,12 @@ public class GymUtils {
     }
 
     /**
-     * select
-     * matryoshka doll edition
+     * <p>Select.</p>
+     * <p>Matryoshka doll edition.</p>
      *
      * @param str sql
      * @param originList ArrayList<Object> to be filter
-     * @return ArrayList<Object>
+     * @return ArrayList
      */
     public static ArrayList<Object> select(String str, ArrayList<Object> originList) {
         ArrayList<Object> returnList = new ArrayList<>(originList);
@@ -199,12 +189,12 @@ public class GymUtils {
     }
 
     /**
-     * aggregation
-     * use for purchaseXX.csv
+     * <p>Aggregation.</p>
+     * <p>Use for purchaseXX.csv.</p>
      *
      * @param type what (type like "Live")
      * @param Id whose (Id like "C1001")
-     * @return ArrayList<Object>
+     * @return ArrayList
      */
     public static ArrayList<Object> select(String type, String Id){
         ArrayList<Object> returnList = new ArrayList<>();
@@ -249,7 +239,7 @@ public class GymUtils {
     }
 
     /**
-     * delete
+     * Delete.
      *
      * @param Id client/instructor/admin/video/live Id
      * @return false not found; true success;

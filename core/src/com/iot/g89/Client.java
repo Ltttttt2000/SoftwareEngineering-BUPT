@@ -3,20 +3,33 @@ package com.iot.g89;
 import java.util.ArrayList;
 
 /**
- * client class
+ * <p>Entity.</p>
+ * <p>Client class.</p>
+ *
+ * @version 0.5
+ * @author ly129, LiuTong
  */
 public class Client extends User{
-              // Normal, Member, SupremeMember
-	//
 
+	/**
+	 * <p>Instantiate a client. The function auto collect information from csv file.</p>
+	 * <p>If there is no such Id in the CSV, the function will return a client with Id equals to "none".</p>
+	 *
+	 * @param userId ClientId
+	 */
 	public Client(String userId) {super(userId);}
+
+	/**
+	 * Mainly use for the reflection.
+	 *
+	 * @param para para
+	 */
 	public Client(String[] para) {super(para);}
 	
 	/**
 	 * Recharge money into user's account. Decide whether the user can have a upgrade based on the amount of money recharged.
 	 * 
-	 * @param money
-	 * 			The money the user recharge
+	 * @param money money to recharge
 	 */
 	public void recharge(double money) {
 		if(money < 0) {
@@ -31,9 +44,9 @@ public class Client extends User{
 	}
 
 	/**
-	 * consume
+	 * Consume.
 	 *
-	 * @param money money
+	 * @param money money actually consumed
 	 * @return -1 not enough money; -2 be banned
 	 */
 	public double consume(double money) {
@@ -56,7 +69,7 @@ public class Client extends User{
 	}
 
 	/**
-	 * check weather a instructor/video/live belongs to client
+	 * Check whether a instructor/video/live belongs to the client.
 	 *
 	 * @param Id instructor/video/live Id
 	 * @return false nope; true yep
@@ -74,8 +87,8 @@ public class Client extends User{
 
 	/**
 	 * <ul>
-	 * <li>purchase instructor or video</li>
-	 * <li>reserve a live</li>
+	 * <li>Purchase instructor or video.</li>
+	 * <li>Reserve a live.</li>
 	 * </ul>
 	 *
 	 * @param Id  instructor/video/live id
@@ -145,7 +158,7 @@ public class Client extends User{
 	}
 
 	/**
-	 * rescind
+	 * Rescind.
 	 *
 	 * @param Id  instructor/video/live id
 	 * @return false not found; true success;

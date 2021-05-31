@@ -1,26 +1,34 @@
 package com.iot.g89;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.util.*;
-import java.util.regex.Pattern;
 
 /**
- *
+ * <p>Controller.</p>
+ * <p>GUI driver.</p>
+ * <p>The logged in user instance is saved here</p>
  *
  * @version 0.5
  * @author ly129
  */
 public class GUIDriver {
 
-    private GymUtils gymUtils;
+    private User userLogin = null;
 
-    public GUIDriver(){
-        this.gymUtils = new GymUtils();
+    /**
+     * Initialize the programme, construct a user and hold it.
+     *
+     * @param userID user Id
+     */
+    public void initialize (String userID) {
+        User user = (User) GymUtils.constructByID(userID);
+        assert user != null;
+        if(!(user.userId.equals("None"))){
+            this.userLogin = user;
+        }
     }
 
     /**
-     * login
+     * Login.
      *
      * @param userID userID
      * @param password password
@@ -28,32 +36,32 @@ public class GUIDriver {
      */
     public int login(String userID, String password){
 
-        gymUtils.initialize(userID);
+        initialize(userID);
 
-        if(gymUtils.user == null){
+        if(userLogin == null){
             return -1;
         }
 
-        if(gymUtils.user.passwordCheck(password)){
-            if(gymUtils.user.loginLicense)
+        if(userLogin.passwordCheck(password)){
+            if(userLogin.loginLicense)
                 return 1;
             else
                 return -3;
         }else{
-            gymUtils.user = null;
+            userLogin = null;
             return -2;
         }
     }
 
     /**
-     * logout
+     * Logout.
      */
     public void logout(){
-        gymUtils.user = null;
+        userLogin = null;
     }
 
     /**
-     * register a new user
+     * Register a new user.
      *
      * @param parameters parameters
      * @param type type
@@ -88,7 +96,7 @@ public class GUIDriver {
      * @return -1 wrong old password; -2 old password is same as the new ones; 1 success
      */
     public int changePassword (String oldPassword, String newPassword){
-        return changePassword(oldPassword, newPassword, gymUtils.user);
+        return changePassword(oldPassword, newPassword, userLogin);
     }
 
     /**
@@ -137,7 +145,7 @@ public class GUIDriver {
      * @return true
      */
     public boolean changeBasicInfo(String[] parameters) {
-        return changeBasicInfo(parameters, gymUtils.user);
+        return changeBasicInfo(parameters, userLogin);
     }
 
     /**
@@ -180,7 +188,7 @@ public class GUIDriver {
         return false;
     }
 
-    public String getUserId(){return gymUtils.user.getUserId();}
+    public String getUserId(){return userLogin.getUserId();}
 
     public String getSex(){return getSex(getUserId());}
     public String getPhone(){return getPhone(getUserId());}
@@ -196,171 +204,99 @@ public class GUIDriver {
     public String getUserLevel(){return getUserLevel(getUserId());}
     public String getUsertype(){return getUsertype(getUserId());}
     // for instructor only
-    public String getInstructorMoney(){return String.valueOf(gymUtils.user.getInstructorMoney());}
+    public String getInstructorMoney(){return String.valueOf(userLogin.getInstructorMoney());}
 
     public String getSex(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return user.getSex();
         return null;
     }
 
     public String getPhone(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return user.getPhoneNumber();
         return null;
     }
 
     public String getRechargeAccount(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return String.format("%.2f", user.getRechargeAmount());
         return null;
     }
 
     public String getAge(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return user.getAge() + "";
         return null;
     }
 
     public String getHeight(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return user.getHeight() + "";
         return null;
     }
 
     public String getWeight(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return String.format("%.2f", user.getWeight());
         return null;
     }
 
     public String getChest(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getChest());
         return null;
     }
 
     public String getWaist(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getWaist());
         return null;
     }
 
     public String getHip(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return String.format("%.1f", user.getHip());
         return null;
     }
 
     public String getLoginLicense(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return String.valueOf(user.getLoginLicense());
         return null;
     }
 
     public String getResume(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return user.getResume();
         return null;
     }
 
     public String getUserLevel(String id){
-        User user = null;
-        if(id.charAt(0) == 'C'){
-            user = new Client(id);
-        }else if(id.charAt(0) == 'I'){
-            user = new Instructor(id);
-        }else{
-            user = new Administrator(id);
-        }
+        User user = (User) GymUtils.constructByID(id);
+        assert user != null;
         if(!(user.getUserId().equals("None")))
             return user.getUserLevel();
         return null;
@@ -378,57 +314,60 @@ public class GUIDriver {
     }
 
     /**
-     * select support = !=
-     * remember to use the acronym for the hump in str
+     * <p>Select.</p>
+     * <p>Support = != Filter.</p>
+     * <p>Remember to use the acronym for the hump in str.</p>
      *
      * @param str sql
-     * @return ArrayList<Object>
+     * @return ArrayList
      */
     public ArrayList<Object> select(String str){
         return GymUtils.select(str);
     }
 
     /**
-     * select
-     * matryoshka doll edition
+     * <p>Select.</p>
+     * <p>Support = != Filter.</p>
+     * <p>Remember to use the acronym for the hump in str.</p>
+     * <p>Matryoshka doll edition.</p>
      *
      * @param str sql
      * @param originList ArrayList<Object> to be filter
-     * @return ArrayList<Object>
+     * @return ArrayList
      */
     public ArrayList<Object> select(String str, ArrayList<Object> originList) {
         return GymUtils.select(str,originList);
     }
 
     /**
-     * aggregation
-     * use for purchaseXX.csv
+     * <p>Aggregation.</p>
+     * <p>Use for purchaseXX.csv.</p>
      *
      * @param type what (type like "Live")
      * @param Id whose (Id like "C1001")
-     * @return ArrayList<Object>
+     * @return ArrayList
      */
     public ArrayList<Object> select(String type, String Id){
         return GymUtils.select(type,Id);
     }
 
     /**
-     * recharge
+     * <p>Recharge.</p>
      *
      * @param money money
      */
     public void recharge(double money){
-        Client client = (Client) gymUtils.user;
+        Client client = (Client) userLogin;
         client.recharge(money);
     }
 
     /**
      * <ul>
-     * <li>purchase instructor or video</li>
-     * <li>reserve a live</li>
+     * <li>Purchase instructor or video.</li>
+     * <li>Reserve a live.</li>
      * </ul>
      *
-     * @param Id  instructor/video/live id
+     * @param Id instructor/video/live id
      * @return
      * <ul>
      * <li>-1 no such instructor/video/live</li>
@@ -440,22 +379,23 @@ public class GUIDriver {
      * <ul/>
      */
     public int purchaseOrReserve(String Id){
-        Client client = (Client) gymUtils.user;
+        Client client = (Client) userLogin;
         return client.purchaseOrReserve(Id);
     }
 
     /**
-     * publish live
+     * Publish a live.
      *
+     * @param para live information
      * @return -1 duplicate; -2 time traveller; 1 success
      */
     public int publishLive(String[] para){
-        Instructor instructor = (Instructor) gymUtils.user;
+        Instructor instructor = (Instructor) userLogin;
         return instructor.publishLive(para);
     }
 
     /**
-     * delete
+     * Delete.
      *
      * @param Id client/instructor/admin/video/live Id
      * @return false not found; true success;
@@ -465,7 +405,7 @@ public class GUIDriver {
     }
 
     /**
-     * auto ban
+     * Auto ban.
      *
      * @param Id client/instructor/admin Id
      * @return true ban; false unban
@@ -484,7 +424,7 @@ public class GUIDriver {
     }
 
     /**
-     * ban
+     * Ban.
      *
      * @param Id client/instructor/admin Id
      * @param ban true for ban; false for unban
@@ -499,20 +439,20 @@ public class GUIDriver {
     }
 
     /**
-     * apply for unban
+     * Apply for unban, Id will be added in the Ban.csv.
      */
     public void applyForUnban(){
-        gymUtils.user.applyForUnban();
+        userLogin.applyForUnban();
     }
 
     /**
-     * rescind
+     * Rescind.
      *
      * @param Id  instructor/video/live id
      * @return false not found; true success;
      */
     public boolean rescind(String Id){
-        Client client = (Client) gymUtils.user;
+        Client client = (Client) userLogin;
         return client.rescind(Id);
     }
 }
