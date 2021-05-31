@@ -62,7 +62,6 @@ public class InstructorUploadCourseController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         courseType.getItems().addAll("Strength", "Relax", "HIT", "Basic Ability", "Yoga");
         courseType.getSelectionModel().select("Strength");
-        SpecificClient.setText("None");
     }
 
 
@@ -70,6 +69,12 @@ public class InstructorUploadCourseController implements Initializable {
         this.driver = driver;
         this.lastScene = lastScene;
         this.userId = userId;
+
+        VideoPath.setText("");
+        VideoName.setText("");
+        priceValue.setText("");
+        Detail.setText("");
+        SpecificClient.setText("None");
     }
 
     public void backToLastScene(ActionEvent event){

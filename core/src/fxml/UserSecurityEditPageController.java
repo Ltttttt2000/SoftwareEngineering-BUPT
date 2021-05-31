@@ -103,6 +103,7 @@ public class UserSecurityEditPageController implements Initializable {
                 //success
                 case 1:
                     SceneTransform.ToRegisterAndLoginPage();
+                    driver.logout();
                     break;
             }
         }

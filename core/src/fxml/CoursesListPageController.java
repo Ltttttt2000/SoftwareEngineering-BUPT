@@ -13,6 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -33,6 +34,8 @@ public class CoursesListPageController implements Initializable {
     private ChoiceBox<String> priceRangeCB;
     @FXML
     private TextField searchingTF;
+    @FXML
+    private AnchorPane comingSoonPane;
 
     private String selection = "Video";
     private String typeSelection = "";
@@ -64,6 +67,7 @@ public class CoursesListPageController implements Initializable {
         this.thisScene = thisScene;
         this.lastScene = lastScene;
         windowNameLabel.setText(windowName);
+        comingSoonPane.setVisible(false);
         String nonSpecific = " SpecificClient=None";
         switch(windowName) {
             case "Public Courses":
@@ -73,6 +77,7 @@ public class CoursesListPageController implements Initializable {
                 list = driver.select(selection + " VideoPrice!=0.00" + nonSpecific);
                 break;
             case "History Courses":
+                comingSoonPane.setVisible(true);
                 // something
                 break;
             case "Courses Store":

@@ -53,6 +53,7 @@ public class LiveListPageController implements Initializable {
 
         userIdLabel.setText(userId);
         liveIdLabel.setText("");
+        descriptionTA.setText("");
         liveVBox.getChildren().clear();
         deleteButton.setDisable(true);
 

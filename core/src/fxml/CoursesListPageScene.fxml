@@ -17,7 +17,6 @@
                   <Label fx:id="windowNameLabel" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="Purchesed courses" BorderPane.alignment="CENTER" />
                </right>
             </BorderPane>
-            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
             <ChoiceBox fx:id="sportTypeCB" layoutX="91.0" layoutY="115.0" prefHeight="23.0" prefWidth="91.0" />
             <Label layoutX="20.0" layoutY="119.0" text="Sport Type: " />
             <TextField fx:id="searchingTF" layoutX="384.0" layoutY="115.0" prefHeight="23.0" prefWidth="176.0" promptText="Searching" />
@@ -31,5 +30,11 @@
             <VBox fx:id="videoListVBox" prefHeight="292.0" prefWidth="750.0" />
          </content>
       </ScrollPane>
+      <AnchorPane fx:id="comingSoonPane" prefHeight="432.0" prefWidth="768.0" style="-fx-background-color: rgba(0,0,0,0.5);" visible="false">
+         <children>
+            <Label layoutX="292.0" layoutY="203.0" styleClass="dark-background-label" stylesheets="@../css/TextType.css" text="COMING SOON!" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToLastScene" text="Back" />
    </children>
 </AnchorPane>
