@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -59,10 +60,6 @@ public class UserSecurityEditPageController implements Initializable {
         reNewPasswordPF.setText("");
     }
 
-    public void backToLastScene(ActionEvent event){
-        SceneTransform.ToScene(lastScene);
-    }
-
     public void savePassword(ActionEvent event){
         String oldPassword = oldPasswordTF.getText();
         String newPassword = newPasswordPF.getText();
@@ -102,8 +99,13 @@ public class UserSecurityEditPageController implements Initializable {
                     break;
                 //success
                 case 1:
-                    SceneTransform.ToRegisterAndLoginPage();
-                    driver.logout();
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Password Saved");
+                    alert.setHeaderText("Password changed!");
+                    alert.setContentText("You have successfully changed the Password!");
+
+                    alert.showAndWait();
+                    backToLastScene();
                     break;
             }
         }
@@ -118,5 +120,9 @@ public class UserSecurityEditPageController implements Initializable {
         GUIUtils.checkTextField(oldPasswordTF, true);
         GUIUtils.checkTextField(newPasswordPF, true);
         GUIUtils.checkTextField(reNewPasswordPF, true);
+    }
+
+    public void backToLastScene(){
+        SceneTransform.ToScene(lastScene);
     }
 }
