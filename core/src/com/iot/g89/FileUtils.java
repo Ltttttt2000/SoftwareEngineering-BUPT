@@ -98,12 +98,12 @@ public class FileUtils {
 	 * 
 	 * @param filePath
 	 * 			The path and name of the file to read the data from
-	 * @param cloum
+	 * @param column
 	 * 			For which columns of data to read, "*" represents all reads
 	 * @return
 	 * 		The data entry read from the CSV file
 	 */
-	public static ArrayList<String[]> readCSV(String filePath, String[] cloum) {
+	public static ArrayList<String[]> readCSV(String filePath, String[] column) {
 		ArrayList<String[]> csvList = new ArrayList<String[]>();
 		
         try {
@@ -114,20 +114,21 @@ public class FileUtils {
             csvReader.readHeaders();
             
             //Read all the data for each row
-            if(cloum[0].equals("*")) {
+            if(column[0].equals("*")) {
             	while(csvReader.readRecord()) {
             		csvList.add(csvReader.getValues());
             	}
             }
             else {
-            	String[] item = {""};
+
             	int i;
             	while(csvReader.readRecord()) {
-            		for(i = 0; i < cloum.length; i++) {
+					String[] item = new String[column.length];
+            		for(i = 0; i < column.length; i++) {
             			//Read a column of data in this row
-            			item[i] = csvReader.get(cloum[i]);
+            			item[i] = csvReader.get(column[i]);
             		}
-            		csvList.add(item);
+					csvList.add(item);
             	}
             }
         } catch (IOException e) {

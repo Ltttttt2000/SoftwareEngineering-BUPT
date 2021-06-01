@@ -76,6 +76,14 @@ public class Client extends User{
 	 */
 	public boolean checkSource(String Id){
 		String type = GymUtils.typeById(Id);
+		if(type.equals("Video")){
+			ArrayList<String[]> VIdList = FileUtils.readCSV("./core/src/csv/Video.csv"
+					,new String[]{"videoId","specificClient"});
+			for(String[] VIdR : VIdList){
+				if(VIdR[0].equals(Id) && VIdR[1].equals(this.getUserId()))
+					return true;
+			}
+		}
 		String filePath = "./core/src/csv/Purchase" + type + ".csv";
 		ArrayList<String[]> IdList = FileUtils.readCSV(filePath,new String[]{"*"});
 		for(String[] IdR : IdList){
