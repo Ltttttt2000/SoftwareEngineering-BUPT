@@ -90,6 +90,10 @@ public class CoursesListPageController implements Initializable {
                 list = driver.select(selection + " SpecificClient=" + curUserId);
                 break;
         }
+        typeSelection = "";
+        priceSelection = "";
+        searching = "";
+
         listVideos();
     }
 

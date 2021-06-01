@@ -74,6 +74,10 @@ public class InstructorListPageController implements Initializable {
                 list = driver.select("Instructor", curUserId);
                 break;
         }
+        sexSelection = "";
+        levelSelection = "";
+        idSearching = "";
+
         listInstructors();
     }
 
