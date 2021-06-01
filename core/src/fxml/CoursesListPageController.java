@@ -196,6 +196,7 @@ public class CoursesListPageController implements Initializable {
 
             searching = "";
             searchingTF.setText("");
+            System.out.println(typeSelection);
             listVideos();
         }
     };

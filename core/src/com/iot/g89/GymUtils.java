@@ -154,7 +154,7 @@ public class GymUtils {
                         }
                         returnList = new ArrayList<>(liveList);
                     }
-                }else if (Pattern.matches("[A-Za-z0-9.]+=[A-Za-z0-9.]+", para1)) {
+                }else if (Pattern.matches("[A-Za-z0-9._]+=[A-Za-z0-9._]+", para1)) {
                     String[] para2 = para1.split("=");
                     Iterator<Object> iterator = returnList.iterator();
                     while (iterator.hasNext()) {
@@ -167,7 +167,7 @@ public class GymUtils {
                             e.printStackTrace();
                         }
                     }
-                } else if (Pattern.matches("[A-Za-z0-9.]+!=[A-Za-z0-9.]+", para1)) {
+                } else if (Pattern.matches("[A-Za-z0-9._]+!=[A-Za-z0-9._]+", para1)) {
                     String[] para2 = para1.split("!=");
                     Iterator<Object> iterator = returnList.iterator();
                     while (iterator.hasNext()) {
