@@ -362,14 +362,15 @@ public class GUIDriver {
      * <li>Reserve a live.</li>
      * </ul>
      *
-     * @param Id instructor/video/live id
+     * @param Id  instructor/video/live id
      * @return
      * <ul>
-     * <li>-1 no such instructor/video/live</li>
+     * <li>-1 no instructor/video</li>
      * <li>-2 repeat purchasing</li>
      * <li>-3 money problem</li>
      * <li>-4 not the student</li>
      * <li>-5 live is full</li>
+     * <li>-6 private course</li>
      * <li>1 success</li>
      * <ul/>
      */

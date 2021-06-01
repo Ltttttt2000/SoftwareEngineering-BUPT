@@ -107,6 +107,7 @@ public class Client extends User{
 	 * <li>-3 money problem</li>
 	 * <li>-4 not the student</li>
 	 * <li>-5 live is full</li>
+	 * <li>-6 private course</li>
 	 * <li>1 success</li>
 	 * <ul/>
 	 */
@@ -128,6 +129,8 @@ public class Client extends User{
 			Video v = new Video(Id);
 			if(v.getVideoId().equals("None"))
 				return -1;
+			else if(!v.getSpecificClient().equals("None"))
+				return -6;
 			money = v.getVideoPrice();
 			filePath = filePath + "Video.csv";
 		}else {
