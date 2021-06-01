@@ -50,7 +50,7 @@ public abstract class User{
 	
 	//the arrayList content read from the file
 	ArrayList<String[]> selectList = new ArrayList<>();
-	String[] readAll = {"*"}; // 为了给readCSV传入一个读全部的 *
+	String[] readAll = {"*"};
  	
 //	PhysicalInfo physicalInfo;
 	
@@ -318,8 +318,7 @@ public abstract class User{
 		String[] values = new String[] {this.userLevel};
 		FileUtils.updateCSV4(userFilePath, this.userId, attrs, values);
 	}
-
-	//新加，记得要在子类新加一下
+	
 	public void setAndPushSex(String sex) {
 		this.sex = sex;
 		//userInfo[3] = this.sex;

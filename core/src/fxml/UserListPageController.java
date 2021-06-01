@@ -20,6 +20,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>UserInfoPageController class.</p>
+ *
+ * @version 0.5
+ * @author xiaox
+ */
+
 public class UserListPageController implements Initializable {
     @FXML
     private TableView<User> tableView;

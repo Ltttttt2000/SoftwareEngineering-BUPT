@@ -11,6 +11,14 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>VideoInfoEditPageController class.</p>
+ *
+ * @version 0.5
+ * @author medon1013
+ */
+
 public class VideoInfoEditPageController implements Initializable {
     @FXML
     private javafx.scene.control.TextField VideoName;

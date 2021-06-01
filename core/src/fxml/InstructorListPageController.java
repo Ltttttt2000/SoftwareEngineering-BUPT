@@ -22,6 +22,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>InstructorListPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class InstructorListPageController implements Initializable {
     @FXML
     private VBox instructorListVBox;
@@ -65,6 +73,7 @@ public class InstructorListPageController implements Initializable {
         windowNameLabel.setText(windowName);
         sexCB.getSelectionModel().select(0);
         levelCB.getSelectionModel().select(0);
+
         userIdTF.setText("");
         switch(windowName){
             case "Instructors Store":
@@ -188,6 +197,9 @@ public class InstructorListPageController implements Initializable {
                 sexSelection = "";
             else
                 sexSelection = "Sex=" + t1;
+
+            idSearching = "";
+            userIdTF.setText("");
             listInstructors();
         }
     };
@@ -200,6 +212,9 @@ public class InstructorListPageController implements Initializable {
                 levelSelection = "";
             else
                 levelSelection = "UserLevel=" + t1;
+
+            idSearching = "";
+            userIdTF.setText("");
             listInstructors();
         }
     };

@@ -15,10 +15,17 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>VideoInfoPageController class.</p>
+ *
+ * @version 0.5
+ * @author medon1013
+ */
+
 public class VideoInfoPageController implements Initializable {
     @FXML
     private Label VideoName;
-
 
     @FXML
     private Label VideoId;

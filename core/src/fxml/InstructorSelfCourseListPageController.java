@@ -21,6 +21,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>InstructorListPageController class.</p>
+ *
+ * @version 0.5
+ * @author medon1013, S0range
+ */
+
 public class InstructorSelfCourseListPageController implements Initializable {
     @FXML
     private ScrollPane videoPane;

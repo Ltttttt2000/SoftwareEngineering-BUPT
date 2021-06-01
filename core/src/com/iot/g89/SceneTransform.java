@@ -7,6 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * <p>Controller.</p>
+ * <p>SceneTransform class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
 public class SceneTransform {
 	private static Stage primaryStage;
 

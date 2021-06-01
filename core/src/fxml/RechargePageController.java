@@ -16,6 +16,14 @@ import javafx.scene.layout.BorderPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>RechargePageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class RechargePageController implements Initializable {
     @FXML
     private Button recharge100;

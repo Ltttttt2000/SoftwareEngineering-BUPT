@@ -20,6 +20,14 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>StorePageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class StorePageController  implements Initializable {
     @FXML
     private Button instructorStoreButton;

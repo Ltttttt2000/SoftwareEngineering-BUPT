@@ -23,6 +23,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>CourseBookingPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class CourseBookingPageController implements Initializable {
     @FXML
     private VBox instructorVBox;

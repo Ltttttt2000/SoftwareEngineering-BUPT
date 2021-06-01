@@ -21,6 +21,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>CourseListPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class CoursesListPageController implements Initializable {
     @FXML
     private ScrollPane videoPane;
@@ -54,8 +62,6 @@ public class CoursesListPageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         sportTypeCB.getItems().addAll("All", "Strength", "Relax", "HIT", "Basic Ability", "Yoga");
         priceRangeCB.getItems().addAll("All", "Free (0£)", "Paid");
-        sportTypeCB.getSelectionModel().select(0);
-        priceRangeCB.getSelectionModel().select(0);
 
         sportTypeCB.getSelectionModel().selectedItemProperty().addListener(selectType);
         priceRangeCB.getSelectionModel().selectedItemProperty().addListener(selectPrice);
@@ -66,9 +72,18 @@ public class CoursesListPageController implements Initializable {
         this.curUserId = curUserId;
         this.thisScene = thisScene;
         this.lastScene = lastScene;
+
+        sportTypeCB.getSelectionModel().select(0);
+        priceRangeCB.getSelectionModel().select(0);
+
         windowNameLabel.setText(windowName);
         comingSoonPane.setVisible(false);
+
         String nonSpecific = " SpecificClient=None";
+        typeSelection = "";
+        priceSelection = "";
+        searching = "";
+
         switch(windowName) {
             case "Public Courses":
                 list = driver.select(selection + " VideoPrice=0.00" + nonSpecific);
@@ -90,9 +105,6 @@ public class CoursesListPageController implements Initializable {
                 list = driver.select(selection + " SpecificClient=" + curUserId);
                 break;
         }
-        typeSelection = "";
-        priceSelection = "";
-        searching = "";
 
         listVideos();
     }
@@ -181,6 +193,9 @@ public class CoursesListPageController implements Initializable {
                 typeSelection = "";
             else
                 typeSelection = "VideoType=" + t1;
+
+            searching = "";
+            searchingTF.setText("");
             listVideos();
         }
     };
@@ -196,6 +211,8 @@ public class CoursesListPageController implements Initializable {
             else
                 priceSelection = "VideoPrice!=0.0";
 
+            searching = "";
+            searchingTF.setText("");
             listVideos();
         }
     };
@@ -205,12 +222,13 @@ public class CoursesListPageController implements Initializable {
 
         if(str.matches("^\\s*$"))
             searching = "";
-        else if(str.matches("I+[0-9]]") && str.length() == 5)
-            searching = "Author=" + str;
-        else if(str.matches("V+[0-9]") && str.length() == 5)
+        else if(str.matches("I\\d*") && str.length() == 5)
+            searching = "VideoUploader=" + str;
+        else if(str.matches("V\\d*") && str.length() == 5)
             searching = "VideoId=" + str;
         else
             searching = "VideoName=" + str;
+
         listVideos();
     }
 

@@ -21,6 +21,14 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>RegisterAndLoginPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class RegisterAndLoginPageController implements Initializable {
 	@FXML
 	private AnchorPane beginPane;		// the pane has two button

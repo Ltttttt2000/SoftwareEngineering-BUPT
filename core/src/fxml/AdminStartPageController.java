@@ -10,6 +10,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>AdminStartPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class AdminStartPageController implements Initializable {
     private GUIDriver driver;
     private String curUserId;

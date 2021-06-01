@@ -15,6 +15,14 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>PublishLivePageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class PublishLivePageController implements Initializable {
     @FXML
     private DatePicker liveDatePicker;

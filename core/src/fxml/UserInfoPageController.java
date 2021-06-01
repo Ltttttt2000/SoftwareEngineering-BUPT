@@ -16,6 +16,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 
+/**
+ * <p>Boundary.</p>
+ * <p>UserInfoPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class UserInfoPageController implements Initializable {
 	@FXML
 	private Button backButton;

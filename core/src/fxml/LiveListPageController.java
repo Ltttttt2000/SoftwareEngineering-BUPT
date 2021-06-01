@@ -21,6 +21,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>LiveListPageController class.</p>
+ * <p>For Instructor</p>
+ *
+ * @version 0.5
+ * @author S0range, xiaox
+ */
+
 public class LiveListPageController implements Initializable {
     @FXML
     private Label userIdLabel;

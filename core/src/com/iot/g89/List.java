@@ -9,6 +9,13 @@ import java.util.ArrayList;
 
 import fxml.*;
 
+/**
+ * <p>Controller.</p>
+ * <p>List class.</p>
+ *
+ * @version 0.5
+ * @author xiaox
+ */
 public class List {
     private static Stage primaryStage;
 

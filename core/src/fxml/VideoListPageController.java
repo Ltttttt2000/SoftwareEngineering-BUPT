@@ -20,6 +20,14 @@ import java.util.ResourceBundle;
 
 import com.iot.g89.Video;
 
+/**
+ * <p>Boundary.</p>
+ * <p>VideoListPageController class.</p>
+ *
+ * @version 0.5
+ * @author xiaox
+ */
+
 public class VideoListPageController implements Initializable {
 
 

@@ -10,6 +10,14 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>NewCoursePageController class.</p>
+ *
+ * @version 0.5
+ * @author medon1013, S0range
+ */
+
 public class NewCoursePageController implements Initializable {
     private GUIDriver driver;
     private String userId;

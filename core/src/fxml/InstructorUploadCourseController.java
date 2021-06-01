@@ -22,6 +22,14 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>InstructorUploadCourseController class.</p>
+ *
+ * @version 0.5
+ * @author medon1013
+ */
+
 public class InstructorUploadCourseController implements Initializable {
     @FXML
     private javafx.scene.control.Button Choose;

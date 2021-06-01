@@ -15,6 +15,14 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>UserSecurityEditPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class UserSecurityEditPageController implements Initializable {
     private String userId;
 

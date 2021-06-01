@@ -17,6 +17,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
+/**
+ * <p>Boundary.</p>
+ * <p>InstructorStartPageController class.</p>
+ *
+ * @version 0.5
+ * @author medon1013, S0range
+ */
+
 public class InstructorStartPageController implements Initializable {
 
     @FXML

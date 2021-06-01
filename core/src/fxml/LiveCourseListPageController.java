@@ -20,6 +20,15 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>LiveCourseListPageController class.</p>
+ * <p>For Client</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class LiveCourseListPageController implements Initializable {
     @FXML
     private Button deleteButton;

@@ -19,6 +19,14 @@ import javafx.util.Duration;
 
 import javax.swing.*;
 
+/**
+ * <p>Boundary.</p>
+ * <p>ClientStartPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class ClientStartPageController implements Initializable {
 	@FXML
 	private Label userIdLabel;

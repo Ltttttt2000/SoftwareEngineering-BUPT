@@ -13,6 +13,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>MyTeachingPageController class.</p>
+ *
+ * @version 0.5
+ * @author medon1013, S0range
+ */
+
 public class MyTeachingPageController implements Initializable {
 
     private String curUserId;

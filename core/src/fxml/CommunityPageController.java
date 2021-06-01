@@ -10,6 +10,14 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * <p>Boundary.</p>
+ * <p>CommunityPageController class.</p>
+ *
+ * @version 0.5
+ * @author S0range
+ */
+
 public class CommunityPageController implements Initializable {
     @FXML
     private Label userIdLabel;
