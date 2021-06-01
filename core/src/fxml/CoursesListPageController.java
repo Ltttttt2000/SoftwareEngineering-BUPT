@@ -60,7 +60,7 @@ public class CoursesListPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        sportTypeCB.getItems().addAll("All", "Strength", "Relax", "HIT", "Basic Ability", "Yoga");
+        sportTypeCB.getItems().addAll("All", "Strength", "Relax", "HIT", "Basic_Ability", "Yoga");
         priceRangeCB.getItems().addAll("All", "Free (0£)", "Paid");
 
         sportTypeCB.getSelectionModel().selectedItemProperty().addListener(selectType);
@@ -86,10 +86,10 @@ public class CoursesListPageController implements Initializable {
 
         switch(windowName) {
             case "Public Courses":
-                list = driver.select(selection + " VideoPrice=0.00" + nonSpecific);
+                list = driver.select(selection + " VideoPrice=0.0" + nonSpecific);
                 break;
             case "Paid Courses":
-                list = driver.select(selection + " VideoPrice!=0.00" + nonSpecific);
+                list = driver.select(selection + " VideoPrice!=0.0" + nonSpecific);
                 break;
             case "History Courses":
                 comingSoonPane.setVisible(true);

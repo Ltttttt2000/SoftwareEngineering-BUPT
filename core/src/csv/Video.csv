@@ -1,8 +1,131 @@
 videoId,videoName,videoType,videoPrice,videoUploader,videoDetail,specificClient,fileType
-V1001,wuhu,HIT,20.0,I1001,I love Jinlun,None,mp4
-V1002,DSM,HIT,0.00,I1001,DSM Fuck me,None,mp4
-V1003,DSM,HIT,20.00,I1001,DSM hhh,C1001,mp4
-V1004,Stretch vertebrae science to improve hump,Relax,20,I1002,"Here's a very simple and effective stretching exercise that you can do anytime, anywhere.This will help prevent and improve hunchback and round shoulders.You'll notice that your muscles and joints will become more flexible.Your body will also be healthier.",C1001,mp4
-V1005,How to be Muscle Jinlun,Strength,20,I1003,Do you envy the figure of the Jinlun? You can also insist on exercising.,None,mp4
-V1006,Muscle Jinlun,Strength,10,I1001,wuhu,C1001,mp4
-V1007,Relax yourself!,Relax,10,I1001,"In this course, you can relax yourself.",None,mp4
+V1001,Advanced_Relax,Basic_Ability,288,I1004,Advanced Relax Can hep you to make you more comfortable,C1079,mp4V1002,Home,HIT,0.00,I1006,Home  Can hep you to gain you more muscle and make you healthier,None,mp4
+V1002,Home__,Strength,314.19,I1008,Home__ Can hep you to make you look better and reduce your weight,None,mp4
+V1003,Home_Core_Relax,Basic_Ability,471.08,I1019,Home_Core_Relax Can hep you to make you more comfortable and gain you more muscle,None,mp4
+V1004,Home__Relax,HIT,450.18,I1032,Home__Relax Can hep you to make you look better,None,mp4
+V1005,Intense_Arm_Relax,Relax,35.59,I1009,Intense_Arm_Relax Can hep you to reduce your fat and gain you more muscle,None,mp4
+V1006,Easy_Stamina_Relax,Basic_Ability,0.00,I1037,Easy_Stamina_Relax Can hep you to make you healthier and reduce your fat,None,mp4
+V1007,6_Mins_Arm_Workout,Basic_Ability,0.00,I1039,6_Mins_Arm_Workout Can hep you to gain you more muscle and reduce your fat,None,mp4
+V1008,Intense_Arm_,Strength,222.27,I1030,Intense_Arm_ Can hep you to gain you more muscle,None,mp4
+V1009,Easy_Stamina_Enhance,HIT,156.85,I1045,Easy_Stamina_Enhance Can hep you to gain you more muscle,None,mp4
+V1010,_Arm_Workout,HIT,478.13,I1017,_Arm_Workout Can hep you to make you look better and reduce your fat,None,mp4
+V1011,Home__,HIT,299.45,I1008,Home__ Can hep you to reduce your fat and make you look better,C1118,mp4
+V1012,Intense_Core_Training,Yoga,0.00,I1007,Intense_Core_Training Can hep you to make you healthier and gain you more muscle,None,mp4
+V1013,Home_Body_Workout,Yoga,99.57,I1048,Home_Body_Workout Can hep you to reduce your fat and make you look better,None,mp4
+V1014,Home_Core_Relax,Relax,203.14,I1016,Home_Core_Relax Can hep you to make you more comfortable and reduce your weight,None,mp4
+V1015,Home_Leg_Enhance,Strength,376.37,I1005,Home_Leg_Enhance Can hep you to make you more comfortable and gain you more muscle,None,mp4
+V1016,Home_Core_Relax,Basic_Ability,0.00,I1030,Home_Core_Relax Can hep you to make you more comfortable and make you look better,None,mp4
+V1017,Advanced_Core_Workout,Relax,406.08,I1047,Advanced_Core_Workout Can hep you to make you look better and make you more comfortable,None,mp4
+V1018,6_Mins_Stamina_Relax,Basic_Ability,0.00,I1009,6_Mins_Stamina_Relax Can hep you to make you healthier and make you look better,None,mp4
+V1019,Easy__Training,Basic_Ability,0.00,I1032,Easy__Training Can hep you to make you healthier,None,mp4
+V1020,Intense_Stamina_Workout,Strength,0.00,I1031,Intense_Stamina_Workout Can hep you to make you more comfortable and reduce your weight,None,mp4
+V1021,Easy_Arm_Workout,HIT,0.00,I1040,Easy_Arm_Workout Can hep you to make you look better and make you healthier,None,mp4
+V1022,Home_Stamina_Training,Yoga,99.63,I1019,Home_Stamina_Training Can hep you to reduce your fat and make you look better,None,mp4
+V1023,_Leg_Workout,Basic_Ability,231.07,I1016,_Leg_Workout Can hep you to reduce your weight and make you healthier,C1113,mp4
+V1024,Intense_Stamina_Enhance,Relax,397.73,I1029,Intense_Stamina_Enhance Can hep you to make you look better and gain you more muscle,None,mp4
+V1025,6_Mins_Stamina_Relax,Relax,73.21,I1049,6_Mins_Stamina_Relax Can hep you to make you more comfortable and make you healthier,None,mp4
+V1026,Easy_Leg_,Strength,165.67,I1023,Easy_Leg_ Can hep you to reduce your weight,None,mp4
+V1027,Easy_Body_Workout,HIT,89.19,I1026,Easy_Body_Workout Can hep you to reduce your weight and gain you more muscle,None,mp4
+V1028,Easy_Arm_,Strength,323.92,I1048,Easy_Arm_ Can hep you to make you more comfortable and make you healthier,None,mp4
+V1029,Advanced_Body_Workout,HIT,0.00,I1011,Advanced_Body_Workout Can hep you to make you look better and reduce your fat,None,mp4
+V1030,Intense__Enhance,Relax,0.00,I1037,Intense__Enhance Can hep you to reduce your weight,None,mp4
+V1031,Advanced_Leg_Relax,Yoga,56.59,I1009,Advanced_Leg_Relax Can hep you to reduce your fat and make you look better,None,mp4
+V1032,Easy_Core_Relax,Basic_Ability,0.00,I1008,Easy_Core_Relax Can hep you to make you healthier and reduce your fat,None,mp4
+V1033,6_Mins_Leg_Workout,Strength,0.00,I1046,6_Mins_Leg_Workout Can hep you to reduce your fat,None,mp4
+V1034,6_Mins_Stamina_Enhance,Yoga,0.00,I1029,6_Mins_Stamina_Enhance Can hep you to reduce your weight and reduce your fat,None,mp4
+V1035,Advanced__,Relax,0.00,I1008,Advanced__ Can hep you to reduce your weight,None,mp4
+V1036,Easy_Leg_Workout,Strength,0.00,I1038,Easy_Leg_Workout Can hep you to make you healthier and reduce your weight,None,mp4
+V1037,6_Mins_Body_,Relax,278.35,I1026,6_Mins_Body_ Can hep you to reduce your fat and make you look better,None,mp4
+V1038,Home__Workout,Relax,236.55,I1013,Home__Workout Can hep you to reduce your weight,None,mp4
+V1039,Advanced_Leg_,Basic_Ability,242.62,I1027,Advanced_Leg_ Can hep you to make you look better,None,mp4
+V1040,Home__Enhance,Relax,0.00,I1008,Home__Enhance Can hep you to make you more comfortable and reduce your weight,None,mp4
+V1041,_Leg_Relax,Basic_Ability,0.00,I1010,_Leg_Relax Can hep you to make you more comfortable,C1189,mp4
+V1042,Easy__Training,Yoga,485.68,I1026,Easy__Training Can hep you to make you healthier and make you look better,C1102,mp4
+V1043,Intense_Core_Enhance,Strength,479.54,I1050,Intense_Core_Enhance Can hep you to make you more comfortable and make you healthier,None,mp4
+V1044,6_Mins_Arm_Relax,Relax,259.37,I1038,6_Mins_Arm_Relax Can hep you to reduce your weight and reduce your fat,None,mp4
+V1045,6_Mins_Body_Workout,HIT,242.41,I1035,6_Mins_Body_Workout Can hep you to make you look better and make you more comfortable,None,mp4
+V1046,6_Mins_Arm_Relax,Yoga,434.30,I1006,6_Mins_Arm_Relax Can hep you to make you look better and reduce your weight,C1167,mp4
+V1047,6_Mins_Body_Training,Strength,0.00,I1041,6_Mins_Body_Training Can hep you to gain you more muscle and reduce your fat,None,mp4
+V1048,6_Mins_Core_Workout,Relax,0.00,I1027,6_Mins_Core_Workout Can hep you to make you more comfortable and reduce your weight,C1053,mp4
+V1049,Advanced_Leg_Relax,Yoga,0.00,I1039,Advanced_Leg_Relax Can hep you to make you healthier and make you look better,C1127,mp4
+V1050,_Body_Enhance,Yoga,0.00,I1018,_Body_Enhance Can hep you to make you more comfortable and make you look better,None,mp4
+V1051,_Arm_Relax,Yoga,0.00,I1032,_Arm_Relax Can hep you to make you healthier and reduce your fat,None,mp4
+V1052,6_Mins__Workout,Basic_Ability,393.06,I1045,6_Mins__Workout Can hep you to gain you more muscle and make you more comfortable,C1194,mp4
+V1053,Advanced_Leg_Workout,Basic_Ability,494.72,I1027,Advanced_Leg_Workout Can hep you to gain you more muscle and reduce your fat,C1018,mp4
+V1054,Easy_Core_Training,Yoga,162.34,I1043,Easy_Core_Training Can hep you to gain you more muscle and make you look better,C1002,mp4
+V1055,Advanced__,Basic_Ability,0.00,I1033,Advanced__ Can hep you to make you more comfortable and make you healthier,None,mp4
+V1056,_Stamina_,Relax,0.00,I1004,_Stamina_ Can hep you to make you look better,None,mp4
+V1057,Home_Leg_Enhance,Strength,0.00,I1023,Home_Leg_Enhance Can hep you to make you more comfortable and reduce your fat,C1011,mp4
+V1058,_Core_Workout,Relax,0.00,I1029,_Core_Workout Can hep you to make you healthier and make you more comfortable,None,mp4
+V1059,Easy_Arm_Enhance,Yoga,0.00,I1043,Easy_Arm_Enhance Can hep you to make you more comfortable,C1138,mp4
+V1060,_Stamina_,HIT,0.00,I1009,_Stamina_ Can hep you to make you more comfortable,C1060,mp4
+V1061,Intense_Stamina_Training,Strength,0.00,I1041,Intense_Stamina_Training Can hep you to make you more comfortable and reduce your fat,C1009,mp4
+V1062,_Body_Enhance,Basic_Ability,203.50,I1005,_Body_Enhance Can hep you to reduce your fat and reduce your weight,None,mp4
+V1063,_Arm_Enhance,HIT,27.11,I1019,_Arm_Enhance Can hep you to reduce your fat and gain you more muscle,None,mp4
+V1064,Home_Arm_Relax,Strength,108.24,I1025,Home_Arm_Relax Can hep you to reduce your weight,C1102,mp4
+V1065,Home_Core_Relax,Relax,125.23,I1013,Home_Core_Relax Can hep you to reduce your fat and reduce your weight,C1100,mp4
+V1066,_Core_Relax,Basic_Ability,0.00,I1042,_Core_Relax Can hep you to make you healthier and reduce your fat,None,mp4
+V1067,6_Mins_Core_Training,Basic_Ability,0.00,I1029,6_Mins_Core_Training Can hep you to reduce your fat and reduce your weight,None,mp4
+V1068,Intense__Workout,Strength,0.00,I1044,Intense__Workout Can hep you to gain you more muscle and reduce your fat,None,mp4
+V1069,__Workout,Yoga,0.00,I1015,__Workout Can hep you to make you look better and reduce your weight,None,mp4
+V1070,6_Mins_Arm_Relax,Basic_Ability,276.46,I1026,6_Mins_Arm_Relax Can hep you to reduce your fat and reduce your weight,None,mp4
+V1071,Intense_Stamina_Workout,Basic_Ability,230.94,I1006,Intense_Stamina_Workout Can hep you to reduce your fat and make you look better,None,mp4
+V1072,Advanced__Training,Strength,0.00,I1034,Advanced__Training Can hep you to make you healthier and reduce your fat,None,mp4
+V1073,Advanced_Core_,Relax,11.41,I1044,Advanced_Core_ Can hep you to make you healthier and reduce your fat,C1034,mp4
+V1074,Intense_Arm_Relax,Strength,0.00,I1002,Intense_Arm_Relax Can hep you to reduce your weight and reduce your fat,None,mp4
+V1075,Intense__,Strength,0.00,I1010,Intense__ Can hep you to make you look better and gain you more muscle,None,mp4
+V1076,6_Mins_Arm_Enhance,Yoga,0.00,I1020,6_Mins_Arm_Enhance Can hep you to gain you more muscle and make you look better,None,mp4
+V1077,Home__Enhance,HIT,140.97,I1042,Home__Enhance Can hep you to make you more comfortable and reduce your weight,C1093,mp4
+V1078,Intense_Leg_Training,Relax,400.06,I1012,Intense_Leg_Training Can hep you to make you look better and make you healthier,None,mp4
+V1079,6_Mins_Arm_,HIT,0.00,I1002,6_Mins_Arm_ Can hep you to make you healthier and reduce your fat,None,mp4
+V1080,Advanced_Stamina_Enhance,Yoga,0.00,I1046,Advanced_Stamina_Enhance Can hep you to make you more comfortable and reduce your fat,None,mp4
+V1081,6_Mins_Arm_Training,Yoga,481.73,I1005,6_Mins_Arm_Training Can hep you to reduce your fat and reduce your weight,None,mp4
+V1082,6_Mins_Body_Enhance,Basic_Ability,0.00,I1010,6_Mins_Body_Enhance Can hep you to gain you more muscle and make you healthier,C1002,mp4
+V1083,Home_Body_Training,Relax,0.00,I1011,Home_Body_Training Can hep you to gain you more muscle,None,mp4
+V1084,Easy__,Relax,0.00,I1013,Easy__ Can hep you to make you more comfortable,C1006,mp4
+V1085,Advanced_Leg_Workout,Relax,472.79,I1048,Advanced_Leg_Workout Can hep you to make you healthier and gain you more muscle,C1174,mp4
+V1086,6_Mins_Body_Relax,Strength,353.53,I1044,6_Mins_Body_Relax Can hep you to reduce your fat and make you look better,None,mp4
+V1087,_Leg_Enhance,Yoga,161.19,I1004,_Leg_Enhance Can hep you to gain you more muscle,None,mp4
+V1088,Intense_Core_Relax,Basic_Ability,468.98,I1013,Intense_Core_Relax Can hep you to reduce your weight and make you more comfortable,None,mp4
+V1089,6_Mins__Enhance,Yoga,380.07,I1004,6_Mins__Enhance Can hep you to make you healthier and gain you more muscle,None,mp4
+V1090,Intense_Core_Relax,Strength,0.00,I1007,Intense_Core_Relax Can hep you to gain you more muscle and reduce your weight,None,mp4
+V1091,Advanced__Relax,Relax,323.80,I1046,Advanced__Relax Can hep you to make you look better,C1068,mp4
+V1092,Easy_Leg_,Strength,466.74,I1003,Easy_Leg_ Can hep you to make you healthier and gain you more muscle,None,mp4
+V1093,Advanced_Body_Enhance,Relax,471.78,I1023,Advanced_Body_Enhance Can hep you to make you look better and make you healthier,None,mp4
+V1094,Intense_Body_Relax,HIT,478.73,I1008,Intense_Body_Relax Can hep you to reduce your fat and reduce your weight,None,mp4
+V1095,Easy_Stamina_Enhance,HIT,0.00,I1016,Easy_Stamina_Enhance Can hep you to make you healthier and make you more comfortable,C1042,mp4
+V1096,Easy_Body_Relax,HIT,134.05,I1045,Easy_Body_Relax Can hep you to make you healthier,None,mp4
+V1097,6_Mins_Stamina_Relax,Strength,0.00,I1034,6_Mins_Stamina_Relax Can hep you to make you healthier and make you look better,None,mp4
+V1098,Easy_Body_Enhance,Yoga,332.10,I1027,Easy_Body_Enhance Can hep you to reduce your fat and make you healthier,None,mp4
+V1099,_Body_Workout,Relax,0.00,I1025,_Body_Workout Can hep you to make you healthier and reduce your weight,None,mp4
+V1100,Home__,Relax,236.66,I1047,Home__ Can hep you to gain you more muscle,None,mp4
+V1101,Advanced_Leg_Relax,Strength,411.98,I1012,Advanced_Leg_Relax Can hep you to make you look better and reduce your weight,C1185,mp4
+V1102,Easy__Workout,Basic_Ability,0.00,I1019,Easy__Workout Can hep you to make you healthier and make you look better,C1146,mp4
+V1103,_Arm_Workout,Yoga,0.00,I1009,_Arm_Workout Can hep you to reduce your weight and make you healthier,None,mp4
+V1104,Advanced_Arm_Relax,HIT,0.00,I1007,Advanced_Arm_Relax Can hep you to make you healthier and reduce your weight,None,mp4
+V1105,6_Mins__Relax,Basic_Ability,0.00,I1048,6_Mins__Relax Can hep you to gain you more muscle and reduce your fat,C1138,mp4
+V1106,Advanced__Enhance,Relax,493.31,I1036,Advanced__Enhance Can hep you to make you look better,None,mp4
+V1107,Easy__Workout,Basic_Ability,0.00,I1024,Easy__Workout Can hep you to gain you more muscle and make you look better,C1158,mp4
+V1108,Advanced_Stamina_Workout,Relax,477.71,I1014,Advanced_Stamina_Workout Can hep you to reduce your weight and make you look better,C1047,mp4
+V1109,_Core_Training,Relax,448.62,I1025,_Core_Training Can hep you to make you healthier and reduce your fat,None,mp4
+V1110,Intense_Body_Training,Strength,0.00,I1029,Intense_Body_Training Can hep you to reduce your fat,None,mp4
+V1111,Home__Workout,Basic_Ability,194.92,I1019,Home__Workout Can hep you to reduce your weight and reduce your fat,C1072,mp4
+V1112,Advanced_Body_,HIT,0.00,I1037,Advanced_Body_ Can hep you to gain you more muscle,None,mp4
+V1113,6_Mins_Body_Relax,Strength,0.00,I1044,6_Mins_Body_Relax Can hep you to reduce your weight and make you look better,None,mp4
+V1114,Advanced__Workout,Strength,154.07,I1021,Advanced__Workout Can hep you to reduce your fat and make you more comfortable,C1148,mp4
+V1115,Home__Enhance,Yoga,362.94,I1025,Home__Enhance Can hep you to make you healthier and reduce your weight,None,mp4
+V1116,_Leg_Relax,Basic_Ability,128.03,I1036,_Leg_Relax Can hep you to make you more comfortable and make you healthier,None,mp4
+V1117,Intense__Training,Basic_Ability,393.43,I1015,Intense__Training Can hep you to make you healthier,C1141,mp4
+V1118,Advanced_Core_Relax,Yoga,0.00,I1015,Advanced_Core_Relax Can hep you to make you more comfortable and reduce your fat,None,mp4
+V1119,Easy_Body_Enhance,Relax,0.00,I1007,Easy_Body_Enhance Can hep you to make you look better and reduce your fat,C1095,mp4
+V1120,Intense_Leg_,Yoga,56.92,I1006,Intense_Leg_ Can hep you to make you healthier and reduce your fat,None,mp4
+V1121,Home_Stamina_Training,Yoga,0.00,I1007,Home_Stamina_Training Can hep you to make you look better,None,mp4
+V1122,_Leg_Relax,Basic_Ability,0.00,I1010,_Leg_Relax Can hep you to gain you more muscle and make you healthier,C1105,mp4
+V1123,Intense_Core_Enhance,Relax,43.19,I1028,Intense_Core_Enhance Can hep you to make you healthier and gain you more muscle,C1160,mp4
+V1124,Home_Stamina_Enhance,Strength,0.00,I1021,Home_Stamina_Enhance Can hep you to reduce your weight and gain you more muscle,None,mp4
+V1125,Advanced_Stamina_Workout,HIT,429.53,I1046,Advanced_Stamina_Workout Can hep you to reduce your fat and make you look better,None,mp4
+V1126,6_Mins__Workout,Basic_Ability,405.98,I1025,6_Mins__Workout Can hep you to gain you more muscle and make you look better,C1149,mp4
+V1127,Home_Body_Relax,HIT,443.74,I1047,Home_Body_Relax Can hep you to reduce your fat,None,mp4
+V1128,_Leg_,Relax,50.98,I1033,_Leg_ Can hep you to make you more comfortable and make you healthier,None,mp4
+V1129,_Body_Enhance,Relax,0.00,I1005,_Body_Enhance Can hep you to gain you more muscle and reduce your fat,None,mp4
+V1130,Easy_Stamina_,Strength,269.79,I1038,Easy_Stamina_ Can hep you to reduce your weight and reduce your fat,None,mp4

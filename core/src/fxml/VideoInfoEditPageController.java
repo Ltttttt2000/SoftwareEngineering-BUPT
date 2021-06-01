@@ -45,7 +45,7 @@ public class VideoInfoEditPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        courseType.getItems().addAll("Strength", "Relax", "HIT", "Basic Ability", "Yoga");
+        courseType.getItems().addAll("Strength", "Relax", "HIT", "Basic_Ability", "Yoga");
     }
 
 
