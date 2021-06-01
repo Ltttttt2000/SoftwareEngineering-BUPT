@@ -114,6 +114,11 @@ public class Live implements Comparable<Live>{
         FileUtils.updateCSV4(filePath, this.liveId, attrs, values);
     }
 
+    /**
+     * Check duplicate.
+     *
+     * @return true yep; false nop
+     */
     public boolean duplicateChecking(){
         ArrayList<String[]> allList = FileUtils.readCSV(filePath, new String[]{"*"});
         for(String[] para : allList){
@@ -124,9 +129,9 @@ public class Live implements Comparable<Live>{
     }
 
     /**
-     * insertToCSV
+     * Insert to CSV.
      *
-     * @return true success; false duplicate;
+     * @return -1 duplicate; 1 success
      */
     public int insertToCSV(){
         if(duplicateChecking())

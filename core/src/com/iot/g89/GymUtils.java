@@ -17,8 +17,6 @@ import java.util.regex.Pattern;
  */
 public class GymUtils {
 
-    public User user = null;
-
     /**
      * Find last Id plus one.
      *

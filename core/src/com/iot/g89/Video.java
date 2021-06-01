@@ -7,20 +7,14 @@ import java.util.ArrayList;
  * <p>Video class.</p>
  *
  * @version 0.5
- * @author Medon, ly129
+ * @author ly129, Medon
  */
 public class Video {
 	private String videoId = "None";
-	//private final SimpleStringProperty VideoId;
 	private String videoName = "Stay fit and be strong";
-	//private final SimpleStringProperty VideoName;
 	private String videoType = "Default";
-	//private final SimpleStringProperty VideoType
-
 	private double videoPrice;
-	//private final SimpleDoubleProperty Price;
 	private String videoUploader;
-	//private final SimpleStringProperty Author;
 	private String videoDetail;
 	private String specificClient;
 	private String fileType;
@@ -39,15 +33,10 @@ public class Video {
 		if(selectList.size() != 0) {
 			for (String[] para : selectList) {
 				if (para[0].equals(id)) {
-					//this.VideoId = new SimpleStringProperty(videoId);
 					this.videoId = para[0];
-					//this.VideoName = new SimpleStringProperty();
 					this.videoName = para[1];
-					//this.VideoType = new SimpleStringProperty("Default");
 					this.videoType = para[2];
-					//this.Price = new SimpleDoubleProperty(0.0);
 					this.videoPrice = Double.parseDouble(para[3]);
-					//this.Author = new SimpleStringProperty("Somebody");
 					this.videoUploader = para[4];
 					this.videoDetail = para[5];
 					this.specificClient = para[6];
@@ -65,13 +54,9 @@ public class Video {
 	 */
     public Video(String[] para){
 		this.videoId = para[0];
-		//this.VideoName = new SimpleStringProperty();
 		this.videoName = para[1];
-		//this.VideoType = new SimpleStringProperty("Default");
 		this.videoType = para[2];
-		//this.Price = new SimpleDoubleProperty(0.0);
 		this.videoPrice = Double.parseDouble(para[3]);
-		//this.Author = new SimpleStringProperty("Somebody");
 		this.videoUploader = para[4];
 		this.videoDetail = para[5];
 		this.specificClient = para[6];

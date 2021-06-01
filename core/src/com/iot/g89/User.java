@@ -14,22 +14,16 @@ import java.util.Arrays;
 public abstract class User{
 
 	protected String userId = "None";
-	//private final SimpleStringProperty UserId;
 	protected String password = "None";
-	//private final SimpleStringProperty Password;
 	protected String userLevel = "Normal";
 	protected String sex = "None";
-	//private final SimpleStringProperty Sex;
 	protected String phoneNumber = "None";
-	//private final SimpleStringProperty PhoneNumber;
 	protected Boolean loginLicense = true;
-	protected double rechargeAmount = 0;      //the total money in the account
-	//private final SimpleDoubleProperty RechargeAmount;
-	protected String resume = "None";  //for instructor
+	protected double rechargeAmount = 0;	//the total money in the account
+	protected String resume = "None";		//for instructor
 	
 	//physicalInfo
 	protected int age = 0;
-	//private final SimpleIntegerProperty Age;
 	protected double height = 0;
 	protected double weight = 0;
 	protected double chest = 0;
@@ -117,36 +111,21 @@ public abstract class User{
 
 					this.userId = userId;
 					this.password = selectList.get(entry)[1];
-					//userInfo[1] = this.password;
 					this.userLevel = selectList.get(entry)[2];
-					//userInfo[2] = this.userType;
 					this.sex = selectList.get(entry)[3];
-					//userInfo[3] = this.sex;
 					this.phoneNumber = selectList.get(entry)[4];
-					//userInfo[4] = this.phoneNumber;
 					this.loginLicense = Boolean.valueOf(selectList.get(entry)[5]);
-					//userInfo[5] = String.valueOf(this.loginLicense);
 					this.rechargeAmount = Double.parseDouble(selectList.get(entry)[6]);
-					//userInfo[6] = String.valueOf(this.rechargeAmount);
 					this.resume = selectList.get(entry)[7];
-					//userInfo[7] = this.resume;
 
 					this.age = Integer.parseInt(selectList.get(entry)[8]);
-					//userPhysical[1] = Integer.toString(this.age);
 					this.height = Double.parseDouble(selectList.get(entry)[9]);
-					//userPhysical[2] = Double.toString(this.height);
 					this.weight = Double.parseDouble(selectList.get(entry)[10]);
-					//userPhysical[3] = Double.toString(this.weight);
 					this.chest = Double.parseDouble(selectList.get(entry)[11]);
-					//userPhysical[4] = Double.toString(this.chest);
 					this.waist = Double.parseDouble(selectList.get(entry)[12]);
-					//userPhysical[5] = Double.toString(this.waist);
 					this.hip = Double.parseDouble(selectList.get(entry)[13]);
-					//userPhysical[6] = Double.toString(this.hip);
-
 				}
 			}
-
 		}
 	}
 
@@ -169,8 +148,6 @@ public abstract class User{
 		this.chest = Double.parseDouble(parameters[11]);
 		this.waist = Double.parseDouble(parameters[12]);
 		this.hip = Double.parseDouble(parameters[13]);
-
-
 	}
 
 	/**
