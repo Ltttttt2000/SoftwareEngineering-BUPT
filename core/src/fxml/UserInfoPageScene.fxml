@@ -341,16 +341,16 @@
             </Label>
          </center>
          <right>
-            <Label stylesheets="@../css/TextType.css" text="£" BorderPane.alignment="CENTER">
+            <Label text="GBP" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Calibri" size="12.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
          </right>
          <left>
-            <Label stylesheets="@../css/TextType.css" text="Price:" BorderPane.alignment="CENTER">
+            <Label text="Price:" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="Calibri" size="12.0" />
+                  <Font name="Calibri Bold" size="22.0" />
                </font>
             </Label>
          </left>

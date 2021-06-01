@@ -117,7 +117,7 @@ public class CoursesListPageController implements Initializable {
 
         Label videoIdLabel = new Label(videoName);
 
-        Label priceLabel = new Label(price + "£");
+        Label priceLabel = new Label(price + " GBP");
         Label videoTypeLabel = new Label("Video ID: " + videoId + " | Author: " + author);
         Label sportTypeLabel = new Label("Sport Type: " + type);
 

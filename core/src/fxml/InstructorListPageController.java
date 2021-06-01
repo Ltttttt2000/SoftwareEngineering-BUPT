@@ -110,7 +110,7 @@ public class InstructorListPageController implements Initializable {
         String userLevel = user.getUserLevel();
 
         Label userIdLabel = new Label("ID: " + userId);
-        Label priceLabel = new Label(price + "£");
+        Label priceLabel = new Label(price + " GBP");
         Label infoLabel = new Label("Age: " + age + " | Sex: " + sex);
         Label levelLabel = new Label(userType + " Level: " + userLevel);
 
