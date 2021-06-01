@@ -24,7 +24,8 @@ public class Instructor extends User{
 	 */
  	public Instructor(String userId) {
 		super(userId);
-		this.instructorMoney = Double.parseDouble(selectList.get(entry)[14]);
+		if(entry < selectList.size())
+			this.instructorMoney = Double.parseDouble(selectList.get(entry)[14]);
 	}
 
 	/**

@@ -113,8 +113,6 @@ public abstract class User{
 						entry++;
 				}
 
-
-				//cannot find in file
 				if (selectList.size() >= entry + 1) {   //old user login-in, read the information into this user from the file
 
 					this.userId = userId;
